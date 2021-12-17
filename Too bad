@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Too bad</title>
+</head>
+<body>
+<style> 
+p {
+color: red;
+font-size: 250px;
+}
+body {
+background-color: blue;
+}
+</style>
+<p>Too bad</p>
+
+</body>
+</html>
