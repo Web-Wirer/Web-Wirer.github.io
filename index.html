@@ -6,7 +6,13 @@
            <h1 style='color: red; position: fixed' >Useful sites</h1> 
 
 </head>
-					  <script src="https://kihtrak.com/cloud_variable/cloudify.min.js" > var cloud_NOclicks = 0; var cloud_color = gold;	</p>);</script>
+					  <script src="https://kihtrak.com/cloud_variable/cloudify.min.js" > var cloud_NOclicks = 0; var cloud_color = gold;	
+	function setbg(col){
+		cloud_color = col;
+
+	location.reload();
+
+		});</script>
 	<body onload ='setbg(cloud_color)' >
 
 		<style>
@@ -45,12 +51,6 @@ position absolute;
 		<button onclick = "Clicks();">This website is horrible!!</button>
 <script>
 
-	function setbg(col){
-		cloud_color = col;
-
-	location.reload();
-
-		}
 
 	function Clicks(){
 	cloud_NOclicks++;
