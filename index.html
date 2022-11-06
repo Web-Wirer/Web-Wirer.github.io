@@ -43,10 +43,11 @@ position absolute;
 	<button onclick="setbg('orange')">I want an orange background</button>
 	<button onclick="setbg('hotpink')">I want a hot pink background</button>
 	<button onclick="setbg('gold')">I want a gold background</button>
-	<button onclick="oh_boy()">I want a different background (W.I.P)</button>
-	<div style = "width: 50px; height: 50px; background-color: white" visibility = "hidden" id = "idk">
+	
+	<br>	
+	<p>More colors:</p>
 		<input type="color" value = "#ff0000" id = "WEEE">
-	</div>
+
 <br><br>   
 		<button onclick = "Clicks();">This website is horrible!!</button>
 <script>
@@ -60,12 +61,7 @@ position absolute;
 	}
 	
 function oh_boy(){
-	if(document.getElementById("idk").visibility === "hidden"){
-	document.getElementById("idk").visibility = "visible";
-	};
-	if(document.getElementById("idk").visibility === "visible"){
-	document.getElementById("idk").visibility = "hidden";
-	while(document.getElementById("idk").visibility === "visible"){
+	while(true){
 	setbg(document.getElementById("WEEE").value);
 	};
 	};
