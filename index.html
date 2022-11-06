@@ -45,8 +45,8 @@ position absolute;
 	<button onclick="setbg('gold')">I want a gold background</button>
 	
 	<br>	
-	<p>More colors:</p>
-		<input type="color" value = "#ff0000" id = "WEEE">
+	<p>More colors: <input type="color" value = "#ff0000" id = "WEEE" onchange = "oh_boy()"></p>
+		
 
 <br><br>   
 		<button onclick = "Clicks();">This website is horrible!!</button>
@@ -59,11 +59,11 @@ position absolute;
 	function setbg(col){
 		document.body.style.backgroundColor = col;
 	}
-	
 
-	while(true){
-	document.body.style.backgroundColor = document.getElementById("WEEE").value;
-	};
+function oh_boy(){
+document.body.style.backgroundColor = document.getElementById("WEEE").value;
+}
+
 
 </script>
 
