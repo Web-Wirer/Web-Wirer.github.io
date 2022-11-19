@@ -197,7 +197,11 @@ window.clearInterval(EE);
 XX = window.setInterval(memory_test,150);
 }}else{
 //win
- window.location.href = "https://web-wirer.github.io/Win.jfif";
+       
+     ctx.clearRect(0,0,10000,10000);
+     ctx.drawImage("https://web-wirer.github.io/Win.jfif", 300, 10);
+     window.clearInterval(EE);
+
 }};
 //create it all
 board_create();
