@@ -123,23 +123,29 @@ things[i].detect(event);
 }
 }
 memory_test = function(){
+     //finally testing people
+     
 canvas.addEventListener("click", detection);
+     //seeing when the user clicked the same amount of boxes as they were supposed to
 if(clickss.length==memclickss.length){
+     //checking all inputs
     for(var i = 0; i<memclickss.length; i++){
+         //checking for the correct box
  if(clickss[i].x == memclickss[i].x){
-
+//deleting the box from the arrays if it is correct
 clickss.splice(i);
 memclickss.splice(i);
 if(memclickss.length == 0){ 
-
+//once all are correct, the program starts the next round of the test
 canvas.removeEventListener("click", detection);
 isRoundDone=false;
 W=0;
 sections++;
- EE = window.setInterval(isplaying, 1500);
+ EE = window.setInterval(isplaying, 2500);
 XX=0;
 }
-} else { window.location.href = "https://web-wirer.github.io/Failure.mp4";} 
+} else {//funny thing for a lose condition
+     window.location.href = "https://web-wirer.github.io/Failure.mp4";} 
 }
 
 }
@@ -168,18 +174,22 @@ if(sections<document.getElementById("R").value){
 //basically a loop due to setInterval
 if(W<((sections*2)+2)){
 
-//allows for a clear board between the green selections
+//allows for a clear board between the sections of a round
 if(isEven(W)){
+     //picks a square to make green
 r = Math.floor(Math.random()*things.length);
+     //getting rid of green squares
 things[t].green = false;
 things[t].draw();
-memclickss.push(things[r])
+     //adding the square it picked to the list for memory_test
+memclickss.push(things[r]);
+     //makes the square green
 things[r].green = true;
 
 things[r].draw();
 t=r;
 W++}else{
-
+//resets the squares and picks again
 things[t].green = false;
 things[t].draw();
 
@@ -188,16 +198,17 @@ things[r].green =false;
 things[r].draw();
 
 W++}}else{
-//clearing
+// resetting the board and ending the round
 isRoundDone=true;
 
 board_create();
 };
 if(isRoundDone==true){
+     //starting memory test
 window.clearInterval(EE);
 XX = window.setInterval(memory_test,150);
 }}else{
-//win
+// win events
        
      ctx.clearRect(0,0,10000,10000);
      ctx.drawImage("https://web-wirer.github.io/Win.jfif", 300, 10);
