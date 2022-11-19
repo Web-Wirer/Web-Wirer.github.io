@@ -151,6 +151,7 @@ board_play= function(){
 //setup
 document.getElementById("W").style.display = "none";
 document.getElementById("H").style.display = "none";
+     document.getElementById("R").style.display = "none";
 canvas.removeEventListener("click", detection);
 if(document.getElementById("R").value<1){
 document.getElementById("R").value = 1;
@@ -200,7 +201,10 @@ XX = window.setInterval(memory_test,150);
        
      ctx.clearRect(0,0,10000,10000);
      ctx.drawImage("https://web-wirer.github.io/Win.jfif", 300, 10);
-     window.clearInterval(EE);
+     document.getElementById("W").style.display = "visible";
+document.getElementById("H").style.display = "visible";
+     document.getElementById("R").style.display = "visible";
+    p = 1;
 
 }};
 //create it all
