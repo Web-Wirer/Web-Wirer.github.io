@@ -41,8 +41,7 @@ this.x = ww;
 this.y = hh;
 this.clickarea= [this.x,this.y,this.x+a,this.y+a];
 this.green= false;
-this.memorder=0;
-this.clickorder=0;
+
 };
 //drawing the things
 thing.prototype.draw = function(){
@@ -151,7 +150,7 @@ if(isEven(W)){
 r = Math.floor(Math.random()*things.length);
 things[t].green = false;
 things[t].draw();
-things[r].memorder=W+1;
+memclickss.push(things[r]);
 things[r].green = true;
 
 things[r].draw();
