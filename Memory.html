@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+
+<html><head><title>Memory</title><link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'></head>
+<body style="background-color: aqua">
+<center><h1 style="font-family: 'Aclonica';">Memory</h1><br><h2>Test your memory!</h2></center>
+
+<span style="font-family: 'Aclonica'; font-size: 20px">Width:</span> <input type="number"  value =3 id="W" onchange="board_create();" ><br>
+<span style="font-family: 'Aclonica'; font-size: 20px">Height:</span>  <input type="number"  value=3 id="H" onchange = "board_create()" >
+<br><br><br><span style="font-family: 'Aclonica'; font-size: 20px">Number of Rounds:</span>  <input type="number"  value=5 id="R" >
+<button onclick=" window.clearInterval(EE);var II =window.setInterval(isplaying,1000); p=2;" >Start game</button>
+
+<canvas width="10100px" height="5000px" style= "top: 10%" id="e"></canvas>
+<script> 
+//detect if a number is even. we'll need it later.
+isEven = function(number){
+     if(number % 2 == 0){
+        return true;}
+      else{
+         return false;}};
+adding = function(number){
+var num = number;
+    for(var i =0;i<num;i++){
+num+=(num-(i+1));
+}
+return num;
+};
+//canvas setup
+
+var canvas = document.getElementById("e");
+var a = 100;
+var ctx = canvas.getContext("2d");
+var W = 0;
+var H;
+var clickss = [];
+var memclickss;
+ctx.noStroke;
+ctx.fillStyle = "grey";
+//the actual memorization objects
+thing = function(ww,hh){
+this.x = ww;
+this.y = hh;
+this.clickarea= [this.x,this.y,this.x+a,this.y+a];
+this.green= false;
+this.memorder=0;
+this.clickorder=0;
+};
+//drawing the things
+thing.prototype.draw = function(){
+if(this.green==false){
+ctx.fillStyle="grey";
+ctx.fillRect(this.x,this.y,a,a);
+}else{ctx.fillStyle = "green";
+ctx.fillRect(this.x,this.y,a,a);ctx.fillStyle = "grey";}
+}
+
+//detecting clicks
+thing.prototype.detect = function(event){
+if(event.offsetX>this.clickarea[0]&&event.offsetX<this.clickarea[2]&&event.offsetY>this.clickarea[1]&&event.offsetY<this.clickarea[3] ){
+if(this.green==false){
+ctx.fillStyle = "green";
+ctx.fillRect(this.x,this.y,a,a);
+this.green=true;
+this.clickorder=
+ctx.fillStyle="grey";
+}
+}}
+//variables
+var things= [];
+var m=0;
+var n = 0;
+var p=1;
+var r=0;
+var t = 0;
+var sections=0;
+
+//creating the board
+
+board_create = function(){
+//resetting the board. It might have done something?
+ctx.clearRect(0,0,12000,10200);
+//more variable setup
+n=0;
+m=0;
+things = [];
+//limiting size
+
+if(document.getElementById("W").value>64){
+document.getElementById("W").value = 64;
+}
+if(document.getElementById("H").value>33){
+document.getElementById("H").value = 33;
+}
+if(document.getElementById("W").value<1){
+document.getElementById("W").value = 1;
+}
+if(document.getElementById("H").value<1){
+document.getElementById("H").value = 1;
+}
+//for loop to create "things"
+for(var i=0; i<(document.getElementById("W").value*document.getElementById("H").value);i++){
+
+//creating a "thing"
+things.push(new thing((n*150)+550,(m*150)+4));
+things[i].green = false;
+ctx.fillStyle="grey";
+things[i].draw();
+//2 dimensional creation that I thought of. 
+n++;
+if(n==document.getElementById("W").value){
+n = 0;
+m++;
+}
+
+}
+
+};
+//detect if a "thing" is clicked
+detection = function(event){
+for(var i=0; i<(document.getElementById("W").value*document.getElementById("H").value);i++){
+things[i].detect(event);
+
+}
+}
+board_play= function(){
+
+//the game
+
+//setup
+document.getElementById("W").style.display = "none";
+document.getElementById("H").style.display = "none";
+canvas.removeEventListener("click", detection);
+if(document.getElementById("R").value<1){
+document.getElementById("R").value = 1;
+}
+
+if(document.getElementById("R").value>things.length){
+document.getElementById("R").value = things.length;
+}
+var Axy = document.getElementById("R").value;
+Axy++;
+Axy--;
+if(sections<adding(Axy)*2){
+console.log(adding(Axy)*2);
+sections++;
+console.log(sections);
+//basically a loop due to setInterval
+if(W<(sections*2)){
+console.log(W+"-W");
+//allows for a clear board between the green selections
+if(isEven(W)){
+r = Math.floor(Math.random()*things.length);
+things[t].green = false;
+things[t].draw();
+things[r].memorder=W+1;
+things[r].green = true;
+
+things[r].draw();
+t=r;
+W++}else{
+
+things[t].green = false;
+things[t].draw();
+things[r].memorder=W+1;
+things[r].green =false;
+
+things[r].draw();
+
+W++}}else{
+//clearing
+create_board();
+};
+}else{
+//win
+
+}};
+//create it all
+board_create();
+// check if the game is on, or just the sandbox mode
+function isplaying(){
+if(p == 1){
+board_create();
+}else{
+//the game.
+board_play();
+}};
+
+var EE =window.setInterval(isplaying,150);
+
+canvas.addEventListener("click", detection);
+</script>
+</body>
+</html>
