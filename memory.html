@@ -3,7 +3,7 @@
 <html><head><title>Memory</title><link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'></head>
 <body style="background-color: aqua">
 <center><h1 style="font-family: 'Aclonica';">Memory</h1><br><h2>Test your memory!</h2></center>
-<img src ="https://web-wirer.github.io/Win.jpg" style="display:none;" >
+<img src ="https://web-wirer.github.io/Win.jpg" style="display:none;" id="OP" >
 <span style="font-family: 'Aclonica'; font-size: 20px">Width:</span> <input type="number"  value =3 id="W" onchange="board_create();" ><br>
 <span style="font-family: 'Aclonica'; font-size: 20px">Height:</span>  <input type="number"  value=3 id="H" onchange = "board_create()" >
 <br><br><br><span style="font-family: 'Aclonica'; font-size: 20px">Number of Rounds:</span>  <input type="number"  value=5 id="R" >
@@ -211,7 +211,7 @@ XX = window.setInterval(memory_test,150);
 // win events
        
      ctx.clearRect(0,0,10000,10000);
-     ctx.drawImage("https://web-wirer.github.io/Win.jfif", 300, 10);
+     ctx.drawImage(document.getElementById("OP"), 300, 10);
      document.getElementById("W").style.display = "visible";
 document.getElementById("H").style.display = "visible";
      document.getElementById("R").style.display = "visible";
