@@ -4,10 +4,10 @@
 <body style="background-color: aqua">
 <center><h1 style="font-family: 'Aclonica';">Memory</h1><br><h2>Test your memory!</h2></center>
 <img src ="https://web-wirer.github.io/Win.jpg" style="display:none;" id="OP" >
-<span style="font-family: 'Aclonica'; font-size: 20px">Width:</span> <input type="number"  value =3 id="W" onchange="board_create(); " ><br>
+<div id="UNO"><span style="font-family: 'Aclonica'; font-size: 20px">Width:</span> <input type="number"  value =3 id="W" onchange="board_create(); " ><br>
 <span style="font-family: 'Aclonica'; font-size: 20px">Height:</span>  <input type="number"  value=3 id="H" onchange = " board_create();" >
 <br><br><br><span style="font-family: 'Aclonica'; font-size: 20px">Number of Rounds:</span>  <input type="number"  value=3 id="R" >
-<button onclick=" window.clearInterval(EE);var II =window.setInterval(isplaying,1000); p=2;" >Start game</button>
+<button onclick=" window.clearInterval(EE);var II =window.setInterval(isplaying,1000); p=2;" >Start game</button></div>
 
 <canvas width="10100px" height="5000px" style= "top: 10%" id="e"></canvas>
 <script> 
@@ -157,9 +157,8 @@ board_play= function(){
 //the game
 
 //setup
-document.getElementById("W").style.display = "none";
-document.getElementById("H").style.display = "none";
-     document.getElementById("R").style.display = "none";
+document.getElementById("UNO").style.display = "none";
+
 canvas.removeEventListener("click", detection);
 if(document.getElementById("R").value<1){
 document.getElementById("R").value = 1;
@@ -212,9 +211,8 @@ XX = window.setInterval(memory_test,150);
        
      ctx.clearRect(0,0,10000,10000);
      ctx.drawImage(document.getElementById("OP"), 300, 10);
-     document.getElementById("W").style.display = "visible";
-document.getElementById("H").style.display = "visible";
-     document.getElementById("R").style.display = "visible";
+     document.getElementById("UNO").style.display = "visible";
+
  
    Window.clearInterval(II);
      Window.clearInterval(EE);
