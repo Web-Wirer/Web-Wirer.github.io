@@ -74,15 +74,14 @@ var t = 0;
 var sections=0;
 var isRoundDone = false;
 var XX;
-var EE;
+
 //creating the board
 
 board_create = function(){
 //resetting the board. It might have done something?
 ctx.clearRect(0,0,12000,10200);
 //more variable setup
-window.clearInterval(EE);
- EE=window.setInterval(isplaying,150);
+
      n=0;
 m=0;
 things = [];
@@ -218,7 +217,7 @@ XX = window.setInterval(memory_test,150);
      document.getElementById("W").style.display = "visible";
 document.getElementById("H").style.display = "visible";
      document.getElementById("R").style.display = "visible";
-    window.clearInterval(EE);
+ 
      p=1;
     EE= window.setInterval(isplaying,20000);
 
@@ -234,7 +233,7 @@ board_create();
 board_play();
 }};
 
- EE =window.setInterval(isplaying,150);
+ var EE =window.setInterval(isplaying,150);
 
 
 canvas.addEventListener("click", detection);
