@@ -133,7 +133,7 @@ if(clickss.length==memclickss.length){
      //checking all inputs
     for(var i = 0; i<memclickss.length; i++){
          //checking for the correct box
- if(clickss[i].x == memclickss[i].x){
+ if(clickss[i].x == memclickss[i].x&&clickss[i].y == memclickss[i].y){
 //deleting the box from the arrays if it is correct
 clickss.splice(i);
 memclickss.splice(i);
