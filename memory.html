@@ -136,8 +136,8 @@ if(clickss.length==memclickss.length){
          //checking for the correct box
  if(clickss[i].x == memclickss[i].x && clickss[i].y == memclickss[i].y){
 //deleting the box from the arrays if it is correct
-clickss.splice(i);
-memclickss.splice(i);
+clickss.shift;
+memclickss.shift;
 if(memclickss.length == 0){ 
 //once all are correct, the program starts the next round of the test
 canvas.removeEventListener("click", detection);
