@@ -31,6 +31,7 @@ var a = 100;
 var ctx = canvas.getContext("2d");
 var W = 0;
 var H;
+var LL = 0;
 var clickss = [];
 var memclickss = [];
 ctx.noStroke;
@@ -126,7 +127,7 @@ things[i].detect(event);
 }
 memory_test = function(){
      //finally testing people
-     var LL = memclickss.length;
+  LL = memclickss.length;
 canvas.addEventListener("click", detection);
      //seeing when the user clicked the same amount of boxes as they were supposed to
 if(clickss.length==memclickss.length){
