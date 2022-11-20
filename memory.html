@@ -4,8 +4,8 @@
 <body style="background-color: aqua">
 <center><h1 style="font-family: 'Aclonica';">Memory</h1><br><h2>Test your memory!</h2></center>
 <img src ="https://web-wirer.github.io/Win.jpg" style="display:none;" id="OP" >
-<span style="font-family: 'Aclonica'; font-size: 20px">Width:</span> <input type="number"  value =3 id="W" onchange="board_create(); RRR();" ><br>
-<span style="font-family: 'Aclonica'; font-size: 20px">Height:</span>  <input type="number"  value=3 id="H" onchange = "RRR(); board_create();" >
+<span style="font-family: 'Aclonica'; font-size: 20px">Width:</span> <input type="number"  value =3 id="W" onchange="board_create(); " ><br>
+<span style="font-family: 'Aclonica'; font-size: 20px">Height:</span>  <input type="number"  value=3 id="H" onchange = " board_create();" >
 <br><br><br><span style="font-family: 'Aclonica'; font-size: 20px">Number of Rounds:</span>  <input type="number"  value=3 id="R" >
 <button onclick=" window.clearInterval(EE);var II =window.setInterval(isplaying,1000); p=2;" >Start game</button>
 
@@ -81,7 +81,9 @@ board_create = function(){
 //resetting the board. It might have done something?
 ctx.clearRect(0,0,12000,10200);
 //more variable setup
-n=0;
+window.clearInterval(EE);
+ EE=window.setInterval(isplaying,150);
+     n=0;
 m=0;
 things = [];
 //limiting size
@@ -217,6 +219,8 @@ XX = window.setInterval(memory_test,150);
 document.getElementById("H").style.display = "visible";
      document.getElementById("R").style.display = "visible";
     window.clearInterval(EE);
+     p=1;
+    EE= window.setInterval(isplaying,20000);
 
 }};
 //create it all
@@ -229,10 +233,10 @@ board_create();
 //the game.
 board_play();
 }};
-RRR = function(){
+
  EE =window.setInterval(isplaying,150);
-}
-RRR();
+
+
 canvas.addEventListener("click", detection);
 </script>
 </body>
