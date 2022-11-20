@@ -30,7 +30,7 @@ var canvas = document.getElementById("e");
 var a = 100;
 var ctx = canvas.getContext("2d");
 var W = 0;
-var H;
+var H = 0;
 var LL = 0;
 var clickss = [];
 var memclickss = [];
@@ -142,6 +142,7 @@ if(memclickss.length == 0){
 //once all are correct, the program starts the next round of the test
 canvas.removeEventListener("click", detection);
 isRoundDone=false;
+     H=1
 W=0;
 sections++;
      board_create();
@@ -167,7 +168,7 @@ document.getElementById("R").value = 1;
 }
 
 
-
+if(H==0){
 if(sections<document.getElementById("R").value){
 
 
@@ -228,7 +229,7 @@ board_create();
 }else{
 //the game.
 board_play();
-}};
+}}else{ H=0;}};
 
  var EE =window.setInterval(isplaying,150);
 
