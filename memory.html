@@ -166,7 +166,10 @@ canvas.removeEventListener("click", detection);
 if(document.getElementById("R").value<1){
 document.getElementById("R").value = 1;
 }
+if(document.getElementById("R").value>5000){
 
+document.getElementById("R").value=5000;
+}
 
 if(H==0){
 if(sections<document.getElementById("R").value){
