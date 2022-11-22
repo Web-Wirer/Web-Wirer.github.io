@@ -60,8 +60,8 @@ this.ymotion=ymotion;
 };
 //wall object
 stopper=function(x,y){
-this.x = x;
-this.y=y;
+this.x = x*128;
+this.y=y*128;
 this.xt=x+125;
 this.yt=y+125;
 }
@@ -105,13 +105,15 @@ ctx.restore();
 
 };
 stopper.prototype.draw = function(){
-ctx.drawImage(wall,this.x*128,this.y*128,125,125);
+ctx.drawImage(wall,this.x,this.y,125,125);
 }
 stopper.prototype.detect = function(obj){
 if((obj.x+obj.width)>this.x&&obj.x<this.xt&&(obj.y+obj.height)>this.y&&obj.y<this.yt){
 obj.xmotion = obj.xmotion*(-1);
 obj.ymotion=obj.ymotion*(-1);
 obj.x += obj.xmotion;
+obj.y += obj.ymotion;
+  obj.x += obj.xmotion;
 obj.y += obj.ymotion;
 }
 }
