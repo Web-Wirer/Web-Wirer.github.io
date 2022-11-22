@@ -155,9 +155,8 @@ fire = function(){
     st = st*-1;
    sh = sh;
   }
-  if(s>=45){
-  bulletss.push(new bullets(playerC.x,playerC.y,"reg",playerC,"player",sh,st,playerC.rotation+90));
-  }else{  bulletss.push(new bullets(playerC.x,playerC.y,"reg",playerC,"player",st,sh,playerC.rotation+90));}
+   bulletss.push(new bullets(playerC.x,playerC.y,"reg",playerC,"player",sh,st,playerC.rotation+90));
+ 
   }
   //bullet motion
   bullets.prototype.move= function(){
