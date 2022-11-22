@@ -131,7 +131,7 @@ loadlevel = function(w,h,level){
 for(var i =0; i<((w*h)-((w-1)*(h-1)));i++){
   if(i<w){
 walls.push(new stopper(i,0));
-    walls.push(new stopper(i,h));
+    walls.push(new stopper(i,(h-1)));
   }else if(m<h){
 
   walls.push(new stopper(0,m));
