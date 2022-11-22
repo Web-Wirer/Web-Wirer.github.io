@@ -130,14 +130,14 @@ fire = function(){
   //some math that might not work
 
     if(q==1){
-      var s =  ans;
+      var s =  playerC.rotation;
 
   }else if(q==2){
-    var s =  ans/2;
+    var s =  playerC.rotation/2;
   }else if(q==3){
-       var s =  ans/3;
+       var s =  playerC.rotation/3;
   }else if(q==4){
-   var s =  ans/4;
+   var s =  playerC.rotation/4;
   }
   var so = s*10/9;
   var st = (so/100)*12;
@@ -155,7 +155,7 @@ fire = function(){
     st = st*-1;
    sh = sh;
   }
-  bulletss.push(new bullets(playerC.x,playerC.y,"reg",playerC,"player",sh,st,playerC.rotation));
+  bulletss.push(new bullets(playerC.x,playerC.y,"reg",playerC,"player",sh,st,playerC.rotation+90));
   }
   //bullet motion
   bullets.prototype.move= function(){
