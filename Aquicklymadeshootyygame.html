@@ -128,7 +128,18 @@ ctx.restore();
   //bullet shooting
 fire = function(){
   //some math that might not work
-var so = ans*10/9;
+
+    if(q==1){
+      var s =  ans;
+
+  }else if(q==2){
+    var s =  ans/2;
+  }else if(q==3){
+       var s =  ans/3;
+  }else if(q==4){
+   var s =  ans/4;
+  }
+  var so = s*10/9;
   var st = (so/100)*12;
   var sh = 12-st;
   if(q==1){
@@ -191,7 +202,7 @@ walls.push(new stopper(i,0));
 playerC= new players(250,250,3,1,0,0);
 //math is pain.
 point = function(e){
-  var an=0;
+
 adj = Math.abs((playerC.x+(62.5/2))-e.offsetX);
 opp = Math.abs((playerC.y+(62.5/2))-e.offsetY);
 
@@ -200,42 +211,42 @@ ans = radians_to_degrees(almost);
 
  if(playerC.x+(62.5/2)<e.offsetX&&playerC.y+(62.5/2)<e.offsetY){
 if (ans>90){
- an = 90;
+ ans = 90;
 }else if(ans<0){
- an= 0;
+ ans= 0;
 }
    q=1;
-playerC.rotation=an;
+playerC.rotation=ans;
 return;
 }else if(playerC.x+(62.5/2)>e.offsetX&&playerC.y+(62.5/2)<e.offsetY){
-an= 180-ans;
+ans= 180-ans;
 if (ans<90){
- an= 90;
+ ans= 90;
 }else if(ans>180){
- an = 270;
+ ans = 270;
 }
   q=2;
-playerC.rotation=an;
+playerC.rotation=ans;
 return;
 }else if(playerC.x+(62.5/2)>e.offsetX&&playerC.y+(62.5/2)>e.offsetY){
-an=180+ans;
+ans=180+ans;
 if (ans>270){
-an = 270;
+ans = 270;
 }else if(ans<0){
-an = 180;
+ans = 180;
 }
   q=3;
-playerC.rotation= an;
+playerC.rotation= ans;
 return;
 }else if(playerC.x+(62.5/2)<e.offsetX&&playerC.y+(62.5/2)>e.offsetY){
-an= 360-ans;
+ans= 360-ans;
 if (ans>360){
-an = 360;
+ans = 360;
 }else if(ans<270){
-an = 270;
+ans = 270;
 }
   q=4;
-playerC.rotation=an;
+playerC.rotation=ans;
 return;
 }
 }
