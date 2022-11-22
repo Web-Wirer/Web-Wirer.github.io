@@ -24,6 +24,11 @@ var ans;
 var opp;
 var adj;
 var almost;
+  var q = 0;
+  var eans;
+var eopp;
+var eadj;
+var ealmost;
 var enemyC = document.getElementById("enemy");
 var wall = document.getElementById("wall");
 var player= document.getElementById("player");
@@ -74,22 +79,38 @@ this.cooldown=cooldown;
 this.uses=uses;
 }
 //bullets
-bullets=function(type="reg",shooter,shooterType="enemy",motionX,motionY){
-this.type=type;
+bullets=function(x,y,type="reg",shooter,shooterType="enemy",motionX,motionY,rotation){
+this.x = x;
+  this.y = y;
+  this.rotation = rotation;
+  this.type=type;
 this.shooter=shooter;
 this.shooterType=shooterType;
 this.motionX=motionX;
 this.motionY=motionY;
 }
+ enemy.prototype.fire = function(){
+
+ }
 //drawing things
 enemy.prototype.draw=function(){
 var translateX= this.x+(62.5/2);
-var translateY= y+(62.5/2);
-ctx.save
+var translateY= this.y+(62.5/2);
+ctx.save();
 ctx.translate(translateX,translateY);
 ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
 ctx.drawImage(enemy,this.x,this.y,62.5,62.5);
+ctx.restore();}
+  //bullets
+bullets.prototype.draw=function(){
+var translateX= this.x+(62.5/2);
+var translateY= this.y+(62.5/2);
+ctx.save();
+ctx.translate(translateX,translateY);
+ctx.rotate(shooter.rotation*Math.PI/180);
+ctx.translate(-translateX,-translateY);
+ctx.drawImage(bullet,this.x,this.y,(62.5)/3.1622,(62.5)/3.1622);
 ctx.restore();}
 
 players.prototype.draw=function(){
@@ -104,6 +125,32 @@ ctx.drawImage(player,this.x,this.y,62.5,62.5);
 ctx.restore();
 
 };
+  //bullet shooting
+fire = function(){
+  //some math that might not work
+var so = ans*10/9;
+  var st = (so/100)*12;
+  var sh = 12-st;
+  if(q==1){
+  st = st;
+   sh = sh;
+  }else if(q==2){
+    st = st;
+   sh = sh*-1;
+  }else if(q==3){
+    st = st*-1;
+   sh = sh*-1;
+  }else if(q==4){
+    st = st*-1;
+   sh = sh;
+  }
+  bullets.push(new bullet(playerC.x,playerC.y,"reg",playerC,"player",sh,st,playerC.rotation));
+  }
+  //bullet motion
+  bullet.prototype.move= function(){
+  this.x +=this.motionX;
+    this.y +=this.motionY;
+  };
 stopper.prototype.draw = function(){
 ctx.drawImage(wall,this.x,this.y,125,125);
 }
@@ -144,6 +191,7 @@ walls.push(new stopper(i,0));
 playerC= new players(250,250,3,1,0,0);
 //math is pain.
 point = function(e){
+  var an=0;
 adj = Math.abs((playerC.x+(62.5/2))-e.offsetX);
 opp = Math.abs((playerC.y+(62.5/2))-e.offsetY);
 
@@ -152,38 +200,42 @@ ans = radians_to_degrees(almost);
 
  if(playerC.x+(62.5/2)<e.offsetX&&playerC.y+(62.5/2)<e.offsetY){
 if (ans>90){
-ans = 90;
+ an = 90;
 }else if(ans<0){
-ans = 0;
+ an= 0;
 }
-playerC.rotation=ans;
+   q=1;
+playerC.rotation=an;
 return;
 }else if(playerC.x+(62.5/2)>e.offsetX&&playerC.y+(62.5/2)<e.offsetY){
-ans= 180-ans;
+an= 180-ans;
 if (ans<90){
-ans = 90;
+ an= 90;
 }else if(ans>180){
-ans = 270;
+ an = 270;
 }
-playerC.rotation=ans;
+  q=2;
+playerC.rotation=an;
 return;
 }else if(playerC.x+(62.5/2)>e.offsetX&&playerC.y+(62.5/2)>e.offsetY){
-ans=180+ans;
+an=180+ans;
 if (ans>270){
-ans = 270;
+an = 270;
 }else if(ans<0){
-ans = 180;
+an = 180;
 }
-playerC.rotation=ans;
+  q=3;
+playerC.rotation= an;
 return;
 }else if(playerC.x+(62.5/2)<e.offsetX&&playerC.y+(62.5/2)>e.offsetY){
-ans= 360-ans;
+an= 360-ans;
 if (ans>360){
-ans = 360;
+an = 360;
 }else if(ans<270){
-ans = 270;
+an = 270;
 }
-playerC.rotation=ans;
+  q=4;
+playerC.rotation=an;
 return;
 }
 }
@@ -215,11 +267,15 @@ for(var i = 0; i<walls.length; i++){
 walls[i].draw();
 walls[i].detect(playerC);}
 
+for(var i = 0; i<bullets.length; i++){
+bullets[i].draw();
+bullets[i].move();}
 window.requestAnimationFrame(game);
 
 };
   playerC.xmotion=0; playerC.ymotion=0;
 canvas.addEventListener("mousemove",point);
+  canvas.addEventListener("mouseclick",fire);
 loadlevel(5,5,0);
 </script>
 </body></html>
