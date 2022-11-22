@@ -62,8 +62,8 @@ this.ymotion=ymotion;
 stopper=function(x,y){
 this.x = x*128;
 this.y=y*128;
-this.xt=x+125;
-this.yt=y+125;
+this.xt=this.x+125;
+this.yt=this.y+125;
 }
 // spawning creatures/items
 spawnPoint=function(x,y,type="enemy", cooldown=0,uses=0){
