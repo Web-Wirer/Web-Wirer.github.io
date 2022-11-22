@@ -108,14 +108,22 @@ stopper.prototype.draw = function(){
 ctx.drawImage(wall,this.x,this.y,125,125);
 }
 stopper.prototype.detect = function(obj){
-if((obj.x+obj.width)>this.x&&obj.x<this.xt&&(obj.y+obj.height)>this.y&&obj.y<this.yt){
+if((obj.x+obj.width)>this.x&&(obj.x+obj.width)<this.xt&&(obj.y+obj.height)>this.y&&(obj.y+obj.height)<this.yt){
 obj.xmotion = obj.xmotion*(-1);
-obj.ymotion=obj.ymotion*(-1);
+  obj.ymotion = obj.ymotion*(-1);
 obj.x += obj.xmotion;
-obj.y += obj.ymotion;
   obj.x += obj.xmotion;
-obj.y += obj.ymotion;
-}
+  obj.y += obj.ymotion;
+  obj.y += obj.ymotion;
+}else if(obj.x>this.x&&obj.x<this.xt&&obj.y>this.y&&obj.y<this.yt){
+obj.xmotion = obj.xmotion*(-1);
+  obj.ymotion = obj.ymotion*(-1);
+obj.x += obj.xmotion;
+  obj.x += obj.xmotion;
+  obj.y += obj.ymotion;
+  obj.y += obj.ymotion;
+
+}else(return;);
 }
 walls.push(new stopper(1,1))
 playerC= new players(250,250,3,1,0,0);
