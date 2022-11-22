@@ -199,6 +199,7 @@ document.addEventListener("keydown",move);
 for(var i = 0; i<walls.length; i++){
 walls[i].draw();
 walls[i].detect(playerC);}
+  ctx.translate(playerC.x-200, playerC.y-200);
 window.requestAnimationFrame(game);
 
 };
