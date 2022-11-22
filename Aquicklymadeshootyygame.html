@@ -108,7 +108,7 @@ stopper.prototype.draw = function(){
 ctx.drawImage(wall,this.x,this.y,125,125);
 }
 stopper.prototype.detect = function(obj){
-if((obj.x+obj.width)>(this.x-3)&&(obj.x+obj.width)<this.xt&&(obj.y+obj.height)>(this.y+3)&&(obj.y+obj.height)<this.yt){
+if((obj.x+obj.width)>(this.x-3)&&(obj.x+obj.width)<this.xt&&(obj.y+obj.height)>(this.y)&&(obj.y+obj.height)<this.yt+7){
 obj.xmotion = obj.xmotion*(-1);
   obj.ymotion = obj.ymotion*(-1);
 obj.x += obj.xmotion;
