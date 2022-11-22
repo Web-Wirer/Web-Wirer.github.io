@@ -13,7 +13,7 @@
 //variable and canvas setup
 var canvas = document.getElementById("one");
 var ctx = canvas.getContext("2d");
-var bullets=[];
+var bulletss=[];
 var walls= [];
 var enemies=[];
 var levels=[];
@@ -104,8 +104,8 @@ ctx.drawImage(enemy,this.x,this.y,62.5,62.5);
 ctx.restore();}
   //bullets
 bullets.prototype.draw=function(){
-var translateX= this.x+(62.5/2);
-var translateY= this.y+(62.5/2);
+var translateX= this.x+((62.5/3.1622)/2);
+var translateY= this.y+((62.5/3.1622)/2);
 ctx.save();
 ctx.translate(translateX,translateY);
 ctx.rotate(shooter.rotation*Math.PI/180);
@@ -268,8 +268,8 @@ walls[i].draw();
 walls[i].detect(playerC);}
 
 for(var i = 0; i<bullets.length; i++){
-bullets[i].draw();
-bullets[i].move();}
+bulletss[i].draw();
+bulletss[i].move();}
 window.requestAnimationFrame(game);
 
 };
