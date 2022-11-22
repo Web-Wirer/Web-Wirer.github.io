@@ -146,16 +146,16 @@ fire = function(){
   st = st;
    sh = sh;
   }else if(q==2){
-    st = st;
-   sh = sh*-1;
+    st = st*-1;
+   sh = sh;
      bulletss.push(new bullets(playerC.x,playerC.y,"reg",playerC,"player",st,sh,playerC.rotation+90));
     return;
   }else if(q==3){
     st = st*-1;
    sh = sh*-1;
   }else if(q==4){
-    st = st*-1;
-   sh = sh;
+    st = st;
+   sh = sh*-1;
          bulletss.push(new bullets(playerC.x,playerC.y,"reg",playerC,"player",st,sh,playerC.rotation+90));
     return;
   }
