@@ -199,12 +199,11 @@ document.addEventListener("keydown",move);
 for(var i = 0; i<walls.length; i++){
 walls[i].draw();
 walls[i].detect(playerC);}
-
+window.requestAnimationFrame(game);
 
 };
   playerC.xmotion=0; playerC.ymotion=0;
 canvas.addEventListener("mousemove",point);
-
-window.setInterval(game,40);
+game();
 </script>
 </body></html>
