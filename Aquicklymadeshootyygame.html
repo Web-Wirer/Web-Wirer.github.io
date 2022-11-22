@@ -189,8 +189,8 @@ for(var i = 0; i<walls.length; i++){
 walls[i].draw();
 walls[i].detect(playerC);}
 playerC.xmotion=0; playerC.ymotion=0;
-window.requestAnimationFrame(game);
-window.webkitRequestAnimationFrame(game);;
+setTimeout(window.requestAnimationFrame(game),1);
+setTimeout(window.webkitRequestAnimationFrame(game),1);
 };
 canvas.addEventListener("mousemove",point);
 
