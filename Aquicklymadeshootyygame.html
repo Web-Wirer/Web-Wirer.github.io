@@ -169,21 +169,7 @@ playerC= new players(30,20,3,1,0,0);
 game = function(){
 ctx.clearRect(0,0,10000,10000);
 playerC.draw();
-document.onkeydown = function(e){
-  e = e || window.event; 
-if(e.keyCode===37||e.keyCode===65){
-  playerC.xmotion = -6.25;
-}
- if(e.keyCode===38||e.keyCode===87){
- playerC.ymotion = -6.25;
-}
- if(e.keyCode===39||e.keyCode===68){
- playerC.xmotion = 6.25;
-}
-if(e.keyCode===40||e.keyCode===83){
- playerC.ymotion = 6.25;
-}
-}
+
 playerC.x += playerC.xmotion;
 playerC.y += playerC.ymotion;
 for(var i = 0; i<walls.length; i++){
