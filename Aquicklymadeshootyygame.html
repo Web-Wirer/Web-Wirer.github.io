@@ -170,6 +170,7 @@ game = function(){
 ctx.clearRect(0,0,10000,10000);
 playerC.draw();
 document.onkeydown = function(e){
+  e = e || window.event; 
 if(e.keyCode===37||e.keyCode===65){
   playerC.xmotion = -6.25;
 }
