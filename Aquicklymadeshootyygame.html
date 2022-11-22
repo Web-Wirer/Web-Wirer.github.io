@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Aquicklymadeshootyygame</title>
+</head>
+<body>
+<img src="https://cdn.discordapp.com/attachments/984914808182800384/1044339170564391122/Wall.png" style="display:none" id = "wall"/>
+<img src = "https://cdn.discordapp.com/attachments/984914808182800384/1044336503041568859/Player_for_shooter.png"style="display:none"   id = "player"/>
+<img src = "https://cdn.discordapp.com/attachments/984914808182800384/1044336391586316398/Enemy_for_shooter.png" style="display: none" id = "enemy"/>
+<img src = "https://cdn.discordapp.com/attachments/984914808182800384/1044335705230430238/Bullet.png" style="display: none" id = "default_bullet"/>
+<canvas id="one" width = "1000px" height ="1000px"></canvas>
+<script>
+//variable and canvas setup
+var canvas = document.getElementById("one");
+var ctx = canvas.getContext("2d");
+var bullets=[];
+var walls= [];
+var enemies=[];
+var levels=[];
+var spawnPoints=[];
+var powerUps=[];
+var  playerC = 0;
+var ans;
+var opp;
+var adj;
+var almost;
+var enemyC = document.getElementById("enemy");
+var wall = document.getElementById("wall");
+var player= document.getElementById("player");
+var bullet = document.getElementById("default_bullet");
+function radians_to_degrees(radians) {
+  return radians * (180 / Math.PI);
+}
+//enemy object
+enemy= function(x,y,maxHealth,isBoss,wepDamage, startDialogue="", endDialogue="",isResting=true,wakeDistance,speed=1,rotation,xmotion,ymotion){
+this.x = x;
+this.y=y;
+this.health= maxHealth;
+this.maxHealth = maxHealth;
+this.isBoss = isBoss;
+this.wepDamage = wepDamage;
+this.startDialogue = startDialogue;
+this.endDialogue = endDialogue;
+this.isResting=isResting;
+this.wakeDistance=wakeDistance;
+this.rotation=rotation;
+};
+//player object
+players= function(x,y,maxHealth,wepDamage, speed=1,rotation,xmotion,ymotion){
+this.x = x;
+this.y=y;
+this.width=62.5;
+this.height=62.5;
+this.health= maxHealth;
+this.maxHealth = maxHealth;
+this.wepDamage = wepDamage;
+this.rotation=rotation;
+this.xmotion=xmotion;
+this.ymotion=ymotion;
+};
+//wall object
+stopper=function(x,y){
+this.x = x;
+this.y=y;
+this.xt=x+125;
+this.yt=y+125;
+}
+// spawning creatures/items
+spawnPoint=function(x,y,type="enemy", cooldown=0,uses=0){
+this.x=x;
+this.y=y;
+this.type=type;
+this.cooldown=cooldown;
+this.uses=uses;
+}
+//bullets
+bullets=function(type="reg",shooter,shooterType="enemy",motionX,motionY){
+this.type=type;
+this.shooter=shooter;
+this.shooterType=shooterType;
+this.motionX=motionX;
+this.motionY=motionY;
+}
+//drawing things
+enemy.prototype.draw=function(){
+var translateX= this.x+(62.5/2);
+var translateY= y+(62.5/2);
+ctx.save
+ctx.translate(translateX,translateY);
+ctx.rotate(this.rotation*Math.PI/180);
+ctx.translate(-translateX,-translateY);
+ctx.drawImage(enemy,this.x,this.y,62.5,62.5);
+ctx.restore();}
+
+players.prototype.draw=function(){
+
+var translateX= this.x+(62.5/2);
+var translateY= this.y+(62.5/2);
+ctx.save();
+ctx.translate(translateX,translateY);
+ctx.rotate(this.rotation*Math.PI/180);
+ctx.translate(-translateX,-translateY);
+ctx.drawImage(player,this.x,this.y,62.5,62.5);
+ctx.restore();
+
+};
+stopper.prototype.draw = function(){
+ctx.drawImage(wall,this.x*128,this.y*128,125,125);
+}
+stopper.prototype.detect = function(obj){
+if((obj.x+obj.width)>this.x&&obj.x<this.xt&&(obj.y+obj.height)>this.y&&obj.y<this.yt){
+obj.xmotion = obj.xmotion*(-1);
+obj.ymotion=obj.ymotion*(-1);
+obj.x += obj.xmotion;
+obj.y += obj.ymotion;
+}
+}
+walls.push(new stopper(1,1))
+playerC= new players(250,250,3,1,0,0);
+//math is pain.
+point = function(e){
+adj = Math.abs((playerC.x+(62.5/2))-e.offsetX);
+opp = Math.abs((playerC.y+(62.5/2))-e.offsetY);
+
+almost = opp/adj;
+ans = radians_to_degrees(almost);
+
+ if(playerC.x+(62.5/2)<e.offsetX&&playerC.y+(62.5/2)<e.offsetY){
+if (ans>90){
+ans = 90;
+}else if(ans<0){
+ans = 0;
+}
+playerC.rotation=ans;
+return;
+}else if(playerC.x+(62.5/2)>e.offsetX&&playerC.y+(62.5/2)<e.offsetY){
+ans= 180-ans;
+if (ans<90){
+ans = 90;
+}else if(ans>180){
+ans = 270;
+}
+playerC.rotation=ans;
+return;
+}else if(playerC.x+(62.5/2)>e.offsetX&&playerC.y+(62.5/2)>e.offsetY){
+ans=180+ans;
+if (ans>270){
+ans = 270;
+}else if(ans<0){
+ans = 180;
+}
+playerC.rotation=ans;
+return;
+}else if(playerC.x+(62.5/2)<e.offsetX&&playerC.y+(62.5/2)>e.offsetY){
+ans= 360-ans;
+if (ans>360){
+ans = 360;
+}else if(ans<270){
+ans = 270;
+}
+playerC.rotation=ans;
+return;
+}
+}
+move = function(e){
+
+}
+playerC= new players(300,250,3,1,0,0);
+game = function(){
+ctx.clearRect(0,0,10000,10000);
+playerC.draw();
+document.onkeydown = function(e){
+if(e.keyCode===37||e.keyCode===65){
+  playerC.xmotion = -6.25;
+}
+ if(e.keyCode===38||e.keyCode===87){
+ playerC.ymotion = -6.25;
+}
+ if(e.keyCode===39||e.keyCode===68){
+ playerC.xmotion = 6.25;
+}
+if(e.keyCode===40||e.keyCode===83){
+ playerC.ymotion = 6.25;
+}
+}
+playerC.x += playerC.xmotion;
+playerC.y += playerC.ymotion;
+for(var i = 0; i<walls.length; i++){
+walls[i].draw();
+walls[i].detect(playerC);}
+playerC.xmotion=0; playerC.ymotion=0;
+window.requestAnimationFrame(game);
+window.webkitRequestAnimationFrame(game);;
+};
+canvas.addEventListener("mousemove",point);
+
+window.requestAnimationFrame(game);
+window.webkitRequestAnimationFrame(game);
+</script>
+</body></html>
