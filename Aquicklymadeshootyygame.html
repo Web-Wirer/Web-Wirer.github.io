@@ -108,14 +108,14 @@ stopper.prototype.draw = function(){
 ctx.drawImage(wall,this.x,this.y,125,125);
 }
 stopper.prototype.detect = function(obj){
-if((obj.x+obj.width)>(this.x-3)&&(obj.x+obj.width)<this.xt&&(obj.y+obj.height)>(this.y)&&(obj.y+obj.height)<this.yt+7){
+if((obj.x+obj.width)>(this.x-3)&&(obj.x+obj.width)<this.xt&&(obj.y+obj.height)>(this.y-6)&&(obj.y+obj.height)<this.yt+9){
 obj.xmotion = obj.xmotion*(-1);
   obj.ymotion = obj.ymotion*(-1);
 obj.x += obj.xmotion;
   obj.x += obj.xmotion;
   obj.y += obj.ymotion;
   obj.y += obj.ymotion;
-}else if(obj.x>this.x-3&&obj.x<this.xt&&obj.y>this.y+6&&obj.y<this.yt){
+}else if(obj.x>this.x-3&&obj.x<this.xt&&obj.y>this.y-6&&obj.y<this.yt+6){
 obj.xmotion = obj.xmotion*(-1);
   obj.ymotion = obj.ymotion*(-1);
 obj.x += obj.xmotion;
@@ -135,7 +135,7 @@ walls.push(new stopper(i,0));
   }else if(m<h){
 
   walls.push(new stopper(0,m));
-    walls.push(new stopper(w,m));
+    walls.push(new stopper((w-1),m));
        m++;
   }  
 }
