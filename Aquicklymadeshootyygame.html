@@ -189,12 +189,10 @@ for(var i = 0; i<walls.length; i++){
 walls[i].draw();
 walls[i].detect(playerC);}
 playerC.xmotion=0; playerC.ymotion=0;
-setTimeout(window.requestAnimationFrame,40,game);
-setTimeout(window.webkitRequestAnimationFrame,40,game);
+
 };
 canvas.addEventListener("mousemove",point);
 
-window.requestAnimationFrame(game);
-window.webkitRequestAnimationFrame(game);
+window.setInterval(game,40);
 </script>
 </body></html>
