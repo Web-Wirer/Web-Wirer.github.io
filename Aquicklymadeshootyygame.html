@@ -125,7 +125,22 @@ obj.x += obj.xmotion;
 
 }else{return;};
 }
-walls.push(new stopper(1,1))
+  //loading the level
+loadlevel = function(w,h,level){
+  var m=0;
+for(var i =0; i<((w*h)-((w-1)*(h-1)));i++){
+  if(i<w){
+walls.push(new stopper(i,0));
+    walls.push(new stopper(i,h));
+  }else if(m<h){
+
+  walls.push(new stopper(0,m));
+    walls.push(new stopper(w,m));
+       m++;
+  }  
+}
+  game();
+};
 playerC= new players(250,250,3,1,0,0);
 //math is pain.
 point = function(e){
@@ -205,6 +220,6 @@ window.requestAnimationFrame(game);
 };
   playerC.xmotion=0; playerC.ymotion=0;
 canvas.addEventListener("mousemove",point);
-game();
+loadlevel(5,5,0);
 </script>
 </body></html>
