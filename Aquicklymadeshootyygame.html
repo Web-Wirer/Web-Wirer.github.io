@@ -423,10 +423,10 @@ enemies[i].point();
   }
   
 
-
-  if(enemies[i].dist(playerC)<200&&enemies[i].isResting==false&&enemies[i].dist(bulletss[bulletss.length-1])>1000){
+if(bulletss.length>0){
+  if(enemies[i].dist(playerC)<200&&enemies[i].isResting==false&&enemies[i].dist(bulletss[bulletss.length-1])>500){
   enemies[i].fire();
-  }
+  }}else{enemies[i].fire();}
   
 }
   
