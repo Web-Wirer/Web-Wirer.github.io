@@ -25,6 +25,7 @@ var opp;
 var adj;
 var almost;
   var q = 0;
+
   var eq =0;
   var eans;
 var eopp;
@@ -47,6 +48,7 @@ this.wepDamage = wepDamage;
 this.isResting=true;
 this.wakeDistance=180;
 this.rotation=rotation;
+  this.cd=0;
 };
 //player object
 players= function(x,y,maxHealth,wepDamage, speed=1,rotation,xmotion,ymotion){
@@ -60,6 +62,7 @@ this.wepDamage = wepDamage;
 this.rotation=rotation;
 this.xmotion=xmotion;
 this.ymotion=ymotion;
+  this.cd=0;
 };
 //wall object
 stopper=function(x,y){
@@ -89,6 +92,7 @@ this.motionX=motionX;
 this.motionY=motionY;
 }
  enemy.prototype.fire = function(){
+   if(this.cd==0){
    if(eq==1){
       var s =  this.rotation;
 
@@ -109,6 +113,7 @@ this.motionY=motionY;
     st = st*-1;
    sh = sh;
      bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",st,sh,this.rotation+90));
+    this.cd=1;
     return;
   }else if(eq==3){
     st = st*-1;
@@ -117,10 +122,12 @@ this.motionY=motionY;
     st = st;
    sh = sh*-1;
          bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",st,sh,this.rotation+90));
+    this.cd=1;
     return;
   }
    bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",sh,st,this.rotation+90));
- }
+     this.cd=1;
+   }else{setTimeout(this.cd=0, 1000);}}
 //drawing things
 enemy.prototype.draw=function(){
 var translateX= this.x+(62.5/2);
@@ -352,6 +359,7 @@ this.rotation=eans;
 return;
 }
 }}
+
 move = function(e){
 if(e.keyCode===37||e.keyCode===65){
   playerC.xmotion = -6.25;
@@ -399,10 +407,10 @@ document.addEventListener("keydown",move);
 for(var i = 0; i<enemies.length; i++){
 enemies[i].point();
   enemies[i].draw();
-  if(enemies[i].dist<150){
+  if(enemies[i].dist()<150){
   enemies[i].isResting=false;
   }
-  if(enemies[i].dist<200&&enemies[i].isResting==false){
+  if(enemies[i].dist()<200&&enemies[i].isResting==false){
   enemies[i].fire();
   }
 }
