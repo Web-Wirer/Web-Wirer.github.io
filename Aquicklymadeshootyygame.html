@@ -302,7 +302,7 @@ eopp = Math.abs((playerC.y+(62.5/2))-this.y+(62.5/2));
 ealmost = eopp/eadj;
 eans = radians_to_degrees(ealmost);
 
- if(this.x<playerC.x+(62.5/2)&&this.y+(62.5/2)<playerC.y+(62.5/2)){
+ if(this.x+(62.5/2)<playerC.x+(62.5/2)&&this.y+(62.5/2)<playerC.y+(62.5/2)){
 if (eans>90){
  eans = 90;
 }else if(eans<0){
@@ -329,7 +329,7 @@ eans = 270;
 eans = 180;
 }
   eq=3;
-this.rotation= ans;
+this.rotation= eans;
 return;
 }else if(this.x+(62.5/2)<playerC.x+(62.5/2)&&this.y+(62.5/2)>playerC.y+(62.5/2)){
 eans= 360-eans;
