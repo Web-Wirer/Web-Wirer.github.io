@@ -24,6 +24,7 @@ var ans;
 var opp;
 var adj;
 var almost;
+    var E = 0;
   var q = 0;
 
   var eq =0;
@@ -120,6 +121,7 @@ this.motionY=motionY;
    sh = sh;
      bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",st,sh,this.rotation+90));
     this.cd=1;
+    E=0;
     return;
   }else if(eq==3){
     st = st*-1;
@@ -129,10 +131,12 @@ this.motionY=motionY;
    sh = sh*-1;
          bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",st,sh,this.rotation+90));
     this.cd=1;
+    E=0;
     return;
   }
    bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",sh,st,this.rotation+90));
      this.cd=1;
+   E=0;
    }
 //drawing things
 enemy.prototype.draw=function(){
@@ -306,9 +310,9 @@ return;
 }
 }
 
- enemy.prototype.dist = function(){
- var p = Math.abs((playerC.x+(62.5/2))-this.x+(62.5/2));
-var o = Math.abs((playerC.y+(62.5/2))-this.y+(62.5/2));
+ enemy.prototype.dist = function(obj){
+ var p = Math.abs((obj.x+(62.5/2))-this.x+(62.5/2));
+var o = Math.abs((obj.y+(62.5/2))-this.y+(62.5/2));
 var m = Math.pow(p,2);
    var n = Math.pow(o,2);
    var b = m+n;
@@ -406,21 +410,24 @@ if(e.keyCode===40||e.keyCode===83){
 playerC= new players(260,270,3,1,0,0);
 game = function(){
   sp.spawn();
-  if(bullets.length>enemies.length+1){
-  bullets.pop();
-  };
+
 ctx.clearRect(0,0,10000,10000);
 playerC.draw();
 document.addEventListener("keydown",move);
-  
+
 for(var i = 0; i<enemies.length; i++){
 enemies[i].point();
   enemies[i].draw();
-  if(enemies[i].dist()<150){
+  if(enemies[i].dist(playerC)<150){
   enemies[i].isResting=false;
   }
-  if(enemies[i].dist()<200&&enemies[i].isResting==false){
+  
+  for(var j =0;j<bulletss.length;j++){
+    if(bulletss[j].shooter== enemies[i]){E++;}
+    if(E>0){
+  if(enemies[i].dist(playerC)<200&&enemies[i].isResting==false&&enemies[i].dist(bulletss[j])>50)){
   enemies[i].fire();
+  }}else{enemies[i].fire();}
   }
 }
   
