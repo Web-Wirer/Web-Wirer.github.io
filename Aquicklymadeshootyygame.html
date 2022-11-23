@@ -443,7 +443,7 @@ enemies[i].point();
 
 
 if(enemies[i].bulletss.length>0){
-  if(enemies[i].dist(playerC)<200&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>500){
+  if(enemies[i].dist(playerC)<400&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>1000){
       enemies[i].bulletss.pop();
   enemies[i].fire();
   }}else{enemies[i].fire();}
