@@ -218,15 +218,15 @@ ctx.drawImage(wall,this.x,this.y,125,125);
 }
 stopper.prototype.detect = function(obj){
 if((obj.x+obj.width)>(this.x-3)&&(obj.x+obj.width)<this.xt+5&&(obj.y+obj.height)>(this.y-6)&&(obj.y+obj.height)<this.yt+9){
-obj.xmotion = obj.xmotion*(-1);
-  obj.ymotion = obj.ymotion*(-1);
+obj.xmotion = obj.xmotion*(-2);
+  obj.ymotion = obj.ymotion*(-2);
 obj.x += obj.xmotion;
   obj.x += obj.xmotion;
   obj.y += obj.ymotion;
   obj.y += obj.ymotion;
 }else if(obj.x>this.x-13&&obj.x<this.xt+9&&obj.y>this.y-6&&obj.y<this.yt+6){
-obj.xmotion = obj.xmotion*(-1);
-  obj.ymotion = obj.ymotion*(-1);
+obj.xmotion = obj.xmotion*(-2);
+  obj.ymotion = obj.ymotion*(-2);
 obj.x += obj.xmotion;
   obj.x += obj.xmotion;
   obj.y += obj.ymotion;
