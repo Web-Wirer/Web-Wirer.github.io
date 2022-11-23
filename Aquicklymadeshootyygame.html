@@ -422,11 +422,11 @@ enemies[i].point();
   enemies[i].isResting=false;
   }
   
-  for(var j =0;j<bulletss.length;j++){
 
-  if(enemies[i].dist(playerC)<200&&enemies[i].isResting==false&&enemies[i].dist(bulletss[j])>1500){
+
+  if(enemies[i].dist(playerC)<200&&enemies[i].isResting==false&&enemies[i].dist(bulletss[bulletss.length-1])>1000){
   enemies[i].fire();
-  }}
+  }
   
 }
   
