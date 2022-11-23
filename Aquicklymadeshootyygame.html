@@ -50,6 +50,10 @@ this.wakeDistance=180;
 this.rotation=rotation;
   this.cd=0;
 };
+  EE = function(obj){
+  obj.cd =0;
+  
+  }
 //player object
 players= function(x,y,maxHealth,wepDamage, speed=1,rotation,xmotion,ymotion){
 this.x = x;
@@ -128,7 +132,7 @@ this.motionY=motionY;
   }
    bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",sh,st,this.rotation+90));
      this.cd=1;
-   }else{setTimeout(this.cd=, 1000,0);}}
+   }else{setTimeout(EE, 1000,this);}}
 //drawing things
 enemy.prototype.draw=function(){
 var translateX= this.x+(62.5/2);
