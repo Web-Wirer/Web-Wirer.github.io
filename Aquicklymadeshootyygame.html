@@ -438,7 +438,7 @@ enemies[i].point();
   }
 
 
-if(enemies.bulletss.length>0){
+if(enemies[i].bulletss.length>0){
   if(enemies[i].dist(playerC)<200&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>500){
       enemies[i].bulletss.pop();
   enemies[i].fire();
