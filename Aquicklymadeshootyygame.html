@@ -425,7 +425,7 @@ enemies[i].point();
   for(var j =0;j<bulletss.length;j++){
     if(bulletss[j].shooter== enemies[i]){E++;}
     if(E>0){
-  if(enemies[i].dist(playerC)<200&&enemies[i].isResting==false&&enemies[i].dist(bulletss[j])>50)){
+  if(enemies[i].dist(playerC)<200&&enemies[i].isResting==false&&enemies[i].dist(bulletss[j])>50){
   enemies[i].fire();
   }}else{enemies[i].fire();}
   }
