@@ -25,6 +25,7 @@ var opp;
 var adj;
 var almost;
   var q = 0;
+  var eq =0;
   var eans;
 var eopp;
 var eadj;
@@ -37,17 +38,14 @@ function radians_to_degrees(radians) {
   return radians * (180 / Math.PI);
 }
 //enemy object
-enemy= function(x,y,maxHealth,isBoss,wepDamage, startDialogue="", endDialogue="",isResting=true,wakeDistance,speed=1,rotation,xmotion,ymotion){
+enemy= function(x,y,maxHealth,wepDamage,rotation,xmotion,ymotion){
 this.x = x;
 this.y=y;
 this.health= maxHealth;
 this.maxHealth = maxHealth;
-this.isBoss = isBoss;
 this.wepDamage = wepDamage;
-this.startDialogue = startDialogue;
-this.endDialogue = endDialogue;
-this.isResting=isResting;
-this.wakeDistance=wakeDistance;
+this.isResting=true;
+this.wakeDistance=180;
 this.rotation=rotation;
 };
 //player object
@@ -71,26 +69,57 @@ this.xt=this.x+125;
 this.yt=this.y+125;
 }
 // spawning creatures/items
-spawnPoint=function(x,y,type="enemy", cooldown=0,uses=0){
+spawnPoint=function(x,y,type, cooldown,uses,power){
 this.x=x;
 this.y=y;
 this.type=type;
 this.cooldown=cooldown;
 this.uses=uses;
+  this.power=power;
 }
 //bullets
-bullets=function(x,y,type="reg",shooter,shooterType="enemy",motionX,motionY,rotation){
+bullets=function(x,y,type,shooter,shooterTeam,motionX,motionY,rotation){
 this.x = x;
   this.y = y;
   this.rotation = rotation;
   this.type=type;
 this.shooter=shooter;
-this.shooterType=shooterType;
+this.shooterTeam= shooterTeam;
 this.motionX=motionX;
 this.motionY=motionY;
 }
  enemy.prototype.fire = function(){
+   if(eq==1){
+      var s =  this.rotation;
 
+  }else if(eq==2){
+    var s =  this.rotation-90;
+  }else if(eq==3){
+       var s =  this.rotation-180;
+  }else if(eq==4){
+   var s =  this.rotation-270;
+  }
+  var so = s*10/9;
+  var st = (so/100)*12;
+  var sh = 12-st;
+  if(eq==1){
+  st = st;
+   sh = sh;
+  }else if(eq==2){
+    st = st*-1;
+   sh = sh;
+     bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",st,sh,this.rotation+90));
+    return;
+  }else if(eq==3){
+    st = st*-1;
+   sh = sh*-1;
+  }else if(eq==4){
+    st = st;
+   sh = sh*-1;
+         bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",st,sh,this.rotation+90));
+    return;
+  }
+   bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",sh,st,this.rotation+90));
  }
 //drawing things
 enemy.prototype.draw=function(){
@@ -171,7 +200,7 @@ stopper.prototype.draw = function(){
 ctx.drawImage(wall,this.x,this.y,125,125);
 }
 stopper.prototype.detect = function(obj){
-if((obj.x+obj.width)>(this.x-3)&&(obj.x+obj.width)<this.xt&&(obj.y+obj.height)>(this.y-6)&&(obj.y+obj.height)<this.yt+9){
+if((obj.x+obj.width)>(this.x-3)&&(obj.x+obj.width)<this.xt+5&&(obj.y+obj.height)>(this.y-6)&&(obj.y+obj.height)<this.yt+9){
 obj.xmotion = obj.xmotion*(-1);
   obj.ymotion = obj.ymotion*(-1);
 obj.x += obj.xmotion;
@@ -204,6 +233,14 @@ walls.push(new stopper(i,0));
 }
   game();
 };
+  spawnPoint.prototype.spawn = function(){
+    if(this.uses>0){
+  if(this.type =="enemy"){
+  enemies.push(new enemy(this.x,this.y,3,this.power,0,0,0));
+  this.uses--;
+  }else{ playerC.x= this.x; playerC.y=this.y; this.uses--;}}
+  }
+  var sp = new spawnPoint(300,300,"enemy",0,1,2);
 playerC= new players(250,250,3,1,0,0);
 //math is pain.
 point = function(e){
@@ -255,6 +292,57 @@ playerC.rotation=ans;
 return;
 }
 }
+
+//math is pain.
+enemy.prototype.point = function(){
+if(this.isResting=true;)
+eadj = Math.abs((playerC.x+(62.5/2))-this.x+(62.5/2));
+eopp = Math.abs((playerC.y+(62.5/2))-this.y+(62.5/2));
+
+ealmost = eopp/eadj;
+eans = radians_to_degrees(ealmost);
+
+ if(this.x<playerC.x+(62.5/2)&&this.y+(62.5/2)<playerC.y+(62.5/2)){
+if (eans>90){
+ eans = 90;
+}else if(eans<0){
+ eans= 0;
+}
+   eq=1;
+this.rotation=eans;
+return;
+}else if(this.x+(62.5/2)>playerC.x+(62.5/2)&&this.y+(62.5/2)<playerC.y+(62.5/2)){
+eans= 180-eans;
+if (eans<90){
+ eans= 90;
+}else if(eans>180){
+ eans = 270;
+}
+  eq=2;
+this.rotation=eans;
+return;
+}else if(this.x+(62.5/2)>playerC.x+(62.5/2)&&this.y+(62.5/2)>playerC.y+(62.5/2)){
+eans=180+eans;
+if (eans>270){
+eans = 270;
+}else if(eans<0){
+eans = 180;
+}
+  eq=3;
+this.rotation= ans;
+return;
+}else if(this.x+(62.5/2)<playerC.x+(62.5/2)&&this.y+(62.5/2)>playerC.y+(62.5/2)){
+eans= 360-eans;
+if (eans>360){
+eans = 360;
+}else if(eans<270){
+eans = 270;
+}
+  eq=4;
+this.rotation=eans;
+return;
+}
+}
 move = function(e){
 if(e.keyCode===37||e.keyCode===65){
   playerC.xmotion = -6.25;
@@ -275,6 +363,7 @@ if(e.keyCode===40||e.keyCode===83){
 }
 playerC= new players(260,270,3,1,0,0);
 game = function(){
+  sp.spawn();
 ctx.clearRect(0,0,10000,10000);
 playerC.draw();
 document.addEventListener("keydown",move);
