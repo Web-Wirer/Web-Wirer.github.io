@@ -92,6 +92,10 @@ this.motionX=motionX;
 this.motionY=motionY;
 }
  enemy.prototype.fire = function(){
+   EE = function(){
+   this.cd=0;
+   
+   }
    if(this.cd==0){
    if(eq==1){
       var s =  this.rotation;
@@ -127,7 +131,7 @@ this.motionY=motionY;
   }
    bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",sh,st,this.rotation+90));
      this.cd=1;
-   }else{setTimeout(this.cd=0, 1000);}}
+   }else{setTimeout(EE, 1000);}}
 //drawing things
 enemy.prototype.draw=function(){
 var translateX= this.x+(62.5/2);
