@@ -53,7 +53,7 @@ this.rotation=rotation;
   this.cdd=0;
     this.bulletss = [];
   this.cd=0;
-    this.hasShot=false;
+    this.hasShot=0;
 };
   EE = function(obj){
   obj.cd =0;
@@ -124,7 +124,7 @@ this.motionY=motionY;
    sh = sh;
      this.bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",st,sh,this.rotation+90));
     this.cd=1;
- this.hasShot=true;
+ this.hasShot++;
     return;
   }else if(eq==3){
     st = st*-1;
@@ -134,12 +134,12 @@ this.motionY=motionY;
    sh = sh*-1;
          this.bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",st,sh,this.rotation+90));
     this.cd=1;
-this.hasShot=true;
+this.hasShot++;
     return;
   }
    this.bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",sh,st,this.rotation+90));
      this.cd=1;
- this.hasShot=true;
+ this.hasShot++;
    }
 //drawing things
 enemy.prototype.draw=function(){
@@ -447,8 +447,11 @@ if(enemies[i].bulletss.length>0){
       enemies[i].bulletss.pop();
   enemies[i].fire();
   }}else{enemies[i].fire();}
-
+  enemies[i].bulletsmove();
     enemies[i].bulletss[0].draw();
+    if(enemies[i].hasShot==1){
+      enemies[i].bulletss[0].pop();
+    }
 }
  done=0; 
 for(var i = 0; i<walls.length; i++){
