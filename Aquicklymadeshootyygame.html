@@ -369,8 +369,8 @@ playerC.draw();
 document.addEventListener("keydown",move);
   
 for(var i = 0; i<enemies.length; i++){
-enemies[i].draw();
 enemies[i].point();
+  enemies[i].draw();
 }
   
 for(var i = 0; i<walls.length; i++){
