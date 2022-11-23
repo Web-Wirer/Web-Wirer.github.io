@@ -224,7 +224,7 @@ obj.x += obj.xmotion;
   obj.x += obj.xmotion;
   obj.y += obj.ymotion;
   obj.y += obj.ymotion;
-}else if(obj.x>this.x-3&&obj.x<this.xt&&obj.y>this.y-6&&obj.y<this.yt+6){
+}else if(obj.x>this.x-3&&obj.x<this.xt+5&&obj.y>this.y-6&&obj.y<this.yt+6){
 obj.xmotion = obj.xmotion*(-1);
   obj.ymotion = obj.ymotion*(-1);
 obj.x += obj.xmotion;
@@ -421,7 +421,7 @@ enemies[i].point();
   if(enemies[i].dist(playerC)<150){
   enemies[i].isResting=false;
   }
-  
+
 
 if(bulletss.length>0){
   if(enemies[i].dist(playerC)<200&&enemies[i].isResting==false&&enemies[i].dist(bulletss[bulletss.length-1])>500){
@@ -437,7 +437,9 @@ walls[i].detect(playerC);}
 for(var i = 0; i<bulletss.length; i++){
 bulletss[i].draw();
 bulletss[i].move();}
+
 window.requestAnimationFrame(game);
+    
 
 };
   playerC.xmotion=0; playerC.ymotion=0;
