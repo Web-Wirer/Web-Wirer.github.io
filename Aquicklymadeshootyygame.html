@@ -22,6 +22,7 @@ var powerUps=[];
 var  playerC = 0;
 var ans;
 var opp;
+    var done =0;
 var adj;
 var almost;
     var E = 0;
@@ -222,11 +223,12 @@ obj.xmotion = obj.xmotion*(-1);
   obj.ymotion = obj.ymotion*(-1);
 obj.x += obj.xmotion;
   obj.y += obj.ymotion;
+    done=1;
 }else if(obj.x+4>this.x-13&&obj.x<this.xt+9&&obj.y>this.y-6&&obj.y<this.yt+6){
 
 obj.x += 6.25;
   obj.y += 6.25;
-
+done=1;
 }else{return;};
 }
   //loading the level
@@ -424,10 +426,11 @@ if(bulletss.length>0){
   }}else{enemies[i].fire();}
   
 }
-  
+ done=0; 
 for(var i = 0; i<walls.length; i++){
 walls[i].draw();
-walls[i].detect(playerC);}
+    if(done==0){
+walls[i].detect(playerC);}}
 
 for(var i = 0; i<bulletss.length; i++){
 bulletss[i].draw();
