@@ -51,7 +51,9 @@ this.isResting=true;
 this.wakeDistance=180;
 this.rotation=rotation;
   this.cdd=0;
+    this.bulletss = [];
   this.cd=0;
+    this.hasShot=false;
 };
   EE = function(obj){
   obj.cd =0;
@@ -120,9 +122,9 @@ this.motionY=motionY;
   }else if(eq==2){
     st = st*-1;
    sh = sh;
-     bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",st,sh,this.rotation+90));
+     this.bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",st,sh,this.rotation+90));
     this.cd=1;
- 
+ this.hasShot=true;
     return;
   }else if(eq==3){
     st = st*-1;
@@ -130,14 +132,14 @@ this.motionY=motionY;
   }else if(eq==4){
     st = st;
    sh = sh*-1;
-         bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",st,sh,this.rotation+90));
+         this.bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",st,sh,this.rotation+90));
     this.cd=1;
-
+this.hasShot=true;
     return;
   }
-   bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",sh,st,this.rotation+90));
+   this.bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",sh,st,this.rotation+90));
      this.cd=1;
- 
+ this.hasShot=true;
    }
 //drawing things
 enemy.prototype.draw=function(){
@@ -436,8 +438,9 @@ enemies[i].point();
   }
 
 
-if(bulletss.length>0){
-  if(enemies[i].dist(playerC)<200&&enemies[i].isResting==false&&enemies[i].dist(bulletss[bulletss.length-1])>500){
+if(enemies.bulletss.length>0){
+  if(enemies[i].dist(playerC)<200&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>500){
+      enemies[i].bulletss.pop();
   enemies[i].fire();
   }}else{enemies[i].fire();}
   
