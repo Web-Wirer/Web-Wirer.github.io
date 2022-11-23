@@ -450,7 +450,7 @@ if(enemies[i].bulletss.length>0){
   enemies[i].bulletsmove();
     enemies[i].bulletss[0].draw();
     if(enemies[i].hasShot==1){
-      enemies[i].bulletss[0].pop();
+      enemies[i].bulletss.pop();
     }
 }
  done=0; 
