@@ -367,7 +367,12 @@ game = function(){
 ctx.clearRect(0,0,10000,10000);
 playerC.draw();
 document.addEventListener("keydown",move);
-
+  
+for(var i = 0; i<enemies.length; i++){
+enemies[i].draw();
+enemies[i].point();
+}
+  
 for(var i = 0; i<walls.length; i++){
 walls[i].draw();
 walls[i].detect(playerC);}
