@@ -328,8 +328,8 @@ var m = Math.pow(p,2);
 //math is pain.
 enemy.prototype.point = function(){
 if(this.isResting==false){
-eadj = Math.abs((playerC.x+(62.5/2))-this.x+(62.5/2));
-eopp = Math.abs((playerC.y+(62.5/2))-this.y+(62.5/2));
+eadj = Math.abs((playerC.x+(62.5/2))-(this.x+(62.5/2)));
+eopp = Math.abs((playerC.y+(62.5/2))-(this.y+(62.5/2)));
 
 ealmost = eopp/eadj;
 eans = radians_to_degrees(ealmost);
