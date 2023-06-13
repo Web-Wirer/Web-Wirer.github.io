@@ -238,7 +238,9 @@ return(false);
 }else if(obj.x+obj.xmotion+4>walls[i].x-13&&obj.x+obj.xmotion<walls[i].xt+9&&obj.y+obj.ymotion>walls[i].y-6&&obj.y+obj.ymotion<walls[i].yt+6){
 return(false);
 
-}else{return true;};}
+}
+}
+return(true);
 }
   //loading the level
 loadlevel = function(w,h,level){
