@@ -180,6 +180,7 @@ ctx.restore();
 };
   //bullet shooting
 fire = function(){
+    if(bulletss.length===0){
   //some math that might not work
 
     if(q==1){
@@ -214,7 +215,7 @@ fire = function(){
   }
    bulletss.push(new bullets(playerC.x,playerC.y,"reg",playerC,"player",sh,st,playerC.rotation+90));
  
-  }
+  }}
   //bullet motion
   bullets.prototype.move= function(){
   this.x +=this.motionX;
@@ -321,6 +322,15 @@ return;
  enemy.prototype.dist = function(obj){
  var p = Math.abs((obj.x+(62.5/2))-(this.x+(62.5/2)));
 var o = Math.abs((obj.y+(62.5/2))-(this.y+(62.5/2)));
+var m = Math.pow(p,2);
+   var n = Math.pow(o,2);
+   var b = m+n;
+   var c = Math.sqrt(b);
+   return c;
+ }
+    dist = function(objo,objt){
+ var p = Math.abs((objo.x+(62.5/2))-(objt.x+(62.5/2)));
+var o = Math.abs((objo.y+(62.5/2))-(objt.y+(62.5/2)));
 var m = Math.pow(p,2);
    var n = Math.pow(o,2);
    var b = m+n;
@@ -440,7 +450,7 @@ enemies[i].point();
 
 
 if(enemies[i].bulletss.length>0){
-  if(enemies[i].dist(playerC)<400&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>1000){
+  if(enemies[i].dist(playerC)<300&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>1000){
       enemies[i].bulletss.pop();
   enemies[i].fire();
   }}else{enemies[i].fire();}
@@ -448,6 +458,13 @@ if(enemies[i].bulletss.length>0){
     enemies[i].bulletss[0].draw();
     if(enemies[i].hasShot==1){
       enemies[i].bulletss.pop();
+    }
+}
+    if(bulletss.length>0){
+  if(dist(playerC, bulletss[0])>1000){
+     bulletss.pop();
+  
+
     }
 }
  done=0; 
