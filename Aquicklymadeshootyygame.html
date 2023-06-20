@@ -450,7 +450,7 @@ enemies[i].point();
 
 
 if(enemies[i].bulletss.length>0){
-  if(enemies[i].dist(playerC)<300&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>1000){
+  if(enemies[i].dist(playerC)<300&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>800){
       enemies[i].bulletss.pop();
   enemies[i].fire();
   }}else{enemies[i].fire();}
@@ -461,7 +461,7 @@ if(enemies[i].bulletss.length>0){
     }
 }
     if(bulletss.length>0){
-  if(dist(playerC, bulletss[0])>1000){
+  if(dist(playerC, bulletss[0])>650){
      bulletss.pop();
   
 
