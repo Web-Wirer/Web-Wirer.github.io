@@ -97,12 +97,12 @@ this.x = x;
   this.y = y;
   this.rotation = rotation;
   this.type="bullet";
-this.shooter=shooter;
-this.shooterTeam= shooterTeam;
+
 this.motionX=motionX;
 this.motionY=motionY;
     this.width=62.5/3.1622;
 this.height=62.5/3.1622;
+    this.destroyed=false;
 }
  enemy.prototype.fire = function(){
 
@@ -465,6 +465,14 @@ if(enemies[i].bulletss.length>0){
      bulletss.pop();
   
 
+    }
+}
+if(stop(bulletss[0])){
+    bulletss.pop;
+}
+for(var daps=0; daps<enemies.length;daps++){
+    if(stop(enemies[daps].bulletss[0])){
+     enemies[daps].bulletss.pop;   
     }
 }
  done=0; 
