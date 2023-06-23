@@ -102,7 +102,8 @@ this.motionX=motionX;
 this.motionY=motionY;
     this.width=62.5/3.1622;
 this.height=62.5/3.1622;
-    this.destroyed=false;
+
+    
 }
  enemy.prototype.fire = function(){
 
@@ -470,11 +471,7 @@ if(enemies[i].bulletss.length>0){
 if(stop(bulletss[0])){
     bulletss.pop;
 }
-for(var daps=0; daps<enemies.length;daps++){
-    if(stop(enemies[daps].bulletss[0])){
-     enemies[daps].bulletss.pop();   
-    }
-}
+
  done=0; 
 for(var i = 0; i<walls.length; i++){
 walls[i].draw();}
