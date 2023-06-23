@@ -470,15 +470,15 @@ if(enemies[i].bulletss.length>0){
     }
 }
     if(bulletss.length===1){
-if(!stop(bulletss[0])){
-    bulletss.pop();
-}}
+if(stop(bulletss[0])){
+   
+}else{bulletss.pop();}}
 
 for(var daps=0; daps<enemies.length;daps++){
         if(enemies[daps].bulletss.length===1){
-    if(!stop(enemies[daps].bulletss[0])){
-     enemies[daps].bulletss.pop();   
-    }}
+    if(stop(enemies[daps].bulletss[0])){
+     
+    }else{ enemies[daps].bulletss.pop();   }}
 }
 
  done=0; 
