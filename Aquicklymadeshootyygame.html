@@ -92,14 +92,14 @@ this.uses=uses;
   this.power=power;
 }
 //bullets
-bullets=function(x,y,type,shooter,shooterTeam,motionX,motionY,rotation){
+bullets=function(x,y,type,shooter,shooterTeam,xmotion,ymotion,rotation){
 this.x = x;
   this.y = y;
   this.rotation = rotation;
   this.type="bullet";
 
-this.motionX=motionX;
-this.motionY=motionY;
+this.xmotion=xmotion;
+this.ymotion=ymotion;
     this.width=62.5/3.1622;
 this.height=62.5/3.1622;
 
@@ -219,12 +219,12 @@ fire = function(){
   }}
   //bullet motion
   bullets.prototype.move= function(){
-  this.x +=this.motionX;
-    this.y +=this.motionY;
+  this.x +=this.xmotion;
+    this.y +=this.ymotion;
   };
     enemy.prototype.bulletsmove=function(){
-        this.bulletss[0].x +=this.bulletss[0].motionX;
-    this.bulletss[0].y +=this.bulletss[0].motionY; 
+        this.bulletss[0].x +=this.bulletss[0].xmotion;
+    this.bulletss[0].y +=this.bulletss[0].ymotion; 
     }
 stopper.prototype.draw = function(){
 ctx.drawImage(wall,this.x,this.y,125,125);
