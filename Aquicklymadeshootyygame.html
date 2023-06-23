@@ -468,8 +468,16 @@ if(enemies[i].bulletss.length>0){
 
     }
 }
+    if(bulletss.length!==0){
 if(stop(bulletss[0])){
     bulletss.pop;
+}}
+
+for(var daps=0; daps<enemies.length;daps++){
+        if(enemies[daps].bulletss.length!==0){
+    if(stop(enemies[daps].bulletss[0])){
+     enemies[daps].bulletss.pop();   
+    }}
 }
 
  done=0; 
