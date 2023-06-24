@@ -102,6 +102,7 @@ this.xmotion=xmotion;
 this.ymotion=ymotion;
     this.width=62.5/3.1622;
 this.height=62.5/3.1622;
+    this.exists=true;
 
     
 }
@@ -158,6 +159,7 @@ ctx.drawImage(enemyC,this.x,this.y,62.5,62.5);
 ctx.restore();}
   //bullets
 bullets.prototype.draw=function(){
+    if(this.exists){
 var translateX= this.x+((62.5/3.1622)/2);
 var translateY= this.y+((62.5/3.1622)/2);
 ctx.save();
@@ -165,7 +167,7 @@ ctx.translate(translateX,translateY);
 ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
 ctx.drawImage(bullet,this.x,this.y,(62.5)/3.1622,(62.5)/3.1622);
-ctx.restore();}
+ctx.restore();}}
 
 players.prototype.draw=function(){
 
@@ -472,13 +474,13 @@ if(enemies[i].bulletss.length>0){
     if(bulletss.length===1){
 if(stop(bulletss[0])){
    
-}else{bulletss.pop();}}
+}else{bulletss[0].exists=false;}}
 
 for(var daps=0; daps<enemies.length;daps++){
         if(enemies[daps].bulletss.length===1){
     if(stop(enemies[daps].bulletss[0])){
      
-    }else{ enemies[daps].bulletss.pop();   }}
+    }else{ enemies[daps].bulletss[0].exists=false;   }}
 }
 
  done=0; 
