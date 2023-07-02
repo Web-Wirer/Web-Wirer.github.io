@@ -247,6 +247,22 @@ return(false);
 }
 return(true);
 }
+    shop= function(obj){
+ 
+  
+if((obj.x+obj.width+obj.xmotion)>(playerC.x-3)&&(obj.x+obj.width+obj.xmotion)<playerC.xt+5&&(obj.y+obj.height+obj.ymotion)>(playerC.y-6)&&(obj.y+obj.height+obj.ymotion)<playerC.yt+9){
+ 
+return(false);
+
+
+    
+}else if(obj.x+obj.xmotion+4>playerC.x-13&&obj.x+obj.xmotion<playerC.xt+9&&obj.y+obj.ymotion>playerC.y-6&&obj.y+obj.ymotion<playerC.yt+6){
+return(false);
+
+}
+
+return(true);
+}
   //loading the level
 loadlevel = function(w,h,level){
   var m=0;
@@ -482,6 +498,13 @@ for(var daps=0; daps<enemies.length;daps++){
      
     }else{ enemies[daps].bulletss[0].exists=false;   }}
 }
+    for(var daps=0; daps<enemies.length;daps++){
+        if(enemies[daps].bulletss.length===1){
+    if(shop(enemies[daps].bulletss[0])){
+     
+    }else{window.location.reload();  }}
+}
+    
 
  done=0; 
 for(var i = 0; i<walls.length; i++){
