@@ -263,6 +263,16 @@ return(false);
 
 return(true);
 }
+
+  spawnPoint.prototype.spawn = function(){
+    if(this.uses>0){
+  if(this.type =="enemy"){
+  enemies.push(new enemy(this.x,this.y,3,this.power,0,0,0));
+  this.uses--;
+  }else{ playerC.x= this.x; playerC.y=this.y; this.uses--;}}
+  }
+  var sp = new spawnPoint(300,300,"enemy",0,1,2);
+playerC= new players(250,250,3,1,0,0);
   //loading the level
 loadlevel = function(w,h,level){
   var m=0;
@@ -277,18 +287,12 @@ walls.push(new stopper(i,0));
        m++;
   }  
 }
+    playerC.x=260;
+    playerC.y=270;
+    enemies=[];
   game();
 };
-  spawnPoint.prototype.spawn = function(){
-    if(this.uses>0){
-  if(this.type =="enemy"){
-  enemies.push(new enemy(this.x,this.y,3,this.power,0,0,0));
-  this.uses--;
-  }else{ playerC.x= this.x; playerC.y=this.y; this.uses--;}}
-  }
-  var sp = new spawnPoint(300,300,"enemy",0,1,2);
-playerC= new players(250,250,3,1,0,0);
-//math is pain.
+    //math is pain.
 point = function(e){
 
 adj = Math.abs((playerC.x+(62.5/2))-e.offsetX);
