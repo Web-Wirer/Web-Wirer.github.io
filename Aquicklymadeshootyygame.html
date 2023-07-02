@@ -498,11 +498,11 @@ for(var daps=0; daps<enemies.length;daps++){
      
     }else{ enemies[daps].bulletss[0].exists=false;   }}
 }
-    for(var daps=0; daps<enemies.length;daps++){
-        if(enemies[daps].bulletss.length===1){
-    if(shop(enemies[daps].bulletss[0])){
+    for(var dadps=0; daps<enemies.length;dadps++){
+        if(enemies[dadps].bulletss.length===1){
+    if(shop(enemies[dadps].bulletss[0])){
      
-    }else{history.go(0);  }}
+    }else{loadlevel(5,5,0);  }}
 }
     
 
@@ -521,6 +521,6 @@ window.requestAnimationFrame(game);
 
 canvas.addEventListener("mousemove",point);
   canvas.addEventListener("click",fire);
-loadlevel(5,5,0);
+v
 </script>
 </body></html>
