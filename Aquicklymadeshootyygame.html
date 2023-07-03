@@ -517,7 +517,7 @@ for(var i = 0; i<bulletss.length; i++){
 bulletss[i].draw();
 bulletss[i].move();}
 
-window.requestAnimationFrame(game);
+
     
 
 };
@@ -525,5 +525,6 @@ window.requestAnimationFrame(game);
 canvas.addEventListener("mousemove",point);
   canvas.addEventListener("click",fire);
 loadlevel(5,5,0);  
+    window.requestAnimationFrame(game);
 </script>
 </body></html>
