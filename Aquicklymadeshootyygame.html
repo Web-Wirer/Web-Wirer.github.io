@@ -250,13 +250,13 @@ return(true);
     shop= function(obj){
  
   
-if((obj.x+obj.width)>(playerC.x-3)&&(obj.x+obj.width)<playerC.xt+5&&(obj.y+obj.height)>(playerC.y-6)&&(obj.y+obj.height)<playerC.yt+9){
+if((obj.x+obj.width)>(playerC.x-3)&&(obj.x+obj.width)<playerC.width+5&&(obj.y+obj.height)>(playerC.y-6)&&(obj.y+obj.height)<playerC.height+9){
  
 return(false);
 
 
     
-}else if(obj.x+4>playerC.x-13&&obj.x<playerC.xt+9&&obj.y>playerC.y-6&&obj.y<playerC.yt+6){
+}else if(obj.x+4>playerC.x&&obj.x<playerC.width&&obj.y>playerC.y-6&&obj.y<playerC.height+6){
 return(false);
 
 }
@@ -525,6 +525,6 @@ bulletss[i].move();}
 canvas.addEventListener("mousemove",point);
   canvas.addEventListener("click",fire);
 loadlevel(5,5,0);  
-    window.requestAnimationFrame(game);
+game();
 </script>
 </body></html>
