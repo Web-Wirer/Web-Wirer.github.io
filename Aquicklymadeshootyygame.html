@@ -287,10 +287,9 @@ walls.push(new stopper(i,0));
        m++;
   }  
 }
-    playerC.x=260;
-    playerC.y=270;
+playerC= new players(260,270,3,1,0,0);
     enemies=[];
-  game();
+  
 };
     //math is pain.
 point = function(e){
@@ -457,7 +456,7 @@ if(e.keyCode===40||e.keyCode===83){
   playerC.y += playerC.ymotion;
 }
 }
-playerC= new players(260,270,3,1,0,0);
+
 game = function(){
   sp.spawn();
 
