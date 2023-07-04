@@ -250,13 +250,13 @@ return(true);
     shop= function(obj){
  
   
-if((obj.x+obj.width)>(playerC.x-3)&&(obj.x+obj.width)<playerC.width+5&&(obj.y+obj.height)>(playerC.y-6)&&(obj.y+obj.height)<playerC.height+9){
+if((obj.x+obj.width)>(playerC.x-3)&&(obj.x+obj.width)<playerC.width+5+playerC.x&&(obj.y+obj.height)>(playerC.y-6)&&(obj.y+obj.height)<playerC.height+9+playerC.y){
  
 return(false);
 
 
     
-}else if(obj.x+4>playerC.x&&obj.x<playerC.width&&obj.y>playerC.y-6&&obj.y<playerC.height+6){
+}else if(obj.x+4>playerC.x&&obj.x<playerC.width+playerC.x&&obj.y>playerC.y-6&&obj.y<playerC.height+6+playerC.y){
 return(false);
 
 }
