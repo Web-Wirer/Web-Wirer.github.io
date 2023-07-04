@@ -339,6 +339,15 @@ ans = 270;
 }
   q=4;
 playerC.rotation=ans;
+         ctx.strokeStyle = 'red';
+    ctx.lineWidth = 5;
+
+    // draw a red line
+    ctx.beginPath();
+    ctx.moveTo(playerC.x+(62.5/2), playerC.y+(62.5/2));
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.stroke();
+
 return;
 }
 }
@@ -517,7 +526,7 @@ walls[i].draw();}
 for(var i = 0; i<bulletss.length; i++){
 bulletss[i].draw();
 bulletss[i].move();}
-
+    
 
     
 window.requestAnimationFrame(game);
