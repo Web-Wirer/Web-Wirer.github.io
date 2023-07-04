@@ -302,7 +302,7 @@ opp = Math.abs((playerC.y+(62.5/2))-e.offsetY);
     hyp= Math.sqrt((adj*adj)+(opp*opp));
 
 almost = opp/hyp;
-ans = radians_to_degrees(almost);
+Math.asin(almost);
 
  if(playerC.x+(62.5/2)<e.offsetX&&playerC.y+(62.5/2)<e.offsetY){
 if (ans>90){
