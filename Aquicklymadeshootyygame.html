@@ -309,6 +309,8 @@ if (ans>90){
 }else if(ans<0){
  ans= 0;
 }
+     mouseONE=e.offsetX;
+mouseTWO=e.offsetY;
    q=1;
 playerC.rotation=ans;
 return;
@@ -318,7 +320,8 @@ if (ans<90){
  ans= 90;
 }else if(ans>180){
  ans = 270;
-}
+}mouseONE=e.offsetX;
+mouseTWO=e.offsetY;
   q=2;
 playerC.rotation=ans;
 return;
@@ -329,6 +332,8 @@ ans = 270;
 }else if(ans<0){
 ans = 180;
 }
+     mouseONE=e.offsetX;
+mouseTWO=e.offsetY;
   q=3;
 playerC.rotation= ans;
 return;
