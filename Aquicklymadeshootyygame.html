@@ -13,6 +13,8 @@
 //variable and canvas setup
 var canvas = document.getElementById("one");
 var ctx = canvas.getContext("2d");
+    var mouseONE;
+    var mouseTWO;
 var bulletss=[];
 var walls= [];
 var enemies=[];
@@ -339,14 +341,8 @@ ans = 270;
 }
   q=4;
 playerC.rotation=ans;
-         ctx.strokeStyle = 'red';
-    ctx.lineWidth = 5;
-
-    // draw a red line
-    ctx.beginPath();
-    ctx.moveTo(playerC.x+(62.5/2), playerC.y+(62.5/2));
-    ctx.lineTo(e.offsetX, e.offsetY);
-    ctx.stroke();
+mouseONE=e.offsetX;
+mouseTWO=e.offsetY;
 
 return;
 }
@@ -527,7 +523,14 @@ for(var i = 0; i<bulletss.length; i++){
 bulletss[i].draw();
 bulletss[i].move();}
     
+         ctx.strokeStyle = 'red';
+    ctx.lineWidth = 5;
 
+    // draw a red line
+    ctx.beginPath();
+    ctx.moveTo(playerC.x+(62.5/2), playerC.y+(62.5/2));
+    ctx.lineTo(mouseONE, mouseTWO);
+    ctx.stroke();
     
 window.requestAnimationFrame(game);
     
