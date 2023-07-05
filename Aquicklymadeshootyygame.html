@@ -43,6 +43,9 @@ var bullet = document.getElementById("default_bullet");
 function radians_to_degrees(radians) {
   return radians * (180 / Math.PI);
 }
+function degrees_to_radians(degrees) {
+  return degrees * (Math.PI / 180);
+}
 //enemy object
 enemy= function(x,y,maxHealth,wepDamage,rotation,xmotion,ymotion){
 this.x = x;
@@ -200,10 +203,12 @@ fire = function(){
    var s =  playerC.rotation-270;
   }
         console.log(s);
-        
-  var so = s;
+adj = Math.abs((playerC.x+(62.5/2))-MOUSEONE);
+opp = Math.abs((playerC.y+(62.5/2))-MOUSETWO);
+
+
 console.log(so);
-  var st = (so/90)*13;
+  var st = s*13;
         console.log(st);
   var sh = 13-st;
         console.log(sh);
