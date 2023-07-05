@@ -32,6 +32,7 @@ var almost;
 
   var eq =0;
   var eans;
+    var spawns=[];
 var eopp;
 var eadj;
 var ealmost;
@@ -292,7 +293,7 @@ walls.push(new stopper(i,0));
 playerC.x=260;
     playerC.y=270;
     enemies=[];
-    var sp = new spawnPoint(300,300,"enemy",0,1,2);
+    spawns.push( new spawnPoint(300,300,"enemy",0,1,2));
 };
     //math is pain.
 point = function(e){
@@ -471,7 +472,7 @@ if(e.keyCode===40||e.keyCode===83){
 }
 
 game = function(){
-  sp.spawn();
+
 
 ctx.clearRect(0,0,10000,10000);
 playerC.draw();
