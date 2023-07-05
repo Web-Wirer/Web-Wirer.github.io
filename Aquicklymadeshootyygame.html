@@ -207,7 +207,7 @@ fire = function(){
   }else if(q==2){
     st = st*-1;
    sh = sh;
-     bulletss.push(new bullets(playerC.x+(62.5/2),playerC.y+(62.5/2),"reg",playerC,"player",st,sh,playerC.rotation+90));
+     bulletss.push(new bullets(playerC.x+(62.5/2)-((62.5/3.1622)/2),playerC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playerC,"player",st,sh,playerC.rotation+90));
     return;
   }else if(q==3){
     st = st*-1;
@@ -215,10 +215,10 @@ fire = function(){
   }else if(q==4){
     st = st;
    sh = sh*-1;
-         bulletss.push(new bullets(playerC.x+(62.5/2),playerC.y+(62.5/2),"reg",playerC,"player",st,sh,playerC.rotation+90));
+         bulletss.push(new bullets(playerC.x+(62.5/2)-((62.5/3.1622)/2),playerC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playerC,"player",st,sh,playerC.rotation+90));
     return;
   }
-   bulletss.push(new bullets(playerC.x+(62.5/2),playerC.y+(62.5/2),"reg",playerC,"player",sh,st,playerC.rotation+90));
+   bulletss.push(new bullets(playerC.x+(62.5/2)-((62.5/3.1622)/2),playerC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playerC,"player",sh,st,playerC.rotation+90));
  
   }}
   //bullet motion
