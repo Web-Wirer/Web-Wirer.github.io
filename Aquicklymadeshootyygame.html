@@ -203,14 +203,15 @@ fire = function(){
    var s =  playerC.rotation-270;
   }
         console.log(s);
-adj = Math.abs((playerC.x+(62.5/2))-MOUSEONE);
-opp = Math.abs((playerC.y+(62.5/2))-MOUSETWO);
+adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
+opp = Math.abs((playerC.y+(62.5/2))-mouseTWO);
 
+((height/width)/((height/width)+1))*13
 
 console.log(so);
-  var st = s*13;
+  var st = ((adj/opp)/((adj/opp)+1))*13;
         console.log(st);
-  var sh = 13-st;
+  var sh = ((opp/adj)/((opp/adj)+1))*13;;
         console.log(sh);
         console.log(playerC.rotation);
   if(q==1){
