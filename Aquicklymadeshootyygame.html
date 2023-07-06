@@ -438,7 +438,7 @@ var map = {}; // You could also use an array
 onkeydown = onkeyup = function(e){
     e = e || event; // to deal with IE
     map[e.keyCode] = e.type == 'keydown';
-  console.log(map);
+
 }
 move = function(){
 if((map[37]===true||map[65]===true)){
