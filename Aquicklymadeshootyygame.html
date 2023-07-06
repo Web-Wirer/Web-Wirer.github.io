@@ -440,7 +440,12 @@ this.rotation=eans;
 return;
 }
 }}
-
+var map = {}; // You could also use an array
+onkeydown = onkeyup = function(e){
+    e = e || event; // to deal with IE
+    map[e.keyCode] = e.type == 'keydown';
+  console.log(map);
+}
 move = function(e){
 if((e.keyCode===37||e.keyCode===65)){
   playerC.xmotion += -6.25;
