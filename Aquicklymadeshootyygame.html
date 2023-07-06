@@ -440,7 +440,7 @@ onkeydown = onkeyup = function(e){
     map[e.keyCode] = e.type == 'keydown';
   console.log(map);
 }
-move = function(e){
+move = function(){
 if((map[37]===true||map[65]===true)){
   playerC.xmotion += -6.25;
   
@@ -491,7 +491,7 @@ game = function(){
 
 ctx.clearRect(0,0,10000,10000);
 playerC.draw();
-document.addEventListener("keydown",move);
+move();
 
 for(var i = 0; i<enemies.length; i++){
 enemies[i].point();
