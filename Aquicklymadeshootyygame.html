@@ -202,8 +202,6 @@ fire = function(){
   }else if(q==4){
    var s =  playerC.rotation-270;
   }
-        console.log(s);
-        
 adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
 opp = Math.abs((playerC.y+(62.5/2))-mouseTWO);
 
@@ -212,10 +210,8 @@ if(adj===0){adj=0.0001;}
         if(opp===0){opp=0.0001;}
 
   var st = ((adj/opp)/((adj/opp)+1))*13;
-        console.log(st);
   var sh = ((opp/adj)/((opp/adj)+1))*13;;
-        console.log(sh);
-        console.log(playerC.rotation);
+
   if(q==1){
   st = st;
    sh = sh;
@@ -240,8 +236,6 @@ if(adj===0){adj=0.0001;}
   bullets.prototype.move= function(){
   this.x +=this.xmotion;
     this.y +=this.ymotion;
-      console.log(this.x);
-      console.log(this.y);
   };
     enemy.prototype.bulletsmove=function(){
         this.bulletss[0].x +=this.bulletss[0].xmotion;
@@ -447,20 +441,20 @@ onkeydown = onkeyup = function(e){
   console.log(map);
 }
 move = function(e){
-if((e.keyCode===37||e.keyCode===65)){
+if((map[37]===true||map[65]===true)){
   playerC.xmotion += -6.25;
   
 }
- if((e.keyCode===38||e.keyCode===87)){
+ if((map[38]===true||map[87]===true)){
  playerC.ymotion += -6.25;
 
 
 }
- if((e.keyCode===39||e.keyCode===68)){
+ if((map[39]===true||map[68]===true)){
  playerC.xmotion += 6.25;
    
 }
-if((e.keyCode===40||e.keyCode===83)){
+if((map[40]===true||map[83]===true)){
  playerC.ymotion += 6.25;
 
 
