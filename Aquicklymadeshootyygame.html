@@ -192,16 +192,7 @@ fire = function(){
     if(bulletss.length===0){
   //some math that might not work
 
-    if(q==1){
-      var s =  playerC.rotation;
 
-  }else if(q==2){
-    var s =  playerC.rotation-90;
-  }else if(q==3){
-       var s =  playerC.rotation-180;
-  }else if(q==4){
-   var s =  playerC.rotation-270;
-  }
 adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
 opp = Math.abs((playerC.y+(62.5/2))-mouseTWO);
 
@@ -441,6 +432,15 @@ onkeydown = onkeyup = function(e){
 
 }
 move = function(){
+    adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
+opp = Math.abs((playerC.y+(62.5/2))-mouseTWO);
+
+
+if(adj===0){adj=0.0001;}
+        if(opp===0){opp=0.0001;}
+
+  var bt = ((adj/opp)/((adj/opp)+1))*6.25;
+  var bh = ((opp/adj)/((opp/adj)+1))*6.25;
 if((map[37]===true||map[65]===true)){
   playerC.xmotion += -6.25;
   
@@ -452,6 +452,26 @@ if((map[37]===true||map[65]===true)){
 }
  if((map[39]===true||map[68]===true)){
  playerC.xmotion += 6.25;
+       if(q==1){
+  bt = bt;
+   bh = bh;
+  }else if(q==2){
+    bt = bt*-1;
+   bh = bh;
+   );
+    return;
+  }else if(q==3){
+    bt = bt*-1;
+   bh = bh*-1;
+  }else if(q==4){
+    bt = bt;
+   bh = bh*-1;
+       
+    
+  }
+
+ 
+  }}
    
 }
 if((map[40]===true||map[83]===true)){
