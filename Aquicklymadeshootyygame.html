@@ -451,22 +451,30 @@ if((map[37]===true||map[65]===true)){
 
 }
  if((map[39]===true||map[68]===true)){
- playerC.xmotion += 6.25;
+
        if(q==1){
   bt = bt;
    bh = bh;
+             playerC.xmotion+=bt;
+     playerC.ymotion+=bh;
   }else if(q==2){
     bt = bt*-1;
    bh = bh;
+               playerC.xmotion+=bt;
+     playerC.ymotion+=bh;
        }else if(q==3){
     bt = bt*-1;
    bh = bh*-1;
+               playerC.xmotion+=bt;
+     playerC.ymotion+=bh;
   }else if(q==4){
     bt = bt;
    bh = bh*-1;
-       
+           playerC.xmotion+=bt;
+     playerC.ymotion+=bh;
     
   }
+
 
  
   
