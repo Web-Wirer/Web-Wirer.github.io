@@ -531,8 +531,8 @@ if((map[40]===true||map[83]===true)){
   var bh = ((opp/adj)/((opp/adj)+1))*6.25;
                     if(q==1){
     var betweeeen= bt;
-  bt = bh*-1;
-   bh = betweeeen*-1;
+  bt = bh;
+   bh = betweeeen;
              playerC.xmotion+=bt;
      playerC.ymotion+=bh;
   }else if(q==2){
@@ -546,7 +546,7 @@ if((map[40]===true||map[83]===true)){
                playerC.xmotion+=bt;
      playerC.ymotion+=bh;
   }else if(q==4){
-    bt = bt*-1;
+    bt = bt;
    bh = bh*-1;
            playerC.xmotion+=bt;
      playerC.ymotion+=bh;}
