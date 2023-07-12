@@ -529,9 +529,7 @@ if((map[37]===true||map[65]===true)){
 if((map[40]===true||map[83]===true)){
       var bt = ((adj/opp)/((adj/opp)+1))*6.25;
   var bh = ((opp/adj)/((opp/adj)+1))*6.25;
-        var betweeeen= bt;
-  bt = bh;
-   bh = betweeeen;
+
                     if(q==1){
 
              playerC.xmotion+=bt;
@@ -549,8 +547,8 @@ if((map[40]===true||map[83]===true)){
   }else if(q==4){
     bt = bt;
    bh = bh*-1;
-           playerC.xmotion+=bt;
-     playerC.ymotion+=bh;}
+           playerC.xmotion+=bh;
+     playerC.ymotion+=bt;}
  playerC.ymotion += 0;
 
 
