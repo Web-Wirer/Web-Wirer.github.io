@@ -540,10 +540,10 @@ if((map[40]===true||map[83]===true)){
                playerC.xmotion+=bt;
      playerC.ymotion+=bh;
        }else if(q==3){
-    bt = bt*-1;
+    bt = bt;
    bh = bh*-1;
-               playerC.xmotion+=bt;
-     playerC.ymotion+=bh;
+           playerC.xmotion+=-bh;
+     playerC.ymotion+=bt;;
   }else if(q==4){
     bt = bt;
    bh = bh*-1;
