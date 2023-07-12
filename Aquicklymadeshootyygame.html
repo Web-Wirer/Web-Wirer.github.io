@@ -444,11 +444,56 @@ if(adj===0){adj=0.0001;}
   var bt = ((adj/opp)/((adj/opp)+1))*6.25;
   var bh = ((opp/adj)/((opp/adj)+1))*6.25;
 if((map[37]===true||map[65]===true)){
-  playerC.xmotion += -6.25;
+           if(q==1){
+  bt = bt*-1;
+   bh = bh*-1;
+             playerC.xmotion+=bt;
+     playerC.ymotion+=bh;
+  }else if(q==2){
+    bt = bt*-1;
+   bh = bh;
+               playerC.xmotion+=bt;
+     playerC.ymotion+=bh;
+       }else if(q==3){
+    bt = bt*-1;
+   bh = bh*-1;
+               playerC.xmotion+=bt;
+     playerC.ymotion+=bh;
+  }else if(q==4){
+    bt = bt;
+   bh = bh*-1;
+           playerC.xmotion+=bt;
+     playerC.ymotion+=bh;}
+  playerC.xmotion += -0;
+  var bt = ((adj/opp)/((adj/opp)+1))*6.25;
+  var bh = ((opp/adj)/((opp/adj)+1))*6.25;
   
 }
  if((map[38]===true||map[87]===true)){
- playerC.ymotion += -6.25;
+                if(q==1){
+    var betweeeen= bt;
+  bt = bh;
+   bh = betweeeen;
+             playerC.xmotion+=bt;
+     playerC.ymotion+=bh;
+  }else if(q==2){
+    bt = bt*-1;
+   bh = bh;
+               playerC.xmotion+=bt;
+     playerC.ymotion+=bh;
+       }else if(q==3){
+    bt = bt*-1;
+   bh = bh*-1;
+               playerC.xmotion+=bt;
+     playerC.ymotion+=bh;
+  }else if(q==4){
+    bt = bt;
+   bh = bh*-1;
+           playerC.xmotion+=bt;
+     playerC.ymotion+=bh;}
+ playerC.ymotion += -0;
+       var bt = ((adj/opp)/((adj/opp)+1))*6.25;
+  var bh = ((opp/adj)/((opp/adj)+1))*6.25;
 
 
 }
@@ -476,13 +521,35 @@ if((map[37]===true||map[65]===true)){
      playerC.ymotion+=bh;}
      
            playerC.xmotion+=0;
- 
-   
+     var bt = ((adj/opp)/((adj/opp)+1))*6.25;
+  var bh = ((opp/adj)/((opp/adj)+1))*6.25;
  }
 
 if((map[40]===true||map[83]===true)){
- playerC.ymotion += 6.25;
-
+                    if(q==1){
+    var betweeeen= bt;
+  bt = bh*-1;
+   bh = betweeeen*-1;
+             playerC.xmotion+=bt;
+     playerC.ymotion+=bh;
+  }else if(q==2){
+    bt = bt*-1;
+   bh = bh;
+               playerC.xmotion+=bt;
+     playerC.ymotion+=bh;
+       }else if(q==3){
+    bt = bt*-1;
+   bh = bh*-1;
+               playerC.xmotion+=bt;
+     playerC.ymotion+=bh;
+  }else if(q==4){
+    bt = bt;
+   bh = bh*-1;
+           playerC.xmotion+=bt;
+     playerC.ymotion+=bh;}
+ playerC.ymotion += 0;
+  var bt = ((adj/opp)/((adj/opp)+1))*6.25;
+  var bh = ((opp/adj)/((opp/adj)+1))*6.25;
 
 
 }
