@@ -187,6 +187,12 @@ ctx.drawImage(player,this.x,this.y,62.5,62.5);
 ctx.restore();
 
 };
+    //THIS STUPID THING
+    Mouse=function(e){
+        mouseONE=e.offsetX;
+        mouseTWO=e.offsetY;
+    }
+    
   //bullet shooting
 fire = function(){
     if(bulletss.length===0){
@@ -297,7 +303,7 @@ playerC.x=260;
     spawns.push( new spawnPoint(300,300,"enemy",0,1,2));
 };
     //math is pain.
-point = function(e){
+point = function(){
 
 adj = Math.abs((playerC.x+(62.5/2))-e.offsetX);
 opp = Math.abs((playerC.y+(62.5/2))-e.offsetY);
@@ -307,41 +313,38 @@ almost = opp/hyp;
 ans = Math.asin(almost);
 ans=radians_to_degrees(ans);
 
- if(playerC.x+(62.5/2)<e.offsetX&&playerC.y+(62.5/2)<e.offsetY){
+ if(playerC.x+(62.5/2)<mouseONE&&playerC.y+(62.5/2)<mouseTWO){
 if (ans>90){
  ans = 90;
 }else if(ans<0){
  ans= 0;
 }
-     mouseONE=e.offsetX;
-mouseTWO=e.offsetY;
+
    q=1;
 playerC.rotation=ans;
 return;
-}else if(playerC.x+(62.5/2)>e.offsetX&&playerC.y+(62.5/2)<e.offsetY){
+}else if(playerC.x+(62.5/2)>mouseONE&&playerC.y+(62.5/2)<mouseTWO){
 ans= 180-ans;
 if (ans<90){
  ans= 90;
 }else if(ans>180){
  ans = 270;
-}mouseONE=e.offsetX;
-mouseTWO=e.offsetY;
+}
   q=2;
 playerC.rotation=ans;
 return;
-}else if(playerC.x+(62.5/2)>e.offsetX&&playerC.y+(62.5/2)>e.offsetY){
+}else if(playerC.x+(62.5/2)>mouseONE&&playerC.y+(62.5/2)>mouseTWO){
 ans=180+ans;
 if (ans>270){
 ans = 270;
 }else if(ans<0){
 ans = 180;
 }
-     mouseONE=e.offsetX;
-mouseTWO=e.offsetY;
+
   q=3;
 playerC.rotation= ans;
 return;
-}else if(playerC.x+(62.5/2)<e.offsetX&&playerC.y+(62.5/2)>e.offsetY){
+}else if(playerC.x+(62.5/2)<mouseONE&&playerC.y+(62.5/2)>mouseTWO){
 ans= 360-ans;
 if (ans>360){
 ans = 360;
@@ -350,8 +353,7 @@ ans = 270;
 }
   q=4;
 playerC.rotation=ans;
-mouseONE=e.offsetX;
-mouseTWO=e.offsetY;
+
 
 return;
 }
@@ -500,6 +502,7 @@ game = function(){
 ctx.clearRect(0,0,10000,10000);
 playerC.draw();
 move();
+point();
 
 for(var i = 0; i<enemies.length; i++){
 enemies[i].point();
@@ -567,7 +570,7 @@ window.requestAnimationFrame(game);
     
 };
 
-canvas.addEventListener("mousemove",point);
+canvas.addEventListener("mousemove",Mouse);
   canvas.addEventListener("click",fire);
 loadlevel(5,5,0);  
 game();
