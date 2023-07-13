@@ -6,15 +6,17 @@ Testing...
 </title>
 </head>
 <body>
-  <img src="https://web-wirer.github.io/Wall.png" id="pai"/>
-<canvas id="suf" width="document.body.clientWidth" height="document.body.clientHeight">
+  <img src="https://web-wirer.github.io/Wall.png" id="pai" style="display:none;"/>
+<canvas id="suf" width="1" height="1">
   
 </canvas>
 <script>
 var can= document.getElementById("suf");
 var ctx=can.getContext("2d");
 var background=document.getElementById("pai");
-ctx.drawImage(background,suf.width/10,suf.height/20, (suf.width/10)*8,(suf.height/20)*18);
+can.width=document.body.clientWidth;
+can.height=document.body.clientHeight;
+ctx.drawImage(background,suf.width/10,suf.height/20, (can.width/10)*8,(can.height/20)*18);
 
 </script>
 </body>
