@@ -5,17 +5,17 @@
 Testing...
 </title>
 </head>
-<body style="height:100%;">
+<body>
   <img src="https://web-wirer.github.io/Wall.png" id="pai" style="display:none;"/>
-<canvas id="suf" width="1" style="height:100%;">
+<canvas id="suf" width="1">
   
 </canvas>
 <script>
 var can= document.getElementById("suf");
 var ctx=can.getContext("2d");
 var background=document.getElementById("pai");
-can.width=document.body.clientWidth;
-can.height=document.body.clientHeight;
+can.width=screen.width;
+can.height=screen.height;
 ctx.drawImage(background,can.width/10,can.height/20, (can.width/10)*8,(can.height/20)*18);
 
 </script>
