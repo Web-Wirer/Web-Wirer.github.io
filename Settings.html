@@ -14,8 +14,8 @@ Testing...
 var can= document.getElementById("suf");
 var ctx=can.getContext("2d");
 var background=document.getElementById("pai");
-can.width=screen.width;
-can.height=screen.height;
+can.width=window.innerwidth;
+can.height=window.innerheight;
 ctx.drawImage(background,can.width/10,can.height/20, (can.width/10)*8,(can.height/20)*18);
 
 </script>
