@@ -470,36 +470,28 @@ if((map[37]===true||map[65]===true)){
 
 }
  if((map[38]===true||map[87]===true)){
-       var bt = ((adj/opp)/((adj/opp)+1))*6.25;
-  var bh = ((opp/adj)/((opp/adj)+1))*6.25;
-                if(q==1){
-    var betweeeen= bt;
-  bt = bh;
-   bh = betweeeen;
-             playerC.xmotion+=bt;
-     playerC.ymotion+=bh;
+
+                    if(q==1){
+
+           playerC.xmotion+=bh;
+     playerC.ymotion+=-bt;
   }else if(q==2){
-    bt = bt*-1;
-   bh = bh;
-               playerC.xmotion+=bt;
-     playerC.ymotion+=bh;
+
+           playerC.xmotion+=bh;
+     playerC.ymotion+=bt;
        }else if(q==3){
-    bt = bt*-1;
-   bh = bh*-1;
-               playerC.xmotion+=bt;
-     playerC.ymotion+=bh;
+
+           playerC.xmotion+=-bh;
+     playerC.ymotion+=bt;
   }else if(q==4){
-    bt = bt;
-   bh = bh*-1;
-           playerC.xmotion+=bt;
-     playerC.ymotion+=bh;}
+
+           playerC.xmotion+=-bh;
+     playerC.ymotion+=-bt;}
  playerC.ymotion += -0;
 
 
 }
  if((map[39]===true||map[68]===true)){
-       var bt = ((adj/opp)/((adj/opp)+1))*6.25;
-  var bh = ((opp/adj)/((opp/adj)+1))*6.25;
 
        if(q==1){
   bt = bt;
