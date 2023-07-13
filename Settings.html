@@ -11,7 +11,7 @@ Testing...
     margin-right: 0px;
     margin-left: 0px;
 ">
-  <img src="https://web-wirer.github.io/Wall.png" id="pai" style="display:none;"/>
+  <img src="https://web-wirer.github.io/Wall.png" id="pai" style="display:none;" onload="backgroud();"/>
 <canvas id="suf" width="1">
   
 </canvas>
@@ -21,8 +21,8 @@ var ctx=can.getContext("2d");
 var background=document.getElementById("pai");
 can.width=window.innerWidth-10;
 can.height=window.innerHeight-10;
-
-ctx.drawImage(background,can.width/10,can.height/20, (can.width/10)*8,(can.height/20)*18);
+var backgroud=function(){
+ctx.drawImage(background,can.width/10,can.height/20, (can.width/10)*8,(can.height/20)*18);};
 
 </script>
 </body>
