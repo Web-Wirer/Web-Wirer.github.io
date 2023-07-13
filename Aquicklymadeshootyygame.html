@@ -446,25 +446,20 @@ if(adj===0){adj=0.0001;}
 if((map[37]===true||map[65]===true)){
       var bt = ((adj/opp)/((adj/opp)+1))*6.25;
   var bh = ((opp/adj)/((opp/adj)+1))*6.25;
-           if(q==1){
-  bt = bt*-1;
-   bh = bh*-1;
-             playerC.xmotion+=bt;
-     playerC.ymotion+=bh;
+       if(q==1){
+
+             playerC.xmotion+=-bt;
+     playerC.ymotion+=-bh;
   }else if(q==2){
-    bt = bt*-1;
-   bh = bh;
+
                playerC.xmotion+=bt;
-     playerC.ymotion+=bh;
+     playerC.ymotion+=-bh;
        }else if(q==3){
-    bt = bt*-1;
-   bh = bh*-1;
-               playerC.xmotion+=bt;
+
+          playerC.xmotion+=bt;
      playerC.ymotion+=bh;
   }else if(q==4){
-    bt = bt;
-   bh = bh*-1;
-           playerC.xmotion+=bt;
+           playerC.xmotion+=-bt;
      playerC.ymotion+=bh;}
   playerC.xmotion += -0;
 
@@ -519,8 +514,6 @@ if((map[37]===true||map[65]===true)){
  }
 
 if((map[40]===true||map[83]===true)){
-      var bt = ((adj/opp)/((adj/opp)+1))*6.25;
-  var bh = ((opp/adj)/((opp/adj)+1))*6.25;
 
                     if(q==1){
 
