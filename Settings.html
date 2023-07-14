@@ -12,7 +12,7 @@ Settings
     margin-left: 0px;
     background-color: rgb(77, 77, 77);
 ">
-  <img src="https://web-wirer.github.io/Backgrounde.png" id="pai" style="display:none;" onload="backgroud();"/>
+  <img src="https://web-wirer.github.io/Backgrounde.png" id="pai" style="display:none;" onload="backgroud(); sigh();"/>
 <center><canvas id="suf" width="1" style="background-color:rgb(77, 77, 77);">
   
 </canvas></center>
@@ -33,6 +33,7 @@ ctx.lineTo((can.width*(12/16))-30,(can.height/10)+190);
 ctx.lineWidth=15;
 ctx.stroke();
 };
+var sigh = function(){
  T= function(main,anso,anst,warnings,spot){
     this.main=main;
     this.anso=anso;
@@ -40,16 +41,17 @@ ctx.stroke();
     this.warnings=warnings;
     this.spot=spot;
 };
-T.prototype.draw= function{
+T.prototype.draw= function(){
     ctx.font = "75px Arial";
-    ctx.textAlign("center");
-    ctx.fillText(main,can.width/2, (can.height/10)+250);
+    ctx.textAlign="center";
+    ctx.fillText(this.main,can.width/2, ((can.height/10)+250)+(60*this.spot));
     
 
     
 };
 var movement= new T("Movement Type", "Absolute", "relative", ["","Warning, this is a nightmare, use at your own frustration"], 1);
-
+movement.draw();
+}
 </script>
 </body>
 </html>
