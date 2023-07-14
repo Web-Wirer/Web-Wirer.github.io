@@ -33,7 +33,22 @@ ctx.lineTo((can.width*(12/16))-30,(can.height/10)+190);
 ctx.lineWidth=15;
 ctx.stroke();
 };
+ T= function(main,anso,anst,warnings,spot){
+    this.main=main;
+    this.anso=anso;
+    this.anst=anst;
+    this.warnings=warnings;
+    this.spot=spot;
+};
+T.prototype.draw= function{
+    ctx.font = "75px Arial";
+    ctx.textAlign("center");
+    ctx.fillText(main,can.width/2, (can.height/10)+250);
+    
 
+    
+};
+var movement= new T("Movement Type", "Absolute", "relative", ["","Warning, this is a nightmare, use at your own frustration"], 1);
 
 </script>
 </body>
