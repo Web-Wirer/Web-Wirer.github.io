@@ -34,11 +34,12 @@ ctx.lineWidth=15;
 ctx.stroke();
 };
 var sigh = function(){
- T= function(main,anso,anst,spot){
+ T= function(main,anso,anst,spot,cookie){
     this.main=main;
     this.anso=anso;
     this.anst=anst;
     this.spot=spot;
+     this.cookie=cookie;
 };
 T.prototype.draw= function(){
 ctx.fillStyle="black";
@@ -65,8 +66,8 @@ ctx.fillText(this.anst,(((can.width/2)-60)+((can.width/5)+35)-100),((can.height/
 
 
 };
-var movement= new T("Movement Type", "Absolute", "Relative", 0);
-var shit=new T("'f' toggles movement types","Yes","No",1);
+var movement= new T("Movement Type", "Absolute", "Relative", 0,"Movement Type");
+var shit=new T("'f' toggles movement types","Yes","No",1,"togglef");
 movement.draw();
 shit.draw();
 }
