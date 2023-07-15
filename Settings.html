@@ -34,35 +34,41 @@ ctx.lineWidth=15;
 ctx.stroke();
 };
 var sigh = function(){
- T= function(main,anso,anst,warnings,spot){
+ T= function(main,anso,anst,spot){
     this.main=main;
     this.anso=anso;
     this.anst=anst;
-    this.warnings=warnings;
     this.spot=spot;
 };
 T.prototype.draw= function(){
+ctx.fillStyle="black";
     ctx.font = "75px Arial";
     ctx.textAlign="center";
-    ctx.fillText(this.main,can.width/2, ((can.height/10)+250)+(60*this.spot));
+    ctx.fillText(this.main,can.width/2, ((can.height/10)+250)+100+(250*this.spot));
     ctx.lineWidth=7;
     ctx.beginPath();
-    ctx.moveTo((can.width/5)+35, (((can.height/10)+250)+(60*this.spot))+10);
-    ctx.lineTo((can.width*(4/5))-10,(((can.height/10)+250)+(60*this.spot))+10);
+    ctx.moveTo((can.width/5)+35, (((can.height/10)+250)+100+(250*this.spot))+10);
+    ctx.lineTo((can.width*(4/5))-10,(((can.height/10)+250)+100+(250*this.spot))+10);
     ctx.stroke();
     ctx.beginPath();
-    ctx.moveTo(can.width/2,(((can.height/10)+250)+(60*this.spot))+10);
-    ctx.lineTo(can.width/2, (((can.height/10)+250)+(60*this.spot))+180);
+    ctx.moveTo(can.width/2,(((can.height/10)+250)+100+(250*this.spot))+10);
+    ctx.lineTo(can.width/2, (((can.height/10)+250)+100+(250*this.spot))+180);
     ctx.stroke();
     ctx.fillStyle="green";
-    ctx.roundRect((can.width/5)+35, ((can.height/10)+325),((can.width/2)-10)-((can.width/5)+35),((((can.height/10)+165)+(60*this.spot))+180)-((can.height/10)+250),3600);
+    ctx.roundRect((can.width/5)+35, ((can.height/10)+365)+(250*this.spot),((can.width/2)-10)-((can.width/5)+35),175,3600);
 ctx.fill();
-    ctx.roundRect(((can.width/5)+35)+((can.width/3)-90), ((can.height/10)+325),((can.width/2)-10)-((can.width/5)+35),((((can.height/10)+165)+(60*this.spot))+180)-((can.height/10)+250),3600);
+    ctx.roundRect(((can.width/5)+35)+((can.width/3)-90), ((can.height/10)+365)+(250*this.spot),((can.width/2)-10)-((can.width/5)+35),175,3600);
 ctx.fill();
-    
+ctx.fillStyle="white";
+ctx.fillText(this.anso,(((can.width/2)-60)-((can.width/5)+35)/2),((can.height/10)+475)+(250*this.spot));
+ctx.fillText(this.anst,(((can.width/2)-60)+((can.width/5)+35)-100),((can.height/10)+475)+(250*this.spot));
+
+
 };
-var movement= new T("Movement Type", "Absolute", "relative", ["","Warning, this is a nightmare, use at your own frustration"], 1);
+var movement= new T("Movement Type", "Absolute", "Relative", 0);
+var shit=new T("'f' toggles movement types","Yes","No",1);
 movement.draw();
+shit.draw();
 }
 </script>
 </body>
