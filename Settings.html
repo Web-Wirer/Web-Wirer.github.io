@@ -45,7 +45,10 @@ T.prototype.draw= function(){
     ctx.font = "75px Arial";
     ctx.textAlign="center";
     ctx.fillText(this.main,can.width/2, ((can.height/10)+250)+(60*this.spot));
-    
+    ctx.beginPath();
+    ctx.moveTo((can.width/4)+10, (((can.height/10)+250)+(60*this.spot))+10);
+    ctx.lineTo((can.width*(3/4))-10,(((can.height/10)+250)+(60*this.spot))+10);
+    ctx.stroke();
 
     
 };
