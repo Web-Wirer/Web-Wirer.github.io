@@ -45,11 +45,20 @@ T.prototype.draw= function(){
     ctx.font = "75px Arial";
     ctx.textAlign="center";
     ctx.fillText(this.main,can.width/2, ((can.height/10)+250)+(60*this.spot));
+    ctx.lineWidth=7;
     ctx.beginPath();
-    ctx.moveTo((can.width/4)+10, (((can.height/10)+250)+(60*this.spot))+10);
-    ctx.lineTo((can.width*(3/4))-10,(((can.height/10)+250)+(60*this.spot))+10);
+    ctx.moveTo((can.width/5)+35, (((can.height/10)+250)+(60*this.spot))+10);
+    ctx.lineTo((can.width*(4/5))-10,(((can.height/10)+250)+(60*this.spot))+10);
     ctx.stroke();
-
+    ctx.beginPath();
+    ctx.moveTo(can.width/2,(((can.height/10)+250)+(60*this.spot))+10);
+    ctx.lineTo(can.width/2, (((can.height/10)+250)+(60*this.spot))+180);
+    ctx.stroke();
+    ctx.fillStyle="green";
+    ctx.roundRect((can.width/5)+35, ((can.height/10)+325),((can.width/2)-10)-((can.width/5)+35),((((can.height/10)+165)+(60*this.spot))+180)-((can.height/10)+250),3600);
+ctx.fill();
+    ctx.roundRect(((can.width/5)+35)+((can.width/3)-90), ((can.height/10)+325),((can.width/2)-10)-((can.width/5)+35),((((can.height/10)+165)+(60*this.spot))+180)-((can.height/10)+250),3600);
+ctx.fill();
     
 };
 var movement= new T("Movement Type", "Absolute", "relative", ["","Warning, this is a nightmare, use at your own frustration"], 1);
