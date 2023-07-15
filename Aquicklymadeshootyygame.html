@@ -44,7 +44,7 @@ var bullet = document.getElementById("default_bullet");
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   let expires = "expires="+ d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";domain=web-wirer.github.io;path=/";
 }
 
 function getCookie(cname) {
@@ -62,15 +62,17 @@ function getCookie(cname) {
   }
   return "";
 }
-    function checkCookie() {
-  let move = getCookie("Movement Type");
-  if (move != "") {
+    function checkCookie(fun,more,agh,aggh) {
+  let move = getCookie(fun);
+  if (move === agh||move===aggh) {
  return;
   } else {   
-      setCookie("Movement Type", "Absolute", 365);
+      setCookie(fun, more, 365);
   }
 }
-    checkCookie();
+    checkCookie("Movement Type","Absolute","Absolute","Relative");
+    checkCookie("togglef","No","Yes","No");
+    
 function radians_to_degrees(radians) {
   return radians * (180 / Math.PI);
 }
