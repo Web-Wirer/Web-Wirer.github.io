@@ -53,7 +53,11 @@ var background=document.getElementById("pai");
 can.width=window.innerWidth-20;
 can.height=(window.innerWidth-10)*1.6;
 var bac= (can.width*((6/8)/4))+(can.width/8);
+
 var backgroud=function(){
+ctx.fillStyle="rgb(77, 77, 77)";
+ctx.fillRect(0,0,20000,20000);
+ctx.fillStyle="black";
 ctx.drawImage(background,can.width/8,can.height/20, (can.width*(6/8)),can.width*1.5);
 ctx.font = "150px Arial";
 console.log((can.width*((6/8)/4))+(can.width/8));
