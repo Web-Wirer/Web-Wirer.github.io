@@ -69,9 +69,7 @@ var sigh = function(){
  T= function(main,anso,anst,spot,cookie){
     this.main=main;
     this.anso=anso;
-    this.anso.green=true;
     this.anst=anst;
-     this.anst.green=false;
     this.spot=spot;
      this.cookie=cookie;
 };
@@ -130,16 +128,19 @@ for(var i = 0; i<guitems.length;i++){
 }
 T.prototype.detects=function(){
     if(event.offsetX>(can.width/5)+35&&event.offsetX<(((can.width/2)-10)-((can.width/5)+35))+(can.width/5)+35&&event.offsetY>((can.height/10)+365)+(250*this.spot)&&event.offsetY<(((can.height/10)+365)+(250*this.spot))+175){
-        this.anso.green=true;
-        this.anst.green=false;
+for(var i = 0; i<guitems.length;i++){
+    guitems[i].draw();
+}
         setCookie(this.cookie,this.anso,365);
     }
     if(event.offsetX>((can.width/5)+35)+((can.width/3)-90)&&event.offsetX<(((can.width/5)+35)+((can.width/3)-90))+((can.width/2)-10)-((can.width/5)+35)&&event.offsetY>((can.height/10)+365)+(250*this.spot)&&event.offsetY<(((can.height/10)+365)+(250*this.spot))+175){
-    this.anst.green=true;
-    this.anso.green=false;
+for(var i = 0; i<guitems.length;i++){
+    guitems[i].draw();
+}
     setCookie(this.cookie,this.anst,365);
     }
 }
+    window.setInterval(detect,200);
 can.addEventListener("mousemove",note);
 can.addEventListener("click",detect);
 }
