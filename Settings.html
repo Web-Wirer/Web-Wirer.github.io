@@ -52,12 +52,12 @@ var ctx=can.getContext("2d");
 var background=document.getElementById("pai");
 can.width=window.innerWidth-20;
 can.height=(window.innerWidth-10)*1.6;
-
+var bac= (can.width*((6/8)/4))+(can.width/8);
 var backgroud=function(){
 ctx.drawImage(background,can.width/8,can.height/20, (can.width*(6/8)),can.width*1.5);
 ctx.font = "150px Arial";
 console.log((can.width*((6/8)/4))+(can.width/8));
-ctx.fillText("SETTINGS", (can.width*((6/8)/4))+(can.width/8), (can.height/10)+170);
+ctx.fillText("SETTINGS",bac, (can.height/10)+170);
 ctx.beginPath();
 ctx.moveTo(((can.width*((6/8)/4))+(can.width/8))-50, (can.height/10)+190);
 ctx.lineTo((can.width*(12/16))-30,(can.height/10)+190);
