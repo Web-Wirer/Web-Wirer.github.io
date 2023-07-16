@@ -123,10 +123,10 @@ ctx.fillStyle="white";
 };
 guitems.push(new T("Movement Type", "Absolute", "Relative", 0,"Movement Type"));
 guitems.push(new T("'f' toggles movement types","No","Yes",1,"togglef"));
-function draww(){
+
     for(var i = 0; i<guitems.length;i++){
     guitems[i].draw();
-}}
+    }
 T.prototype.detects=function(){
     if(event.offsetX>(can.width/5)+35&&event.offsetX<(((can.width/2)-10)-((can.width/5)+35))+(can.width/5)+35&&event.offsetY>((can.height/10)+365)+(250*this.spot)&&event.offsetY<(((can.height/10)+365)+(250*this.spot))+175){
 for(var i = 0; i<guitems.length;i++){
@@ -141,8 +141,7 @@ for(var i = 0; i<guitems.length;i++){
     setCookie(this.cookie,this.anst,365);
     }
 }
-    window.setInterval(backgroud,200);
-    window.setInterval(draww,200);
+
 can.addEventListener("mousemove",note);
 can.addEventListener("click",detect);
 }
