@@ -17,6 +17,12 @@ Settings
   
 </canvas></center>
 <script>
+        var mouseONE;
+    var mouseTWO;
+    Mouse=function(e){
+        mouseONE=e.offsetX;
+        mouseTWO=e.offsetY;
+    }
      function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -53,7 +59,7 @@ var background=document.getElementById("pai");
 can.width=window.innerWidth-20;
 can.height=(window.innerWidth-10)*1.6;
 var bac= (can.width*((6/8)/4))+(can.width/8);
-
+ 
 var backgroud=function(){
 ctx.fillStyle="rgb(77, 77, 77)";
 ctx.fillRect(0,0,20000,20000);
@@ -79,9 +85,7 @@ var sigh = function(){
     this.spot=spot;
      this.cookie=cookie;
 };
-function note(e){
 
-}
 var detect=function(){
     for(var i = 0; i<guitems.length;i++){
         guitems[i].detects();
@@ -102,6 +106,17 @@ ctx.fillStyle="black";
     ctx.moveTo(can.width/2,(((can.height/10)+250)+100+(250*this.spot))+10);
     ctx.lineTo(can.width/2, (((can.height/10)+250)+100+(250*this.spot))+180);
     ctx.stroke();
+     if(mouseONE>(can.width/5)+35&&mouseONE<(((can.width/2)-10)-((can.width/5)+35))+(can.width/5)+35&&mouseTWO>((can.height/10)+365)+(250*this.spot)&&mouseTWO<(((can.height/10)+365)+(250*this.spot))+175){
+                     ctx.fillStyle="rgba(0,128,0,0.5)";
+    ctx.roundRect((can.width/5)+35, ((can.height/10)+365)+(250*this.spot),((can.width/2)-10)-((can.width/5)+35),175,3600);
+ctx.fill();
+     }
+    
+     if(mouseONE>((can.width/5)+35)+((can.width/3)-90)&&mouseONE<(((can.width/5)+35)+((can.width/3)-90))+((can.width/2)-10)-((can.width/5)+35)&&mouseTWO>((can.height/10)+365)+(250*this.spot)&&mouseTWO<(((can.height/10)+365)+(250*this.spot))+175){
+                     ctx.fillStyle="rgba(0,128,0,0.5)";
+    ctx.roundRect((can.width/5)+35, ((can.height/10)+365)+(250*this.spot),((can.width/2)-10)-((can.width/5)+35),175,3600);
+ctx.fill();
+     }
     if(this.anso===getCookie(this.cookie)){
             ctx.fillStyle="green";
     ctx.roundRect((can.width/5)+35, ((can.height/10)+365)+(250*this.spot),((can.width/2)-10)-((can.width/5)+35),175,3600);
@@ -127,6 +142,14 @@ ctx.fillStyle="white";
 
 
 };
+
+ var greenish=function(){
+    for(var i = 0; i<guitems.length;i++){
+        backgroud();
+    guitems[i].draw();
+}
+ }
+    
 guitems.push(new T("Movement Type", "Absolute", "Relative", 0,"Movement Type"));
 guitems.push(new T("'g' toggles movement types","No","Yes",1,"togglef"));
 
@@ -151,8 +174,8 @@ backgroud();
     
     }
 }
-
-can.addEventListener("mousemove",note);
+window.setInterval(greenish,20);
+can.addEventListener("mousemove",Mouse);
 can.addEventListener("click",detect);
 }
 </script>
