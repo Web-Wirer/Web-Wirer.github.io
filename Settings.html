@@ -98,7 +98,7 @@ ctx.fillStyle="black";
     ctx.moveTo(can.width/2,(((can.height/10)+250)+100+(250*this.spot))+10);
     ctx.lineTo(can.width/2, (((can.height/10)+250)+100+(250*this.spot))+180);
     ctx.stroke();
-    if(this.anso.green){
+    if(this.anso===getCookie(this.cookie)){
             ctx.fillStyle="green";
     ctx.roundRect((can.width/5)+35, ((can.height/10)+365)+(250*this.spot),((can.width/2)-10)-((can.width/5)+35),175,3600);
 ctx.fill();
