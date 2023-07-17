@@ -195,12 +195,17 @@ T.prototype.detects=function(){
     if(event.offsetX>(can.width/5)+35&&event.offsetX<(((can.width/2)-10)-((can.width/5)+35))+(can.width/5)+35&&event.offsetY>((can.height/10)+365)+(250*this.spot)&&event.offsetY<(((can.height/10)+365)+(250*this.spot))+175){
 backgroud();
         setCookie(this.cookie,this.anso,365);
+                for(var i = 0; i<guitems.length;i++){
+    guitems[i].draw();
+}
         
     }
     if(event.offsetX>((can.width/5)+35)+((can.width/3)-90)&&event.offsetX<(((can.width/5)+35)+((can.width/3)-90))+((can.width/2)-10)-((can.width/5)+35)&&event.offsetY>((can.height/10)+365)+(250*this.spot)&&event.offsetY<(((can.height/10)+365)+(250*this.spot))+175){
 backgroud();
         setCookie(this.cookie,this.anst,365);
-    
+            for(var i = 0; i<guitems.length;i++){
+    guitems[i].draw();
+}
     }
 }
 window.setInterval(draws,20);
