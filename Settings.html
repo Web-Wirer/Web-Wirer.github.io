@@ -125,9 +125,7 @@ ctx.globalCompositeOperation = 'xor';
     ctx.moveTo(can.width/2,(((can.height/10)+250)+100+(250*this.spot))+10);
     ctx.lineTo(can.width/2, (((can.height/10)+250)+100+(250*this.spot))+180);
     ctx.stroke();
-              for(var i = 0; i<this.spot;i++){
-    guitems[i].draw();
-}
+
      }
     
      if(mouseONE>((can.width/5)+35)+((can.width/3)-90)&&mouseONE<(((can.width/5)+35)+((can.width/3)-90))+((can.width/2)-10)-((can.width/5)+35)&&mouseTWO>((can.height/10)+365)+(250*this.spot)&&mouseTWO<(((can.height/10)+365)+(250*this.spot))+175){
@@ -148,12 +146,12 @@ ctx.globalCompositeOperation = 'xor';
     ctx.moveTo(can.width/2,(((can.height/10)+250)+100+(250*this.spot))+10);
     ctx.lineTo(can.width/2, (((can.height/10)+250)+100+(250*this.spot))+180);
     ctx.stroke();
-     for(var i = 0; i<this.spot;i++){
-    guitems[i].draw();
-}
+
      }
     if(this.anso===getCookie(this.cookie)){
-
+                ctx.fillStyle="green";
+    ctx.roundRect((can.width/5)+35, ((can.height/10)+365)+(250*this.spot),((can.width/2)-10)-((can.width/5)+35),175,3600);
+    ctx.fill();
         ctx.fillStyle="white";
 ctx.fillText(this.anso,(((can.width/2)-60)-((can.width/5)+35)/2),((can.height/10)+475)+(250*this.spot));
         ctx.fillStyle="black";
@@ -171,7 +169,9 @@ ctx.fillStyle="white";
 
 
 
-
+     for(var i = 0; i<this.spot;i++){
+    guitems[i].draw();
+}
 
 
 };
