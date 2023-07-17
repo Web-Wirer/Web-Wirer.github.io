@@ -151,6 +151,7 @@ ctx.globalCompositeOperation = 'xor';
     ctx.lineTo(can.width/2, (((can.height/10)+250)+100+(250*this.spot))+180);
     ctx.stroke();
 
+can.style="cursor: pointer; background-color:rgb(77, 77, 77);";
      }
     
      if(mouseONE>((can.width/5)+35)+((can.width/3)-90)&&mouseONE<(((can.width/5)+35)+((can.width/3)-90))+((can.width/2)-10)-((can.width/5)+35)&&mouseTWO>((can.height/10)+365)+(250*this.spot)&&mouseTWO<(((can.height/10)+365)+(250*this.spot))+175){
@@ -171,10 +172,12 @@ ctx.globalCompositeOperation = 'xor';
     ctx.moveTo(can.width/2,(((can.height/10)+250)+100+(250*this.spot))+10);
     ctx.lineTo(can.width/2, (((can.height/10)+250)+100+(250*this.spot))+180);
     ctx.stroke();
-
+can.style="cursor: pointer; background-color:rgb(77, 77, 77);";
      }
 }
  var draws=function(){
+     
+can.style="background-color:rgb(77, 77, 77);";
              backgroud();
          for(var i = 0; i<guitems.length;i++){
 
