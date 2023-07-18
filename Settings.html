@@ -151,15 +151,15 @@ var fontscaledg=75*ratiosquare;
 
 ctx.font = fontscaleg+"px Monaco";
     ctx.textAlign="center";
-    ctx.fillText(this.main,can.width/2, ((can.height/10)+250)+100+(250*this.spot));
+    ctx.fillText(this.main,can.width/2, ((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+(250*this.spot));
     ctx.lineWidth=7;
     ctx.beginPath();
-    ctx.moveTo((can.width/5)+35, (((can.height/10)+250)+100+(250*this.spot))+10);
-    ctx.lineTo((can.width*(4/5))-10,(((can.height/10)+250)+100+(250*this.spot))+10);
+    ctx.moveTo((can.width/5)+(35*ratiosquare), (((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+(250*this.spot))+(10*ratiosquare));
+    ctx.lineTo((can.width*(4/5))-(10*ratiosquare),(((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+(250*this.spot))+(10*ratiosquare));
     ctx.stroke();
     ctx.beginPath();
-    ctx.moveTo(can.width/2,(((can.height/10)+250)+100+(250*this.spot))+10);
-    ctx.lineTo(can.width/2, (((can.height/10)+250)+100+(250*this.spot))+180);
+    ctx.moveTo(can.width/2,(((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+(250*this.spot))+(10*ratiosquare));
+    ctx.lineTo(can.width/2, (((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+(250*this.spot))+(180*ratiosquare));
     ctx.stroke();
 
 can.style="cursor: pointer; background-color:rgb(77, 77, 77);";
