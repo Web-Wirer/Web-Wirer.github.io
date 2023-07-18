@@ -72,7 +72,10 @@ function getCookie(cname) {
 }
     checkCookie("Movement Type","Absolute","Absolute","Relative");
     checkCookie("togglef","No","Yes","No");
-    
+
+    var movement= getCookie("Movement Type");
+    var tog= getCookie("togglef");
+    canvas.style="width:52%;height:96.1%";
 function radians_to_degrees(radians) {
   return radians * (180 / Math.PI);
 }
@@ -473,8 +476,7 @@ if(adj===0){adj=0.0001;}
   var bt = ((adj/opp)/((adj/opp)+1))*6.25;
   var bh = ((opp/adj)/((opp/adj)+1))*6.25;
 if((map[37]===true||map[65]===true)){
-      var bt = ((adj/opp)/((adj/opp)+1))*6.25;
-  var bh = ((opp/adj)/((opp/adj)+1))*6.25;
+if(movement==="Relative"){
        if(q==1){
 
              playerC.xmotion+=-bt;
@@ -489,12 +491,12 @@ if((map[37]===true||map[65]===true)){
      playerC.ymotion+=bh;
   }else if(q==4){
            playerC.xmotion+=-bt;
-     playerC.ymotion+=bh;}
-  playerC.xmotion += -0;
+     playerC.ymotion+=bh;}}else{
+  playerC.xmotion += -6.25;}
 
 }
  if((map[38]===true||map[87]===true)){
-
+if(movement==="Relative"){
                     if(q==1){
 
            playerC.xmotion+=bh;
@@ -510,13 +512,13 @@ if((map[37]===true||map[65]===true)){
   }else if(q==4){
 
            playerC.xmotion+=-bh;
-     playerC.ymotion+=-bt;}
- playerC.ymotion += -0;
+     playerC.ymotion+=-bt;}}else{
+ playerC.ymotion += -6.25;}
 
 
 }
  if((map[39]===true||map[68]===true)){
-
+if(movement==="Relative"){
        if(q==1){
   bt = bt;
    bh = bh;
@@ -536,14 +538,14 @@ if((map[37]===true||map[65]===true)){
     bt = bt;
    bh = bh*-1;
            playerC.xmotion+=bt;
-     playerC.ymotion+=bh;}
+     playerC.ymotion+=bh;}}else{
      
-           playerC.xmotion+=0;
+           playerC.xmotion+=6.25;}
 
  }
 
 if((map[40]===true||map[83]===true)){
-
+if(movement==="Relative"){
                     if(q==1){
 
            playerC.xmotion+=-bh;
@@ -559,11 +561,13 @@ if((map[40]===true||map[83]===true)){
   }else if(q==4){
 
            playerC.xmotion+=bh;
-     playerC.ymotion+=bt;}
- playerC.ymotion += 0;
+     playerC.ymotion+=bt;}}else{
+ playerC.ymotion += 6.25;}
 
-
-
+ if(map[71]===true&&tog==="Yes"){
+if(movement==="Relative"){
+    movement==="Absolute";
+}else{movement==="Relative";}
 }
     if(stop(playerC)){
  playerC.x +=playerC.xmotion;
