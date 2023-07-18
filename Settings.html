@@ -61,13 +61,18 @@ can.height=(window.innerWidth-10)*1.6;
 can.style="width: 100%";
 can.style="height: 282%";
 var bac= (can.width*((6/8)/4))+(can.width/8);
- 
+
+
+var ratiosquare=(can.width*can.height)/(1900*3056);
+
 var backgroud=function(){
 ctx.fillStyle="rgb(77, 77, 77)";
 ctx.fillRect(0,0,20000,20000);
 ctx.fillStyle="black";
 ctx.drawImage(background,can.width/8,can.height/20, (can.width*(6/8)),can.width*1.5);
-ctx.font = "150px Monaco";
+var fontscaledb=150*ratiosquare;
+
+ctx.font = fontscaledb+"px Monaco";
 ctx.textAlign="left";
     ctx.globalCompositeOperation = 'source-over';
 ctx.fillText("SETTINGS",bac, (can.height/10)+170);
@@ -96,7 +101,9 @@ var detect=function(){
 var guitems=[];
 T.prototype.draw= function(){
 ctx.fillStyle="black";
-    ctx.font = "75px Monaco";
+var fontscaledd=75*ratiosquare;
+
+ctx.font = fontscaledd+"px Monaco";
     ctx.textAlign="center";
     ctx.fillText(this.main,can.width/2, ((can.height/10)+250)+100+(250*this.spot));
     ctx.lineWidth=7;
@@ -140,7 +147,9 @@ ctx.globalCompositeOperation = 'xor';
     ctx.roundRect((can.width/5)+35, ((can.height/10)+365)+(250*this.spot),((can.width/2)-10)-((can.width/5)+35),175,3600);
     ctx.fill();
          backgroud();
-             ctx.font = "75px Monaco";
+var fontscaledg=75*ratiosquare;
+
+ctx.font = fontscaleg+"px Monaco";
     ctx.textAlign="center";
     ctx.fillText(this.main,can.width/2, ((can.height/10)+250)+100+(250*this.spot));
     ctx.lineWidth=7;
@@ -162,7 +171,9 @@ ctx.globalCompositeOperation = 'xor';
         ctx.roundRect(((can.width/5)+35)+((can.width/3)-90), ((can.height/10)+365)+(250*this.spot),((can.width/2)-10)-((can.width/5)+35),175,3600);
     ctx.fill();
               backgroud();
-             ctx.font = "75px Monaco";
+             var fontscaledg=75*ratiosquare;
+
+ctx.font = fontscaledg+"px Monaco";
     ctx.textAlign="center";
     ctx.fillText(this.main,can.width/2, ((can.height/10)+250)+100+(250*this.spot));
     ctx.lineWidth=7;
