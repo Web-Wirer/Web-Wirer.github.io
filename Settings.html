@@ -75,10 +75,10 @@ var fontscaledb=150*ratiosquare;
 ctx.font = fontscaledb+"px Monaco";
 ctx.textAlign="left";
     ctx.globalCompositeOperation = 'source-over';
-ctx.fillText("SETTINGS",bac, (can.height/10)+170);
+ctx.fillText("SETTINGS",bac, (can.height/10)+(170*ratiosquare));
 ctx.beginPath();
-ctx.moveTo(((can.width*((6/8)/4))+(can.width/8))-50, (can.height/10)+190);
-ctx.lineTo((can.width*(12/16))-30,(can.height/10)+190);
+ctx.moveTo(((can.width*((6/8)/4))+(can.width/8))-(50*ratiosquare), (can.height/10)+(190*ratiosquare));
+ctx.lineTo((can.width*(12/16))-(30*ratiosquare),(can.height/10)+(190*ratiosquare));
 ctx.lineWidth=15;
 ctx.stroke();
 };
@@ -105,33 +105,33 @@ var fontscaledd=75*ratiosquare;
 
 ctx.font = fontscaledd+"px Monaco";
     ctx.textAlign="center";
-    ctx.fillText(this.main,can.width/2, ((can.height/10)+250)+100+(250*this.spot));
+    ctx.fillText(this.main,can.width/2, ((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+((250*ratiosquare)*this.spot));
     ctx.lineWidth=7;
     ctx.beginPath();
-    ctx.moveTo((can.width/5)+35, (((can.height/10)+250)+100+(250*this.spot))+10);
-    ctx.lineTo((can.width*(4/5))-10,(((can.height/10)+250)+100+(250*this.spot))+10);
+    ctx.moveTo((can.width/5)+(35*ratiosquare), (((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+((250*ratiosquare)*this.spot))+(10*ratiosquare));
+    ctx.lineTo((can.width*(4/5))-(10*ratiosquare),(((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+((250*ratiosquare)*this.spot))+(10*ratiosquare));
     ctx.stroke();
     ctx.beginPath();
-    ctx.moveTo(can.width/2,(((can.height/10)+250)+100+(250*this.spot))+10);
-    ctx.lineTo(can.width/2, (((can.height/10)+250)+100+(250*this.spot))+180);
+    ctx.moveTo(can.width/2,(((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+((250*ratiosquare)*this.spot))+(10*ratiosquare));
+    ctx.lineTo(can.width/2, (((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+((250*ratiosquare)*this.spot))+(180*ratiosquare));
     ctx.stroke();
 
     if(this.anso===getCookie(this.cookie)){
                 ctx.fillStyle="green";
-    ctx.roundRect((can.width/5)+35, ((can.height/10)+365)+(250*this.spot),((can.width/2)-10)-((can.width/5)+35),175,3600);
+    ctx.roundRect((can.width/5)+(35*ratiosquare), ((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot),((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)),(175*ratiosquare),3600);
     ctx.fill();
         ctx.fillStyle="white";
-ctx.fillText(this.anso,(((can.width/2)-60)-((can.width/5)+35)/2),((can.height/10)+475)+(250*this.spot));
+ctx.fillText(this.anso,(((can.width/2)-(60*ratiosquare))-((can.width/5)+(35*ratiosquare))/2),((can.height/10)+(475*ratiosquare))+((250*ratiosquare)*this.spot));
         ctx.fillStyle="black";
-        ctx.fillText(this.anst,(((can.width/2)-60)+((can.width/5)+35)-100),((can.height/10)+475)+(250*this.spot));
+        ctx.fillText(this.anst,(((can.width/2)-(60*ratiosquare))+((can.width/5)+(35*ratiosquare))-(100*ratiosquare)),((can.height/10))+(475*ratiosquare))+((250*ratiosquare)*this.spot));
     }else{
         ctx.fillStyle="green";
-        ctx.roundRect(((can.width/5)+35)+((can.width/3)-90), ((can.height/10)+365)+(250*this.spot),((can.width/2)-10)-((can.width/5)+35),175,3600);
+        ctx.roundRect(((can.width/5)+(35*ratiosquare))+((can.width/3)-(90*ratiosquare)), ((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot),((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)),(175*ratiosquare),3600);
 ctx.fill();
 ctx.fillStyle="white";
-        ctx.fillText(this.anst,(((can.width/2)-60)+((can.width/5)+35)-100),((can.height/10)+475)+(250*this.spot));
+        ctx.fillText(this.anst,(((can.width/2)-(60*ratiosquare))+((can.width/5)+(35*ratiosquare))-(100*ratiosquare)),((can.height/10)+(475*ratiosquare))+((250*ratiosquare)*this.spot));
         ctx.fillStyle="black";
-       ctx.fillText(this.anso,(((can.width/2)-60)-((can.width/5)+35)/2),((can.height/10)+475)+(250*this.spot));
+       ctx.fillText(this.anso,(((can.width/2)-(60*ratiosquare))-((can.width/5)+(35*ratiosquare))/2),((can.height/10)+(475*ratiosquare))+((250*ratiosquare)*this.spot));
     }
     
 
@@ -141,25 +141,25 @@ ctx.fillStyle="white";
 
 };
  T.prototype.green=function(){
-         if(mouseONE>(can.width/5)+35&&mouseONE<(((can.width/2)-10)-((can.width/5)+35))+(can.width/5)+35&&mouseTWO>((can.height/10)+365)+(250*this.spot)&&mouseTWO<(((can.height/10)+365)+(250*this.spot))+175){
+         if(mouseONE>(can.width/5)+(35*ratiosquare)&&mouseONE<(((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)))+(can.width/5)+(35*ratiosquare)&&mouseTWO>((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot)&&mouseTWO<(((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot))+(175*ratiosquare)){
 ctx.globalCompositeOperation = 'xor';
          ctx.fillStyle="rgba(0,128,0,0.5)";
-    ctx.roundRect((can.width/5)+35, ((can.height/10)+365)+(250*this.spot),((can.width/2)-10)-((can.width/5)+35),175,3600);
+    ctx.roundRect((can.width/5)+(35*ratiosquare), ((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot),((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)),(175*ratiosquare),3600);
     ctx.fill();
          backgroud();
 var fontscaledg=75*ratiosquare;
 
 ctx.font = fontscaledg+"px Monaco";
     ctx.textAlign="center";
-    ctx.fillText(this.main,can.width/2, ((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+(250*this.spot));
+    ctx.fillText(this.main,can.width/2, ((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+((250*ratiosquare)*this.spot));
     ctx.lineWidth=7;
     ctx.beginPath();
-    ctx.moveTo((can.width/5)+(35*ratiosquare), (((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+(250*this.spot))+(10*ratiosquare));
-    ctx.lineTo((can.width*(4/5))-(10*ratiosquare),(((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+(250*this.spot))+(10*ratiosquare));
+    ctx.moveTo((can.width/5)+(35*ratiosquare), (((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+((250*ratiosquare)*this.spot))+(10*ratiosquare));
+    ctx.lineTo((can.width*(4/5))-(10*ratiosquare),(((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+((250*ratiosquare)*this.spot))+(10*ratiosquare));
     ctx.stroke();
     ctx.beginPath();
-    ctx.moveTo(can.width/2,(((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+(250*this.spot))+(10*ratiosquare));
-    ctx.lineTo(can.width/2, (((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+(250*this.spot))+(180*ratiosquare));
+    ctx.moveTo(can.width/2,(((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+((250*ratiosquare)*this.spot))+(10*ratiosquare));
+    ctx.lineTo(can.width/2, (((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+((250*ratiosquare)*this.spot))+(180*ratiosquare));
     ctx.stroke();
 
 can.style="cursor: pointer; background-color:rgb(77, 77, 77);";
@@ -168,22 +168,22 @@ can.style="cursor: pointer; background-color:rgb(77, 77, 77);";
      if(mouseONE>((can.width/5)+35)+((can.width/3)-90)&&mouseONE<(((can.width/5)+35)+((can.width/3)-90))+((can.width/2)-10)-((can.width/5)+35)&&mouseTWO>((can.height/10)+365)+(250*this.spot)&&mouseTWO<(((can.height/10)+365)+(250*this.spot))+175){
 ctx.globalCompositeOperation = 'xor';
          ctx.fillStyle="rgba(0,128,0,0.5)";
-        ctx.roundRect(((can.width/5)+35)+((can.width/3)-90), ((can.height/10)+365)+(250*this.spot),((can.width/2)-10)-((can.width/5)+35),175,3600);
+        ctx.roundRect(((can.width/5)+(35*ratiosquare))+((can.width/3)-(90*ratiosquare)), ((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot),((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)),(175*ratiosquare),3600);
     ctx.fill();
               backgroud();
              var fontscaledg=75*ratiosquare;
 
 ctx.font = fontscaledg+"px Monaco";
     ctx.textAlign="center";
-    ctx.fillText(this.main,can.width/2, ((can.height/10)+250)+100+(250*this.spot));
+    ctx.fillText(this.main,can.width/2, ((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+((250*ratiosquare)*this.spot));
     ctx.lineWidth=7;
     ctx.beginPath();
-    ctx.moveTo((can.width/5)+35, (((can.height/10)+250)+100+(250*this.spot))+10);
-    ctx.lineTo((can.width*(4/5))-10,(((can.height/10)+250)+100+(250*this.spot))+10);
+    ctx.moveTo((can.width/5)+(35*ratiosquare), (((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+((250*ratiosquare)*this.spot))+(10*ratiosquare));
+    ctx.lineTo((can.width*(4/5))-(10*ratiosquare),(((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+((250*ratiosquare)*this.spot))+(10*ratiosquare));
     ctx.stroke();
     ctx.beginPath();
-    ctx.moveTo(can.width/2,(((can.height/10)+250)+100+(250*this.spot))+10);
-    ctx.lineTo(can.width/2, (((can.height/10)+250)+100+(250*this.spot))+180);
+    ctx.moveTo(can.width/2,(((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+((250*ratiosquare)*this.spot))+(10*ratiosquare));
+    ctx.lineTo(can.width/2, (((can.height/10)+(250*ratiosquare))+(100*ratiosquare)+((250*ratiosquare)*this.spot))+(180*ratiosquare));
     ctx.stroke();
 can.style="cursor: pointer; background-color:rgb(77, 77, 77);";
      }
@@ -207,7 +207,7 @@ guitems.push(new T("'g' toggles movement types","No","Yes",1,"togglef"));
 
 
 T.prototype.detects=function(){
-    if(event.offsetX>(can.width/5)+35&&event.offsetX<(((can.width/2)-10)-((can.width/5)+35))+(can.width/5)+35&&event.offsetY>((can.height/10)+365)+(250*this.spot)&&event.offsetY<(((can.height/10)+365)+(250*this.spot))+175){
+    if(event.offsetX>(can.width/5)+(35*ratiosquare)&&event.offsetX<(((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)))+(can.width/5)+(35*ratiosquare)&&event.offsetY>((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot)&&event.offsetY<(((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot))+(175*ratiosquare)){
 backgroud();
         setCookie(this.cookie,this.anso,365);
                 for(var i = 0; i<guitems.length;i++){
@@ -215,7 +215,7 @@ backgroud();
 }
         
     }
-    if(event.offsetX>((can.width/5)+35)+((can.width/3)-90)&&event.offsetX<(((can.width/5)+35)+((can.width/3)-90))+((can.width/2)-10)-((can.width/5)+35)&&event.offsetY>((can.height/10)+365)+(250*this.spot)&&event.offsetY<(((can.height/10)+365)+(250*this.spot))+175){
+    if(event.offsetX>((can.width/5)+(35*ratiosquare))+((can.width/3)-(90*ratiosquare))&&event.offsetX<(((can.width/5)+(35*ratiosquare))+((can.width/3)-(90*ratiosquare)))+((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare))&&event.offsetY>((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot)&&event.offsetY<(((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot))+175){
 backgroud();
         setCookie(this.cookie,this.anst,365);
             for(var i = 0; i<guitems.length;i++){
