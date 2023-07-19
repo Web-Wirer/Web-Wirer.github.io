@@ -82,6 +82,7 @@ function radians_to_degrees(radians) {
 function degrees_to_radians(degrees) {
   return degrees * (Math.PI / 180);
 }
+    
 //enemy object
 enemy= function(x,y,maxHealth,wepDamage,rotation,xmotion,ymotion){
 this.x = x;
@@ -144,6 +145,19 @@ this.height=62.5/3.1622;
 
     
 }
+    //LEVEL GENERATION! 
+    var current_level=[
+'5',
+'5',
+'WWWWW',
+'W   W',
+'W P W',
+'W   W',
+'WWWWW'      
+    ];
+level_object_properties=function(){
+    this.obj1=[];    
+};
  enemy.prototype.fire = function(){
 
 
