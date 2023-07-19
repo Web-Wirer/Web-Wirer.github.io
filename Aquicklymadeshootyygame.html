@@ -459,13 +459,16 @@ this.rotation=eans;
 return;
 }
 }}
-var map = {}; // You could also use an array
-onkeydown = onkeyup = function(e){
-    if(e.keyCode===71&&tog==="Yes"){
+toggle=function(e){
+        if(e.keyCode===71&&tog==="Yes"){
 if(movement==="Relative"){
     movement="Absolute";
 }else{movement="Relative";}
 }
+}
+var map = {}; // You could also use an array
+onkeydown = onkeyup = function(e){
+
     e = e || event; // to deal with IE
     map[e.keyCode] = e.type == 'keydown';
 
@@ -669,6 +672,7 @@ bulletss[i].move();}
 window.requestAnimationFrame(game);
     
 };
+    canvas.addEventListener("onkeypress",toggle);
 canvas.addEventListener("mousemove",Mouse);
   canvas.addEventListener("click",fire);
 loadlevel(5,5,0);  
