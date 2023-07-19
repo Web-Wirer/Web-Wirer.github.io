@@ -59,7 +59,9 @@ var background=document.getElementById("pai");
 can.width=window.innerWidth-20;
 can.height=(window.innerWidth-10)*1.6;
 var bac= (can.width*((6/8)/4))+(can.width/8);
-
+if(getCookie("Max_screws_himself")!=="Yes"&&getCookie("Max_screws_himself")!=="No"){
+    setCookie("Max_screws_himself","Yes",365);
+}
 
 var ratiosquare=can.height/3056;
 
