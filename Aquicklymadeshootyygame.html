@@ -461,18 +461,16 @@ return;
 }}
 var map = {}; // You could also use an array
 onkeydown = onkeyup = function(e){
-    e = e || event; // to deal with IE
-    map[e.keyCode] = e.type == 'keydown';
-
-}
-toggle = function(e){
-  console.log(e.keyCode);
     if(e.keyCode===71&&tog==="Yes"){
 if(movement==="Relative"){
     movement="Absolute";
 }else{movement="Relative";}
 }
+    e = e || event; // to deal with IE
+    map[e.keyCode] = e.type == 'keydown';
+
 }
+
 move = function(){
     adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
 opp = Math.abs((playerC.y+(62.5/2))-mouseTWO);
