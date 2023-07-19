@@ -475,8 +475,6 @@ if(movement==="Relative"){
 move = function(){
     adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
 opp = Math.abs((playerC.y+(62.5/2))-mouseTWO);
-    var movement= getCookie("Movement Type");
-    var tog= getCookie("togglef");
 
 if(adj===0){adj=0.0001;}
         if(opp===0){opp=0.0001;}
