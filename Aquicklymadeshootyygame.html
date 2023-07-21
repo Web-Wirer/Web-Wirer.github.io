@@ -101,19 +101,18 @@ this.rotation=rotation;
     this.hasShot=0;
 };
 //player object
-players= function(x,y,maxHealth,wepDamage, speed=1,rotation,xmotion,ymotion){
-this.x = x;
-this.y=y;
+player= function(x,y,maxHealth,wepDamage, speed=1){
+this.x = (x*138)+((138/2)-(62.5/2));
+this.y=(y*138)+((138/2)-(62.5/2));
 this.width=62.5;
 this.height=62.5;
     this.type="player";
 this.health= maxHealth;
 this.maxHealth = maxHealth;
 this.wepDamage = wepDamage;
-this.rotation=rotation;
+this.rotation=0;
 this.xmotion=0;
 this.ymotion=0;
-  this.cd=0;
 };
 //wall object
 stopper=function(x,y){
@@ -151,9 +150,9 @@ this.height=62.5/3.1622;
 '5',
 '5',
 'WWWWW',
-'WWWWW',
-'WWPWW',
-'WWWWW',
+'W   W',
+'W P W',
+'W   W',
 'WWWWW'      
     ];
 level_object_properties=function(){
@@ -166,10 +165,10 @@ true_load = function(){
             if(k==="W"){
                 walls.push(new stopper(j,i));
             }
+            if(k==="P"){
+                PlayerC=new player(j,i,3,1));
         }
     }
-playerC.x=260;
-    playerC.y=270;
 }
  enemy.prototype.fire = function(){
 
@@ -335,7 +334,7 @@ return(true);
 
 
 
-playerC= new players(250,250,3,1,0,0);
+
 
 
 
