@@ -5,7 +5,7 @@
 </head>
 <body>
 <img src="https://web-wirer.github.io/Wall.png"style="display:none" id = "wall"/>
-<img src = "https://web-wirer.github.io/Player%20for%20shooter.png"style="display:none"   id = "player"/>
+<img src = "https://web-wirer.github.io/players%20for%20shooter.png"style="display:none"   id = "player"/>
 <img src = "https://web-wirer.github.io/Enemy%20for%20shooter.png" style="display: none" id = "enemy"/>
 <img src = "https://web-wirer.github.io/Bullet.png" style="display: none" id = "default_bullet"/>
 <canvas id="one" width = "1000" height ="1000"></canvas>
@@ -100,13 +100,13 @@ this.rotation=rotation;
   this.cd=0;
     this.hasShot=0;
 };
-//player object
-player= function(x,y,maxHealth,wepDamage, speed=1){
+//players object
+players= function(x,y,maxHealth,wepDamage, speed=1){
 this.x = (x*138)+((138/2)-(62.5/2));
 this.y=(y*138)+((138/2)-(62.5/2));
 this.width=62.5;
 this.height=62.5;
-    this.type="player";
+    this.type="players";
 this.health= maxHealth;
 this.maxHealth = maxHealth;
 this.wepDamage = wepDamage;
@@ -166,7 +166,7 @@ true_load = function(){
                 walls.push(new stopper(j,i));
             }
             if(k==="P"){
-                playerC=new player(j,i,3,1);
+                playersC=new players(j,i,3,1);
         }
     }
 }
@@ -234,7 +234,7 @@ ctx.translate(-translateX,-translateY);
 ctx.drawImage(bullet,this.x,this.y,(62.5)/3.1622,(62.5)/3.1622);
 ctx.restore();}}
 
-player.prototype.draw=function(){
+players.prototype.draw=function(){
 
 var translateX= this.x+(62.5/2);
 var translateY= this.y+(62.5/2);
@@ -242,7 +242,7 @@ ctx.save();
 ctx.translate(translateX,translateY);
 ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
-ctx.drawImage(player,this.x,this.y,62.5,62.5);
+ctx.drawImage(players,this.x,this.y,62.5,62.5);
 ctx.restore();
 
 };
@@ -258,8 +258,8 @@ fire = function(){
   //some math that might not work
 
 
-adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
-opp = Math.abs((playerC.y+(62.5/2))-mouseTWO);
+adj = Math.abs((playersC.x+(62.5/2))-mouseONE);
+opp = Math.abs((playersC.y+(62.5/2))-mouseTWO);
 
 
 if(adj===0){adj=0.0001;}
@@ -274,7 +274,7 @@ if(adj===0){adj=0.0001;}
   }else if(q==2){
     st = st*-1;
    sh = sh;
-     bulletss.push(new bullets(playerC.x+(62.5/2)-((62.5/3.1622)/2),playerC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playerC,"player",st,sh,playerC.rotation+90));
+     bulletss.push(new bullets(playersC.x+(62.5/2)-((62.5/3.1622)/2),playersC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playersC,"players",st,sh,playersC.rotation+90));
     return;
   }else if(q==3){
     st = st*-1;
@@ -282,10 +282,10 @@ if(adj===0){adj=0.0001;}
   }else if(q==4){
     st = st;
    sh = sh*-1;
-         bulletss.push(new bullets(playerC.x+(62.5/2)-((62.5/3.1622)/2),playerC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playerC,"player",st,sh,playerC.rotation+90));
+         bulletss.push(new bullets(playersC.x+(62.5/2)-((62.5/3.1622)/2),playersC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playersC,"players",st,sh,playersC.rotation+90));
     return;
   }
-   bulletss.push(new bullets(playerC.x+(62.5/2)-((62.5/3.1622)/2),playerC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playerC,"player",st,sh,playerC.rotation+90));
+   bulletss.push(new bullets(playersC.x+(62.5/2)-((62.5/3.1622)/2),playersC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playersC,"players",st,sh,playersC.rotation+90));
  
   }}
   //bullet motion
@@ -319,13 +319,13 @@ return(true);
     shop= function(obj){
  
   
-if((obj.x+obj.width)>(playerC.x-3)&&(obj.x+obj.width)<playerC.width+5+playerC.x&&(obj.y+obj.height)>(playerC.y-6)&&(obj.y+obj.height)<playerC.height+9+playerC.y){
+if((obj.x+obj.width)>(playersC.x-3)&&(obj.x+obj.width)<playersC.width+5+playersC.x&&(obj.y+obj.height)>(playersC.y-6)&&(obj.y+obj.height)<playersC.height+9+playersC.y){
  
 return(false);
 
 
     
-}else if(obj.x+4>playerC.x&&obj.x<playerC.width+playerC.x&&obj.y>playerC.y-6&&obj.y<playerC.height+6+playerC.y){
+}else if(obj.x+4>playersC.x&&obj.x<playersC.width+playersC.x&&obj.y>playersC.y-6&&obj.y<playersC.height+6+playersC.y){
 return(false);
 
 }
@@ -342,15 +342,15 @@ return(true);
     //math is pain.
 point = function(){
 
-adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
-opp = Math.abs((playerC.y+(62.5/2))-mouseTWO);
+adj = Math.abs((playersC.x+(62.5/2))-mouseONE);
+opp = Math.abs((playersC.y+(62.5/2))-mouseTWO);
     hyp= Math.sqrt((adj*adj)+(opp*opp));
 
 almost = opp/hyp;
 ans = Math.asin(almost);
 ans=radians_to_degrees(ans);
 
- if(playerC.x+(62.5/2)<mouseONE&&playerC.y+(62.5/2)<mouseTWO){
+ if(playersC.x+(62.5/2)<mouseONE&&playersC.y+(62.5/2)<mouseTWO){
 if (ans>90){
  ans = 90;
 }else if(ans<0){
@@ -358,9 +358,9 @@ if (ans>90){
 }
 
    q=1;
-playerC.rotation=ans;
+playersC.rotation=ans;
 return;
-}else if(playerC.x+(62.5/2)>mouseONE&&playerC.y+(62.5/2)<mouseTWO){
+}else if(playersC.x+(62.5/2)>mouseONE&&playersC.y+(62.5/2)<mouseTWO){
 ans= 180-ans;
 if (ans<90){
  ans= 90;
@@ -368,9 +368,9 @@ if (ans<90){
  ans = 270;
 }
   q=2;
-playerC.rotation=ans;
+playersC.rotation=ans;
 return;
-}else if(playerC.x+(62.5/2)>mouseONE&&playerC.y+(62.5/2)>mouseTWO){
+}else if(playersC.x+(62.5/2)>mouseONE&&playersC.y+(62.5/2)>mouseTWO){
 ans=180+ans;
 if (ans>270){
 ans = 270;
@@ -379,9 +379,9 @@ ans = 180;
 }
 
   q=3;
-playerC.rotation= ans;
+playersC.rotation= ans;
 return;
-}else if(playerC.x+(62.5/2)<mouseONE&&playerC.y+(62.5/2)>mouseTWO){
+}else if(playersC.x+(62.5/2)<mouseONE&&playersC.y+(62.5/2)>mouseTWO){
 ans= 360-ans;
 if (ans>360){
 ans = 360;
@@ -389,7 +389,7 @@ ans = 360;
 ans = 270;
 }
   q=4;
-playerC.rotation=ans;
+playersC.rotation=ans;
 
 
 return;
@@ -417,13 +417,13 @@ var m = Math.pow(p,2);
 //math is pain.
 enemy.prototype.point = function(){
 if(this.isResting==false){
-eadj = Math.abs((playerC.x+(62.5/2))-(this.x+(62.5/2)));
-eopp = Math.abs((playerC.y+(62.5/2))-(this.y+(62.5/2)));
+eadj = Math.abs((playersC.x+(62.5/2))-(this.x+(62.5/2)));
+eopp = Math.abs((playersC.y+(62.5/2))-(this.y+(62.5/2)));
 
 ealmost = eopp/eadj;
 eans = radians_to_degrees(ealmost);
 
- if(this.x+(62.5/2)<playerC.x+(62.5/2)&&this.y+(62.5/2)<playerC.y+(62.5/2)){
+ if(this.x+(62.5/2)<playersC.x+(62.5/2)&&this.y+(62.5/2)<playersC.y+(62.5/2)){
 if (eans>90){
  eans = 90;
 }else if(eans<0){
@@ -432,7 +432,7 @@ if (eans>90){
    eq=1;
 this.rotation=eans;
 return;
-}else if(this.x+(62.5/2)>playerC.x+(62.5/2)&&this.y+(62.5/2)<playerC.y+(62.5/2)){
+}else if(this.x+(62.5/2)>playersC.x+(62.5/2)&&this.y+(62.5/2)<playersC.y+(62.5/2)){
 eans= 180-eans;
 if (eans<90){
  eans= 90;
@@ -442,7 +442,7 @@ if (eans<90){
   eq=2;
 this.rotation=eans;
 return;
-}else if(this.x+(62.5/2)>playerC.x+(62.5/2)&&this.y+(62.5/2)>playerC.y+(62.5/2)){
+}else if(this.x+(62.5/2)>playersC.x+(62.5/2)&&this.y+(62.5/2)>playersC.y+(62.5/2)){
 eans=180+eans;
 if (eans>270){
 eans = 270;
@@ -452,7 +452,7 @@ eans = 180;
   eq=3;
 this.rotation= eans;
 return;
-}else if(this.x+(62.5/2)<playerC.x+(62.5/2)&&this.y+(62.5/2)>playerC.y+(62.5/2)){
+}else if(this.x+(62.5/2)<playersC.x+(62.5/2)&&this.y+(62.5/2)>playersC.y+(62.5/2)){
 eans= 360-eans;
 if (eans>360){
 eans = 360;
@@ -481,8 +481,8 @@ onkeydown = onkeyup = function(e){
 }
 
 move = function(){
-    adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
-opp = Math.abs((playerC.y+(62.5/2))-mouseTWO);
+    adj = Math.abs((playersC.x+(62.5/2))-mouseONE);
+opp = Math.abs((playersC.y+(62.5/2))-mouseTWO);
 
 if(adj===0){adj=0.0001;}
         if(opp===0){opp=0.0001;}
@@ -493,41 +493,41 @@ if((map[37]===true||map[65]===true)){
 if(movement==="Relative"){
        if(q==1){
 
-             playerC.xmotion+=-bt;
-     playerC.ymotion+=-bh;
+             playersC.xmotion+=-bt;
+     playersC.ymotion+=-bh;
   }else if(q==2){
 
-               playerC.xmotion+=bt;
-     playerC.ymotion+=-bh;
+               playersC.xmotion+=bt;
+     playersC.ymotion+=-bh;
        }else if(q==3){
 
-          playerC.xmotion+=bt;
-     playerC.ymotion+=bh;
+          playersC.xmotion+=bt;
+     playersC.ymotion+=bh;
   }else if(q==4){
-           playerC.xmotion+=-bt;
-     playerC.ymotion+=bh;}}else{
-  playerC.xmotion += -6.25;}}
+           playersC.xmotion+=-bt;
+     playersC.ymotion+=bh;}}else{
+  playersC.xmotion += -6.25;}}
 
 
  if((map[38]===true||map[87]===true)){
 if(movement==="Relative"){
                     if(q==1){
 
-           playerC.xmotion+=bh;
-     playerC.ymotion+=-bt;
+           playersC.xmotion+=bh;
+     playersC.ymotion+=-bt;
   }else if(q==2){
 
-           playerC.xmotion+=bh;
-     playerC.ymotion+=bt;
+           playersC.xmotion+=bh;
+     playersC.ymotion+=bt;
        }else if(q==3){
 
-           playerC.xmotion+=-bh;
-     playerC.ymotion+=bt;
+           playersC.xmotion+=-bh;
+     playersC.ymotion+=bt;
   }else if(q==4){
 
-           playerC.xmotion+=-bh;
-     playerC.ymotion+=-bt;}}else{
- playerC.ymotion += -6.25;}}
+           playersC.xmotion+=-bh;
+     playersC.ymotion+=-bt;}}else{
+ playersC.ymotion += -6.25;}}
 
 
 
@@ -536,25 +536,25 @@ if(movement==="Relative"){
        if(q==1){
   bt = bt;
    bh = bh;
-             playerC.xmotion+=bt;
-     playerC.ymotion+=bh;
+             playersC.xmotion+=bt;
+     playersC.ymotion+=bh;
   }else if(q==2){
     bt = bt*-1;
    bh = bh;
-               playerC.xmotion+=bt;
-     playerC.ymotion+=bh;
+               playersC.xmotion+=bt;
+     playersC.ymotion+=bh;
        }else if(q==3){
     bt = bt*-1;
    bh = bh*-1;
-               playerC.xmotion+=bt;
-     playerC.ymotion+=bh;
+               playersC.xmotion+=bt;
+     playersC.ymotion+=bh;
   }else if(q==4){
     bt = bt;
    bh = bh*-1;
-           playerC.xmotion+=bt;
-     playerC.ymotion+=bh;}}else{
+           playersC.xmotion+=bt;
+     playersC.ymotion+=bh;}}else{
      
-           playerC.xmotion+=6.25;}}
+           playersC.xmotion+=6.25;}}
 
  
 
@@ -562,46 +562,46 @@ if((map[40]===true||map[83]===true)){
 if(movement==="Relative"){
                     if(q==1){
 
-           playerC.xmotion+=-bh;
-     playerC.ymotion+=bt;
+           playersC.xmotion+=-bh;
+     playersC.ymotion+=bt;
   }else if(q==2){
 
-           playerC.xmotion+=-bh;
-     playerC.ymotion+=-bt;
+           playersC.xmotion+=-bh;
+     playersC.ymotion+=-bt;
        }else if(q==3){
 
-           playerC.xmotion+=bh;
-     playerC.ymotion+=-bt;
+           playersC.xmotion+=bh;
+     playersC.ymotion+=-bt;
   }else if(q==4){
 
-           playerC.xmotion+=bh;
-     playerC.ymotion+=bt;}}else{
- playerC.ymotion += 6.25;}}
+           playersC.xmotion+=bh;
+     playersC.ymotion+=bt;}}else{
+ playersC.ymotion += 6.25;}}
 
 
-    if(stop(playerC)){
- playerC.x +=playerC.xmotion;
-  playerC.y +=playerC.ymotion;}
-  playerC.xmotion=0;
-  playerC.ymotion=0;
+    if(stop(playersC)){
+ playersC.x +=playersC.xmotion;
+  playersC.y +=playersC.ymotion;}
+  playersC.xmotion=0;
+  playersC.ymotion=0;
 }
   enemy.prototype.move = function(){
     
 if(e.keyCode===37||e.keyCode===65){
-  playerC.xmotion = -6.25;
-  playerC.x += playerC.xmotion;
+  playersC.xmotion = -6.25;
+  playersC.x += playersC.xmotion;
 }
  if(e.keyCode===38||e.keyCode===87){
- playerC.ymotion = -6.25;
-   playerC.y += playerC.ymotion;
+ playersC.ymotion = -6.25;
+   playersC.y += playersC.ymotion;
 }
  if(e.keyCode===39||e.keyCode===68){
- playerC.xmotion = 6.25;
-   playerC.x += playerC.xmotion;
+ playersC.xmotion = 6.25;
+   playersC.x += playersC.xmotion;
 }
 if(e.keyCode===40||e.keyCode===83){
- playerC.ymotion = 6.25;
-  playerC.y += playerC.ymotion;
+ playersC.ymotion = 6.25;
+  playersC.y += playersC.ymotion;
 }
 }
 
@@ -609,20 +609,20 @@ game = function(){
 
 
 ctx.clearRect(0,0,10000,10000);
-playerC.draw();
+playersC.draw();
 move();
 point();
 
 for(var i = 0; i<enemies.length; i++){
 enemies[i].point();
   enemies[i].draw();
-  if(enemies[i].dist(playerC)<150){
+  if(enemies[i].dist(playersC)<150){
   enemies[i].isResting=false;
   }
 
 
 if(enemies[i].bulletss.length>0){
-  if(enemies[i].dist(playerC)<300&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>800){
+  if(enemies[i].dist(playersC)<300&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>800){
       enemies[i].bulletss.pop();
   enemies[i].fire();
   }}else{enemies[i].fire();}
@@ -633,7 +633,7 @@ if(enemies[i].bulletss.length>0){
     }
 }
     if(bulletss.length>0){
-  if(dist(playerC, bulletss[0])>650){
+  if(dist(playersC, bulletss[0])>650){
      bulletss.pop();
   
 
@@ -671,7 +671,7 @@ bulletss[i].move();}
 
     // draw a red line
     ctx.beginPath();
-    ctx.moveTo(playerC.x+(62.5/2), playerC.y+(62.5/2));
+    ctx.moveTo(playersC.x+(62.5/2), playersC.y+(62.5/2));
     ctx.lineTo(mouseONE, mouseTWO);
     ctx.stroke();
     
