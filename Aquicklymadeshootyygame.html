@@ -157,7 +157,7 @@ this.height=62.5/3.1622;
 'WWWWW'      
     ];
 level_object_properties=function(){
-    this.1=[];    
+    this.one=[];    
 };
 true_load = function(){
     for(var i =0; i<current_level[0];i++){
@@ -681,7 +681,7 @@ window.requestAnimationFrame(game);
     document.addEventListener("keypress",toggle);
 canvas.addEventListener("mousemove",Mouse);
   canvas.addEventListener("click",fire);
-loadlevel(5,5,0);  
+true_load();
 game();
 </script>
 </body></html>
