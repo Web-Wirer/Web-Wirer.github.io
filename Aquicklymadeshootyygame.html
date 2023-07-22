@@ -175,7 +175,7 @@ var current_level= {Width:5,Height:5};
 level_observer = function(){
    for(var i =0; i<start_level[0];i++){
         for (var j =0;j<start_level[1];j++){
-             var posit= i.concat("_",j);
+             var posit= i.toString().concat("_",j.toString());
             for(var m =0;i<walls.length;m++){
     if(walls[m].gridx===j&&walls[m].gridy===i){
     current_level[posit]="W"
