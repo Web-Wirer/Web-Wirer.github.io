@@ -115,9 +115,11 @@ this.xmotion=0;
 this.ymotion=0;
 };
 //wall object
-stopper=function(x,y){
-this.x = x*138;
-this.y=y*138;
+stopper=function(gridx,gridy){
+this.gridx=gridx;
+this.gridy=gridy;
+this.x = gridx*138;
+this.y=gridy*138;
 this.xt=this.x+125;
 this.yt=this.y+125;
 }
@@ -146,7 +148,7 @@ this.height=62.5/3.1622;
     
 }
     //LEVEL GENERATION! 
-    var current_level=[
+    var start_level=[
 '5',
 '5',
 'WWWWW',
@@ -157,9 +159,9 @@ this.height=62.5/3.1622;
     ];
 
 true_load = function(){
-    for(var i =0; i<current_level[0];i++){
-        for (var j =0;j<current_level[1];j++){
-            var k =current_level[i+2].substring(j,j+1);
+    for(var i =0; i<start_level[0];i++){
+        for (var j =0;j<start_level[1];j++){
+            var k =start_level[i+2].substring(j,j+1);
             if(k==="W"){
                 walls.push(new stopper(j,i));
             }
@@ -169,6 +171,17 @@ true_load = function(){
     }
 }
 }
+var current_level= {Width:5,Height:5};
+level_observer = function(){
+   for(var i =0; i<start_level[0];i++){
+        for (var j =0;j<start_level[1];j++){
+             var posit= i.concat("_",j);
+            for(var m =0;i<walls.length;m++){
+    if(walls[m].gridx===j&&walls[m].gridy===i){
+    current_level[posit]="W"
+     
+    }
+}}}}
  enemy.prototype.fire = function(){
 
 
@@ -672,7 +685,8 @@ bulletss[i].move();}
     ctx.moveTo(playerC.x+(62.5/2), playerC.y+(62.5/2));
     ctx.lineTo(mouseONE, mouseTWO);
     ctx.stroke();
-    
+
+level_observer();    
 window.requestAnimationFrame(game);
     
 };
