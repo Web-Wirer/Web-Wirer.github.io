@@ -177,10 +177,11 @@ level_observer = function(){
         for (var j =0;j<start_level[1];j++){
              var posit= i.toString().concat("_",j.toString());
             current_level[posit]=[];
-            for(var m =0;m<walls.length;m++){
     if(Math.floor(playerC.x/138)===j&&Math.floor(playerC.y/138)===i){
-        current_level[posit].push("P");
+    current_level[posit].push("P");
     }
+            for(var m =0;m<walls.length;m++){
+
     if(walls[m].gridx===j&&walls[m].gridy===i){
     current_level[posit]=["W"];
      
