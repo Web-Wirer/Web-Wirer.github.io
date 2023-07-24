@@ -178,10 +178,14 @@ level_observer = function(){
              var posit= i.toString().concat("_",j.toString());
             current_level[posit]=[];
             for(var m =0;m<walls.length;m++){
+    if(Math.floor(playerC.x/138)===j&&Math.floor(playerC.y/138)===i){
+        current_level[posit].push("P");
+    }
     if(walls[m].gridx===j&&walls[m].gridy===i){
-    current_level[posit].push("W");
+    current_level[posit]=["W"];
      
     }
+                
 }}}}
  enemy.prototype.fire = function(){
 
