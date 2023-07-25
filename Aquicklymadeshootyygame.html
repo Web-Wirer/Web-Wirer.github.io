@@ -197,19 +197,15 @@ level_observer = function(){
  enemy.prototype.fire = function(){
 
 
-   if(eq==1){
-      var s =  this.rotation;
+adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
+opp = Math.abs((playerC.y+(62.5/2))-mouseTWO);
 
-  }else if(eq==2){
-    var s =  this.rotation-90;
-  }else if(eq==3){
-       var s =  this.rotation-180;
-  }else if(eq==4){
-   var s =  this.rotation-270;
-  }
-  var so = s*(10/9);
-  var st = (so/90)*11;
-  var sh = 11-st;
+
+if(adj===0){adj=0.0001;}
+        if(opp===0){opp=0.0001;}
+
+  var st = ((adj/opp)/((adj/opp)+1))*13;
+  var sh = ((opp/adj)/((opp/adj)+1))*13;
   if(eq==1){
   st = st;
    sh = sh;
