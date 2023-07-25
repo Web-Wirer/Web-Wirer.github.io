@@ -163,6 +163,8 @@ this.height=62.5/3.1622;
     ];
 
 true_load = function(){
+    walls=[];
+    enemies=[];
     for(var i =0; i<start_level[0];i++){
         for (var j =0;j<start_level[1];j++){
             var k =start_level[i+2].substring(j,j+1);
@@ -677,7 +679,7 @@ for(var daps=0; daps<enemies.length;daps++){
         if(enemies[dadps].bulletss.length===1){
     if(shop(enemies[dadps].bulletss[0])){
      
-    }else{loadlevel(5,5,0);  }}
+    }else{true_load();}}
 }
     
 
