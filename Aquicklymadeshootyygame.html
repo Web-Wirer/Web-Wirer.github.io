@@ -85,7 +85,7 @@ function degrees_to_radians(degrees) {
 }
     
 //enemy object
-enemy= function(x,y,maxHealth,wepDamage,rotation,xmotion,ymotion){
+enemy= function(x,y,maxHealth,wepDamage){
 this.x = x;
 this.y=y;
 this.health= maxHealth;
@@ -93,12 +93,14 @@ this.maxHealth = maxHealth;
 this.wepDamage = wepDamage;
 this.isResting=true;
     this.type="enemy";
-this.wakeDistance=180;
-this.rotation=rotation;
+this.wakeDistance=300;
+this.rotation=0;
   this.cdd=0;
     this.bulletss = [];
   this.cd=0;
     this.hasShot=0;
+    this.xmotion=0;
+    this.ymotion=0;
 };
 //players object
 players= function(x,y,maxHealth,wepDamage, speed=1){
@@ -168,6 +170,9 @@ true_load = function(){
             if(k==="P"){
                 playerC=new players(j,i,3,1);
         }
+            if(k==="E"){
+                enemies.push(new enemy(j,i,200,1));
+            }
     }
 }
 }
