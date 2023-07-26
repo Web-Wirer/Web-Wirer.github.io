@@ -636,18 +636,23 @@ point();
 for(var i = 0; i<enemies.length; i++){
 enemies[i].point();
   enemies[i].draw();
+ 
   if(enemies[i].dist(playerC)<150){
   enemies[i].isResting=false;
+  
   }
 
 
-if(enemies[i].bulletss.length>1){
+if(enemies[i].bulletss.length>0){
   if(enemies[i].dist(playerC)<900&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>800){
       enemies[i].bulletss.pop();
   enemies[i].fire();
-      enemies[i].bulletsmove();
+    
+
+  }
+   enemies[i].bulletsmove();
         enemies[i].bulletss[0].draw();
-  }}else{enemies[i].fire();}
+}else{enemies[i].fire();}
 
   
 
