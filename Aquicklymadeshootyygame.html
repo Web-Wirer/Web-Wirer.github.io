@@ -644,14 +644,15 @@ enemies[i].point();
 
 
 if(enemies[i].bulletss.length>0){
+    enemies[i].bulletsmove();
+        enemies[i].bulletss[0].draw();
   if(enemies[i].dist(playerC)<900&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>800){
       enemies[i].bulletss.pop();
   enemies[i].fire();
     
 
   }
-   enemies[i].bulletsmove();
-        enemies[i].bulletss[0].draw();
+
 }else{enemies[i].fire();}
 
   
