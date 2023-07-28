@@ -218,7 +218,7 @@ if(adj===0){adj=0.0001;}
   }else if(eq==2){
     st = st*-1;
    sh = sh;
-     this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90));
+     this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",sh,st,this.rotation+90));
     return;
   }else if(eq==3){
     st = st*-1;
@@ -229,7 +229,7 @@ if(adj===0){adj=0.0001;}
          this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90));
     return;
   }
-   this.bulletss.push(new bullets(this.x,this.y,"reg",this,"enemy",st,sh,this.rotation+90));
+   this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90));
 
    }
 //drawing things
