@@ -368,43 +368,22 @@ ans = Math.asin(almost);
 ans=radians_to_degrees(ans);
 
  if(playerC.x+(62.5/2)<mouseONE&&playerC.y+(62.5/2)<mouseTWO){
-if (ans>90){
- ans = 90;
-}else if(ans<0){
- ans= 0;
-}
 
    q=1;
 playerC.rotation=ans;
 return;
 }else if(playerC.x+(62.5/2)>mouseONE&&playerC.y+(62.5/2)<mouseTWO){
 ans= 180-ans;
-if (ans<90){
- ans= 90;
-}else if(ans>180){
- ans = 270;
-}
   q=2;
 playerC.rotation=ans;
 return;
 }else if(playerC.x+(62.5/2)>mouseONE&&playerC.y+(62.5/2)>mouseTWO){
 ans=180+ans;
-if (ans>270){
-ans = 270;
-}else if(ans<0){
-ans = 180;
-}
-
   q=3;
 playerC.rotation= ans;
 return;
 }else if(playerC.x+(62.5/2)<mouseONE&&playerC.y+(62.5/2)>mouseTWO){
 ans= 360-ans;
-if (ans>360){
-ans = 360;
-}else if(ans<270){
-ans = 270;
-}
   q=4;
 playerC.rotation=ans;
 
@@ -433,52 +412,34 @@ var m = Math.pow(p,2);
  }
 //math is pain.
 enemy.prototype.point = function(){
-adj = Math.abs((this.x+(62.5/2))-playerC.x);
-opp = Math.abs((this.y+(62.5/2))-playerC.y);
+adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2)));
+opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
     hyp= Math.sqrt((adj*adj)+(opp*opp));
 
 almost = opp/hyp;
 ans = Math.asin(almost);
 ans=radians_to_degrees(ans);
 
- if(this.x+(62.5/2)<playerC.x&&this.y+(62.5/2)<playerC.y){
-if (ans>90){
- ans = 90;
-}else if(ans<0){
- ans= 0;
-}
+ if(this.x+(62.5/2)<playerC.x+(62.5/2)&&this.y+(62.5/2)<playerC.y+(62.5/2)){
+
 
    eq=1;
 playerC.rotation=ans;
 return;
-}else if(this.x+(62.5/2)>playerC.x&&this.y+(62.5/2)<playerC.y){
+}else if(this.x+(62.5/2)>playerC.x+(62.5/2)&&this.y+(62.5/2)<playerC.y+(62.5/2)){
 ans= 180-ans;
-if (ans<90){
- ans= 90;
-}else if(ans>180){
- ans = 270;
-}
+
   eq=2;
 this.rotation=ans;
 return;
-}else if(this.x+(62.5/2)>playerC.x&&this.y+(62.5/2)>playerC.y){
+}else if(this.x+(62.5/2)>playerC.x+(62.5/2)&&this.y+(62.5/2)>playerC.y+(62.5/2)){
 ans=180+ans;
-if (ans>270){
-ans = 270;
-}else if(ans<0){
-ans = 180;
-}
 
   eq=3;
 this.rotation= ans;
 return;
-}else if(this.x+(62.5/2)<playerC.x&&this.y+(62.5/2)>playerC.y){
+}else if(this.x+(62.5/2)<playerC.x+(62.5/2)&&this.y+(62.5/2)>playerC.y+(62.5/2)){
 ans= 360-ans;
-if (ans>360){
-ans = 360;
-}else if(ans<270){
-ans = 270;
-}
   eq=4;
 this.rotation=ans;
 
