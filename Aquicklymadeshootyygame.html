@@ -199,9 +199,8 @@ level_observer = function(){
 }}}}
  enemy.prototype.fire = function(){
 
-
-adj = Math.abs((playerC.x+(62.5/2))-this.x+(62.5/2));
-opp = Math.abs((playerC.y+(62.5/2))-this.y+(62.5/2));
+adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
+opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));;
 
 
 if(adj===0){adj=0.0001;}
