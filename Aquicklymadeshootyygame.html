@@ -216,9 +216,9 @@ if(adj===0){adj=0.0001;}
   st = st;
    sh = sh;
   }else if(eq==2){
-    st = st*-1;
-   sh = sh;
-     this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90));
+    st = st;
+   sh = sh*-1;
+     this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",sh,st,this.rotation+90));
   
     return;
   }else if(eq==3){
