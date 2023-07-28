@@ -433,54 +433,59 @@ var m = Math.pow(p,2);
  }
 //math is pain.
 enemy.prototype.point = function(){
-if(this.isResting==false){
-eadj = Math.abs((playerC.x+(62.5/2))-(this.x+(62.5/2)));
-eopp = Math.abs((playerC.y+(62.5/2))-(this.y+(62.5/2)));
+adj = Math.abs((this.x+(62.5/2))-playerC.x);
+opp = Math.abs((this.y+(62.5/2))-playerC.y);
+    hyp= Math.sqrt((adj*adj)+(opp*opp));
 
-ealmost = eopp/eadj;
-eans = radians_to_degrees(ealmost);
+almost = opp/hyp;
+ans = Math.asin(almost);
+ans=radians_to_degrees(ans);
 
- if(this.x+(62.5/2)<playerC.x+(62.5/2)&&this.y+(62.5/2)<playerC.y+(62.5/2)){
-if (eans>90){
- eans = 90;
-}else if(eans<0){
- eans= 0;
+ if(this.x+(62.5/2)<playerC.x&&this.y+(62.5/2)<playerC.y){
+if (ans>90){
+ ans = 90;
+}else if(ans<0){
+ ans= 0;
 }
+
    eq=1;
-this.rotation=eans;
+playerC.rotation=ans;
 return;
-}else if(this.x+(62.5/2)>playerC.x+(62.5/2)&&this.y+(62.5/2)<playerC.y+(62.5/2)){
-eans= 180-eans;
-if (eans<90){
- eans= 90;
-}else if(eans>180){
- eans = 270;
+}else if(this.x+(62.5/2)>playerC.x&&this.y+(62.5/2)<playerC.y){
+ans= 180-ans;
+if (ans<90){
+ ans= 90;
+}else if(ans>180){
+ ans = 270;
 }
   eq=2;
-this.rotation=eans;
+this.rotation=ans;
 return;
-}else if(this.x+(62.5/2)>playerC.x+(62.5/2)&&this.y+(62.5/2)>playerC.y+(62.5/2)){
-eans=180+eans;
-if (eans>270){
-eans = 270;
-}else if(eans<0){
-eans = 180;
+}else if(this.x+(62.5/2)>playerC.x&&this.y+(62.5/2)>playerC.y){
+ans=180+ans;
+if (ans>270){
+ans = 270;
+}else if(ans<0){
+ans = 180;
 }
+
   eq=3;
-this.rotation= eans;
+this.rotation= ans;
 return;
-}else if(this.x+(62.5/2)<playerC.x+(62.5/2)&&this.y+(62.5/2)>playerC.y+(62.5/2)){
-eans= 360-eans;
-if (eans>360){
-eans = 360;
-}else if(eans<270){
-eans = 270;
+}else if(this.x+(62.5/2)<playerC.x&&this.y+(62.5/2)>playerC.y){
+ans= 360-ans;
+if (ans>360){
+ans = 360;
+}else if(ans<270){
+ans = 270;
 }
   eq=4;
-this.rotation=eans;
+this.rotation=ans;
+
+
 return;
 }
-}}
+}
 toggle=function(e){
     
         if((e.keyCode===71||e.keyCode===103)&&tog==="Yes"){
