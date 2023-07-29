@@ -430,11 +430,7 @@ opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*playerC.ymotion))
 almost = opp/hyp;
 ans = Math.asin(almost);
 ans=radians_to_degrees(ans);
-          ctx.strokeStyle = 'black';
-    ctx.beginPath();
-    ctx.moveTo(this.x+(62.5/2), this.y+(62.5/2));
-    ctx.lineTo((playerC.x+(62.5/2))+(future*playerC.xmotion), (playerC.y+(62.5/2))+(future*playerC.ymotion));
-    ctx.stroke();
+ 
  if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*playerC.ymotion)){
 
 
