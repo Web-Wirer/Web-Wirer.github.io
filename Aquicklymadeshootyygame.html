@@ -202,8 +202,12 @@ level_observer = function(){
 
 adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
 opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));;
-
-
+hyp= Math.sqrt((adj*adj)+(opp*opp));
+ var future= hyp/13;
+ future=Math.floor(future);
+adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2))+(future*playerC.xmotion));
+opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2))+(future*playerC.ymotion));
+  
 if(adj===0){adj=0.0001;}
         if(opp===0){opp=0.0001;}
 
@@ -415,8 +419,13 @@ var m = Math.pow(p,2);
 enemy.prototype.point = function(){
 adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2)));
 opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
-    hyp= Math.sqrt((adj*adj)+(opp*opp));
 
+    hyp= Math.sqrt((adj*adj)+(opp*opp));
+ var future= hyp/13;
+ future=Math.floor(future);
+adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2))+(future*playerC.xmotion));
+opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2))+(future*playerC.ymotion));
+    hyp= Math.sqrt((adj*adj)+(opp*opp));
 almost = opp/hyp;
 ans = Math.asin(almost);
 ans=radians_to_degrees(ans);
