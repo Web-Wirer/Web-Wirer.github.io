@@ -435,25 +435,25 @@ ans=radians_to_degrees(ans);
     ctx.moveTo(this.x+(62.5/2), this.y+(62.5/2));
     ctx.lineTo((playerC.x+(62.5/2))+(future*playerC.xmotion), (playerC.y+(62.5/2))+(future*playerC.ymotion));
     ctx.stroke();
- if(this.x+(62.5/2)<playerC.x+(62.5/2)&&this.y+(62.5/2)<playerC.y+(62.5/2)){
+ if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*playerC.ymotion)){
 
 
    eq=1;
 this.rotation=ans;
 return;
-}else if(this.x+(62.5/2)>playerC.x+(62.5/2)&&this.y+(62.5/2)<playerC.y+(62.5/2)){
+}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*playerC.ymotion)){
 ans= 180-ans;
 
   eq=2;
 this.rotation=ans;
 return;
-}else if(this.x+(62.5/2)>playerC.x+(62.5/2)&&this.y+(62.5/2)>playerC.y+(62.5/2)){
+}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*playerC.ymotion)){
 ans=180+ans;
 
   eq=3;
 this.rotation= ans;
 return;
-}else if(this.x+(62.5/2)<playerC.x+(62.5/2)&&this.y+(62.5/2)>playerC.y+(62.5/2)){
+}else if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*playerC.ymotion)){
 ans= 360-ans;
   eq=4;
 this.rotation=ans;
