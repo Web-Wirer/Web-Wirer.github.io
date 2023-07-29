@@ -201,7 +201,7 @@ level_observer = function(){
  enemy.prototype.fire = function(){
 
 adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
-opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));;
+opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
  future=Math.floor(future);
@@ -213,8 +213,7 @@ if(adj===0){adj=0.0001;}
 
   var st = ((adj/opp)/((adj/opp)+1))*13;
   var sh = ((opp/adj)/((opp/adj)+1))*13;
-    console.log(sh);
-    console.log(st);
+    console.log(future);
 
   if(eq==1){
   st = st;
