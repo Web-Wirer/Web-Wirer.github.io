@@ -580,10 +580,9 @@ if(movement==="Relative"){
 }
     if(stop(playerC)){
  playerC.x +=playerC.xmotion;
-  playerC.y +=playerC.ymotion;}
-
-}else{playerC.xmotion=0;
-     playerC.ymotion=0;}
+  playerC.y +=playerC.ymotion;}else{
+     playerC.xmotion=0;
+     playerC.ymotion=0;}}
   enemy.prototype.move = function(){
     
 if(e.keyCode===37||e.keyCode===65){
