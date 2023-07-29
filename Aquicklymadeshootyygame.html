@@ -206,7 +206,7 @@ adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
 opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
- future=Math.floor(future);
+
 adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2))+(future*playerC.xmotion));
 opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2))+(future*playerC.ymotion));
   
@@ -423,7 +423,7 @@ opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
 
     hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
- future=Math.floor(future);
+
 adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2))+(future*playerC.xmotion));
 opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2))+(future*playerC.ymotion));
     hyp= Math.sqrt((adj*adj)+(opp*opp));
