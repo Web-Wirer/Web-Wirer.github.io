@@ -487,101 +487,101 @@ if(adj===0){adj=0.0001;}
 
   var bt = ((adj/opp)/((adj/opp)+1))*6.25;
   var bh = ((opp/adj)/((opp/adj)+1))*6.25;
-if((map[37]===true||map[65]===true)){
+if((map[37]||map[65])){
 if(movement==="Relative"){
        if(q==1){
 
-             playerC.xmotion+=-bt;
-     playerC.ymotion+=-bh;
+             playerC.xmotion=-bt;
+     playerC.ymotion=-bh;
   }else if(q==2){
 
-               playerC.xmotion+=bt;
-     playerC.ymotion+=-bh;
+               playerC.xmotion=bt;
+     playerC.ymotion=-bh;
        }else if(q==3){
 
-          playerC.xmotion+=bt;
-     playerC.ymotion+=bh;
+          playerC.xmotion=bt;
+     playerC.ymotion=bh;
   }else if(q==4){
-           playerC.xmotion+=-bt;
-     playerC.ymotion+=bh;}}else{
-  playerC.xmotion += -6.25;}}
+           playerC.xmotion=-bt;
+     playerC.ymotion=bh;}}else{
+  playerC.xmotion = -6.25;}}else if(map[39]||map[68]){}else{
+ playerC.xmotion=0;
+  }
 
 
- if((map[38]===true||map[87]===true)){
+ if((map[38]||map[87])){
 if(movement==="Relative"){
                     if(q==1){
 
-           playerC.xmotion+=bh;
-     playerC.ymotion+=-bt;
+           playerC.xmotion=bh;
+     playerC.ymotion=-bt;
   }else if(q==2){
 
-           playerC.xmotion+=bh;
-     playerC.ymotion+=bt;
+           playerC.xmotion=bh;
+     playerC.ymotion=bt;
        }else if(q==3){
 
-           playerC.xmotion+=-bh;
-     playerC.ymotion+=bt;
+           playerC.xmotion=-bh;
+     playerC.ymotion=bt;
   }else if(q==4){
 
-           playerC.xmotion+=-bh;
-     playerC.ymotion+=-bt;}}else{
- playerC.ymotion += -6.25;}}
-
-
-
- if((map[39]===true||map[68]===true)){
+           playerC.xmotion=-bh;
+     playerC.ymotion=-bt;}}else{
+ playerC.ymotion = -6.25;}}else if(map[40]||map[83]){}else{
+playerC.ymotion=0;
+ }
+ if((map[39]||map[68])){
 if(movement==="Relative"){
        if(q==1){
   bt = bt;
    bh = bh;
-             playerC.xmotion+=bt;
-     playerC.ymotion+=bh;
+             playerC.xmotion=bt;
+     playerC.ymotion=bh;
   }else if(q==2){
     bt = bt*-1;
    bh = bh;
-               playerC.xmotion+=bt;
-     playerC.ymotion+=bh;
+               playerC.xmotion=bt;
+     playerC.ymotion=bh;
        }else if(q==3){
     bt = bt*-1;
    bh = bh*-1;
-               playerC.xmotion+=bt;
-     playerC.ymotion+=bh;
+               playerC.xmotion=bt;
+     playerC.ymotion=bh;
   }else if(q==4){
     bt = bt;
    bh = bh*-1;
-           playerC.xmotion+=bt;
-     playerC.ymotion+=bh;}}else{
+           playerC.xmotion=bt;
+     playerC.ymotion=bh;}}else{
      
-           playerC.xmotion+=6.25;}}
+           playerC.xmotion=6.25;}}else if(map[37]||map[65]){}else{
+playerC.xmotion=0;
+ }
 
- 
-
-if((map[40]===true||map[83]===true)){
+if((map[40]||map[83])){
 if(movement==="Relative"){
                     if(q==1){
 
-           playerC.xmotion+=-bh;
-     playerC.ymotion+=bt;
+           playerC.xmotion=-bh;
+     playerC.ymotion=bt;
   }else if(q==2){
 
-           playerC.xmotion+=-bh;
-     playerC.ymotion+=-bt;
+           playerC.xmotion=-bh;
+     playerC.ymotion=-bt;
        }else if(q==3){
 
-           playerC.xmotion+=bh;
-     playerC.ymotion+=-bt;
+           playerC.xmotion=bh;
+     playerC.ymotion=-bt;
   }else if(q==4){
 
-           playerC.xmotion+=bh;
-     playerC.ymotion+=bt;}}else{
- playerC.ymotion += 6.25;}}
-
-
+           playerC.xmotion=bh;
+     playerC.ymotion=bt;}}else{
+ playerC.ymotion = 6.25;}}else if(map[38]||map[87]){}else{
+ playerC.ymotion=0;
+}
     if(stop(playerC)){
  playerC.x +=playerC.xmotion;
   playerC.y +=playerC.ymotion;}
-  playerC.xmotion=0;
-  playerC.ymotion=0;
+
 }
   enemy.prototype.move = function(){
     
