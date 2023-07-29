@@ -207,8 +207,8 @@ opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
 
-adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2))+(future*playerC.xmotion));
-opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2))+(future*playerC.ymotion));
+adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*playerC.xmotion)));
+opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*playerC.ymotion)));
            
 if(adj===0){adj=0.0001;}
         if(opp===0){opp=0.0001;}
@@ -424,8 +424,8 @@ opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
     hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
 
-adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2))+(future*playerC.xmotion));
-opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2))+(future*playerC.ymotion));
+adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*playerC.xmotion)));
+opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*playerC.ymotion)));
     hyp= Math.sqrt((adj*adj)+(opp*opp));
 almost = opp/hyp;
 ans = Math.asin(almost);
@@ -582,7 +582,8 @@ if(movement==="Relative"){
  playerC.x +=playerC.xmotion;
   playerC.y +=playerC.ymotion;}
 
-}
+}else{playerC.xmotion=0;
+     playerC.ymotion=0;}
   enemy.prototype.move = function(){
     
 if(e.keyCode===37||e.keyCode===65){
