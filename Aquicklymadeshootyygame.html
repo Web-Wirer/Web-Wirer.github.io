@@ -504,9 +504,7 @@ if(movement==="Relative"){
   }else if(q==4){
            playerC.xmotion+=-bt;
      playerC.ymotion+=bh;}}else{
-  playerC.xmotion += -6.25;}}else if(map[39]||map[68]){}else{
- playerC.xmotion=0;
-  }
+  playerC.xmotion += -6.25;}}
 
 
  if((map[38]||map[87])){
@@ -527,9 +525,8 @@ if(movement==="Relative"){
 
            playerC.xmotion+=-bh;
      playerC.ymotion+=-bt;}}else{
- playerC.ymotion += -6.25;}}else if(map[40]||map[83]){}else{
-playerC.ymotion=0;
- }
+ playerC.ymotion += -6.25;}}
+ 
  if((map[39]||map[68])){
 if(movement==="Relative"){
        if(q==1){
@@ -553,9 +550,7 @@ if(movement==="Relative"){
            playerC.xmotion+=bt;
      playerC.ymotion+=bh;}}else{
      
-           playerC.xmotion=6.25;}}else if(map[37]||map[65]){}else{
-playerC.xmotion=0;
- }
+           playerC.xmotion=6.25;}}
 
 if((map[40]||map[83])){
 if(movement==="Relative"){
@@ -575,9 +570,7 @@ if(movement==="Relative"){
 
            playerC.xmotion+=bh;
      playerC.ymotion+=bt;}}else{
- playerC.ymotion += 6.25;}}else if(map[38]||map[87]){}else{
- playerC.ymotion=0;
-}
+ playerC.ymotion += 6.25;}}
     if(stop(playerC)){
  playerC.x +=playerC.xmotion;
   playerC.y +=playerC.ymotion;}else{
@@ -607,10 +600,11 @@ game = function(){
 
 
 ctx.clearRect(0,0,10000,10000);
-playerC.draw();
+
 move();
 point();
-
+playerC.draw();
+ 
 for(var i = 0; i<enemies.length; i++){
 enemies[i].point();
   enemies[i].draw();
@@ -678,7 +672,8 @@ bulletss[i].move();}
     ctx.moveTo(playerC.x+(62.5/2), playerC.y+(62.5/2));
     ctx.lineTo(mouseONE, mouseTWO);
     ctx.stroke();
-
+playerC.xmotion=0;
+playerC.ymotion=0;
 level_observer();    
 window.requestAnimationFrame(game);
     
