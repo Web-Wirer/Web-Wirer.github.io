@@ -570,10 +570,10 @@ if(movement==="Relative"){
   playerC.y +=playerC.ymotion;}else{
      playerC.xmotion=0;
      playerC.ymotion=0;}
-if(playerC.xmotion=0){
+if(playerC.xmotion===0){
      playerC.xmotion=0.00001;
 }
-if(playerC.ymotion=0){
+if(playerC.ymotion===0){
      playerC.ymotion=0.00001;
 }}
   enemy.prototype.move = function(){
