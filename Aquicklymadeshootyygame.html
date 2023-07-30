@@ -708,8 +708,7 @@ bulletss[i].move();}
     ctx.moveTo(playerC.x+(62.5/2), playerC.y+(62.5/2));
     ctx.lineTo(mouseONE, mouseTWO);
     ctx.stroke();
-playerC.xmotion=0;
-playerC.ymotion=0;
+
 for(var i=0;i<enemies.length;i++){
  if(dist(enemies[i],playerC)<700){
  if(playerC.cd<20){
@@ -722,7 +721,8 @@ for(var i=0;i<enemies.length;i++){
   playerC.startPos.y=playerC.y;
  }}}
 
-
+playerC.xmotion=0;
+playerC.ymotion=0;
 level_observer();    
 window.requestAnimationFrame(game);
     
