@@ -205,22 +205,6 @@ adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*aimbot("xmotion")
 opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*aimbot("ymotion"))));}
 
 if(adj===0){adj=0.0001;}
-
-    
-          
-            
-    
-
-          
-          Expand Down
-          
-            
-    
-
-          
-          Expand Up
-    
-    @@ -431,7 +431,7 @@
   
         if(opp===0){opp=0.0001;}
   var st = ((adj/opp)/((adj/opp)+1))*13;
@@ -405,21 +389,7 @@ opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*aimbot("ymotion")
     hyp= Math.sqrt((adj*adj)+(opp*opp));
 almost = opp/hyp;
 
-    
-          
-            
-    
 
-          
-          Expand Down
-          
-            
-    
-
-          
-          Expand Up
-    
-    @@ -722,7 +722,7 @@
   
 ans = Math.asin(almost);
 ans=radians_to_degrees(ans);
@@ -668,17 +638,7 @@ for(var i=0;i<enemies.length;i++){
  if(playerC.cd<20){
   playerC.cd++;
  }else{
-
     
-          
-            
-    
-
-          
-          Expand Down
-    
-    
-  
   playerC.cd=0;
   playerC.averaged.push(dist(playerC.startPos,playerC));
   average();
