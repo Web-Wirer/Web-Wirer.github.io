@@ -1,4 +1,3 @@
- 
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +30,6 @@ var adj;
 var almost;
     var E = 0;
   var q = 0;
-
   var eq =0;
   var eans;
     var spawns=[];
@@ -48,7 +46,6 @@ var bullet = document.getElementById("default_bullet");
   let expires = "expires="+ d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";domain=web-wirer.github.io;path=/";
 }
-
 function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
@@ -74,7 +71,6 @@ function getCookie(cname) {
 }
     checkCookie("Movement Type","Absolute","Absolute","Relative");
     checkCookie("togglef","No","Yes","No");
-
     var movement= getCookie("Movement Type");
     var tog= getCookie("togglef");
     
@@ -89,7 +85,6 @@ function degrees_to_radians(degrees) {
 enemy= function(x,y,maxHealth,wepDamage){
 this.x = (x*138)+((138/2)-(62.5/2));
 this.y=(y*138)+((138/2)-(62.5/2));
-
 this.health= maxHealth;
 this.maxHealth = maxHealth;
 this.wepDamage = wepDamage;
@@ -146,13 +141,11 @@ this.x = x;
   this.y = y;
   this.rotation = rotation;
   this.type="bullet";
-
 this.xmotion=xmotion;
 this.ymotion=ymotion;
     this.width=62.5/3.1622;
 this.height=62.5/3.1622;
     this.exists=true;
-
     
 }
     //LEVEL GENERATION! 
@@ -167,7 +160,6 @@ this.height=62.5/3.1622;
 'W  W  W',
 'WWWWWWW'
     ];
-
 true_load = function(){
     walls=[];
     enemies=[];
@@ -196,18 +188,13 @@ level_observer = function(){
     current_level[posit].push("P");
     }
             for(var m =0;m<walls.length;m++){
-
     if(walls[m].gridx===j&&walls[m].gridy===i){
     current_level[posit]=["W"];
      
     }
                 
 }}}}
-
-
  enemy.prototype.fire = function(){
-
-
 adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
 opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
@@ -216,14 +203,29 @@ if(playerC.isMoving){
 
 adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*aimbot("xmotion"))));
 opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*aimbot("ymotion"))));}
-           
-if(adj===0){adj=0.0001;}
-        if(opp===0){opp=0.0001;}
 
+if(adj===0){adj=0.0001;}
+
+    
+          
+            
+    
+
+          
+          Expand Down
+          
+            
+    
+
+          
+          Expand Up
+    
+    @@ -431,7 +431,7 @@
+  
+        if(opp===0){opp=0.0001;}
   var st = ((adj/opp)/((adj/opp)+1))*13;
   var sh = ((opp/adj)/((opp/adj)+1))*13;
     console.log(future);
-
   if(eq==1){
   st = st;
    sh = sh;
@@ -243,7 +245,6 @@ if(adj===0){adj=0.0001;}
     return;
   }
    this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90));}
-
    
 //drawing things
 enemy.prototype.draw=function(){
@@ -266,9 +267,7 @@ ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
 ctx.drawImage(bullet,this.x,this.y,(62.5)/3.1622,(62.5)/3.1622);
 ctx.restore();}}
-
 players.prototype.draw=function(){
-
 var translateX= this.x+(62.5/2);
 var translateY= this.y+(62.5/2);
 ctx.save();
@@ -277,7 +276,6 @@ ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
 ctx.drawImage(player,this.x,this.y,62.5,62.5);
 ctx.restore();
-
 };
     //THIS STUPID THING
     Mouse=function(e){
@@ -289,18 +287,12 @@ ctx.restore();
 fire = function(){
     if(bulletss.length===0){
   //some math that might not work
-
-
 adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
 opp = Math.abs((playerC.y+(62.5/2))-mouseTWO);
-
-
 if(adj===0){adj=0.0001;}
         if(opp===0){opp=0.0001;}
-
   var st = ((adj/opp)/((adj/opp)+1))*13;
   var sh = ((opp/adj)/((opp/adj)+1))*13;;
-
   if(q==1){
   st = st;
    sh = sh;
@@ -326,7 +318,6 @@ if(adj===0){adj=0.0001;}
   this.x +=this.xmotion;
     this.y +=this.ymotion;
   };
-
 stopper.prototype.draw = function(){
 ctx.drawImage(wall,this.x,this.y,125,125);
 }
@@ -336,12 +327,9 @@ stop = function(obj){
 if((obj.x+obj.width+obj.xmotion)>(walls[i].x-3)&&(obj.x+obj.width+obj.xmotion)<walls[i].xt+5&&(obj.y+obj.height+obj.ymotion)>(walls[i].y-6)&&(obj.y+obj.height+obj.ymotion)<walls[i].yt+9){
  
 return(false);
-
-
     
 }else if(obj.x+obj.xmotion+4>walls[i].x-13&&obj.x+obj.xmotion<walls[i].xt+9&&obj.y+obj.ymotion>walls[i].y-6&&obj.y+obj.ymotion<walls[i].yt+6){
 return(false);
-
 }
 }
 return(true);
@@ -352,36 +340,21 @@ return(true);
 if((obj.x+obj.width)>(playerC.x-3)&&(obj.x+obj.width)<playerC.width+5+playerC.x&&(obj.y+obj.height)>(playerC.y-6)&&(obj.y+obj.height)<playerC.height+9+playerC.y){
  
 return(false);
-
-
     
 }else if(obj.x+4>playerC.x&&obj.x<playerC.width+playerC.x&&obj.y>playerC.y-6&&obj.y<playerC.height+6+playerC.y){
 return(false);
-
 }
-
 return(true);
 }
-
-
-
-
-
-
-
     //math is pain.
 point = function(){
-
 adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
 opp = Math.abs((playerC.y+(62.5/2))-mouseTWO);
     hyp= Math.sqrt((adj*adj)+(opp*opp));
-
 almost = opp/hyp;
 ans = Math.asin(almost);
 ans=radians_to_degrees(ans);
-
  if(playerC.x+(62.5/2)<mouseONE&&playerC.y+(62.5/2)<mouseTWO){
-
    q=1;
 playerC.rotation=ans;
 return;
@@ -399,12 +372,9 @@ return;
 ans= 360-ans;
   q=4;
 playerC.rotation=ans;
-
-
 return;
 }
 }
-
  enemy.prototype.dist = function(obj){
  var p = Math.abs((obj.x+(62.5/2))-(this.x+(62.5/2)));
 var o = Math.abs((obj.y+(62.5/2))-(this.y+(62.5/2)));
@@ -427,32 +397,44 @@ var m = Math.pow(p,2);
 enemy.prototype.point = function(){
 adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2)));
 opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
-
     hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
-
+if(playerC.isMoving){
 adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*aimbot("xmotion"))));
 opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*aimbot("ymotion"))));
     hyp= Math.sqrt((adj*adj)+(opp*opp));
 almost = opp/hyp;
+
+    
+          
+            
+    
+
+          
+          Expand Down
+          
+            
+    
+
+          
+          Expand Up
+    
+    @@ -722,7 +722,7 @@
+  
 ans = Math.asin(almost);
 ans=radians_to_degrees(ans);
  
  if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*aimbot("xmotion"))&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*aimbot("ymotion"))){
-
-
    eq=1;
 this.rotation=ans;
 return;
 }else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*aimbot("xmotion"))&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*aimbot("ymotion"))){
 ans= 180-ans;
-
   eq=2;
 this.rotation=ans;
 return;
 }else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*aimbot("xmotion"))&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*aimbot("ymotion"))){
 ans=180+ans;
-
   eq=3;
 this.rotation= ans;
 return;
@@ -460,9 +442,32 @@ return;
 ans= 360-ans;
   eq=4;
 this.rotation=ans;
-
-
 return;
+}}else{
+     hyp= Math.sqrt((adj*adj)+(opp*opp));
+almost = opp/hyp;
+ans = Math.asin(almost);
+ans=radians_to_degrees(ans);
+ 
+ if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+   eq=1;
+this.rotation=ans;
+return;
+}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+ans= 180-ans;
+  eq=2;
+this.rotation=ans;
+return;
+}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+ans=180+ans;
+  eq=3;
+this.rotation= ans;
+return;
+}else if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+ans= 360-ans;
+  eq=4;
+this.rotation=ans;
+}
 }}
 toggle=function(e){
     
@@ -474,59 +479,45 @@ if(movement==="Relative"){
 }
 var map = {}; // You could also use an array
 onkeydown = onkeyup = function(e){
-
     e = e || event; // to deal with IE
     map[e.keyCode] = e.type == 'keydown';
-
 }
-
 move = function(){
  playerC.xmotion=0;
 playerC.ymotion=0;
     adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
 opp = Math.abs((playerC.y+(62.5/2))-mouseTWO);
-
 if(adj===0){adj=0.0001;}
         if(opp===0){opp=0.0001;}
-
   var bt = ((adj/opp)/((adj/opp)+1))*6.25;
   var bh = ((opp/adj)/((opp/adj)+1))*6.25;
 if((map[37]||map[65])){
 if(movement==="Relative"){
        if(q==1){
-
              playerC.xmotion+=-bt;
      playerC.ymotion+=-bh;
   }else if(q==2){
-
                playerC.xmotion+=bt;
      playerC.ymotion+=-bh;
        }else if(q==3){
-
           playerC.xmotion+=bt;
      playerC.ymotion+=bh;
   }else if(q==4){
            playerC.xmotion+=-bt;
      playerC.ymotion+=bh;}}else{
   playerC.xmotion += -6.25;}}
-
-
  if((map[38]||map[87])){
 if(movement==="Relative"){
                     if(q==1){
-
            playerC.xmotion+=bh;
      playerC.ymotion+=-bt;
   }else if(q==2){
-
            playerC.xmotion+=bh;
      playerC.ymotion+=bt;
        }else if(q==3){
-
            playerC.xmotion+=-bh;
      playerC.ymotion+=bt;
   }else if(q==4){
-
            playerC.xmotion+=-bh;
      playerC.ymotion+=-bt;}}else{
  playerC.ymotion += -6.25;}}
@@ -555,35 +546,33 @@ if(movement==="Relative"){
      playerC.ymotion+=bh;}}else{
      
            playerC.xmotion+=6.25;}}
-
 if((map[40]||map[83])){
 if(movement==="Relative"){
                     if(q==1){
-
            playerC.xmotion+=-bh;
      playerC.ymotion+=bt;
   }else if(q==2){
-
            playerC.xmotion+=-bh;
      playerC.ymotion=-bt;
        }else if(q==3){
-
            playerC.xmotion+=bh;
      playerC.ymotion+=-bt;
   }else if(q==4){
-
            playerC.xmotion+=bh;
      playerC.ymotion+=bt;}}else{
  playerC.ymotion += 6.25;}}
-
+ if((map[40]||map[83])||(map[39]||map[68])||(map[37]||map[65])||(map[38]||map[87])){
+ playerC.isMoving=true;
+}else{
+ playerC.isMoving=false;
+}
  if(stop(playerC)){
  playerC.x +=playerC.xmotion;
   playerC.y +=playerC.ymotion;}else{
      playerC.xmotion=0;
      playerC.ymotion=0;
-
+  playerC.isMoving=false;
 }}
-
   enemy.prototype.move = function(){
     
 if(e.keyCode===37||e.keyCode===65){
@@ -612,10 +601,7 @@ average=function(){
  playerC.vectora=d/20;
 }
 game = function(){
-
-
 ctx.clearRect(0,0,10000,10000);
-
 move();
 point();
 playerC.draw();
@@ -628,8 +614,6 @@ enemies[i].point();
   enemies[i].isResting=false;
   
   }
-
-
 if(enemies[i].bulletss.length>0){
     enemies[i].bulletss[0].move();
         enemies[i].bulletss[0].draw();
@@ -637,26 +621,20 @@ if(enemies[i].bulletss.length>0){
       enemies[i].bulletss.pop();
   enemies[i].fire();
     
-
   }
-
 }else{enemies[i].fire();}
-
   
-
 }
     if(bulletss.length>0){
   if(dist(playerC, bulletss[0])>650){
      bulletss.pop();
   
-
     }
 }
     if(bulletss.length===1){
 if(stop(bulletss[0])){
    
 }else{bulletss[0].exists=false;}}
-
 for(var daps=0; daps<enemies.length;daps++){
         if(enemies[daps].bulletss.length===1){
     if(stop(enemies[daps].bulletss[0])){
@@ -670,18 +648,15 @@ for(var daps=0; daps<enemies.length;daps++){
     }else if(enemies[dadps].bulletss[0].exists){true_load();}}
 }
     
-
  done=0; 
 for(var i = 0; i<walls.length; i++){
 walls[i].draw();}
-
 for(var i = 0; i<bulletss.length; i++){
 bulletss[i].draw();
 bulletss[i].move();}
     
          ctx.strokeStyle = 'red';
     ctx.lineWidth = 5;
-
     // draw a red line
     ctx.beginPath();
     ctx.moveTo(playerC.x+(62.5/2), playerC.y+(62.5/2));
@@ -693,14 +668,23 @@ for(var i=0;i<enemies.length;i++){
  if(playerC.cd<20){
   playerC.cd++;
  }else{
+
+    
+          
+            
+    
+
+          
+          Expand Down
+    
+    
+  
   playerC.cd=0;
   playerC.averaged.push(dist(playerC.startPos,playerC));
   average();
   playerC.startPos.x=playerC.x;
   playerC.startPos.y=playerC.y;
  }}}
-
-
 level_observer();    
 window.requestAnimationFrame(game);
     
