@@ -122,7 +122,7 @@ this.ymotion=0;
  this.startPos={x:(x*138)+((138/2)-(62.5/2)),y:(y*138)+((138/2)-(62.5/2))};
  this.averaged=[125];
  this.vectora=6.25;
-
+this.isMoving=false;
 };
 //wall object
 stopper=function(gridx,gridy){
@@ -196,6 +196,8 @@ level_observer = function(){
     }
                 
 }}}}
+
+
  enemy.prototype.fire = function(){
 
 
@@ -203,10 +205,10 @@ adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
 opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
-
+if(playerC.isMoving){
 
 adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*((playerC.vectora/playerC.xmotion)*6.25))));
-opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*((playerC.vectora/playerC.ymotion)*6.25))));
+opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*((playerC.vectora/playerC.ymotion)*6.25))));}
            
 if(adj===0){adj=0.0001;}
         if(opp===0){opp=0.0001;}
@@ -233,7 +235,7 @@ if(adj===0){adj=0.0001;}
          this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90));
     return;
   }
-   this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90));
+   this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90));}
 
    }
 //drawing things
@@ -421,7 +423,7 @@ opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
 
     hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
-
+if(playerC.isMoving){
 adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*((playerC.vectora/playerC.xmotion)*6.25))));
 opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*((playerC.vectora/playerC.ymotion)*6.25))));
     hyp= Math.sqrt((adj*adj)+(opp*opp));
@@ -454,6 +456,34 @@ this.rotation=ans;
 
 
 return;
+}}else{
+     hyp= Math.sqrt((adj*adj)+(opp*opp));
+almost = opp/hyp;
+ans = Math.asin(almost);
+ans=radians_to_degrees(ans);
+ 
+ if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+
+
+   eq=1;
+this.rotation=ans;
+return;
+}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+ans= 180-ans;
+
+  eq=2;
+this.rotation=ans;
+return;
+}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+ans=180+ans;
+
+  eq=3;
+this.rotation= ans;
+return;
+}else if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+ans= 360-ans;
+  eq=4;
+this.rotation=ans;
 }
 }
 toggle=function(e){
@@ -570,11 +600,10 @@ if(movement==="Relative"){
   playerC.y +=playerC.ymotion;}else{
      playerC.xmotion=0;
      playerC.ymotion=0;}
-if(playerC.xmotion===0){
-     playerC.xmotion=0.00001;
-}
-if(playerC.ymotion===0){
-     playerC.ymotion=0.00001;
+if((map[40]||map[83])||(map[39]||map[68])||(map[37]||map[65])||(map[38]||map[87])){
+ playerC.isMoving=true;
+}else{
+ playerC.isMoving=false;
 }}
   enemy.prototype.move = function(){
     
