@@ -503,6 +503,8 @@ onkeydown = onkeyup = function(e){
 }
 
 move = function(){
+ playerC.xmotion=0;
+playerC.ymotion=0;
     adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
 opp = Math.abs((playerC.y+(62.5/2))-mouseTWO);
 
@@ -724,8 +726,7 @@ for(var i=0;i<enemies.length;i++){
   playerC.startPos.y=playerC.y;
  }}}
 
-playerC.xmotion=0;
-playerC.ymotion=0;
+
 level_observer();    
 window.requestAnimationFrame(game);
     
