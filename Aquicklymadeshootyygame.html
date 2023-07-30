@@ -207,8 +207,8 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
 if(playerC.isMoving){
 
-adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.xmotion)))*6.25))));
-opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.ymotion)))*6.25))));}
+adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.xmotion)))*6.25)));
+opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.ymotion)))*6.25)));}
            
 if(adj===0){adj=0.0001;}
         if(opp===0){opp=0.0001;}
@@ -424,32 +424,32 @@ opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
     hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
 if(playerC.isMoving){
-adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.xmotion)))*6.25))));
-opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.ymotion)))*6.25))));
+adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.xmotion)))*6.25)));
+opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.ymotion)))*6.25)));
     hyp= Math.sqrt((adj*adj)+(opp*opp));
 almost = opp/hyp;
 ans = Math.asin(almost);
 ans=radians_to_degrees(ans);
  
- if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.xmotion)))*6.25))&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.ymotion)))*6.25))){
+ if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.xmotion))*6.25))&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.ymotion)))*6.25)){
 
 
    eq=1;
 this.rotation=ans;
 return;
-}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.xmotion)))*6.25))&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.ymotion)))*6.25))){
+}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.xmotion))*6.25))&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.ymotion)))*6.25)){
 ans= 180-ans;
 
   eq=2;
 this.rotation=ans;
 return;
-}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.xmotion)))*6.25))&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.ymotion)))*6.25))){
+}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.xmotion))*6.25))&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.ymotion)))*6.25)){
 ans=180+ans;
 
   eq=3;
 this.rotation= ans;
 return;
-}else if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.xmotion)))*6.25))&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.ymotion)))*6.25))){
+}else if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.xmotion))*6.25))&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*((playerC.vectora/(0.0001+playerC.ymotion)))*6.25)){
 ans= 360-ans;
   eq=4;
 this.rotation=ans;
