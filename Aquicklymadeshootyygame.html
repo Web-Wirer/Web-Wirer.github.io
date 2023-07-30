@@ -118,6 +118,11 @@ this.wepDamage = wepDamage;
 this.rotation=0;
 this.xmotion=0;
 this.ymotion=0;
+ this.cd=0;
+ this.startPos={x:(x*138)+((138/2)-(62.5/2)),y:(y*138)+((138/2)-(62.5/2))};
+ this.averaged=[125];
+ this.vectora=6.25;
+
 };
 //wall object
 stopper=function(gridx,gridy){
@@ -193,13 +198,10 @@ level_observer = function(){
 }}}}
  enemy.prototype.fire = function(){
 
-adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
-opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));
-hyp= Math.sqrt((adj*adj)+(opp*opp));
- var future= hyp/13;
 
-adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*playerC.xmotion)));
-opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*playerC.ymotion)));
+
+adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*((playerC.vectora/playerC.xmotion)*6.25))));
+opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*((playerC.vectora/playerC.ymotion)*6.25))));
            
 if(adj===0){adj=0.0001;}
         if(opp===0){opp=0.0001;}
@@ -415,32 +417,32 @@ opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
     hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
 
-adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*playerC.xmotion)));
-opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*playerC.ymotion)));
+adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*((playerC.vectora/playerC.xmotion)*6.25))));
+opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*((playerC.vectora/playerC.ymotion)*6.25))));
     hyp= Math.sqrt((adj*adj)+(opp*opp));
 almost = opp/hyp;
 ans = Math.asin(almost);
 ans=radians_to_degrees(ans);
  
- if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+ if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*((playerC.vectora/playerC.xmotion)*6.25))&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*((playerC.vectora/playerC.ymotion)*6.25))){
 
 
    eq=1;
 this.rotation=ans;
 return;
-}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*((playerC.vectora/playerC.xmotion)*6.25))&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*((playerC.vectora/playerC.ymotion)*6.25))){
 ans= 180-ans;
 
   eq=2;
 this.rotation=ans;
 return;
-}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*((playerC.vectora/playerC.xmotion)*6.25))&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*((playerC.vectora/playerC.ymotion)*6.25))){
 ans=180+ans;
 
   eq=3;
 this.rotation= ans;
 return;
-}else if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+}else if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*((playerC.vectora/playerC.xmotion)*6.25))&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*((playerC.vectora/playerC.ymotion)*6.25))){
 ans= 360-ans;
   eq=4;
 this.rotation=ans;
@@ -582,7 +584,14 @@ if(e.keyCode===40||e.keyCode===83){
   playerC.y += playerC.ymotion;
 }
 }
-
+average=function(){
+ var d=0;
+ for(var i=0;i<playerC.averaged.length;i++){
+ d+=playerC.averaged[i];
+}
+ d=d/playerC.averaged.length;
+ playerC.vectora=d/20;
+}
 game = function(){
 
 
@@ -661,6 +670,19 @@ bulletss[i].move();}
     ctx.stroke();
 playerC.xmotion=0;
 playerC.ymotion=0;
+for(var i=0;i<enemies.length;i++){
+ if(dist(enemies[i],playerC)<700){
+ if(playerC.cd<20){
+  playerC.cd++;
+ }else{
+  playerC.cd=0;
+  playerC.averaged.push(dist(playerC.startPos,playerC));
+  average();
+  playerC.startPos.x=playerC.x;
+  playerC.startPos.y=playerC.y;
+ }return;}}
+
+
 level_observer();    
 window.requestAnimationFrame(game);
     
