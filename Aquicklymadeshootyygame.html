@@ -595,16 +595,19 @@ if(movement==="Relative"){
            playerC.xmotion+=bh;
      playerC.ymotion+=bt;}}else{
  playerC.ymotion += 6.25;}}
-    if(stop(playerC)){
- playerC.x +=playerC.xmotion;
-  playerC.y +=playerC.ymotion;}else{
-     playerC.xmotion=0;
-     playerC.ymotion=0;}
-if((map[40]||map[83])||(map[39]||map[68])||(map[37]||map[65])||(map[38]||map[87])){
+ if((map[40]||map[83])||(map[39]||map[68])||(map[37]||map[65])||(map[38]||map[87])){
  playerC.isMoving=true;
 }else{
  playerC.isMoving=false;
 }}
+ if(stop(playerC)){
+ playerC.x +=playerC.xmotion;
+  playerC.y +=playerC.ymotion;}else{
+     playerC.xmotion=0;
+     playerC.ymotion=0;
+  playerC.isMoving=false;
+}
+
   enemy.prototype.move = function(){
     
 if(e.keyCode===37||e.keyCode===65){
