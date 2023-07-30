@@ -601,14 +601,14 @@ if(movement==="Relative"){
  playerC.isMoving=true;
 }else{
  playerC.isMoving=false;
-}}
+}
  if(stop(playerC)){
  playerC.x +=playerC.xmotion;
   playerC.y +=playerC.ymotion;}else{
      playerC.xmotion=0;
      playerC.ymotion=0;
   playerC.isMoving=false;
-}
+}}
 
   enemy.prototype.move = function(){
     
