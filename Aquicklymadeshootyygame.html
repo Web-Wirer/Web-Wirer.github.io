@@ -584,11 +584,13 @@ this.ymotion=sh;
 x: this.xmotion+this.x,
 y: this.ymotion+this.y
 }
-if(dist(pseudo,playerC)>350){
+if(dist(pseudo,playerC)+6.25>350){
 this.x+=this.xmotion;
-this.y+=this.ymotion;}else{
+this.y+=this.ymotion;}else if(dist(pseudo,playerC)-6.25<350){
     this.x-=this.xmotion;
     this.y-=this.ymotion;
+}else{
+    
 }
 }
 average=function(){
