@@ -586,7 +586,10 @@ y: this.ymotion+this.y
 }
 if(dist(pseudo,playerC)>350){
 this.x+=this.xmotion;
-this.y+=this.ymotion;}
+this.y+=this.ymotion;}else{
+    this.x-=this.xmotion;
+    this.y-=this.ymotion;
+}
 }
 average=function(){
  var d=0;
