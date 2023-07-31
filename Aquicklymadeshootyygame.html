@@ -580,8 +580,9 @@ if(adj===0){adj=0.0001;}
   }
 this.xmotion=st;
 this.ymotion=sh;
+if(dist(this,playerC)>150){
 this.x+=this.xmotion;
-this.y+=this.ymotion;
+this.y+=this.ymotion;}
 }
 average=function(){
  var d=0;
