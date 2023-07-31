@@ -543,7 +543,7 @@ if(movement==="Relative"){
      playerC.ymotion=0;
   playerC.isMoving=false;
 }}
-  enemy.prototype.move = function(psuedo){
+  enemy.prototype.move = function(){
     
 adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
 opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));
@@ -580,7 +580,10 @@ if(adj===0){adj=0.0001;}
   }
 this.xmotion=st;
 this.ymotion=sh;
-
+        var pseudo={
+x: this.xmotion+this.x,
+y: this.ymotion+this.y
+}
 if(dist(pseudo,playerC)>150){
 this.x+=this.xmotion;
 this.y+=this.ymotion;}
@@ -608,11 +611,8 @@ enemies[i].point();
   
   }
     if(!enemies[i].isResting){
-        var pseudo={
-x: enemies[i].xmotion+enemies[i].x,
-y: enemies[i].ymotion+enemies[i].y
-}
-        enemies[i].move(pseudo);
+
+        enemies[i].move();
     }
 if(enemies[i].bulletss.length>0){
     enemies[i].bulletss[0].move();
