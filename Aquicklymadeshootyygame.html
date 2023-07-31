@@ -581,8 +581,8 @@ if(adj===0){adj=0.0001;}
 this.xmotion=st;
 this.ymotion=sh;
 var pseudo={
-x: this.xmotion+x;
-y: this.ymotion+y;
+x: this.xmotion+this.x;
+y: this.ymotion+this.y;
 }
 if(dist(pseudo,playerC)>150){
 this.x+=this.xmotion;
