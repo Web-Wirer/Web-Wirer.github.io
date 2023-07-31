@@ -609,8 +609,8 @@ enemies[i].point();
   }
     if(!enemies[i].isResting){
         var pseudo={
-x: enemies[i].xmotion+enemies[i].x;
-y: enemies[i].ymotion+enemies[i].y;
+x: enemies[i].xmotion+enemies[i].x,
+y: enemies[i].ymotion+enemies[i].y
 }
         enemies[i].move(pseudo);
     }
