@@ -313,14 +313,16 @@ ctx.drawImage(wall,this.x,this.y,125,125);
 stop = function(obj){
     post=Math.floor((obj.x+obj.xmotion)/138);
     poso=Math.floor((obj.y+obj.ymotion)/138);
-    post-=1;
-    poso-=1;
+
      positt= poso.toString().concat("_",post.toString());
+    try{
 if(current_level[positt].length>0){
 if(current_level[positt][0]==="W"){
  
 return;
-}}
+}}}catch{
+        return;
+}
 return(true);
 }
     shop= function(obj){
