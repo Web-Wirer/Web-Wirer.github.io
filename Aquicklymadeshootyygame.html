@@ -337,6 +337,30 @@ return;
 }}}catch{
         return;
 }
+    post=Math.floor((obj.x+obj.xmotion+obj.width)/138);
+    poso=Math.floor((obj.y+obj.ymotion)/138);
+
+     positt= poso.toString().concat("_",post.toString());
+    try{
+if(current_level[positt].length>0){
+if(current_level[positt][0]==="W"){
+ 
+return;
+}}}catch{
+        return;
+}
+    post=Math.floor((obj.x+obj.xmotion)/138);
+    poso=Math.floor((obj.y+obj.ymotion+obj.height)/138);
+
+     positt= poso.toString().concat("_",post.toString());
+    try{
+if(current_level[positt].length>0){
+if(current_level[positt][0]==="W"){
+ 
+return;
+}}}catch{
+        return;
+}
 return(true);
 }
     shop= function(obj){
