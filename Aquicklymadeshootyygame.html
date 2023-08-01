@@ -312,10 +312,11 @@ stop = function(obj){
     post=Math.floor((obj.x+obj.xmotion)/138);
     poso=Math.floor((obj.y+obj.ymotion)/138);
      positt= poso.toString().concat("_",post.toString());
+if(current_level[positt].length>0){
 if(current_level[positt][0]==="W"){
  
 return;
-}
+}}
 return(true);
 }
     shop= function(obj){
