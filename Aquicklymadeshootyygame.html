@@ -606,6 +606,7 @@ average=function(){
  d=d/playerC.averaged.length;
  playerC.vectora=d/20;
 }
+    true_load();
 game = function(){
 ctx.clearRect(0,0,10000,10000);
 move();
@@ -692,7 +693,7 @@ window.requestAnimationFrame(game);
     document.addEventListener("keypress",toggle);
 canvas.addEventListener("mousemove",Mouse);
   canvas.addEventListener("click",fire);
-true_load();
+
 game();
 </script>
 </body></html>
