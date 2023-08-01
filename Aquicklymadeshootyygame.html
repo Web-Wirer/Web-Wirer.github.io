@@ -309,8 +309,8 @@ stopper.prototype.draw = function(){
 ctx.drawImage(wall,this.x,this.y,125,125);
 }
 stop = function(obj){
-    poso=Math.floor(obj.x+obj.xmotion/138);
-    post=Math.floor(obj.y+obj.ymotion/138);
+    poso=Math.floor((obj.x+obj.xmotion)/138);
+    post=Math.floor((obj.y+obj.ymotion)/138);
      positt= poso.toString().concat("_",post.toString());
 if(current_level[positt]===["W"]){
  
