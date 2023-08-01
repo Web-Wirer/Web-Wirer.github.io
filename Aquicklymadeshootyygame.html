@@ -17,6 +17,8 @@ var ctx = canvas.getContext("2d");
     var mouseONE;
     var mouseTWO;
     var positt;
+    var poso;
+    var post;
 var bulletss=[];
 var walls= [];
 var enemies=[];
@@ -307,8 +309,8 @@ stopper.prototype.draw = function(){
 ctx.drawImage(wall,this.x,this.y,125,125);
 }
 stop = function(obj){
-    var poso=Math.floor(obj.x+obj.xmotion/138);
-    var post=Math.floor(obj.y+obj.ymotion/138);
+    poso=Math.floor(obj.x+obj.xmotion/138);
+    post=Math.floor(obj.y+obj.ymotion/138);
      positt= poso.toString().concat("_",post.toString());
 if(current_level[positt]===["W"]){
  
