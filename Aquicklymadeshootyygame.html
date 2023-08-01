@@ -91,6 +91,8 @@ this.y=(y*138)+((138/2)-(62.5/2));
 this.health= maxHealth;
 this.maxHealth = maxHealth;
 this.wepDamage = wepDamage;
+this.width=62.5;
+    this.height=62.5;
 this.isResting=true;
     this.type="enemy";
 this.wakeDistance=300;
@@ -313,6 +315,18 @@ ctx.drawImage(wall,this.x,this.y,125,125);
 stop = function(obj){
     post=Math.floor((obj.x+obj.xmotion)/138);
     poso=Math.floor((obj.y+obj.ymotion)/138);
+
+     positt= poso.toString().concat("_",post.toString());
+    try{
+if(current_level[positt].length>0){
+if(current_level[positt][0]==="W"){
+ 
+return;
+}}}catch{
+        return;
+}
+    post=Math.floor((obj.x+obj.xmotion+obj.width)/138);
+    poso=Math.floor((obj.y+obj.ymotion+obj.height)/138);
 
      positt= poso.toString().concat("_",post.toString());
     try{
