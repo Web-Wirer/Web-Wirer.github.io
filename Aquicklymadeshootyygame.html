@@ -306,15 +306,12 @@ stopper.prototype.draw = function(){
 ctx.drawImage(wall,this.x,this.y,125,125);
 }
 stop = function(obj){
-    for(var i = 0; i<walls.length; i++){
-  
-if((obj.x+obj.width+obj.xmotion)>(walls[i].x-3)&&(obj.x+obj.width+obj.xmotion)<walls[i].xt+5&&(obj.y+obj.height+obj.ymotion)>(walls[i].y-6)&&(obj.y+obj.height+obj.ymotion)<walls[i].yt+9){
+    var poso=Math.floor(obj.x+obj.xmotion/138);
+    var post=Math.floor(obj.y+obj.ymotion/138);
+    var positt= poso.toString().concat("_",post.toString());
+if(current_level[positt]==="W"){
  
-return(false);
-    
-}else if(obj.x+obj.xmotion+4>walls[i].x-13&&obj.x+obj.xmotion<walls[i].xt+9&&obj.y+obj.ymotion>walls[i].y-6&&obj.y+obj.ymotion<walls[i].yt+6){
-return(false);
-}
+return;
 }
 return(true);
 }
