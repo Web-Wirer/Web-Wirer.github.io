@@ -104,6 +104,9 @@ this.rotation=0;
     this.xmotion=0;
     this.ymotion=0;
     this.path=[];
+    this.pc=0;
+    this.obstactlepos=[];
+    this.insight=false;
 };
 //players object
 players= function(x,y,maxHealth,wepDamage, speed=1){
@@ -580,15 +583,24 @@ if(movement==="Relative"){
      playerC.ymotion=0;
   playerC.isMoving=false;
 }}
+    enemy.prototype.pathfind=function(){
+
+adj = ((this.x+(62.5/2))-((playerC.x+(62.5/2))));
+opp = ((this.y+(62.5/2))-((playerC.y+(62.5/2))));
+if(adj===0){adj=0.0001;}
+  
+        if(opp===0){opp=0.0001;}
+  var st = ((adj/opp)/((adj/opp)+1))*150;
+  var sh = ((opp/adj)/((opp/adj)+1))*150;
+this.path[0]=[playerC.x+st,playerC.y+sh];
+}
   enemy.prototype.move = function(){
-    
-adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
-opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));
-hyp= Math.sqrt((adj*adj)+(opp*opp));
- var future= hyp/13;
+adj = Math.abs((this.x+(62.5/2))-((this.path[0][0]+(62.5/2))));
+opp = Math.abs((this.y+(62.5/2))-((this.path[0][1]+(62.5/2))));
+
 if(playerC.isMoving){
-adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))));
-opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))));}
+adj = Math.abs((this.x+(62.5/2))-((this.path[0][1]+(62.5/2))));
+opp = Math.abs((this.y+(62.5/2))-((this.path[0][1]+(62.5/2))));}
 if(adj===0){adj=0.0001;}
   
         if(opp===0){opp=0.0001;}
