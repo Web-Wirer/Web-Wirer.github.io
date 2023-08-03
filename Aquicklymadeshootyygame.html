@@ -198,6 +198,9 @@ level_observer = function(){
             for(var m =0;m<walls.length;m++){
     if(walls[m].gridx===j&&walls[m].gridy===i){
     current_level[posit]=["W"];
+                    for(var m =0;m<enemies.length;m++){
+    if(Math.floor(enemies[m].x/138)===j&&Math.floor(enemies[m].y/138)===i){
+    current_level[posit].push("E");
      
     }
                 
@@ -593,6 +596,7 @@ if(adj===0){adj=0.0001;}
   var st = ((adj/opp)/((adj/opp)+1))*150;
   var sh = ((opp/adj)/((opp/adj)+1))*150;
 this.path[0]=[playerC.x+st,playerC.y+sh];
+
 }
   enemy.prototype.move = function(){
     this.pathfind();
