@@ -203,8 +203,10 @@ level_observer = function(){
                     for(var m =0;m<enemies.length;m++){
     if(Math.floor(enemies[m].x/138)===j&&Math.floor(enemies[m].y/138)===i){
     current_level[posit].push("E");
+        
      
     }}
+     current_level[posit].push("_");
                 
 }}}
     true_load();
