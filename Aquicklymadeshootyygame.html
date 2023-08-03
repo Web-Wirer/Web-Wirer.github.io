@@ -105,8 +105,9 @@ this.rotation=0;
     this.ymotion=0;
     this.path=[];
     this.pc=0;
-    this.obstactlepos=[];
     this.insight=false;
+    this.hasfound=false;
+    
 };
 //players object
 players= function(x,y,maxHealth,wepDamage, speed=1){
@@ -595,8 +596,67 @@ if(adj===0){adj=0.0001;}
         if(opp===0){opp=0.0001;}
   var st = ((adj/opp)/((adj/opp)+1))*150;
   var sh = ((opp/adj)/((opp/adj)+1))*150;
-this.path[0]=[playerC.x+st,playerC.y+sh];
+if(this.insight){
+this.path[0]=[playerC.x+st,playerC.y+sh];}
+if(!this.hasfound){
+    
+    var gridx = Math.floor(enemies[m].x/138);
+    var gridy = Math.floor(enemies[m].y/138);
 
+    while(!this.hasfound){
+        var moveo=[gridx+1,gridy];
+        var posittt= moveo[0].toString().concat("_",moveo[1].toString());   
+        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
+        for(var i=0;i<current_level[posittt].length;i++){
+        if(current_level[posittt][i]==="W"){
+            
+    }else if(current_level[posittt][i]==="P"){
+            this.path.push(pathfinds);
+            this.hasfound=true;
+            break;
+    }else{
+     this.path.push(pathfinds);     
+    }}
+         moveo=[gridx,gridy+1];
+        var posittt= moveo[0].toString().concat("_",moveo[1].toString());   
+        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
+        for(var i=0;i<current_level[posittt].length;i++){
+        if(current_level[posittt][i]==="W"){
+            
+    }else if(current_level[posittt][i]==="P"){
+            this.path.push(pathfinds);
+            this.hasfound=true;
+            break;
+    }else{
+     this.path.push(pathfinds);     
+    }}
+         moveo=[gridx,gridy-1];
+        var posittt= moveo[0].toString().concat("_",moveo[1].toString());   
+        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
+        for(var i=0;i<current_level[posittt].length;i++){
+        if(current_level[posittt][i]==="W"){
+            
+    }else if(current_level[posittt][i]==="P"){
+            this.path.push(pathfinds);
+            this.hasfound=true;
+            break;
+    }else{
+     this.path.push(pathfinds);     
+    }}
+         moveo=[gridx-1,gridy];
+        var posittt= moveo[0].toString().concat("_",moveo[1].toString());   
+        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
+        for(var i=0;i<current_level[posittt].length;i++){
+        if(current_level[posittt][i]==="W"){
+            
+    }else if(current_level[posittt][i]==="P"){
+            this.path.push(pathfinds);
+            this.hasfound=true;
+            break;
+    }else{
+     this.path.push(pathfinds);     
+    }}
+}
 }
   enemy.prototype.move = function(){
     this.pathfind();
