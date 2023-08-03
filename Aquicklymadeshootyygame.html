@@ -604,7 +604,7 @@ if(!this.hasfound){
     var gridx = Math.floor(this.x/138);
     var gridy = Math.floor(this.y/138);
     this.path[0]=[gridx,gridy];
-    while(!this.hasfound){
+
         this.pc++;
         var leng=this.path.length;
         for(var i=0;i<leng;i++){
@@ -663,7 +663,7 @@ if(!this.hasfound){
      this.path.push(pathfinds);     
     }}
 }}
-}}
+}
   enemy.prototype.move = function(){
     this.pathfind();
 adj = Math.abs((this.x+(62.5/2))-((this.path[0][0]+(62.5/2))));
