@@ -620,11 +620,11 @@ if(!this.hasfound){
         if(current_level[posittt][i]==="W"||this.path.includes(posittt)){
             
     }else if(current_level[posittt][i]==="P"){
-            this.path.push(posittt);
+            this.path.push([moveo[0],moveo[1],this.pc]);
             this.hasfound=true;
             break;
     }else{
-     this.path.push(posittt);     
+     this.path.push([moveo[0],moveo[1],this.pc]);     
     }}
          moveo=[gridx,gridy+1];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
@@ -633,11 +633,11 @@ if(!this.hasfound){
         if(current_level[posittt][i]==="W"||this.path.includes(posittt)){
             
     }else if(current_level[posittt][i]==="P"){
-            this.path.push(posittt);
+            this.path.push([moveo[0],moveo[1],this.pc]);
             this.hasfound=true;
             break;
     }else{
-     this.path.push(posittt);     
+     this.path.push([moveo[0],moveo[1],this.pc]);     
     }}
          moveo=[gridx,gridy-1];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
@@ -646,11 +646,11 @@ if(!this.hasfound){
         if(current_level[posittt][i]==="W"||this.path.includes(posittt)){
             
     }else if(current_level[posittt][i]==="P"){
-            this.path.push(posittt);
+            this.path.push([moveo[0],moveo[1],this.pc]);
             this.hasfound=true;
             break;
     }else{
-     this.path.push(posittt);     
+     this.path.push([moveo[0],moveo[1],this.pc]);     
     }}
          moveo=[gridx-1,gridy];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
@@ -659,14 +659,14 @@ if(!this.hasfound){
         if(current_level[posittt][i]==="W"||this.path.includes(posittt)){
             
     }else if(current_level[posittt][i]==="P"){
-            this.path.push(posittt);
+            this.path.push([moveo[0],moveo[1],this.pc]);
             this.hasfound=true;
             break;
     }else{
-     this.path.push(posittt);     
+     this.path.push([moveo[0],moveo[1],this.pc]);     
     }}
 }}}
-     this.hasfound=true;   
+        
 }
   enemy.prototype.move = function(){
     this.pathfind();
