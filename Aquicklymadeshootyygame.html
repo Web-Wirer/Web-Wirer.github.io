@@ -606,7 +606,8 @@ if(!this.hasfound){
 
     var gridx = Math.floor(this.x/138);
     var gridy = Math.floor(this.y/138);
-    this.path[0]=[gridx,gridy];
+    this.path.shift();
+    this.path.unshift([gridx,gridy]);
 
         this.pc++;
         var leng=this.path.length;
