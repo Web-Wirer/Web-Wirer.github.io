@@ -599,16 +599,21 @@ if(adj===0){adj=0.0001;}
 if(this.insight){
 this.path[0]=[playerC.x+st,playerC.y+sh];}
 if(!this.hasfound){
-    
+
     var gridx = Math.floor(this.x/138);
     var gridy = Math.floor(this.y/138);
-
+    this.path[0]=[gridx,gridy];
     while(!this.hasfound){
+        this.pc++;
+        var leng=this.path.length;
+        for(var i=0;i<leng;i++){
+        var gridx = Math.floor(this.path[i][0].x/138);
+    var gridy = Math.floor(this.path[i][1]/138);
         var moveo=[gridx+1,gridy];
         var posittt= moveo[0].toString().concat("_",moveo[1].toString());   
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
         for(var i=0;i<current_level[posittt].length;i++){
-        if(current_level[posittt][i]==="W"){
+        if(current_level[posittt][i]==="W"||this.path.includes(pathfinds)){
             
     }else if(current_level[posittt][i]==="P"){
             this.path.push(pathfinds);
@@ -621,7 +626,7 @@ if(!this.hasfound){
         var posittt= moveo[0].toString().concat("_",moveo[1].toString());   
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
         for(var i=0;i<current_level[posittt].length;i++){
-        if(current_level[posittt][i]==="W"){
+        if(current_level[posittt][i]==="W"||this.path.includes(pathfinds))){
             
     }else if(current_level[posittt][i]==="P"){
             this.path.push(pathfinds);
@@ -634,7 +639,7 @@ if(!this.hasfound){
         var posittt= moveo[0].toString().concat("_",moveo[1].toString());   
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
         for(var i=0;i<current_level[posittt].length;i++){
-        if(current_level[posittt][i]==="W"){
+        if(current_level[posittt][i]==="W"||this.path.includes(pathfinds))){
             
     }else if(current_level[posittt][i]==="P"){
             this.path.push(pathfinds);
@@ -647,7 +652,7 @@ if(!this.hasfound){
         var posittt= moveo[0].toString().concat("_",moveo[1].toString());   
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
         for(var i=0;i<current_level[posittt].length;i++){
-        if(current_level[posittt][i]==="W"){
+        if(current_level[posittt][i]==="W"||this.path.includes(pathfinds))){
             
     }else if(current_level[posittt][i]==="P"){
             this.path.push(pathfinds);
@@ -656,7 +661,7 @@ if(!this.hasfound){
     }else{
      this.path.push(pathfinds);     
     }}
-}
+}}
 }}
   enemy.prototype.move = function(){
     this.pathfind();
