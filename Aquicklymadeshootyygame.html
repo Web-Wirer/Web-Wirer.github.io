@@ -612,8 +612,8 @@ if(!this.hasfound){
         this.pc++;
         var leng=this.path.length;
         for(var d=0;i<leng;d++){
-         gridx = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_")-1));
-     gridy = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_",(this.path[d].indexOf("_")+1))-1));
+         gridx = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_")));
+     gridy = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_",(this.path[d].indexOf("_")+1))));
         var moveo=[gridx+1,gridy];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc);   
@@ -684,12 +684,13 @@ this.hasfound=true;
 }}this.hasfound=true;}
   enemy.prototype.move = function(){
     this.pathfind();
+
 adj = Math.abs((this.x+(62.5/2))-((this.path[0][0]+(62.5/2))));
 opp = Math.abs((this.y+(62.5/2))-((this.path[0][1]+(62.5/2))));
 
 if(playerC.isMoving){
-adj = Math.abs((this.x+(62.5/2))-((this.path[0][1]+(62.5/2))));
-opp = Math.abs((this.y+(62.5/2))-((this.path[0][1]+(62.5/2))));}
+adj = Math.abs((this.x+(62.5/2))-(this.path[0].substr(0,this.path[0].indexOf("_"))));
+opp = Math.abs((this.y+(62.5/2))-(this.path[0].substr(0,this.path[0].indexOf("_",(this.path[0].indexOf("_")+1)))));}
 if(adj===0){adj=0.0001;}
   
         if(opp===0){opp=0.0001;}
