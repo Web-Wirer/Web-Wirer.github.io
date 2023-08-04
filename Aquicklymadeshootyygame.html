@@ -615,7 +615,7 @@ if(!this.hasfound){
          gridx = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_")));
      gridy = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_",(this.path[d].indexOf("_")+1))));
         var moveo=[gridx+1,gridy];
-         posittt= moveo[0].toString().concat("_",moveo[1].toString());   
+         var posittt= moveo[0].toString().concat("_",moveo[1].toString());   
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc);   
             var wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
