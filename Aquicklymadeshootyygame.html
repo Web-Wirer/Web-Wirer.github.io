@@ -607,7 +607,7 @@ if(!this.hasfound){
     var gridx = Math.floor(this.x/138);
     var gridy = Math.floor(this.y/138);
     this.path.shift();
-    this.path.unshift([gridx,gridy]);
+    this.path.unshift([gridx,gridy,0]);
 
         this.pc++;
         var leng=this.path.length;
@@ -617,9 +617,10 @@ if(!this.hasfound){
         var moveo=[gridx+1,gridy];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
+            var wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
-        if(current_level[posittt][i]==="W"||this.path.includes(posittt)){
-            
+        if(current_level[posittt][i]==="W"||this.path.includes(posittt)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]){
+            wallis=true;
     }else if(current_level[posittt][i]==="P"){
             this.path.push([moveo[0],moveo[1],this.pc]);
             this.hasfound=true;
@@ -630,9 +631,10 @@ if(!this.hasfound){
          moveo=[gridx,gridy+1];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
+            wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
-        if(current_level[posittt][i]==="W"||this.path.includes(posittt)){
-            
+        if(current_level[posittt][i]==="W"||this.path.includes(posittt)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]){
+             wallis=true;
     }else if(current_level[posittt][i]==="P"){
             this.path.push([moveo[0],moveo[1],this.pc]);
             this.hasfound=true;
@@ -643,9 +645,10 @@ if(!this.hasfound){
          moveo=[gridx,gridy-1];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
+            wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
-        if(current_level[posittt][i]==="W"||this.path.includes(posittt)){
-            
+        if(current_level[posittt][i]==="W"||this.path.includes(posittt)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]){
+             wallis=true;
     }else if(current_level[posittt][i]==="P"){
             this.path.push([moveo[0],moveo[1],this.pc]);
             this.hasfound=true;
@@ -656,9 +659,10 @@ if(!this.hasfound){
          moveo=[gridx-1,gridy];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
+            wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
-        if(current_level[posittt][i]==="W"||this.path.includes(posittt)){
-            
+        if(current_level[posittt][i]==="W"||this.path.includes(posittt)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]){
+             wallis=true;
     }else if(current_level[posittt][i]==="P"){
             this.path.push([moveo[0],moveo[1],this.pc]);
             this.hasfound=true;
