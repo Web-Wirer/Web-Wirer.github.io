@@ -611,7 +611,8 @@ if(!this.hasfound){
 
         this.pc++;
         var leng=this.path.length;
-        for(var d=0;i<leng;d++){
+     
+        for(var d=0;d<leng;d++){
          gridx = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_")));
      gridy = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_",(this.path[d].indexOf("_")+1))));
         var moveo=[gridx+1,gridy];
