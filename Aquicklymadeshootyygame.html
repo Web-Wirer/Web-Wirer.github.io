@@ -616,7 +616,7 @@ if(!this.hasfound){
     var gridy = Math.floor(this.path[i][1]);
         var moveo=[gridx+1,gridy];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
-        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
+        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc);   
             var wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
         if(current_level[posittt][i]==="W"||this.path.includes(pathfinds)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
@@ -633,7 +633,7 @@ if(!this.hasfound){
 
                var moveo=[gridx,gridy+1];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
-        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
+        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc);   
             var wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
         if(current_level[posittt][i]==="W"||this.path.includes(pathfinds)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
@@ -649,7 +649,7 @@ if(!this.hasfound){
     }}
             var moveo=[gridx-1,gridy];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
-        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
+        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc);   
             var wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
         if(current_level[posittt][i]==="W"||this.path.includes(pathfinds)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
@@ -665,7 +665,7 @@ if(!this.hasfound){
     }}
         var moveo=[gridx,gridy-1];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
-        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
+        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc);   
             var wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
         if(current_level[posittt][i]==="W"||this.path.includes(pathfinds)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
