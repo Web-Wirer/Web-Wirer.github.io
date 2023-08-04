@@ -611,7 +611,7 @@ if(!this.hasfound){
 
         this.pc++;
         var leng=this.path.length;
-     
+     console.log(leng);
         for(var d=0;d<leng;d++){
          gridx = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_")));
      gridy = parseFloat(enemies[0].path[0].substr(enemies[0].path[0].indexOf("_",(enemies[0].path[0].indexOf("_")))+1,start_level[1].toString().length));
