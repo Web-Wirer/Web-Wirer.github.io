@@ -689,8 +689,8 @@ adj = Math.abs((this.x+(62.5/2))-((this.path[0][0]+(62.5/2))));
 opp = Math.abs((this.y+(62.5/2))-((this.path[0][1]+(62.5/2))));
 
 if(playerC.isMoving){
-adj = Math.abs((this.x+(62.5/2))-(this.path[0].substr(0,this.path[0].indexOf("_"))));
-opp = Math.abs((this.y+(62.5/2))-(this.path[0].substr(0,this.path[0].indexOf("_",(this.path[0].indexOf("_")+1)))));}
+adj = Math.abs((this.x+(62.5/2))-parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))));
+opp = Math.abs((this.y+(62.5/2))-parseFloat((this.path[0].substr(0,this.path[0].indexOf("_",(this.path[0].indexOf("_")+1))))));}
 if(adj===0){adj=0.0001;}
   
         if(opp===0){opp=0.0001;}
