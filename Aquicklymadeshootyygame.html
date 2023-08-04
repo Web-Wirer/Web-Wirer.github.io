@@ -16,6 +16,7 @@ var canvas = document.getElementById("one");
 var ctx = canvas.getContext("2d");
     var mouseONE;
     var mouseTWO;
+    var pathfinds;
     var positt;
     var posittt;
     var poso;
@@ -622,14 +623,14 @@ if(!this.hasfound){
      gridy = parseFloat(this.path[d].substr(this.path[d].indexOf("_",(this.path[d].indexOf("_")))+1,start_level[1].toString().length));
         var moveo=[gridx+1,gridy];
           posittt= moveo[0].toString().concat("_",moveo[1].toString());   
-        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc.toString());   
+        pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc.toString());   
             var wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
         if(current_level[posittt][i]==="W"||this.path.cnf(this.pc.toString().length, pathfinds)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
             wallis=true;
     }} 
             for(var e=0;e<current_level[posittt].length;e++){
-                if(!this.path.cnf(this.pc.toString().length),pathfinds){
+                if(!this.path.cnf(this.pc.toString().length,pathfinds)){
             if(current_level[posittt][e]==="P"&&!wallis){
             this.path.push(pathfinds);
             this.hasfound=true;
@@ -640,14 +641,14 @@ if(!this.hasfound){
 
                var moveo=[gridx,gridy+1];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
-        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc.toString());   
+        pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc.toString());   
              wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
         if(current_level[posittt][i]==="W"||this.path.cnf(this.pc.toString().length, pathfinds)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
             wallis=true;
     }} 
             for(var e=0;e<current_level[posittt].length;e++){
-                if(!this.path.cnf(this.pc.toString().length),pathfinds){
+                if(!this.path.cnf(this.pc.toString().length,pathfinds)){
             if(current_level[posittt][e]==="P"&&!wallis){
             this.path.push(pathfinds);
             this.hasfound=true;
@@ -657,14 +658,14 @@ if(!this.hasfound){
     }}}
             var moveo=[gridx-1,gridy];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
-        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc.toString());   
+        pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc.toString());   
              wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
         if(current_level[posittt][i]==="W"||this.path.cnf(this.pc.toString().length, pathfinds)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
             wallis=true;
     }} 
             for(var e=0;e<current_level[posittt].length;e++){
-                if(!this.path.cnf(this.pc.toString().length),pathfinds){
+                if(!this.path.cnf(this.pc.toString().length,pathfinds)){
             if(current_level[posittt][e]==="P"&&!wallis){
             this.path.push(pathfinds);
             this.hasfound=true;
@@ -674,14 +675,14 @@ if(!this.hasfound){
     }}}
         var moveo=[gridx,gridy-1];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
-        var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc.toString());   
+        pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc.toString());   
              wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
         if(current_level[posittt][i]==="W"||this.path.cnf(this.pc.toString().length, pathfinds)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
             wallis=true;
     }} 
             for(var e=0;e<current_level[posittt].length;e++){
-                if(!this.path.cnf(this.pc.toString().length),pathfinds){
+                if(!this.path.cnf(this.pc.toString().length,pathfinds)){
             if(current_level[posittt][e]==="P"&&!wallis){
             this.path.push(pathfinds);
             this.hasfound=true;
