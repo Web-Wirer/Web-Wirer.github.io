@@ -621,7 +621,7 @@ if(!this.hasfound){
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc.toString());   
             var wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
-        if(current_level[posittt][i]==="W"||this.path.includes(pathfinds)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
+        if(current_level[posittt][i]==="W"||this.path.includes(pathfinds.substr(0,pathfinds.length-1)+(this.pc-1).toString())||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
             wallis=true;
             console.log("E");
     }} 
@@ -639,7 +639,7 @@ if(!this.hasfound){
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc.toString());   
              wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
-        if(current_level[posittt][i]==="W"||this.path.includes(pathfinds)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
+        if(current_level[posittt][i]==="W"||this.path.includes(pathfinds.substr(0,pathfinds.length-1)+(this.pc-1).toString())||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
             wallis=true;
             console.log("D");
     }} 
@@ -656,7 +656,7 @@ if(!this.hasfound){
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc.toString());   
              wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
-        if(current_level[posittt][i]==="W"||this.path.includes(pathfinds)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
+        if(current_level[posittt][i]==="W"||this.path.includes(pathfinds.substr(0,pathfinds.length-1)+(this.pc-1).toString())||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
             wallis=true;
     }} 
             for(var e=0;e<current_level[posittt].length;e++){
@@ -672,7 +672,7 @@ if(!this.hasfound){
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc.toString());   
              wallis = false;
         for(var i=0;i<current_level[posittt].length;i++){
-        if(current_level[posittt][i]==="W"||this.path.includes(pathfinds)||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
+        if(current_level[posittt][i]==="W"||this.path.includes(pathfinds.substr(0,pathfinds.length-1)+(this.pc-1).toString())||wallis||moveo[0]>start_level[0]||moveo[1]>start_level[1]||moveo[0]<0||moveo[1]<0){
             wallis=true;
     }} 
             for(var e=0;e<current_level[posittt].length;e++){
