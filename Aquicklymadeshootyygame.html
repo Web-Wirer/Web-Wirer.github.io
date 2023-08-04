@@ -607,13 +607,13 @@ if(!this.hasfound){
     var gridy = Math.floor(this.x/138);
     var gridx = Math.floor(this.y/138);
     this.path.shift();
-    this.path.unshift([gridx,gridy,0]);
+    this.path.unshift(gridx.toString().concat("_",gridy.toString()).concat("_",0));
 
         this.pc++;
         var leng=this.path.length;
-        for(var i=0;i<leng;i++){
-        var gridx = Math.floor(this.path[i][0]);
-    var gridy = Math.floor(this.path[i][1]);
+        for(var d=0;i<leng;d++){
+         gridx = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_")-1));
+     gridy = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_",(this.path[d].indexOf("_")+1))-1));
         var moveo=[gridx+1,gridy];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc);   
