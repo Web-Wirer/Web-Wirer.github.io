@@ -628,8 +628,7 @@ if(!this.hasfound){
     }else if(!wallis){
      this.path.push([moveo[0],moveo[1],this.pc]);     
     }
-                 var gridx = Math.floor(this.path[i][0]);
-    var gridy = Math.floor(this.path[i][1]);
+
         var moveo=[gridx,gridy+1];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
@@ -644,8 +643,7 @@ if(!this.hasfound){
     }else if(!wallis){
      this.path.push([moveo[0],moveo[1],this.pc]);     
     }
-        var gridx = Math.floor(this.path[i][0]);
-    var gridy = Math.floor(this.path[i][1]);
+
         var moveo=[gridx-1,gridy];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
@@ -660,8 +658,7 @@ if(!this.hasfound){
     }else if(!wallis){
      this.path.push([moveo[0],moveo[1],this.pc]);     
     }
-                var gridx = Math.floor(this.path[i][0]);
-    var gridy = Math.floor(this.path[i][1]);
+
         var moveo=[gridx,gridy-1];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
         var pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat(this.pc);   
