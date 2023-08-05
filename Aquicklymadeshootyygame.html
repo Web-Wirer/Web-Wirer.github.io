@@ -86,8 +86,9 @@ function degrees_to_radians(degrees) {
   return degrees * (Math.PI / 180);
 }
 Array.prototype.cnf= function(w,s){
+    
 for(var i=0;i<this.length;i++){
-    if(this[i].substr(0,this[i].length-(w+1))===s.substr(0,s.length-(w+1))){
+    if(this[i].substr(0,this[i].indexOf("_",this[i].indexOf("_")+1)-this[i].indexOf("_")===s.substr(0,s.length-(w+1))){
         return true;
     }
 }
