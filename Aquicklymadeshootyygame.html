@@ -621,7 +621,7 @@ if(!this.hasfound){
         var leng=this.path.length;
         for(var d=0;d<leng;d++){
          gridx = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_")));
-     gridy = parseFloat(this.path[d].substr(this.path[d].indexOf("_",(this.path[d].indexOf("_")))+1,start_level[1].toString().length));
+     gridy = parseFloat(this.path[d].substr(this.path[d].indexOf("_"),this.path[d].indexOf("_",this.path[d].indexOf("_")+1)-this.path[d].indexOf("_")));
         var moveo=[gridx+1,gridy];
           posittt= moveo[0].toString().concat("_",moveo[1].toString());   
         pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",this.pc.toString());   
@@ -693,7 +693,15 @@ if(!this.hasfound){
     }}}
 
         
-}}}}
+}}
+
+
+      
+
+        
+
+
+}}
   enemy.prototype.move = function(){
     this.pathfind();
 
