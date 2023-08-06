@@ -707,17 +707,14 @@ if(!this.hasfound){
                     pathfinds= gridx.toString().concat("_",gridy.toString()).concat("_","2");        
                 if(this.path.cnf(this.pc.toString().length,pathfinds)){
                     var ha=this.path.cnf(this.pc.toString().length,pathfinds,false);
-            if(this.pathdupe.includes(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)+1,this.path[ha].length-this.path[ha].indexOf("_",this.path[ha].indexOf("_"))))&&!this.pathdupes.includes(ha)){
+            if(this.pathdupe.includes(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)+1,this.path[ha].length-this.path[ha].indexOf("_",this.path[ha].indexOf("_"))))&&!this.pathdupes.includes(pathfinds)){
             
                 this.path.splice(ha);
 d=this.path.length-1;
-            for(i=0;i<this.pathdupes.length-1;i++){
-                this.pathdupes[i]--;
-            }
     }else if(!this.pathdupes.includes(ha)){
                 
                 this.pathdupe.push(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)+1,this.path[ha].length-this.path[ha].indexOf("_",this.path[ha].indexOf("_"))));
-                this.pathdupes.push(ha);
+                this.pathdupes.push(pathfinds);
                 
     }}
        
