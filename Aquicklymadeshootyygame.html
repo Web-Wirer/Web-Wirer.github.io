@@ -710,12 +710,12 @@ if(!this.hasfound){
       
                 if(this.path.cnf(this.pc.toString().length,pathfinds)){
                     var ha=this.path.cnf(this.pc.toString().length,pathfinds,false);
-            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")))){
+            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))))){
             this.path.splice(ha);
+                d--;
     }else{
                 this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")));
     }}
-     
         var moveo=[gridx,gridy+1];
 
 
@@ -723,8 +723,9 @@ if(!this.hasfound){
       
                 if(this.path.cnf(this.pc.toString().length,pathfinds)){
                     var ha=this.path.cnf(this.pc.toString().length,pathfinds,false);
-            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")))){
+            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))))){
             this.path.splice(ha);
+                d--;
     }else{
                 this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")));
     }}
@@ -736,8 +737,9 @@ if(!this.hasfound){
       
                 if(this.path.cnf(this.pc.toString().length,pathfinds)){
                     var ha=this.path.cnf(this.pc.toString().length,pathfinds,false);
-            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")))){
+            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))))){
             this.path.splice(ha);
+            d--;
     }else{
                 this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")));
     }}
@@ -749,8 +751,9 @@ if(!this.hasfound){
       
                 if(this.path.cnf(this.pc.toString().length,pathfinds)){
                     var ha=this.path.cnf(this.pc.toString().length,pathfinds,false);
-            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")))){
+            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))))){
             this.path.splice(ha);
+            d--;
     }else{
                 this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")));
     }}
