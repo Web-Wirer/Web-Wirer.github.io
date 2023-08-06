@@ -693,8 +693,8 @@ if(!this.hasfound){
             this.path.push(pathfinds);
             this.hasfound=true;
             break;
-    }else if(!wallis){
-     this.path.push(pathfinds&&!this.hasfound);     
+    }else if(!wallis&&!this.hasfound){
+     this.path.push(pathfinds);     
     }}}
 
         
