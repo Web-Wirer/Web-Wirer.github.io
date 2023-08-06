@@ -702,19 +702,18 @@ if(!this.hasfound){
 }}
  var leng=this.path.length;
         for(var d=leng-1;d>=0;d--){
-         gridx = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_")));
-     gridy = parseFloat(this.path[d].substr(this.path[d].indexOf("_")+1,this.path[d].indexOf("_",this.path[d].indexOf("_")+1)-this.path[d].indexOf("_")));
-                    pathfinds= gridx.toString().concat("_",gridy.toString()).concat("_","2");        
+
+                  
                 if(this.path.cnf(this.pc.toString().length,pathfinds)){
                     var ha=this.path.cnf(this.pc.toString().length,pathfinds,false);
-            if(this.pathdupe.includes(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)+1,this.path[ha].length-this.path[ha].indexOf("_",this.path[ha].indexOf("_"))))&&!this.pathdupes.includes(pathfinds)){
+            if(this.pathdupe.includes(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)+1,this.path[ha].length-this.path[ha].indexOf("_",this.path[ha].indexOf("_"))))&&!this.pathdupes.includes(this.path[ha])){
             
                 this.path.splice(ha);
 d=this.path.length-1;
     }else if(!this.pathdupes.includes(ha)){
                 
                 this.pathdupe.push(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)+1,this.path[ha].length-this.path[ha].indexOf("_",this.path[ha].indexOf("_"))));
-                this.pathdupes.push(pathfinds);
+                this.pathdupes.push(this.path[ha]);
                 
     }}
        
