@@ -85,16 +85,19 @@ function radians_to_degrees(radians) {
 function degrees_to_radians(degrees) {
   return degrees * (Math.PI / 180);
 }
-Array.prototype.cnf= function(w,s){
+Array.prototype.cnf= function(w,s,t=true){
     
 for(var i=0;i<this.length;i++){
-    if(this[i].substr(0,this[i].length-(this[i].length-this[i].indexOf("_",this[i].indexOf("_")+1)))===s.substr(0,s.length-(w+1))){
-        return true;
-    }
+    if(this[i].substr(0,this[i].length-(this[i].length-this[i].indexOf("_",this[i].indexOf("_")+1)))===s.substr(0,s.length-(s.length-s.indexOf("_",s.indexOf("_")+1)))){
+      if(t){
+          return true;
+    }else{
+          return i;
+    }}
 }
 }
 //enemy object
-enemy= function(x,y,maxHealth,wepDamage){
+enemy= function(x,y,maxHealth,wepDamage,weapon="gun",speed=1){
 this.x = (x*138)+((138/2)-(62.5/2));
 this.y=(y*138)+((138/2)-(62.5/2));
 this.health= maxHealth;
@@ -113,6 +116,7 @@ this.rotation=0;
     this.xmotion=0;
     this.ymotion=0;
     this.path=[];
+        this.pathdupe=[];
     this.pc=0;
     this.insight=false;
     this.hasfound=false;
@@ -633,11 +637,11 @@ if(!this.hasfound){
     }} 
             for(var e=0;e<current_level[posittt].length;e++){
                 if(!this.path.cnf(this.pc.toString().length,pathfinds)){
-            if(current_level[posittt][e]==="P"&&!wallis){
+            if(current_level[posittt][e]==="P"&&!wallis&&!this.hasfound){
             this.path.push(pathfinds);
             this.hasfound=true;
             break;
-    }else if(!wallis){
+    }else if(!wallis&&!this.hasfound){
      this.path.push(pathfinds);     
     }}}
 
@@ -651,11 +655,11 @@ if(!this.hasfound){
     }} 
             for(var e=0;e<current_level[posittt].length;e++){
                 if(!this.path.cnf(this.pc.toString().length,pathfinds)){
-            if(current_level[posittt][e]==="P"&&!wallis){
+            if(current_level[posittt][e]==="P"&&!wallis&&!this.hasfound){
             this.path.push(pathfinds);
             this.hasfound=true;
             break;
-    }else if(!wallis){
+    }else if(!wallis&&!this.hasfound){
      this.path.push(pathfinds);     
     }}}
             var moveo=[gridx-1,gridy];
@@ -668,11 +672,11 @@ if(!this.hasfound){
     }} 
             for(var e=0;e<current_level[posittt].length;e++){
                 if(!this.path.cnf(this.pc.toString().length,pathfinds)){
-            if(current_level[posittt][e]==="P"&&!wallis){
+            if(current_level[posittt][e]==="P"&&!wallis&&!this.hasfound){
             this.path.push(pathfinds);
             this.hasfound=true;
             break;
-    }else if(!wallis){
+    }else if(!wallis&&!this.hasfound){
      this.path.push(pathfinds);     
     }}}
         var moveo=[gridx,gridy-1];
@@ -685,22 +689,74 @@ if(!this.hasfound){
     }} 
             for(var e=0;e<current_level[posittt].length;e++){
                 if(!this.path.cnf(this.pc.toString().length,pathfinds)){
-            if(current_level[posittt][e]==="P"&&!wallis){
+            if(current_level[posittt][e]==="P"&&!wallis&&!this.hasfound){
             this.path.push(pathfinds);
             this.hasfound=true;
             break;
     }else if(!wallis){
-     this.path.push(pathfinds);     
+     this.path.push(pathfinds&&!this.hasfound);     
     }}}
 
         
 }}
+ var leng=this.path.length;
+        for(var d=leng-1;d>=0;d--){
+         gridx = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_")));
+     gridy = parseFloat(this.path[d].substr(this.path[d].indexOf("_")+1,this.path[d].indexOf("_",this.path[d].indexOf("_")+1)-this.path[d].indexOf("_")));
+        var moveo=[gridx+1,gridy];
 
 
+        pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",1.toString());  
       
+                if(this.path.cnf(this.pc.toString().length,pathfinds)){
+                    var ha=this.path.cnf(this.pc.toString().length,pathfinds,false);
+            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")))){
+            this.path.splice(ha);
+    }else{
+                this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")));
+    }}
+     
+        var moveo=[gridx,gridy+1];
+
+
+        pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",1.toString());  
+      
+                if(this.path.cnf(this.pc.toString().length,pathfinds)){
+                    var ha=this.path.cnf(this.pc.toString().length,pathfinds,false);
+            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")))){
+            this.path.splice(ha);
+    }else{
+                this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")));
+    }}
+      
+        var moveo=[gridx-1,gridy];
+
+
+        pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",1.toString());  
+      
+                if(this.path.cnf(this.pc.toString().length,pathfinds)){
+                    var ha=this.path.cnf(this.pc.toString().length,pathfinds,false);
+            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")))){
+            this.path.splice(ha);
+    }else{
+                this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")));
+    }}
+        
+        var moveo=[gridx,gridy-1];
+
+
+        pathfinds= moveo[0].toString().concat("_",moveo[1].toString()).concat("_",1.toString());  
+      
+                if(this.path.cnf(this.pc.toString().length,pathfinds)){
+                    var ha=this.path.cnf(this.pc.toString().length,pathfinds,false);
+            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")))){
+            this.path.splice(ha);
+    }else{
+                this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")));
+    }}
 
         
-
+}
 
 }}
   enemy.prototype.move = function(){
