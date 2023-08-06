@@ -710,13 +710,13 @@ if(!this.hasfound){
       
                 if(this.path.cnf(this.pc.toString().length,pathfinds)){
                     var ha=this.path.cnf(this.pc.toString().length,pathfinds,false);
-            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))))&&ha<d){
+            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))))){
             console.log(ha);
                 this.path.splice(ha);
                 d--;
     }else{
                 console.log("not funny");
-                this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")));
+                this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))));
     }}
         var moveo=[gridx,gridy+1];
 
@@ -725,13 +725,13 @@ if(!this.hasfound){
       
                 if(this.path.cnf(this.pc.toString().length,pathfinds)){
                     var ha=this.path.cnf(this.pc.toString().length,pathfinds,false);
-            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))))&&ha<d){
+            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))))){
           console.log(ha);
                 this.path.splice(ha);
                 d--;
     }else{
                 console.log("not funny");
-                this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")));
+                this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))));
     }}
       
         var moveo=[gridx-1,gridy];
@@ -741,13 +741,13 @@ if(!this.hasfound){
       
                 if(this.path.cnf(this.pc.toString().length,pathfinds)){
                     var ha=this.path.cnf(this.pc.toString().length,pathfinds,false);
-            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))))&&ha<d){
+            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))))){
                  console.log(ha);
                 this.path.splice(ha);
             d--;
     }else{
                 console.log("not funny");
-                this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")));
+                this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))));
     }}
         
         var moveo=[gridx,gridy-1];
@@ -757,13 +757,13 @@ if(!this.hasfound){
       
                 if(this.path.cnf(this.pc.toString().length,pathfinds)){
                     var ha=this.path.cnf(this.pc.toString().length,pathfinds,false);
-            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))))&&ha<d){
+            if(this.pathdupe.includes(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))))){
                     console.log(ha);
                 this.path.splice(ha);
             d--;
     }else{
                 console.log("not funny");
-                this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_")));
+                this.pathdupe.push(parseFloat(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1),this.path[ha].length-this.path[ha].indexOf("_",this.path[d].indexOf("_")+1)-this.path[ha].indexOf("_"))));
     }}
 
         
