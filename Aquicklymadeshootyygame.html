@@ -711,8 +711,9 @@ if(!this.pathdupes.includes(pathfinds)){
             
                 this.path.splice(ha);
 d=this.path.length-1;
-                            this.pathdupe.push(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)+1,this.path[ha].length-this.path[ha].indexOf("_",this.path[ha].indexOf("_"))));
-                this.pathdupes.push(pathfinds);}
+}
+                                this.pathdupe.push(this.path[ha].substr(this.path[ha].indexOf("_",this.path[ha].indexOf("_")+1)+1,this.path[ha].length-this.path[ha].indexOf("_",this.path[ha].indexOf("_"))));
+                this.pathdupes.push(pathfinds);
     }
        
         
