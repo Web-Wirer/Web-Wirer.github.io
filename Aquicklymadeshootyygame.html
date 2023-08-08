@@ -722,12 +722,9 @@ if(!this.hasfound){
   enemy.prototype.move = function(){
     this.pathfind();
 
-adj = Math.abs((this.x+(62.5/2))-((this.path[0][0]+(62.5/2))));
-opp = Math.abs((this.y+(62.5/2))-((this.path[0][1]+(62.5/2))));
 
-if(playerC.isMoving){
-adj = Math.abs((this.x+(62.5/2))-parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))));
-opp = Math.abs((this.y+(62.5/2))-parseFloat(enemies[0].path[0].substr(enemies[0].path[0].indexOf("_",(enemies[0].path[0].indexOf("_")))+1,start_level[1].toString().length)));}
+adj = Math.abs((this.x+(62.5/2))-(((parseFloat((this.pathdupes[0].substr(0,this.pathdupes[0].indexOf("_")))))*138)+31.25));
+opp = Math.abs((this.y+(62.5/2))-(((parseFloat(this.pathdupes[0].substr(this.pathdupes[0].indexOf("_"),this.pathdupes[0].indexOf("_",(this.pathdupes[0].indexOf("_")))+1)))*138)+31.25));
 if(adj===0){adj=0.0001;}
   
         if(opp===0){opp=0.0001;}
@@ -754,7 +751,7 @@ this.ymotion=sh;
 x: this.xmotion+this.x,
 y: this.ymotion+this.y
 }
-if(dist(this,playerC)>350+7.25){
+if(true){
     if(stop(this)){
 this.x+=this.xmotion;
 this.y+=this.ymotion;}}else if(dist(this,playerC)<350-7.25){
@@ -766,6 +763,10 @@ this.y+=this.ymotion;}}else if(dist(this,playerC)<350-7.25){
 }else{
     
 }
+    if(this.x>adj-10&&this.x<adj+10&&this.y>opp-10&&this.y<opp+10){
+     this.pathdupes.shift();
+        
+    }
 }
 average=function(){
  var d=0;
