@@ -441,13 +441,44 @@ var m = Math.pow(p,2);
  }
 //math is pain.
 enemy.prototype.point = function(){
-adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2)));
-opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
+    if(true){
+var xx = (((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25);
+var yy = (((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+31.25);
+opp = Math.abs(this.x-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25));
+adj = Math.abs(this.y-(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+31.25));
     hyp= Math.sqrt((adj*adj)+(opp*opp));
+    almost = opp/hyp;
+  
+ans = Math.asin(almost);
+ans=radians_to_degrees(ans);
+ 
+ if(this.x<xx&&this.y<yy){
+   eq=1;
+this.rotation=ans;
+return;
+}else if(this.x>xx&&this.y<yy){
+ans= 180-ans;
+  eq=2;
+this.rotation=ans;
+return;
+}else if(this.x>xx&&this.y>yy){
+ans=180+ans;
+  eq=3;
+this.rotation= ans;
+return;
+}else if(this.x<xx&&this.y>yy){
+ans= 360-ans;
+  eq=4;
+this.rotation=ans;
+return;}
+    
+    
+    }else{
  var future= hyp/13;
 if(playerC.isMoving){
 adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*aimbot("xmotion"))));
 opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*aimbot("ymotion"))));
+
     hyp= Math.sqrt((adj*adj)+(opp*opp));
 almost = opp/hyp;
   
@@ -498,7 +529,7 @@ ans= 360-ans;
   eq=4;
 this.rotation=ans;
 }
-}}
+}}}
 toggle=function(e){
     
         if((e.keyCode===71||e.keyCode===103)&&tog==="Yes"){
