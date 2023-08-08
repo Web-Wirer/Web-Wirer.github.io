@@ -701,7 +701,7 @@ if(!this.hasfound){
         
 }}
  var leng=this.path.length;
-        for(var d=0;d<leng;d++){
+        for(var d=leng-1;d>=0;d--){
          gridx = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_")));
      gridy = parseFloat(this.path[d].substr(this.path[d].indexOf("_")+1,this.path[d].indexOf("_",this.path[d].indexOf("_")+1)-this.path[d].indexOf("_")));
                     pathfinds= gridx.toString().concat("_",gridy.toString()).concat("_",this.path[d].substr(this.path[d].indexOf("_",this.path[d].indexOf("_")+1)+1,this.path[d].length-this.path[d].indexOf("_",this.path[d].indexOf("_"))));        
@@ -717,14 +717,19 @@ if(!this.hasfound){
 
  console.log(d);       
 }
+    this.path=[];
+ var leng=this.pathdupes.length;
+        for(var d=0;d<leng;d++){
+     this.path.unshift(this.pathdupes[d]);
+}
 
 }}
   enemy.prototype.move = function(){
     this.pathfind();
 
 
-adj = Math.abs((this.x+(62.5/2))-(((parseFloat((this.pathdupes[0].substr(0,this.pathdupes[0].indexOf("_")))))*138)+31.25));
-opp = Math.abs((this.y+(62.5/2))-(((parseFloat(this.pathdupes[0].substr(this.pathdupes[0].indexOf("_"),this.pathdupes[0].indexOf("_",(this.pathdupes[0].indexOf("_")))+1)))*138)+31.25));
+adj = Math.abs((this.x+(62.5/2))-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25));
+opp = Math.abs((this.y+(62.5/2))-(((parseFloat(this.path[0].substr(this.path[0].indexOf("_"),this.path[0].indexOf("_",(this.path[0].indexOf("_")))+1)))*138)+31.25));
 if(adj===0){adj=0.0001;}
   
         if(opp===0){opp=0.0001;}
