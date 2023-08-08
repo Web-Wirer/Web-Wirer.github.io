@@ -237,7 +237,6 @@ if(adj===0){adj=0.0001;}
         if(opp===0){opp=0.0001;}
   var st = ((adj/opp)/((adj/opp)+1))*13;
   var sh = ((opp/adj)/((opp/adj)+1))*13;
-    console.log(future);
   if(eq==1){
   st = st;
    sh = sh;
@@ -761,6 +760,8 @@ if(!this.hasfound){
 
 opp = Math.abs(this.x-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25));
 adj = Math.abs(this.y-(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+31.25));
+      console.log(opp);
+      console.log(adj);
 if(adj===0){adj=0.0001;}
   
         if(opp===0){opp=0.0001;}
