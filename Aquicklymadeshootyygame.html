@@ -441,10 +441,10 @@ var m = Math.pow(p,2);
 //math is pain.
 enemy.prototype.point = function(){
     if(this.hasfound){
-var xx = (((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25);
-var yy = (((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+31.25);
-opp = Math.abs(this.x-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25));
-adj = Math.abs(this.y-(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+31.25));
+var yy = (((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25);
+var xx = (((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+31.25);
+adj = Math.abs(this.y-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25));
+opp = Math.abs(this.x-(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+31.25));
     hyp= Math.sqrt((adj*adj)+(opp*opp));
     almost = opp/hyp;
   
@@ -757,9 +757,10 @@ if(!this.hasfound){
   enemy.prototype.move = function(){
     this.pathfind();
 
-
-adj = Math.abs(this.y-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25));
-opp = Math.abs(this.x-(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+31.25));
+var yy = (((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+62.5);
+var xx =(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+62.5);
+opp = Math.abs((this.y+(62.5/2))-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+62.5));
+adj = Math.abs((this.x+(62.5/2))-(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+62.5));
 if(adj===0){adj=0.0001;}
   
         if(opp===0){opp=0.0001;}
@@ -798,7 +799,7 @@ this.y+=this.ymotion;}}else if(dist(this,playerC)<350-7.25){
 }else{
     
 }
-    if(this.x>adj-10&&this.x<adj+10&&this.y>opp-10&&this.y<opp+10){
+    if((this.x+(62.5/2))>xx-10&&(this.x+(62.5/2))<x+10&&(this.y+(62.5/2))>yy-10&&(this.y+(62.5/2))<yy+10){
      this.pathdupes.shift();
         
     }
