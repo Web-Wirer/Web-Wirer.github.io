@@ -799,13 +799,17 @@ this.y+=this.ymotion;}}else if(dist(this,playerC)<350-7.25){
 }else{
     
 }
-      if(!current_level[this.path[this.path.length-1].substr(0,this.path[this.path.length-1].indexOf("_",(this.path[this.path.length-1].indexOf("_")+1)))].includes("P")){
-          this.hasfound=false;
-      }
+
     if((this.x+(62.5/2))>xx-10&&(this.x+(62.5/2))<xx+10&&(this.y+(62.5/2))>yy-10&&(this.y+(62.5/2))<yy+10){
      this.path.shift();
         
     }
+            if(!current_level[this.path[this.path.length-1].substr(0,this.path[this.path.length-1].indexOf("_",(this.path[this.path.length-1].indexOf("_")+1)))].includes("P")){
+          this.hasfound=false;
+          this.path=[];
+          this.pathdupes=[];
+          this.pathdupe=[];
+      }
 }
 average=function(){
  var d=0;
