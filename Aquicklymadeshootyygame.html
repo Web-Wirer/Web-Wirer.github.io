@@ -760,8 +760,6 @@ if(!this.hasfound){
 
 adj = Math.abs(this.x-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25));
 opp = Math.abs(this.y-(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+31.25));
-      console.log(opp);
-      console.log(adj);
 if(adj===0){adj=0.0001;}
   
         if(opp===0){opp=0.0001;}
