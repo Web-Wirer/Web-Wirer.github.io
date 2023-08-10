@@ -648,8 +648,8 @@ if(!this.hasfound){
     while(!this.hasfound){
 
 
-    var gridy = Math.floor(this.x/138);
-    var gridx = Math.floor(this.y/138);
+    var gridy = Math.floor((this.x+(62.5/2))/138);
+    var gridx = Math.floor((this.y+(62.5/2))/138);
     this.path.shift();
     this.path.unshift(gridx.toString().concat("_",gridy.toString()).concat("_",0));
 
