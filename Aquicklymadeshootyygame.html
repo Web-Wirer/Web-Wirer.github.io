@@ -744,7 +744,7 @@ if(!this.hasfound){
 
      if(this.path.cnf(1,pathfinds)){
          var g = this.path.cnf(1,pathfinds,false);
-         if(g===0){break;}
+         if(g===0){break; d=-1;}
         if(!this.pathdupe.includes(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[d].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))))){
             this.pathdupes.push(pathfinds);
             this.pathdupe.push(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))));
@@ -761,7 +761,7 @@ if(!this.hasfound){
 
      if(this.path.cnf(1,pathfinds)){
          var g = this.path.cnf(1,pathfinds,false);
-         if(g===0){break;}
+         if(g===0){break; d=-1;}
         if(!this.pathdupe.includes(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[d].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))))){
             this.pathdupes.push(pathfinds);
             this.pathdupe.push(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))));
@@ -777,7 +777,7 @@ if(!this.hasfound){
 
      if(this.path.cnf(1,pathfinds)){
          var g = this.path.cnf(1,pathfinds,false);
-         if(g===0){break;}
+         if(g===0){break; d=-1;}
         if(!this.pathdupe.includes(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[d].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))))){
             this.pathdupes.push(pathfinds);
             this.pathdupe.push(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))));
@@ -793,7 +793,7 @@ if(!this.hasfound){
 
      if(this.path.cnf(1,pathfinds)){
          var g = this.path.cnf(1,pathfinds,false);
-         if(g===0){break;}
+         if(g===0){break; d=-1;}
         if(!this.pathdupe.includes(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[d].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))))){
             this.pathdupes.push(pathfinds);
             this.pathdupe.push(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))));
