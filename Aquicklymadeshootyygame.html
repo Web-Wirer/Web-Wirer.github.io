@@ -261,12 +261,12 @@ if(adj===0){adj=0.0001;}
                return true;
            }
        }else{
-           if(current_level[check_posy.toString().concat("_",check_posx.toString())].includes("W")){
+           if(current_level[Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString())].includes("W")){
                found.push("W");
                positions.push(check_posy.toString().concat("_",check_posx.toString()));
-           }else if(current_level[check_posy.toString().concat("_",check_posx.toString())].includes("B")){
+           }else if(current_level[Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString())].includes("B")){
                found.push("B");
-               positions.push(check_posy.toString().concat("_",check_posx.toString()));
+               positions.push(current_level[Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString())].includes("W"));
            }
        }}
     }
