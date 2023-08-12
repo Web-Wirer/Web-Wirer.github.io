@@ -871,7 +871,7 @@ if(!this.hasfound){
 }}
   enemy.prototype.move = function(){
     this.pathfind();
-      if(this.raycast()){
+      if(this.raycast(playerC.x,playerC.y)){
           var yy = playerC.y+(62.5/2);
 var xx =playerC.x+(62.5/2);
 opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
