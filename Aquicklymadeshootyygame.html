@@ -266,7 +266,7 @@ if(adj===0){adj=0.0001;}
                positions.push(check_posy.toString().concat("_",check_posx.toString()));
            }else if(current_level[Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString())].includes("B")){
                found.push("B");
-               positions.push(current_level[Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString())].includes("W"));
+               positions.push(Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString()));
            }
        }}
     }
