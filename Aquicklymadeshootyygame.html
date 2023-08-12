@@ -268,7 +268,9 @@ if(adj===0){adj=0.0001;}
                found.push("B");
                positions.push(Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString()));
            }
-       }}
+       }
+        check_posx+=st;
+        check_posy+=sh;}
     }
  enemy.prototype.fire = function(){
 adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
