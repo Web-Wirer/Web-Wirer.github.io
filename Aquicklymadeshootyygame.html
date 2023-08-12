@@ -224,7 +224,7 @@ level_observer = function(){
 }}}
     true_load();
     level_observer();
-    enemy.prototype.raycast=(posx,posy){
+    enemy.prototype.raycast= function(posx,posy){
     adj = Math.abs((this.x+(62.5/2))-(posx));
 opp = Math.abs((this.y+(62.5/2))-(posy));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
