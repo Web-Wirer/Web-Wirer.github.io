@@ -187,10 +187,7 @@ this.height=62.5/3.1622;
 true_load = function(){
     walls=[];
     enemies=[];
-    var countd=0;
-    for (var ee=0;ee<parseFloat(start_level[start_level.length-1]); ee++){
-        enemies.push(new enemy(-1,-1,200,1));
-    }
+
     for(var i =0; i<start_level[0];i++){
         for (var j =0;j<start_level[1];j++){
             var k =start_level[i+2].substring(j,j+1);
@@ -201,9 +198,7 @@ true_load = function(){
                 playerC=new players(j,i,3,1);
         }
             if(k==="E"){
-                enemies[countd].x=138*j;
-                enemies[countd].y=138*i;
-                countd++;
+ enemies.push(new enemy(j,i,200,1));
             }
     }
 }
