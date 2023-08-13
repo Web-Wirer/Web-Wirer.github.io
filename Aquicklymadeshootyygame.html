@@ -498,7 +498,7 @@ var m = Math.pow(p,2);
  }
 //math is pain.
 enemy.prototype.point = function(){
-    if(this.hasfound){
+    if(this.hasfound&&!this.raycast((playerC.x+(62.5/2)),(playerC.y+(62.5/2)))){
 var yy = (((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25);
 var xx = (((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+31.25);
 adj = Math.abs(this.y-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25));
