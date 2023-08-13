@@ -269,8 +269,7 @@ if(adj===0){adj=0.0001;}
                positions.push(Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString()));
            }
        }
-            console.log(check_posx);
-            console.log(check_posy);
+            positions.push(Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString()));
         check_posx+=st;
         check_posy+=sh;}
     }
