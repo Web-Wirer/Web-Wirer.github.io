@@ -237,8 +237,8 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
 if(adj===0){adj=0.0001;}
   
         if(opp===0){opp=0.0001;}
-  var st = ((adj/opp)/((adj/opp)+1))*138;
-  var sh = ((opp/adj)/((opp/adj)+1))*138;
+  var st = ((adj/opp)/((adj/opp)+1))*13;
+  var sh = ((opp/adj)/((opp/adj)+1))*13;
   if((this.x+(62.5/2))<posx&&(this.y+(62.5/2))<posy){
   st = st;
    sh = sh;
@@ -255,21 +255,22 @@ if(adj===0){adj=0.0001;}
   }
         while(!doonee){
        if(Math.floor(check_posx/138)===Math.floor(posx/138)&&Math.floor(check_posy/138)===Math.floor(posy/138)){
-           doonee=true;
+           doonee=true;}
            if(found.includes("W")||found.includes("B")){
                return false;
-           }else{
+           }else if(doonee){
                return true;
            }
-       }else{
+       
            if(current_level[Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString())].includes("W")){
-               found.push("W");
+               if(!found.includes("W")){
+               found.push("W");}
            }else if(current_level[Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString())].includes("B")){
-               found.push("B");
+               if(!found.includes("B")){
+               found.push("B");}
            }
-       }
-            positions.push(Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString()));
-            tpositions.push(check_posy.toString().concat("_",check_posx.toString()));
+       
+
         check_posx+=st;
         check_posy+=sh;}
     }
