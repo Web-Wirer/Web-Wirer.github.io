@@ -232,6 +232,7 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
         var check_posy =(this.y+(62.5/2));
         var found=[];
         var positions = [];
+        var tpositions=[];
         var doonee=false;
 if(adj===0){adj=0.0001;}
   
@@ -268,6 +269,7 @@ if(adj===0){adj=0.0001;}
            }
        }
             positions.push(Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString()));
+            tpositions.push(check_posy.toString().concat("_",check_posx.toString()));
         check_posx+=st;
         check_posy+=sh;}
     }
