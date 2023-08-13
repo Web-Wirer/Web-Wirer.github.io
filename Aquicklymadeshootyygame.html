@@ -174,14 +174,14 @@ this.height=62.5/3.1622;
     //LEVEL GENERATION! 
     var start_level=[
 '7',
-'9',
-'WWWWWWWWW',
-'W   E   W',
-'W       W',
-'W       W',
-'W       W',
-'W     P W',
-'WWWWWWWWW'
+'7',
+'WWWWWWW',
+'W E   W',
+'W     W',
+'W     W',
+'W     W',
+'W  P  W',
+'WWWWWWW'
     ];
 true_load = function(){
     walls=[];
@@ -876,8 +876,7 @@ if(!this.hasfound){
   enemy.prototype.move = function(){
     this.pathfind();
       if(true){
-          var yy = playerC.y+(62.5/2);
-var xx =playerC.x+(62.5/2);
+
 opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
 adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2)));
 if(adj===0){adj=0.0001;}
