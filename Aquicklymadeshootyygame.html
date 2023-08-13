@@ -176,8 +176,8 @@ this.height=62.5/3.1622;
 '7',
 '7',
 'WWWWWWW',
-'W  E  W',
-'W     W',
+'W    EW',
+'W WWWWW',
 'W     W',
 'W     W',
 'W  P  W',
@@ -882,7 +882,7 @@ if(!this.hasfound){
 }}
   enemy.prototype.move = function(){
     this.pathfind();
-      if(true){
+      if(!this.raycast((playerC.x+(62.5/2)),(playerC.y+(62.5/2)))){
 
 opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
 adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2)));
