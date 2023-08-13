@@ -875,7 +875,7 @@ if(!this.hasfound){
 }}
   enemy.prototype.move = function(){
     this.pathfind();
-      if(this.raycast(playerC.x,playerC.y)){
+      if(this.raycast(playerC.x+(62.5/2),playerC.y+(62.5/2))){
           var yy = playerC.y+(62.5/2);
 var xx =playerC.x+(62.5/2);
 opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
@@ -907,10 +907,10 @@ x: this.xmotion+this.x,
 y: this.ymotion+this.y
 }
 
+if(dist(this,playerC)>350+7.25){
     if(stop(this)){
 this.x+=this.xmotion;
-this.y+=this.ymotion;}
-    if(dist(this,playerC)<350-7.25){
+this.y+=this.ymotion;}}else if(dist(this,playerC)<350-7.25){
  this.xmotion *= -1;
  this.ymotion *= -1;
  if(stop(this)){
