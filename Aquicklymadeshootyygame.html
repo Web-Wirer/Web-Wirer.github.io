@@ -226,43 +226,77 @@ level_observer = function(){
 }}}
     true_load();
     level_observer();
-    enemy.prototype.raycast= function(posx,posy){
-    adj = Math.abs((this.x+(62.5/2))-(posx));
-opp = Math.abs((this.y+(62.5/2))-(posy));
+    raycast= function(sposx,sposy,posx,posy){
+    adj = Math.abs((sposx[0])-(posx[0]));
+opp = Math.abs((sposy[0])-(posy[0]));
+        
+var tadj = Math.abs((sposx[1])-(posx[1]));
+var topp = Math.abs((sposy[1])-(posy[1]));
+
 hyp= Math.sqrt((adj*adj)+(opp*opp));
-        var check_posx =(this.x+(62.5/2));
-        var check_posy =(this.y+(62.5/2));
+var thyp= Math.sqrt((tadj*tadj)+(topp*topp));
+        var check_posx =sposx[0];
+        var check_posy =sposy[0];
+        
+        var check_tposx =sposx[1];
+        var check_tposy =sposy[1];
+        
         var found=[];
         var positions = [];
         var tpositions=[];
         var doonee=false;
+        var tdoonee=false;
 if(adj===0){adj=0.0001;}
   
         if(opp===0){opp=0.0001;}
   var st = ((adj/opp)/((adj/opp)+1))*13;
   var sh = ((opp/adj)/((opp/adj)+1))*13;
-  if((this.x+(62.5/2))<posx&&(this.y+(62.5/2))<posy){
+var tst = ((tadj/topp)/((tadj/topp)+1))*13;
+  var tsh = ((topp/tadj)/((topp/tadj)+1))*13;
+  if(sposx[0]<posx[0]&&sposy[0]<posy[0]){
   st = st;
    sh = sh;
-  }else if((this.x+(62.5/2))>posx&&(this.y+(62.5/2))<posy){
+  }else if(sposx[0]>posx[0]&&sposy[0]<posy[0]){
     st = st*-1;
    sh = sh;
 
-  }else if((this.x+(62.5/2))>posx&&(this.y+(62.5/2))>posy){
+  }else if(sposx[0]>posx[0]&&sposy[0]>posy[0]){
     st = st*-1;
    sh = sh*-1;
-  }else if((this.x+(62.5/2))<posx&&(this.y+(62.5/2))>posy){
+  }else if(sposx[0]<posx[0]&&sposy[0]<posy[0]){
     st = st;
    sh = sh*-1;
   }
-        while(!doonee){
-       if(Math.floor(check_posx/138)===Math.floor(posx/138)&&Math.floor(check_posy/138)===Math.floor(posy/138)){
+  if(sposx[1]<posx[1]&&sposy[1]<posy[1]){
+  tst = tst;
+   tsh = tsh;
+  }else if(sposx[1]>posx[1]&&sposy[1]<posy[1]){
+    tst = tst*-1;
+   tsh = tsh;
+
+  }else if(sposx[1]>posx[1]&&sposy[1]>posy[1]){
+    tst = tst*-1;
+   tsh = tsh*-1;
+  }else if(sposx[1]<posx[1]&&sposy[1]<posy[1]){
+    tst = tst;
+   tsh = tsh*-1;
+  }
+        while(!doonee||!tdoonee){
+       if(Math.floor(check_posx/138)===Math.floor(posx[0]/138)&&Math.floor(check_posy/138)===Math.floor(posy[0]/138)){
            doonee=true;}
            if(found.includes("W")||found.includes("B")){
                return false;
-           }else if(doonee){
+           }else if(doonee&&tdoonee){
                return true;
            }
+                   if(Math.floor(tcheck_posx/138)===Math.floor(posx[1]/138)&&Math.floor(tcheck_posy/138)===Math.floor(posy[1]/138)){
+           tdoonee=true;}
+           if(found.includes("W")||found.includes("B")){
+               return false;
+           }else if(doonee&&tdoonee){
+               return true;
+           }
+       
        
            if(current_level[Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString())].includes("W")){
                if(!found.includes("W")){
@@ -271,11 +305,23 @@ if(adj===0){adj=0.0001;}
                if(!found.includes("B")){
                found.push("B");}
            }
-       
 
+                       if(current_level[Math.floor(tcheck_posy/138).toString().concat("_",Math.floor(tcheck_posx/138).toString())].includes("W")){
+               if(!found.includes("W")){
+               found.push("W");}
+           }else if(current_level[Math.floor(tcheck_posy/138).toString().concat("_",Math.floor(tcheck_posx/138).toString())].includes("B")){
+               if(!found.includes("B")){
+               found.push("B");}
+           }
+
+            if(!doonee){
         check_posx+=st;
         check_posy+=sh;}
-    }
+        if(!tdoonee){
+        tcheck_posx+=st;
+        tcheck_posy+=sh;}}}
+        
+    
  enemy.prototype.fire = function(){
 adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
 opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));
@@ -493,7 +539,7 @@ var m = Math.pow(p,2);
  }
 //math is pain.
 enemy.prototype.point = function(){
-    if(this.hasfound&&!this.raycast((playerC.x+(62.5/2)),(playerC.y+(62.5/2)))){
+    if(this.hasfound&&!raycast([this.x,this.x+62.5],[this.y,this.y+62.5],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])){
 var yy = (((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25);
 var xx = (((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+31.25);
 adj = Math.abs(this.y-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25));
@@ -877,7 +923,7 @@ if(!this.hasfound){
 }}
   enemy.prototype.move = function(){
     this.pathfind();
-      if(this.raycast((playerC.x+(62.5/2)),(playerC.y+(62.5/2)))){
+      if(raycast([this.x,this.x+62.5],[this.y,this.y+62.5],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])){
 
 opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
 adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2)));
