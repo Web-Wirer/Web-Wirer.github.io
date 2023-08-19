@@ -14,6 +14,37 @@
 //variable and canvas setup
 var canvas = document.getElementById("one");
 var ctx = canvas.getContext("2d");
+    function clamp(value, min, max){
+    if(value < min) return min;
+    else if(value > max) return max;
+    return value;
+}
+    var worldBounds = {
+        minX: ,
+        minY: ,
+        maxX: ,
+        maxY:
+    }
+    function cdraw() {
+    ctx.setTransform(1,0,0,1,0,0);//reset the transform matrix as it is cumulative
+    ctx.clearRect(0, 0, canvas.width, canvas.height);//clear the viewport AFTER the matrix is reset
+     
+    // update the player position
+    playerC.draw();
+
+    // player is clamped to the world boundaries - don't let the player leave
+    playerC.x = clamp(playerC.x, worldBounds.minX, worldBounds.maxX);
+    playerC.y = clamp(playerC.y, worldBounds.minY, worldBounds.maxY);
+
+    // center the camera around the player,
+    // but clamp the edges of the camera view to the world bounds.
+    const camX = clamp(playerC.x - canvas.width/2, worldBounds.minX, worldBounds.maxX - canvas.width);
+    const camY = clamp(playerC.y - canvas.height/2, worldBounds.minY, worldBounds.maxY - canvas.height);
+
+    ctx.translate(-camX, -camY);
+    
+    //Draw everything
+}
     var mouseONE;
     var mouseTWO;
     var pathfinds;
@@ -203,6 +234,12 @@ true_load = function(){
     }
 }
 }
+    worldBounds = {
+        minX: 0,
+        minY: 0,
+        maxX: (start_level[1]+1)*138,
+        maxY :(start_level[0]+1)*138
+    }
 var current_level= {Width:5,Height:5};
 level_observer = function(){
    for(var i =0; i<start_level[0];i++){
@@ -1037,7 +1074,7 @@ game = function(){
 ctx.clearRect(0,0,10000,10000);
 move();
 point();
-playerC.draw();
+cdraw();
  
 for(var i = 0; i<enemies.length; i++){
 enemies[i].point();
@@ -1110,6 +1147,7 @@ for(var i=0;i<enemies.length;i++){
   playerC.startPos.x=playerC.x;
   playerC.startPos.y=playerC.y;
  }}}
+    
 level_observer();    
 window.requestAnimationFrame(game);
     
