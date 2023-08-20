@@ -1010,8 +1010,8 @@ this.y+=this.ymotion;}}else if(dist(this,playerC)<350-7.25){
 
 var yy = (((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+62.5);
 var xx =(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+62.5);
-opp = Math.abs((this.y+(62.5/2))-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+62.5));
-adj = Math.abs((this.x+(62.5/2))-(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+62.5));
+adj = Math.abs((this.y+(62.5/2))-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+62.5));
+opp = Math.abs((this.x+(62.5/2))-(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+62.5));
 if(adj===0){adj=0.0001;}
   
         if(opp===0){opp=0.0001;}
