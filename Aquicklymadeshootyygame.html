@@ -339,18 +339,22 @@ var tst = ((tadj/topp)/((tadj/topp)+1))*13;
        
            if(current_level[Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString())].includes("W")){
                if(!found.includes("W")){
-               found.push("W");}
+               found.push("W");
+               positions.push([check_posx,check_posy]);}
            }else if(current_level[Math.floor(check_posy/138).toString().concat("_",Math.floor(check_posx/138).toString())].includes("B")){
                if(!found.includes("B")){
-               found.push("B");}
+               found.push("B");
+               positions.push([check_posx,check_posy]);}
            }
 
                        if(current_level[Math.floor(tcheck_posy/138).toString().concat("_",Math.floor(tcheck_posx/138).toString())].includes("W")){
                if(!found.includes("W")){
-               found.push("W");}
+               found.push("W");
+               tpositions.push([tcheck_posx,tcheck_posy]);}
            }else if(current_level[Math.floor(tcheck_posy/138).toString().concat("_",Math.floor(tcheck_posx/138).toString())].includes("B")){
                if(!found.includes("B")){
-               found.push("B");}
+               found.push("B");
+               tpositions.push([tcheck_posx,tcheck_posy]);}
            }
 
             if(!doonee){
