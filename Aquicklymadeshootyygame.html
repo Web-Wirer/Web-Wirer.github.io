@@ -875,9 +875,9 @@ if(!this.hasfound){
 
  var leng=this.path.length;
         for(var d=leng-1;d>=0;d-=0){
-                    if(!this.pathdupe.includes(this.path[d].substr(this.path[d].indexOf("_",this.path[d].indexOf("_")+1)+1,this.path[d].length-this.path[d].indexOf("_",this.path[d].indexOf("_"))))){
+                    if(!this.pathdupe.includes(this.path[d].substr(this.path[d].indexOf("_",this.path[d].indexOf("_")+1)+1,this.path[d].length-this.path[d].indexOf("_",this.path[d].indexOf("_")+1)))){
             this.pathdupes.push(this.path[d]);
-            this.pathdupe.push(this.path[d].substr(this.path[d].indexOf("_",this.path[d].indexOf("_")+1)+1,this.path[d].length-this.path[d].indexOf("_",this.path[d].indexOf("_"))));
+            this.pathdupe.push(this.path[d].substr(this.path[d].indexOf("_",this.path[d].indexOf("_")+1)+1,this.path[d].length-this.path[d].indexOf("_",this.path[d].indexOf("_")+1)));
             
     }
          gridx = parseFloat(this.path[d].substr(0,this.path[d].indexOf("_")));
@@ -893,9 +893,9 @@ if(!this.hasfound){
      if(this.path.cnf(1,pathfinds)){
          var g = this.path.cnf(1,pathfinds,false);
          if(g===0){break; d=-1;}
-        if(!this.pathdupe.includes(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))))){
+        if(!this.pathdupe.includes(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_")+1)))){
             this.pathdupes.push(pathfinds);
-            this.pathdupe.push(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))));
+            this.pathdupe.push(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_")+1)));
             d=g;
     }
             }
@@ -910,9 +910,9 @@ if(!this.hasfound){
      if(this.path.cnf(1,pathfinds)){
          var g = this.path.cnf(1,pathfinds,false);
          if(g===0){break; d=-1;}
-        if(!this.pathdupe.includes(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))))){
+        if(!this.pathdupe.includes(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_")+1)))){
             this.pathdupes.push(pathfinds);
-            this.pathdupe.push(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))));
+            this.pathdupe.push(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_")+1)));
             d=g;
     }
             }
@@ -926,9 +926,9 @@ if(!this.hasfound){
      if(this.path.cnf(1,pathfinds)){
          var g = this.path.cnf(1,pathfinds,false);
          if(g===0){break; d=-1;}
-        if(!this.pathdupe.includes(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))))){
+        if(!this.pathdupe.includes(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_")+1)))){
             this.pathdupes.push(pathfinds);
-            this.pathdupe.push(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))));
+            this.pathdupe.push(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_")+1)));
             d=g;
     }
             }
@@ -942,9 +942,9 @@ if(!this.hasfound){
      if(this.path.cnf(1,pathfinds)){
          var g = this.path.cnf(1,pathfinds,false);
          if(g===0){break; d=-1;}
-        if(!this.pathdupe.includes(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))))){
+        if(!this.pathdupe.includes(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_")+1)))){
             this.pathdupes.push(pathfinds);
-            this.pathdupe.push(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_"))));
+            this.pathdupe.push(this.path[g].substr(this.path[g].indexOf("_",this.path[g].indexOf("_")+1)+1,this.path[g].length-this.path[g].indexOf("_",this.path[g].indexOf("_")+1)));
             d=g;
     }
             }
