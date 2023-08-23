@@ -268,6 +268,27 @@ level_observer = function(){
 }}}
     true_load();
     level_observer();
+    alley = function(obj){
+        var obst=0;
+     if(current_level[(Math.abs((obj.x+(62.5/2))/138)+1).toString().concat("_",(Math.abs((obj.x+(62.5/2))/138)+0)].includes("W")){
+         obst++;
+     }
+
+     if(current_level[(Math.abs((obj.x+(62.5/2))/138)-1).toString().concat("_",(Math.abs((obj.x+(62.5/2))/138)+0)].includes("W")){
+         obst++;
+     }
+
+     if(current_level[(Math.abs((obj.x+(62.5/2))/138)+0).toString().concat("_",(Math.abs((obj.x+(62.5/2))/138)+1)].includes("W")){
+         obst++;
+     }
+
+     if(current_level[(Math.abs((obj.x+(62.5/2))/138)+0).toString().concat("_",(Math.abs((obj.x+(62.5/2))/138)-1)].includes("W")){
+         obst++;
+     }
+        if(obst>=2){
+            return true;
+        }else{return false;}
+    }
     raycast= function(sposx,sposy,posx,posy){
     adj = Math.abs((sposx[0])-(posx[0]));
 opp = Math.abs((sposy[0])-(posy[0]));
@@ -373,7 +394,7 @@ adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
 opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
-if(playerC.isMoving){
+if(playerC.isMoving&&!alley(playerC)){
 adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*aimbot("xmotion"))));
 opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*aimbot("ymotion"))));
 if(adj===0){adj=0.0001;}
@@ -644,7 +665,7 @@ return;}
     
     }else{
  var future= hyp/13;
-if(playerC.isMoving){
+if(playerC.isMoving&&!alley(playerC)){
 adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*aimbot("xmotion"))));
 opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*aimbot("ymotion"))));
 
@@ -1084,8 +1105,8 @@ this.y+=this.ymotion;
   if(raycast([this.x,this.x+62.5],[this.y,this.y+62.5],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])&&!this.insight){
      this.insight=true;
   }
- this.path.unshift(Math.abs((this.x/138)).toString().concat("_",Math.abs((this.x/138)).toString()).concat("_",this.pc.toString()));
-}
+    }else{ this.path.unshift(Math.abs((this.x/138)).toString().concat("_",Math.abs((this.x/138)).toString()).concat("_",this.pc.toString()));}
+
 
     if((this.x+(62.5/2))>xx-10&&(this.x+(62.5/2))<xx+10&&(this.y+(62.5/2))>yy-10&&(this.y+(62.5/2))<yy+10){
      this.path.shift();
