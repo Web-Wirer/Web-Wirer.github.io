@@ -270,19 +270,19 @@ level_observer = function(){
     level_observer();
     alley = function(obj){
         var obst=0;
-     if(current_level[(Math.abs((obj.x+(62.5/2))/138)+1).toString().concat("_",(Math.abs((obj.x+(62.5/2))/138)+0)].includes("W")){
+     if(current_level[(Math.abs((obj.x+(62.5/2))/138)+1).toString().concat("_",(Math.abs((obj.x+(62.5/2))/138)+0).toString())].includes("W")){
          obst++;
      }
 
-     if(current_level[(Math.abs((obj.x+(62.5/2))/138)-1).toString().concat("_",(Math.abs((obj.x+(62.5/2))/138)+0)].includes("W")){
+     if(current_level[(Math.abs((obj.x+(62.5/2))/138)-1).toString().concat("_",(Math.abs((obj.x+(62.5/2))/138)+0).toString())].includes("W")){
          obst++;
      }
 
-     if(current_level[(Math.abs((obj.x+(62.5/2))/138)+0).toString().concat("_",(Math.abs((obj.x+(62.5/2))/138)+1)].includes("W")){
+     if(current_level[(Math.abs((obj.x+(62.5/2))/138)+0).toString().concat("_",(Math.abs((obj.x+(62.5/2))/138)+1).toString())].includes("W")){
          obst++;
      }
 
-     if(current_level[(Math.abs((obj.x+(62.5/2))/138)+0).toString().concat("_",(Math.abs((obj.x+(62.5/2))/138)-1)].includes("W")){
+     if(current_level[(Math.abs((obj.x+(62.5/2))/138)+0).toString().concat("_",(Math.abs((obj.x+(62.5/2))/138)-1).toString())].includes("W")){
          obst++;
      }
         if(obst>=2){
