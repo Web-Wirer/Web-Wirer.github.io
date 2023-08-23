@@ -1072,16 +1072,11 @@ var yy = (((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)
 var xx =(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_")+1)))))*138)+62.5);
 opp = Math.abs((this.y+(62.5/2))-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+62.5));
 adj = Math.abs((this.x+(62.5/2))-(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_")+1)))))*138)+62.5));
-if(adj===0){ 
-  var st = 0;
-  var sh = 6.25;
-}else if(opp===0){  
-    var sh = 0;
-    var st = 6.25;
-}else{
-   var sh=6.25;
-   var st=6.25;
-}
+if(adj===0){adj=0.0001;}
+  
+        if(opp===0){opp=0.0001;}
+  var st = ((adj/opp)/((adj/opp)+1))*6.25;
+  var sh = ((opp/adj)/((opp/adj)+1))*6.25;
   
 
   if(eq==1){
