@@ -25,6 +25,8 @@ var ctx = canvas.getContext("2d");
         maxX: 0,
         maxY:0
     }
+    var camc = 0;
+
     function cdraw() {
     ctx.setTransform(1,0,0,1,0,0);//reset the transform matrix as it is cumulative
     ctx.clearRect(0, 0, canvas.width, canvas.height);//clear the viewport AFTER the matrix is reset
@@ -41,7 +43,7 @@ var ctx = canvas.getContext("2d");
     const camX = clamp(playerC.x - canvas.width/2, worldBounds.minX, worldBounds.maxX - canvas.width);
     const camY = clamp(playerC.y - canvas.height/2, worldBounds.minY, worldBounds.maxY - canvas.height);
 
-    ctx.translate(-camX, -camY);
+    ctx.translate((-camX)-camc, -camY);
             playerC.draw();
     
     //Draw everything
@@ -1080,6 +1082,11 @@ game = function(){
 ctx.clearRect(0,0,10000,10000);
 move();
 point();
+if(map[77]){
+    camc+=6.25;
+}else if(map[78]){
+    camc-=6.25;
+}
 cdraw();
  
 for(var i = 0; i<enemies.length; i++){
