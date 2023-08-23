@@ -1100,7 +1100,7 @@ this.y+=this.ymotion;
     }
             if(!current_level[this.path[this.path.length-1].substr(0,this.path[this.path.length-1].indexOf("_",(this.path[this.path.length-1].indexOf("_")+1)))].includes("P")){
           this.hasfound=false;
-          this.path=[];
+          this.path=[this.path[0]];
           this.pathdupes=[];
           this.pathdupe=[];
                 this.pc=0;
