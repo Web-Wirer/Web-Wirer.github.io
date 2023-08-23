@@ -1043,9 +1043,9 @@ this.y+=this.ymotion;}else{
     this.y+=this.ymotion;}
     this.point();
     this.draw();
-  if(enemies[i].dist(playerC)<900&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>800){
-      enemies[i].bulletss.pop();
-  enemies[i].fire();
+  if(this.dist(playerC)<900&&this.dist(this.bulletss[0])>800){
+      this.bulletss.pop();
+  this.fire();
     
   }}else{
     this.insight=false;
