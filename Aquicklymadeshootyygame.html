@@ -156,6 +156,7 @@ this.rotation=0;
     this.insight=true;
     this.hasfound=false;
     this.pathdupes=[];
+    this.ref=0;
     
 };
 //players object
@@ -1113,7 +1114,18 @@ this.y+=this.ymotion;
  if(stop(this)){
     this.x+=this.xmotion;
     this.y+=this.ymotion;}
-     this.path.unshift(Math.floor((this.y/138)).toString().concat("_",Math.floor((this.x/138)).toString()).concat("_",this.pc.toString()));}
+     this.path.unshift(Math.floor((this.y/138)).toString().concat("_",Math.floor((this.x/138)).toString()).concat("_",this.pc.toString()));
+    this.ref++;
+    if(this.ref===10;){
+        this.ref=0;
+          this.hasfound=false;
+          this.path=[this.path[0]];
+          this.pathdupes=[];
+          this.pathdupe=[];
+                this.pc=0;
+      console.log(this);
+
+    }}
 
 
     if((this.x+(62.5/2))>xx-10&&(this.x+(62.5/2))<xx+10&&(this.y+(62.5/2))>yy-10&&(this.y+(62.5/2))<yy+10){
