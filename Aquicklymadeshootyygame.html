@@ -1113,7 +1113,7 @@ this.y+=this.ymotion;
  if(stop(this)){
     this.x+=this.xmotion;
     this.y+=this.ymotion;}
-     this.path.unshift(Math.abs((this.x/138)).toString().concat("_",Math.abs((this.x/138)).toString()).concat("_",this.pc.toString()));}
+     this.path.unshift(Math.floor((this.x/138)).toString().concat("_",Math.floor((this.x/138)).toString()).concat("_",this.pc.toString()));}
 
 
     if((this.x+(62.5/2))>xx-10&&(this.x+(62.5/2))<xx+10&&(this.y+(62.5/2))>yy-10&&(this.y+(62.5/2))<yy+10){
