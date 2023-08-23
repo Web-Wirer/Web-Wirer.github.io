@@ -1042,7 +1042,6 @@ this.y+=this.ymotion;}else{
     this.x+=this.xmotion;
     this.y+=this.ymotion;}
     this.point();
-    this.draw();
   if(this.dist(playerC)<900&&this.dist(this.bulletss[0])>800){
       this.bulletss.pop();
   this.fire();
@@ -1135,7 +1134,7 @@ cdraw();
  
 for(var i = 0; i<enemies.length; i++){
 enemies[i].point();
-  enemies[i].draw();
+
  
   if(enemies[i].dist(playerC)<9050){
   enemies[i].isResting=false;
@@ -1143,6 +1142,7 @@ enemies[i].point();
   }
     if(!enemies[i].isResting){
         enemies[i].move();
+          enemies[i].draw();
     }
 if(enemies[i].bulletss.length>0){
     enemies[i].bulletss[0].move();
