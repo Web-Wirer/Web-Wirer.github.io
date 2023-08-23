@@ -657,22 +657,22 @@ ans=radians_to_degrees(ans);
  if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*aimbot("xmotion"))&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*aimbot("ymotion"))){
    eq=1;
 this.rotation=ans;
-return;
+
 }else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*aimbot("xmotion"))&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*aimbot("ymotion"))){
 ans= 180-ans;
   eq=2;
 this.rotation=ans;
-return;
+
 }else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*aimbot("xmotion"))&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*aimbot("ymotion"))){
 ans=180+ans;
   eq=3;
 this.rotation= ans;
-return;
+
 }else if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*aimbot("xmotion"))&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*aimbot("ymotion"))){
 ans= 360-ans;
   eq=4;
 this.rotation=ans;
-return;
+
 }}
     adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))));
 opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))));
@@ -699,10 +699,11 @@ if(!playerC.isMoving){
     this.rotation= ans;}
 return;
 }else if(this.x+(62.5/2)<(playerC.x+(62.5/2))&&this.y+(62.5/2)>(playerC.y+(62.5/2))){
-if(!playerC.isMoving){
-    ans= 360-ans;}
+
+    ans= 360-ans;
   eqq=4;
-this.rotation=ans;
+        if(!playerC.isMoving){
+this.rotation=ans;}
 }}
 }
 toggle=function(e){
