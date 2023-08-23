@@ -584,9 +584,9 @@ var m = Math.pow(p,2);
 enemy.prototype.point = function(){
     if(this.hasfound&&!raycast([this.x,this.x+62.5],[this.y,this.y+62.5],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])){
 var yy = (((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25);
-var xx = (((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+31.25);
+var xx = (((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_")+1)))))*138)+31.25);
 adj = Math.abs(this.y-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25));
-opp = Math.abs(this.x-(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_"))))))*138)+31.25));
+opp = Math.abs(this.x-(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_")+1)))))*138)+31.25));
     hyp= Math.sqrt((adj*adj)+(opp*opp));
     almost = opp/hyp;
   
