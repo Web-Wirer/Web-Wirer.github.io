@@ -152,7 +152,7 @@ this.rotation=0;
     this.path=[];
         this.pathdupe=[];
     this.pc=0;
-    this.insight=false;
+    this.insight=true;
     this.hasfound=false;
     this.pathdupes=[];
     
@@ -968,8 +968,8 @@ if(!this.hasfound){
 }}
   enemy.prototype.move = function(){
     this.pathfind();
-      if(raycast([this.x,this.x+62.5],[this.y,this.y+62.5],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])){
-
+      if(raycast([this.x,this.x+62.5],[this.y,this.y+62.5],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])&&this.insight){
+this.insight=true;
 opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
 adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2)));
 if(adj===0){adj=0.0001;}
@@ -1002,14 +1002,16 @@ y: this.ymotion+this.y
 if(dist(this,playerC)>350+7.25){
     if(stop(this)){
 this.x+=this.xmotion;
-this.y+=this.ymotion;}}else if(dist(this,playerC)<350-7.25){
+this.y+=this.ymotion;}else{
+        this.insight=false;
+}}else if(dist(this,playerC)<350-7.25){
  this.xmotion *= -1;
  this.ymotion *= -1;
  if(stop(this)){
     this.x+=this.xmotion;
     this.y+=this.ymotion;}
 }else{
-    
+    this.insight=false;
 }
 
       }else{
@@ -1047,7 +1049,11 @@ y: this.ymotion+this.y
 if(true){
     if(stop(this)){
 this.x+=this.xmotion;
-this.y+=this.ymotion;}}else if(dist(this,playerC)<350-7.25){
+this.y+=this.ymotion;
+  if(raycast([this.x,this.x+62.5],[this.y,this.y+62.5],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])&&!this.insight){
+     this.insight=true;
+  }
+}}else if(dist(this,playerC)<350-7.25){
  this.xmotion *= -1;
  this.ymotion *= -1;
  if(stop(this)){
@@ -1069,6 +1075,7 @@ this.y+=this.ymotion;}}else if(dist(this,playerC)<350-7.25){
                 this.pc=0;
       console.log(this);
             }
+
 }}
 average=function(){
  var d=0;
