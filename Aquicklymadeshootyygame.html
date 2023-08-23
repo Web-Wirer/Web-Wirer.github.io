@@ -681,24 +681,24 @@ almost = opp/hyp;
 ans = Math.asin(almost);
 ans=radians_to_degrees(ans);
  
- if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+ if(this.x+(62.5/2)<(playerC.x+(62.5/2))&&this.y+(62.5/2)<(playerC.y+(62.5/2))){
    eqq=1;
 if(!playerC.isMoving){
     this.rotation=ans;}
 return;
-}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)<(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))&&this.y+(62.5/2)<(playerC.y+(62.5/2))){
 ans= 180-ans;
   eqq=2;
 if(!playerC.isMoving){
     this.rotation=ans;}
 return;
-}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+}else if(this.x+(62.5/2)>(playerC.x+(62.5/2))&&this.y+(62.5/2)>(playerC.y+(62.5/2))){
 ans=180+ans;
   eqq=3;
 if(!playerC.isMoving){
     this.rotation= ans;}
 return;
-}else if(this.x+(62.5/2)<(playerC.x+(62.5/2))+(future*playerC.xmotion)&&this.y+(62.5/2)>(playerC.y+(62.5/2))+(future*playerC.ymotion)){
+}else if(this.x+(62.5/2)<(playerC.x+(62.5/2))&&this.y+(62.5/2)>(playerC.y+(62.5/2))){
 if(!playerC.isMoving){
     ans= 360-ans;}
   eqq=4;
