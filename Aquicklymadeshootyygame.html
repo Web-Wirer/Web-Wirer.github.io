@@ -1184,10 +1184,10 @@ var translateY= playerC.y+(62.5/2);
 ctx.save();
 ctx.translate(translateX,translateY);
 ctx.rotate(playerC.rotation*Math.PI/180);
+ctx.translate(-translateX,-translateY);
 }
           enemies[i].draw();
         if(motion==="Yes"){
-        ctx.translate(-translateX,-translateY);
 ctx.restore();}
 if(enemies[i].bulletss.length>0){
     enemies[i].bulletss[0].move();
@@ -1197,10 +1197,10 @@ var translateY= playerC.y+(62.5/2);
 ctx.save();
 ctx.translate(translateX,translateY);
 ctx.rotate(playerC.rotation*Math.PI/180);
+ctx.translate(-translateX,-translateY);
 }
           enemies[i].bulletss[0].draw();
         if(motion==="Yes"){
-        ctx.translate(-translateX,-translateY);
 ctx.restore();}
   if(enemies[i].dist(playerC)<900&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>800){
       enemies[i].bulletss.pop();
@@ -1241,10 +1241,10 @@ var translateY= playerC.y+(62.5/2);
 ctx.save();
 ctx.translate(translateX,translateY);
 ctx.rotate(playerC.rotation*Math.PI/180);
+ctx.translate(-translateX,-translateY);
 }
           walls[i].draw();
         if(motion==="Yes"){
-        ctx.translate(-translateX,-translateY);
 ctx.restore();}}
 for(var i = 0; i<bulletss.length; i++){
 if(motion==="Yes"){
@@ -1253,10 +1253,10 @@ var translateY= playerC.y+(62.5/2);
 ctx.save();
 ctx.translate(translateX,translateY);
 ctx.rotate(this.rotation*Math.PI/180);
+ctx.translate(-translateX,-translateY);
 }
           bulletss[i].draw();
         if(motion==="Yes"){
-        ctx.translate(-translateX,-translateY);
 ctx.restore();}
 bulletss[i].move();}
     
