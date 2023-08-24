@@ -473,7 +473,7 @@ ctx.translate(-translateX,-translateY);
 ctx.drawImage(bullet,this.x,this.y,(62.5)/3.1622,(62.5)/3.1622);
 ctx.restore();}}
 players.prototype.draw=function(){
-if(motion==="No"){
+
 var translateX= this.x+(62.5/2);
 var translateY= this.y+(62.5/2);
 ctx.save();
@@ -481,9 +481,7 @@ ctx.translate(translateX,translateY);
 ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
 ctx.drawImage(player,this.x,this.y,62.5,62.5);
-ctx.restore();}else{
-        ctx.drawImage(player,this.x,this.y,62.5,62.5);
-}
+ctx.restore();
 };
     //THIS STUPID THING
     Mouse=function(e){
@@ -1262,14 +1260,7 @@ bulletss[i].move();}
     
          ctx.strokeStyle = 'red';
     ctx.lineWidth = 5;
-if(motion==="Yes"){
-var translateX= playerC.x+(62.5/2);
-var translateY= playerC.y+(62.5/2);
-ctx.save();
-ctx.translate(translateX,translateY);
-ctx.rotate(-(playerC.rotation*Math.PI/180));
-ctx.translate(-translateX,-translateY);
-}
+
  
 
     // draw a red line
@@ -1277,8 +1268,8 @@ ctx.translate(-translateX,-translateY);
     ctx.moveTo(playerC.x+(62.5/2), playerC.y+(62.5/2));
     ctx.lineTo(mouseONE, mouseTWO);
     ctx.stroke();
-        if(motion==="Yes"){
-ctx.restore();}
+
+
 for(var i=0;i<enemies.length;i++){
  if(dist(enemies[i],playerC)<700&&!enemies[i].isResting){
  if(playerC.cd<20){
