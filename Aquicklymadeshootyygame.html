@@ -120,7 +120,7 @@ function getCookie(cname) {
     checkCookie("Motion_sickness","No","No","Yes");
     var movement= getCookie("Movement Type");
     var tog= getCookie("togglef");
-    var motion= getCookie("Motion");
+    var motion= getCookie("Motion_sickness");
     
 function radians_to_degrees(radians) {
   return radians * (180 / Math.PI);
@@ -1182,11 +1182,31 @@ enemies[i].point();
   }
     if(!enemies[i].isResting){
         enemies[i].move();
-          enemies[i].draw();
     }
+if(motion==="Yes"){
+var translateX= playerC.x+(62.5/2);
+var translateY= playerC.y+(62.5/2);
+ctx.save();
+ctx.translate(translateX,translateY);
+ctx.rotate(this.rotation*Math.PI/180);
+}
+          enemies[i].draw();
+        if(motion==="Yes"){
+        ctx.translate(-translateX,-translateY);
+ctx.restore();}
 if(enemies[i].bulletss.length>0){
     enemies[i].bulletss[0].move();
-        enemies[i].bulletss[0].draw();
+ if(motion==="Yes"){
+var translateX= playerC.x+(62.5/2);
+var translateY= playerC.y+(62.5/2);
+ctx.save();
+ctx.translate(translateX,translateY);
+ctx.rotate(this.rotation*Math.PI/180);
+}
+          enemies[i].bulletss[0].draw();
+        if(motion==="Yes"){
+        ctx.translate(-translateX,-translateY);
+ctx.restore();}
   if(enemies[i].dist(playerC)<900&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>800){
       enemies[i].bulletss.pop();
   enemies[i].fire();
@@ -1220,9 +1240,29 @@ for(var daps=0; daps<enemies.length;daps++){
     
  done=0; 
 for(var i = 0; i<walls.length; i++){
-walls[i].draw();}
+if(motion==="Yes"){
+var translateX= playerC.x+(62.5/2);
+var translateY= playerC.y+(62.5/2);
+ctx.save();
+ctx.translate(translateX,translateY);
+ctx.rotate(this.rotation*Math.PI/180);
+}
+          walls[i].draw();
+        if(motion==="Yes"){
+        ctx.translate(-translateX,-translateY);
+ctx.restore();}}
 for(var i = 0; i<bulletss.length; i++){
-bulletss[i].draw();
+if(motion==="Yes"){
+var translateX= playerC.x+(62.5/2);
+var translateY= playerC.y+(62.5/2);
+ctx.save();
+ctx.translate(translateX,translateY);
+ctx.rotate(this.rotation*Math.PI/180);
+}
+          bulletss[i].draw();
+        if(motion==="Yes"){
+        ctx.translate(-translateX,-translateY);
+ctx.restore();}
 bulletss[i].move();}
     
          ctx.strokeStyle = 'red';
