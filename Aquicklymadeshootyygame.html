@@ -711,26 +711,26 @@ ans=radians_to_degrees(ans);
  
  if(this.x+(62.5/2)<(playerC.x+(62.5/2))&&this.y+(62.5/2)<(playerC.y+(62.5/2))){
    eqq=1;
-if(!playerC.isMoving){
+if(!playerC.isMoving||alley(playerC)){
     this.rotation=ans;}
 return;
 }else if(this.x+(62.5/2)>(playerC.x+(62.5/2))&&this.y+(62.5/2)<(playerC.y+(62.5/2))){
 ans= 180-ans;
   eqq=2;
-if(!playerC.isMoving){
+if(!playerC.isMoving||alley(playerC)){
     this.rotation=ans;}
 return;
 }else if(this.x+(62.5/2)>(playerC.x+(62.5/2))&&this.y+(62.5/2)>(playerC.y+(62.5/2))){
 ans=180+ans;
   eqq=3;
-if(!playerC.isMoving){
+if(!playerC.isMoving||alley(playerC)){
     this.rotation= ans;}
 return;
 }else if(this.x+(62.5/2)<(playerC.x+(62.5/2))&&this.y+(62.5/2)>(playerC.y+(62.5/2))){
 
     ans= 360-ans;
   eqq=4;
-        if(!playerC.isMoving){
+        if(!playerC.isMoving||alley(playerC)){
 this.rotation=ans;}
 }}
 }
