@@ -1183,7 +1183,7 @@ var translateX= playerC.x+(62.5/2);
 var translateY= playerC.y+(62.5/2);
 ctx.save();
 ctx.translate(translateX,translateY);
-ctx.rotate(playerC.rotation*Math.PI/180);
+ctx.rotate(-(playerC.rotation*Math.PI/180));
 ctx.translate(-translateX,-translateY);
 }
           enemies[i].draw();
@@ -1196,7 +1196,7 @@ var translateX= playerC.x+(62.5/2);
 var translateY= playerC.y+(62.5/2);
 ctx.save();
 ctx.translate(translateX,translateY);
-ctx.rotate(playerC.rotation*Math.PI/180);
+ctx.rotate(-(playerC.rotation*Math.PI/180));
 ctx.translate(-translateX,-translateY);
 }
           enemies[i].bulletss[0].draw();
@@ -1240,7 +1240,7 @@ var translateX= playerC.x+(62.5/2);
 var translateY= playerC.y+(62.5/2);
 ctx.save();
 ctx.translate(translateX,translateY);
-ctx.rotate(playerC.rotation*Math.PI/180);
+ctx.rotate(-(playerC.rotation*Math.PI/180));
 ctx.translate(-translateX,-translateY);
 }
           walls[i].draw();
@@ -1262,11 +1262,23 @@ bulletss[i].move();}
     
          ctx.strokeStyle = 'red';
     ctx.lineWidth = 5;
+if(motion==="Yes"){
+var translateX= playerC.x+(62.5/2);
+var translateY= playerC.y+(62.5/2);
+ctx.save();
+ctx.translate(translateX,translateY);
+ctx.rotate(-(playerC.rotation*Math.PI/180));
+ctx.translate(-translateX,-translateY);
+}
+ 
+
     // draw a red line
     ctx.beginPath();
     ctx.moveTo(playerC.x+(62.5/2), playerC.y+(62.5/2));
     ctx.lineTo(mouseONE, mouseTWO);
     ctx.stroke();
+        if(motion==="Yes"){
+ctx.restore();}}
 for(var i=0;i<enemies.length;i++){
  if(dist(enemies[i],playerC)<700&&!enemies[i].isResting){
  if(playerC.cd<20){
