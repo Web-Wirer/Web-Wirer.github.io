@@ -1183,7 +1183,7 @@ var translateX= playerC.x+(62.5/2);
 var translateY= playerC.y+(62.5/2);
 ctx.save();
 ctx.translate(translateX,translateY);
-ctx.rotate(this.rotation*Math.PI/180);
+ctx.rotate(playerC.rotation*Math.PI/180);
 }
           enemies[i].draw();
         if(motion==="Yes"){
@@ -1196,7 +1196,7 @@ var translateX= playerC.x+(62.5/2);
 var translateY= playerC.y+(62.5/2);
 ctx.save();
 ctx.translate(translateX,translateY);
-ctx.rotate(this.rotation*Math.PI/180);
+ctx.rotate(playerC.rotation*Math.PI/180);
 }
           enemies[i].bulletss[0].draw();
         if(motion==="Yes"){
@@ -1240,7 +1240,7 @@ var translateX= playerC.x+(62.5/2);
 var translateY= playerC.y+(62.5/2);
 ctx.save();
 ctx.translate(translateX,translateY);
-ctx.rotate(this.rotation*Math.PI/180);
+ctx.rotate(playerC.rotation*Math.PI/180);
 }
           walls[i].draw();
         if(motion==="Yes"){
