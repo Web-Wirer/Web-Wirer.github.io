@@ -117,8 +117,10 @@ function getCookie(cname) {
 }
     checkCookie("Movement Type","Absolute","Absolute","Relative");
     checkCookie("togglef","No","Yes","No");
+    checkCookie("Motion_sickness","No","No","Yes");
     var movement= getCookie("Movement Type");
     var tog= getCookie("togglef");
+    var motion= getCookie("Motion");
     
 function radians_to_degrees(radians) {
   return radians * (180 / Math.PI);
@@ -476,6 +478,7 @@ ctx.translate(-translateX,-translateY);
 ctx.drawImage(bullet,this.x,this.y,(62.5)/3.1622,(62.5)/3.1622);
 ctx.restore();}}
 players.prototype.draw=function(){
+if(motion==="No"){
 var translateX= this.x+(62.5/2);
 var translateY= this.y+(62.5/2);
 ctx.save();
@@ -483,7 +486,9 @@ ctx.translate(translateX,translateY);
 ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
 ctx.drawImage(player,this.x,this.y,62.5,62.5);
-ctx.restore();
+ctx.restore();}else{
+        ctx.drawImage(player,this.x,this.y,62.5,62.5);
+}
 };
     //THIS STUPID THING
     Mouse=function(e){
@@ -1171,7 +1176,7 @@ for(var i = 0; i<enemies.length; i++){
 enemies[i].point();
 
  
-  if(enemies[i].dist(playerC)<9050){
+  if(enemies[i].dist(playerC)<905){
   enemies[i].isResting=false;
   
   }
