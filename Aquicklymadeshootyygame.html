@@ -14,6 +14,9 @@
 //variable and canvas setup
 var canvas = document.getElementById("one");
 var ctx = canvas.getContext("2d");
+    
+    var camX;
+    var camY;
     function clamp(value, min, max){
     if(value < min) return min;
     else if(value > max) return max;
@@ -40,8 +43,8 @@ var ctx = canvas.getContext("2d");
 
     // center the camera around the player,
     // but clamp the edges of the camera view to the world bounds.
-    const camX = clamp(playerC.x - canvas.width/2, worldBounds.minX, worldBounds.maxX - canvas.width);
-    const camY = clamp(playerC.y - canvas.height/2, worldBounds.minY, worldBounds.maxY - canvas.height);
+ camX = clamp(playerC.x - canvas.width/2, worldBounds.minX, worldBounds.maxX - canvas.width);
+ camY = clamp(playerC.y - canvas.height/2, worldBounds.minY, worldBounds.maxY - canvas.height);
 
     ctx.translate((-camX)-camc, -camY);
             playerC.draw();
