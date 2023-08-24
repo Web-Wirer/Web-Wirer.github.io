@@ -14,7 +14,8 @@
 //variable and canvas setup
 var canvas = document.getElementById("one");
 var ctx = canvas.getContext("2d");
-    
+        var mouseONE;
+    var mouseTWO;
     var camX;
     var camY;
     function clamp(value, min, max){
@@ -48,11 +49,11 @@ var ctx = canvas.getContext("2d");
 
     ctx.translate((-camX)-camc, -camY);
             playerC.draw();
-    
+            mouseONE+=camX;
+        mouseTWO+=camY;
     //Draw everything
 }
-    var mouseONE;
-    var mouseTWO;
+
     var pathfinds;
     var positt;
     var posittt;
