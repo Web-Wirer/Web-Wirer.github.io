@@ -491,7 +491,7 @@ var translateX= this.x+(62.5/2);
 var translateY= this.y+(62.5/2);
 ctx.save();
 ctx.translate(translateX,translateY);
-ctx.rotate((this.rotation*Math.PI/180)/2);
+ctx.rotate((this.rotation*Math.PI/180));
 ctx.translate(-translateX,-translateY);
 ctx.drawImage(player,this.x,this.y,62.5,62.5);
 ctx.restore();
@@ -1195,7 +1195,7 @@ var translateX= playerC.x+(62.5/2);
 var translateY= playerC.y+(62.5/2);
 ctx.save();
 ctx.translate(translateX,translateY);
-ctx.rotate((-(playerC.rotation*Math.PI/180))/2);
+ctx.rotate((-(playerC.rotation*Math.PI/180)));
 ctx.translate(-translateX,-translateY);
 }
           enemies[i].draw();
@@ -1208,7 +1208,7 @@ var translateX= playerC.x+(62.5/2);
 var translateY= playerC.y+(62.5/2);
 ctx.save();
 ctx.translate(translateX,translateY);
-ctx.rotate((-(playerC.rotation*Math.PI/180))/2);
+ctx.rotate((-(playerC.rotation*Math.PI/180)));
 ctx.translate(-translateX,-translateY);
 }
           enemies[i].bulletss[0].draw();
@@ -1252,7 +1252,7 @@ var translateX= playerC.x+(62.5/2);
 var translateY= playerC.y+(62.5/2);
 ctx.save();
 ctx.translate(translateX,translateY);
-ctx.rotate((-(playerC.rotation*Math.PI/180))/2);
+ctx.rotate((-(playerC.rotation*Math.PI/180)));
 ctx.translate(-translateX,-translateY);
 }
           walls[i].draw();
@@ -1264,7 +1264,7 @@ var translateX= playerC.x+(62.5/2);
 var translateY= playerC.y+(62.5/2);
 ctx.save();
 ctx.translate(translateX,translateY);
-ctx.rotate((-(playerC.rotation*Math.PI/180))/2);
+ctx.rotate((-(playerC.rotation*Math.PI/180)));
 ctx.translate(-translateX,-translateY);
 }
           bulletss[i].draw();
