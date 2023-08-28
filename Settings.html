@@ -119,7 +119,7 @@ ctx.font = fontscaledd+"px Monaco";
 
     if(this.anso===getCookie(this.cookie)){
                 ctx.fillStyle="green";
-    ctx.roundRect((can.width/5)+(35*ratiosquare), ((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot),((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)),(175*ratiosquare),3600);
+    ctx.roundRect((can.width/5)+(35*ratiosquare), ((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot),((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)),(170*ratiosquare),3600);
     ctx.fill();
         ctx.fillStyle="white";
 ctx.fillText(this.anso,(((can.width/2)-(60*ratiosquare))-((can.width/5)+(35*ratiosquare))/2),((can.height/10)+(475*ratiosquare))+((250*ratiosquare)*this.spot));
@@ -127,7 +127,7 @@ ctx.fillText(this.anso,(((can.width/2)-(60*ratiosquare))-((can.width/5)+(35*rati
         ctx.fillText(this.anst,(((can.width/2)-(60*ratiosquare))+((can.width/5)+(35*ratiosquare))-(100*ratiosquare)),((can.height/10)+(475*ratiosquare))+((250*ratiosquare)*this.spot));
     }else if(this.anst===getCookie(this.cookie)){
         ctx.fillStyle="green";
-        ctx.roundRect(((can.width/5)+(35*ratiosquare))+((can.width/3)-(90*ratiosquare)), ((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot),((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)),(175*ratiosquare),3600);
+        ctx.roundRect(((can.width/5)+(35*ratiosquare))+((can.width/3)-(90*ratiosquare)), ((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot),((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)),(170*ratiosquare),3600);
 ctx.fill();
 ctx.fillStyle="white";
         ctx.fillText(this.anst,(((can.width/2)-(60*ratiosquare))+((can.width/5)+(35*ratiosquare))-(100*ratiosquare)),((can.height/10)+(475*ratiosquare))+((250*ratiosquare)*this.spot));
@@ -149,10 +149,10 @@ ctx.fillStyle="white";
 
 };
  T.prototype.green=function(){
-         if(mouseONE>(can.width/5)+(35*ratiosquare)&&mouseONE<(((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)))+(can.width/5)+(35*ratiosquare)&&mouseTWO>((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot)&&mouseTWO<(((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot))+(175*ratiosquare)){
+         if(mouseONE>(can.width/5)+(35*ratiosquare)&&mouseONE<(((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)))+(can.width/5)+(35*ratiosquare)&&mouseTWO>((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot)&&mouseTWO<(((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot))+(170*ratiosquare)){
 ctx.globalCompositeOperation = 'xor';
          ctx.fillStyle="rgba(0,128,0,0.5)";
-    ctx.roundRect((can.width/5)+(35*ratiosquare), ((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot),((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)),(175*ratiosquare),3600);
+    ctx.roundRect((can.width/5)+(35*ratiosquare), ((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot),((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)),(170*ratiosquare),3600);
     ctx.fill();
          backgroud();
 var fontscaledg=75*ratiosquare;
