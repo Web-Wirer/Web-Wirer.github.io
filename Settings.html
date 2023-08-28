@@ -125,7 +125,7 @@ ctx.font = fontscaledd+"px Monaco";
 ctx.fillText(this.anso,(((can.width/2)-(60*ratiosquare))-((can.width/5)+(35*ratiosquare))/2),((can.height/10)+(475*ratiosquare))+((250*ratiosquare)*this.spot));
         ctx.fillStyle="black";
         ctx.fillText(this.anst,(((can.width/2)-(60*ratiosquare))+((can.width/5)+(35*ratiosquare))-(100*ratiosquare)),((can.height/10)+(475*ratiosquare))+((250*ratiosquare)*this.spot));
-    }else{
+    }else if(this.anso===getCookie(this.cookie)){
         ctx.fillStyle="green";
         ctx.roundRect(((can.width/5)+(35*ratiosquare))+((can.width/3)-(90*ratiosquare)), ((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot),((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)),(175*ratiosquare),3600);
 ctx.fill();
@@ -206,8 +206,8 @@ can.style="background-color:rgb(77, 77, 77);";
 guitems.push(new T("Movement Type", "Relative", "Absolute", 0,"Movement Type"));
 guitems.push(new T("'g' toggles movement types","Yes","No",1,"togglef"));
 guitems.push(new T("Difficulty","Easy","Normal",2,"Difficulty"));
-guitems.push(new T("","Hard","Insane",2.5,"Difficulty"));
-guitems.push(new T("Should Max go screw himself?","Yes","No",3.5,"Max_screws_himself"));
+guitems.push(new T("","Hard","Insane",2.75,"Difficulty"));
+guitems.push(new T("Should Max go screw himself?","Yes","No",3.75,"Max_screws_himself"));
 
 
 T.prototype.detects=function(){
