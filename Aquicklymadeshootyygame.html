@@ -650,7 +650,7 @@ var m = Math.pow(p,2);
  }
 //math is pain.
 enemy.prototype.point = function(){
-        <?php if(&_COOKIE["Difficulty"]==="Insane")?>
+
     if(this.hasfound&&!raycast([this.x,this.x+62.5],[this.y,this.y+62.5],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])){
 var yy = (((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25);
 var xx = (((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_")+1)))))*138)+31.25);
@@ -746,8 +746,7 @@ return;
         if(!playerC.isMoving||alley(playerC)){
 this.rotation=ans;}
 }}
-<?php else if(&_COOKIE["Difficulty"]==="Hard")?>
-<?php  endif?>
+
 }
 toggle=function(e){
     
