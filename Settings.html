@@ -176,7 +176,7 @@ can.style="cursor: pointer; background-color:rgb(77, 77, 77);";
      if(mouseONE>((can.width/5)+(35*ratiosquare))+((can.width/3)-(90*ratiosquare))&&mouseONE<(((can.width/5)+(35*ratiosquare))+((can.width/3)-(90*ratiosquare)))+((can.width/2)-(10)-((can.width/5)+(35*ratiosquare)))&&mouseTWO>((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot)&&mouseTWO<(((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot))+(175*ratiosquare)){
 ctx.globalCompositeOperation = 'xor';
          ctx.fillStyle="rgba(0,128,0,0.5)";
-        ctx.roundRect(((can.width/5)+(35*ratiosquare))+((can.width/3)-(90*ratiosquare)), ((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot),((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)),(175*ratiosquare),3600);
+        ctx.roundRect(((can.width/5)+(35*ratiosquare))+((can.width/3)-(90*ratiosquare)), ((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot),((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)),(150*ratiosquare),3600);
     ctx.fill();
               backgroud();
              var fontscaledg=75*ratiosquare;
@@ -218,7 +218,7 @@ guitems.push(new T("Should Max go screw himself?","Yes","No",3.68,"Max_screws_hi
 
 
 T.prototype.detects=function(){
-    if(event.offsetX>(can.width/5)+(35*ratiosquare)&&event.offsetX<(((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)))+(can.width/5)+(35*ratiosquare)&&event.offsetY>((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot)&&event.offsetY<(((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot))+(175*ratiosquare)){
+    if(event.offsetX>(can.width/5)+(35*ratiosquare)&&event.offsetX<(((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare)))+(can.width/5)+(35*ratiosquare)&&event.offsetY>((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot)&&event.offsetY<(((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot))+(150*ratiosquare)){
 backgroud();
         setCookie(this.cookie,this.anso,365);
                 for(var i = 0; i<guitems.length;i++){
@@ -226,7 +226,7 @@ backgroud();
 }
         
     }
-    if(event.offsetX>((can.width/5)+(35*ratiosquare))+((can.width/3)-(90*ratiosquare))&&event.offsetX<(((can.width/5)+(35*ratiosquare))+((can.width/3)-(90*ratiosquare)))+((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare))&&event.offsetY>((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot)&&event.offsetY<(((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot))+(175*ratiosquare)){
+    if(event.offsetX>((can.width/5)+(35*ratiosquare))+((can.width/3)-(90*ratiosquare))&&event.offsetX<(((can.width/5)+(35*ratiosquare))+((can.width/3)-(90*ratiosquare)))+((can.width/2)-(10*ratiosquare))-((can.width/5)+(35*ratiosquare))&&event.offsetY>((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot)&&event.offsetY<(((can.height/10)+(365*ratiosquare))+((250*ratiosquare)*this.spot))+(150*ratiosquare)){
 backgroud();
         setCookie(this.cookie,this.anst,365);
             for(var i = 0; i<guitems.length;i++){
