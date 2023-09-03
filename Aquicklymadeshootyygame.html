@@ -171,7 +171,30 @@ this.rotation=0;
     
 };
 cyborg = function(){
-        
+this.x = (x*138)+((138/2)-(62.5/2));
+this.y=(y*138)+((138/2)-(62.5/2));
+this.health= maxHealth;
+this.maxHealth = maxHealth;
+this.wepDamage = wepDamage;
+this.width=62.5;
+    this.height=62.5;
+this.isResting=true;
+    this.type="enemy";
+this.wakeDistance=300;
+this.rotation=0;
+  this.cdd=0;
+    this.bulletss = [];
+  this.cd=0;
+    this.hasShot=0;
+    this.xmotion=0;
+    this.ymotion=0;
+    this.path=[];
+        this.pathdupe=[];
+    this.pc=0;
+    this.insight=true;
+    this.hasfound=false;
+    this.pathdupes=[];
+    this.ref=0;    
 }
 cyborg.prototype = Object.create(enemy.prototype);
 //players object
