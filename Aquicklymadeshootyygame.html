@@ -7,6 +7,8 @@
 <img src="https://web-wirer.github.io/Wall.png"style="display:none" id = "wall"/>
 <img src = "https://web-wirer.github.io/Player%20for%20shooter.png"style="display:none"   id = "player"/>
 <img src = "https://web-wirer.github.io/Enemy%20for%20shooter.png" style="display: none" id = "enemy"/>
+        
+<img src = "https://web-wirer.github.io/cyborg.png" style="display: none" id = "cyborg"/>
 <img src = "https://web-wirer.github.io/Bullet.png" style="display: none" id = "default_bullet"/>
 <canvas id="one" width = "1000" height ="1000"></canvas>
 <a href='http://web-wirer.github.io/Settings.html' target = "_self" class = "imglink" ><img src="https://web-wirer.github.io/Settings.png" style="position:absolute; width:100px; left: 94%; top: 10px;"/></a>
@@ -83,6 +85,7 @@ var eopp;
 var eadj;
 var ealmost;
 var enemyC = document.getElementById("enemy");
+var enemyCC = document.getElementById("cyborg");
 var wall = document.getElementById("wall");
 var player= document.getElementById("player");
 var bullet = document.getElementById("default_bullet");
@@ -167,6 +170,10 @@ this.rotation=0;
     this.ref=0;
     
 };
+cyborg = function(){
+        
+}
+cyborg.prototype = Object.create(enemy.prototype);
 //players object
 players= function(x,y,maxHealth,wepDamage, speed=1){
 this.x = (x*138)+((138/2)-(62.5/2));
@@ -466,7 +473,16 @@ ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
 ctx.drawImage(enemyC,this.x,this.y,62.5,62.5);
 ctx.restore();}
-  //bullets
+cyborg.prototype.draw=function(){
+var translateX= this.x+(62.5/2);
+var translateY= this.y+(62.5/2);
+ctx.save();
+ctx.translate(translateX,translateY);
+ctx.rotate(this.rotation*Math.PI/180);
+ctx.translate(-translateX,-translateY);
+ctx.drawImage(enemyCC,this.x,this.y,62.5,62.5);
+ctx.restore();}
+//bullets
 bullets.prototype.draw=function(){
     if(this.exists){
 var translateX= this.x+((62.5/3.1622)/2);
