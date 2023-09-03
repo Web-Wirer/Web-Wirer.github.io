@@ -227,7 +227,7 @@ this.height=62.5/3.1622;
 '8',
 '40',
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
-'W     P             WWWWWWW          WEW',
+'W     P             WWWWWWW          WCW',
 'W                         W          W W',
 'W                   WWWWW W          W W',
 'W                       W WWWWWWWWW  W W',
@@ -251,6 +251,9 @@ true_load = function(){
         }
             if(k==="E"){
  enemies.push(new enemy(j,i,200,1));
+            }
+        if(k==="C"){
+ enemies.push(new cyborg(j,i,200,1));
             }
     }
 }
