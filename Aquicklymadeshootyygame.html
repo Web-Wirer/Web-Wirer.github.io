@@ -62,6 +62,7 @@ var ctx = canvas.getContext("2d");
     var positt;
     var posittt;
     var poso;
+        var explosions = [];  
     var post;
 var bulletss=[];
 var walls= [];
@@ -197,6 +198,25 @@ this.rotation=0;
     this.ref=0;    
 }
 cyborg.prototype = Object.create(enemy.prototype);
+eparticle = function(x,y,heat,forces,explosion){
+        this.x = x;
+        this.y = y;
+        this.heat = heat;
+        this.forces = forces;
+        this.explosion = explosion;
+        this.r = 0;
+        this.g=0;
+        this.b=0;
+}
+explosion = function(x,y,forces, power){
+        this.x = x;
+        this.y = y;
+        this.power = power;
+        this.forces = forces;
+        this.eparticles = {};
+        this.detail=1;
+}
+
 //players object
 players= function(x,y,maxHealth,wepDamage, speed=1){
 this.x = (x*138)+((138/2)-(62.5/2));
@@ -539,6 +559,15 @@ ctx.drawImage(player,this.x,this.y,62.5,62.5);
 ctx.restore();
 }
 };
+eparticle.prototype.draw =function(){
+                
+    ctx.lineWidth = 50;
+            ctx.beginPath();
+    ctx.moveTo(this.x,this.y);
+    ctx.lineTo(this.x, this.y);
+    ctx.stroke();
+
+}
     //THIS STUPID THING
     Mouse=function(e){
         MouseONE=e.offsetX;
