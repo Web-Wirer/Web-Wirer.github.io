@@ -218,7 +218,7 @@ explosion = function(x,y,forces, power){
         this.detail=1;
 }
 explosions.push(new explosion(300,300,[],2));
-explosions[0].eparticles[explosions[0].x.toString().concat("_",explosions[0].y.toString())].push(new eparticle(explosions[0].x,explosions[0].y,40,3,0));
+explosions[0].eparticles[explosions[0].x.toString().concat("_",explosions[0].y.toString())]=(new eparticle(explosions[0].x,explosions[0].y,40,3,0));
 explosions[0].positions.push(explosions[0].x.toString().concat("_",explosions[0].y.toString()));
 //players object
 players= function(x,y,maxHealth,wepDamage, speed=1){
