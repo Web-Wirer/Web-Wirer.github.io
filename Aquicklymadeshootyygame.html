@@ -572,12 +572,12 @@ if(this.heat>255){
          this.r=255;
         this.g=this.heat;
         this.b=0;
-}else if(this.heat>10){
-        this.r=this.heat;
-        this.g=this.heat;
-        this.b=this.heat;
+}else if(this.heat>0){
+        this.r=-(this.heat-255);
+        this.g=-(this.heat-255);
+        this.b=-(this.heat-255);
 }else{
-        explosions[this.explosion].eparticles.splice(explosions[this.explosion].eparticles[this.x.toString().concat("_",this.y.toString())]);
+        delete explosions[this.explosion].eparticles[this.x.toString().concat("_",this.y.toString())];
         explosions[this.explosion].positions.splice(explosions[this.explosion].positions.indexOf(this.x.toString().concat("_",this.y.toString())));
         return false;
 }
