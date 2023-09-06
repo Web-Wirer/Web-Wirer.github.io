@@ -581,7 +581,7 @@ if(this.heat>=255){
         explosions[this.explosion].positions.splice(explosions[this.explosion].positions.indexOf(this.x.toString().concat("_",this.y.toString())));
         return false;
 }
-        ctx.strokeStyle = rgb(this.r,this.g,this.b);
+        ctx.strokeStyle = "rgb("+this.r.toString()+","+this.g.toString()+","+this.b.toString()+")";
     ctx.lineWidth = 50;
             ctx.beginPath();
     ctx.moveTo(this.x,this.y);
