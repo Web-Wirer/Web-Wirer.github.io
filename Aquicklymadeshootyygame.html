@@ -591,7 +591,7 @@ if(this.heat>=255){
 }
 explosion.prototype.draw= function(){
 var left = this.positions.length-1;
-        for(var i =0;i<left;i++){
+        for(var i =0;i<=left;i++){
                 this.eparticles[this.positions[i]].draw();
                 try{ this.eparticles[this.positions[i]].draw();
                    }catch{left--;}
