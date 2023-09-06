@@ -577,8 +577,8 @@ if(this.heat>=255){
         this.g=this.heat;
         this.b=this.heat;
 }else{
-        explosions[this.explosion].eparticles[].remove();
-        explosions[this.explosion].position[this.x.toString().concat("_",this.y.toString())].remove();
+        explosions[this.explosion].eparticles.splice(explosions[this.explosion].eparticles[this.x.toString().concat("_",this.y.toString())]);
+        explosions[this.explosion].positions.splice(explosions[this.explosion].positions.indexOf(this.x.toString().concat("_",this.y.toString())));
         return false;
 }
         ctx.strokeStyle = rgb(this.r,this.g,this.b);
