@@ -564,10 +564,10 @@ ctx.restore();
 };
 eparticle.prototype.draw =function(){
 
-if(this.heat>=255){
+if(this.heat>255){
          this.r=255;
         this.g=255;
-        this.b=255;
+        this.b=this.heat-255;
 }else if(this.heat>80){
          this.r=255;
         this.g=this.heat;
