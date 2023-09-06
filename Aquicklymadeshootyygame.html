@@ -581,12 +581,10 @@ if(this.heat>=255){
         explosions[this.explosion].positions.splice(explosions[this.explosion].positions.indexOf(this.x.toString().concat("_",this.y.toString())));
         return false;
 }
-        ctx.strokeStyle = "rgb("+this.r.toString()+","+this.g.toString()+","+this.b.toString()+")";
-    ctx.lineWidth = 50;
-            ctx.beginPath();
-    ctx.moveTo(this.x,this.y);
-    ctx.lineTo(this.x, this.y);
-    ctx.stroke();
+        ctx.fillStyle = "rgb("+this.r.toString()+","+this.g.toString()+","+this.b.toString()+")";
+
+ ctx.fillRect(this.x,this.y,50,50);
+
 
 }
 explosion.prototype.draw= function(){
