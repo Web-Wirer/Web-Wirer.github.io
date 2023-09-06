@@ -214,9 +214,12 @@ explosion = function(x,y,forces, power){
         this.power = power;
         this.forces = forces;
         this.eparticles = {};
+        this.positions=[];
         this.detail=1;
 }
-
+explosions.push(new explosion(300,300,[],2));
+explosions[0].eparticles[explosions[0].x.toString().concat("_",explosions[0].y.toString())].push(new eparticle(explosions[0].x,explosions[0].y,40,3,0));
+explosions[0].positions.push(explosions[0].x.toString().concat("_",explosions[0].y.toString()));
 //players object
 players= function(x,y,maxHealth,wepDamage, speed=1){
 this.x = (x*138)+((138/2)-(62.5/2));
@@ -560,7 +563,25 @@ ctx.restore();
 }
 };
 eparticle.prototype.draw =function(){
-                
+
+if(this.heat>=255){
+         this.r=255;
+        this.g=255;
+        this.b=255;
+}else if(this.heat>80){
+         this.r=255;
+        this.g=this.heat;
+        this.b=0;
+}else if(this.heat>10){
+        this.r=this.heat;
+        this.g=this.heat;
+        this.b=this.heat;
+}else{
+        explosions[this.explosion].eparticles[].remove();
+        explosions[this.explosion].position[this.x.toString().concat("_",this.y.toString())].remove();
+        return false;
+}
+        ctx.strokeStyle = rgb(this.r,this.g,this.b);
     ctx.lineWidth = 50;
             ctx.beginPath();
     ctx.moveTo(this.x,this.y);
@@ -568,6 +589,14 @@ eparticle.prototype.draw =function(){
     ctx.stroke();
 
 }
+explosion.prototype.draw= function(){
+var left = this.positions.length-1;
+        for(var i =0;i<left;i++){
+                this.eparticles[this.positions[i]].draw();
+                try{ this.eparticles[this.positions[i]].draw();
+                   }catch{left--;}
+        }
+};
     //THIS STUPID THING
     Mouse=function(e){
         MouseONE=e.offsetX;
@@ -1251,7 +1280,9 @@ if(map[77]){
     camc-=6.25;
 }
 cdraw();
- 
+for(var i = 0; i<explosions.length; i++){
+        explosions.draw();
+}
 for(var i = 0; i<enemies.length; i++){
 enemies[i].point();
 
