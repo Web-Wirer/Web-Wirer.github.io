@@ -207,6 +207,14 @@ eparticle = function(x,y,heat,forces,explosion){
         this.r = 0;
         this.g=0;
         this.b=0;
+        this.tr=heat/8;
+        this.mr=heat/8;
+        this.br=heat/8;
+        this.bm=heat/8;
+        this.bl=heat/8;
+        this.ml=heat/8;
+        this.tl=heat/8;
+        this.tm=heat/8;
 }
 explosion = function(x,y,forces, power){
         this.x = x;
@@ -589,8 +597,9 @@ if(this.heat>255){
 }
 eparticle.prototype.expand = function(){
         var expansion;
-        var forcetotal= 0.5;
+
 //90* will be 1/4 each
+         
 //45* is 1/8
 //figure it out from there
 }
