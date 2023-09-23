@@ -207,9 +207,11 @@ eparticle = function(x,y,heat,forces,explosion){
         this.r = 0;
         this.g=0;
         this.b=0;
+        this.ca=0;
+        this.cat=0;
         this.forcespread={
         315:heat/9,
-        0:heat/9,
+        360:heat/9,
         45:heat/9,
         90:heat/9,
         135:heat/9,
@@ -597,10 +599,16 @@ if(this.heat>255){
 
 
 }
+eparticle.prototype.calculate = function(){
+        this.forcespread[this.forces.toString] *=3;
+        
+        //ONLY GOES FORWARD. DONT FORGET!
+        //PARTICLES ARE A PART OF THE EXPLOSION, NOT SEPERATE EXPLOSIONS
+}
 eparticle.prototype.expand = function(){
-        var expansion;
-//if you forget what to code here,
-//get. the. paper, you WORTHLESS, IDIOTIC CREATURE
+try{
+
+}
 }
 explosion.prototype.draw= function(){
 var left = this.positions.length-1;
