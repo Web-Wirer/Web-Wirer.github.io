@@ -198,40 +198,12 @@ this.rotation=0;
     this.ref=0;    
 }
 cyborg.prototype = Object.create(enemy.prototype);
-eparticle = function(x,y,heat,forces,explosion){
-        this.x = x;
-        this.y = y;
-        this.heat = heat;
-        this.forces = forces;
-        this.explosion = explosion;
-        this.r = 0;
-        this.g=0;
-        this.b=0;
-        this.ca=0;
-        this.cat=0;
-        this.forcespread={
-        315:heat/9,
-        360:heat/9,
-        45:heat/9,
-        90:heat/9,
-        135:heat/9,
-        180:heat/9,
-        225:heat/9,
-        270:heat/9}
-        this.m=heat/9;
+explosion=function(x,y,power){
+        this.x=x;
+        this.y=y;
+        this.power=power;
 }
-explosion = function(x,y,forces, power){
-        this.x = x;
-        this.y = y;
-        this.power = power;
-        this.forces = forces;
-        this.eparticles = {};
-        this.positions=[];
-        this.detail=1;
-}
-explosions.push(new explosion(300,300,[],2));
-explosions[0].eparticles[explosions[0].x.toString().concat("_",explosions[0].y.toString())]=(new eparticle(explosions[0].x,explosions[0].y,40,3,0));
-explosions[0].positions.push(explosions[0].x.toString().concat("_",explosions[0].y.toString()));
+
 //players object
 players= function(x,y,maxHealth,wepDamage, speed=1){
 this.x = (x*138)+((138/2)-(62.5/2));
@@ -574,49 +546,10 @@ ctx.drawImage(player,this.x,this.y,62.5,62.5);
 ctx.restore();
 }
 };
-eparticle.prototype.draw =function(){
-
-if(this.heat>255){
-         this.r=255;
-        this.g=255;
-        this.b=this.heat-255;
-}else if(this.heat>80){
-         this.r=255;
-        this.g=this.heat;
-        this.b=0;
-}else if(this.heat>0){
-        this.r=-(this.heat-255);
-        this.g=-(this.heat-255);
-        this.b=-(this.heat-255);
-}else{
-        delete explosions[this.explosion].eparticles[this.x.toString().concat("_",this.y.toString())];
-        explosions[this.explosion].positions.splice(explosions[this.explosion].positions.indexOf(this.x.toString().concat("_",this.y.toString())));
-        return false;
-}
-        ctx.fillStyle = "rgb("+this.r.toString()+","+this.g.toString()+","+this.b.toString()+")";
-
- ctx.fillRect(this.x,this.y,50,50);
 
 
-}
-eparticle.prototype.calculate = function(){
-        this.forcespread[this.forces.toString] *=3;
-        
-        //ONLY GOES FORWARD. DONT FORGET!
-        //PARTICLES ARE A PART OF THE EXPLOSION, NOT SEPERATE EXPLOSIONS
-}
-eparticle.prototype.expand = function(){
-try{
-
-}
-}
 explosion.prototype.draw= function(){
-var left = this.positions.length-1;
-        for(var i =0;i<=left;i++){
-                this.eparticles[this.positions[i]].draw();
-                try{ this.eparticles[this.positions[i]].draw();
-                   }catch{left--;}
-        }
+
 };
     //THIS STUPID THING
     Mouse=function(e){
