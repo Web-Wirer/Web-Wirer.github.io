@@ -165,11 +165,12 @@ this.rotation=0;
     this.path=[];
         this.pathdupe=[];
     this.pc=0;
-    this.insight=true;
+
     this.hasfound=false;
     this.pathdupes=[];
     this.ref=0;
 this.dodge="up";
+        this.inrange=false;
     
 };
 cyborg = function(x,y,maxHealth,wepDamage,weapon="bazooka",speed=1){
@@ -193,11 +194,12 @@ this.rotation=0;
     this.path=[];
         this.pathdupe=[];
     this.pc=0;
-    this.insight=true;
+
     this.hasfound=false;
     this.pathdupes=[];
     this.ref=0;    
 this.dodge="up";
+  this.inrange=false;
 }
 cyborg.prototype = Object.create(enemy.prototype);
 explosion=function(x,y,power){
@@ -1098,8 +1100,8 @@ if(!this.hasfound){
 }}
   enemy.prototype.move = function(){
     this.pathfind();
-      if(raycast([this.x,this.x+62.5],[this.y,this.y+62.5],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])&&this.insight){
-this.insight=true;
+      if(raycast([this.x,this.x+62.5],[this.y,this.y+62.5],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])){
+
 opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
 adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2)));
 if(adj===0){adj=0.0001;}
@@ -1130,21 +1132,23 @@ y: this.ymotion+this.y
 }
 
 if(dist(this,playerC)>350+7.25){
+        this.inrange=false;
     if(stop(this)){
 this.x+=this.xmotion;
 this.y+=this.ymotion;}else{
-        this.insight=false;
+        
 }}else if(dist(this,playerC)<350-7.25){
+        this.inrange=false;
  this.xmotion *= -1;
  this.ymotion *= -1;
  if(stop(this)){
     this.x+=this.xmotion;
-    this.y+=this.ymotion;}else{
-
-}}
+    this.y+=this.ymotion;}}else{
+        this.inrange=true;
+    }
 
       }else{
-
+this.inrange=false;
 var yy = (((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+62.5);
 var xx =(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_")+1)))))*138)+62.5);
 opp = Math.abs((this.y+(62.5/2))-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+62.5));
@@ -1181,9 +1185,7 @@ y: this.ymotion+this.y
     if(stop(this)){
 this.x+=this.xmotion;
 this.y+=this.ymotion;
-  if(raycast([this.x,this.x+62.5],[this.y,this.y+62.5],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])&&!this.insight){
-     this.insight=true;
-  }
+
     }else{ 
  this.xmotion *= -1;
  this.ymotion *= -1;
@@ -1218,6 +1220,66 @@ this.y+=this.ymotion;
             }
 
 }}
+enemy.prototype.dmove=function(){
+        if(this.inrange){
+            adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2)));
+opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
+if(adj===0){adj=0.0001;}
+        if(opp===0){opp=0.0001;}
+  var bt = ((adj/opp)/((adj/opp)+1))*6.25;
+  var bh = ((opp/adj)/((opp/adj)+1))*6.25;
+        var frame=true;
+        if(this.dodge==="up"){
+        if(eq==1){
+           this.xmotion+=-bh;
+     this.ymotion+=bt;
+  }else if(eq==2){
+           this.xmotion+=-bh;
+     this.ymotion=-bt;
+       }else if(eq==3){
+    this.xmotion+=bh;
+     this.ymotion+=-bt;
+  }else if(eq==4){
+           this.xmotion+=bh;
+     this.ymotion+=bt;
+        }
+         if(stop(this)&&raycast([this.x+this.xmotion,this.x+62.5+this.xmotion],[this.y+this.ymotion,this.y+62.5+this.ymotion],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])){
+    this.x+=this.xmotion;
+    this.y+=this.ymotion;}else{this.dodge="down";
+                        frame=false;}
+        if(dist(this,playerC)>350+7.25){
+        this.inrange=false;
+        }else if(dist(this,playerC)<350-7.25){
+        this.inrange=false;}
+                if(!this.inrange){
+                this.move();
+                }
+}else if(frame&&this.dodge==="down"){
+              if(eq==1){
+           this.xmotion+=bh;
+     this.ymotion+=-bt;
+  }else if(eq==2){
+           this.xmotion+=bh;
+     this.ymotion=bt;
+       }else if(eq==3){
+    this.xmotion+=-bh;
+     this.ymotion+=bt;
+  }else if(eq==4){
+           this.xmotion+=-bh;
+     this.ymotion+=-bt;
+        }
+         if(stop(this)&&raycast([this.x+this.xmotion,this.x+62.5+this.xmotion],[this.y+this.ymotion,this.y+62.5+this.ymotion],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])){
+    this.x+=this.xmotion;
+    this.y+=this.ymotion;}else{this.dodge="up";
+                        frame=false;}
+        if(dist(this,playerC)>350+7.25){
+        this.inrange=false;
+        }else if(dist(this,playerC)<350-7.25){
+        this.inrange=false;}
+                if(!this.inrange){
+                this.move();
+                }          
+}}}
 average=function(){
  var d=0;
  for(var i=0;i<playerC.averaged.length;i++){
@@ -1249,6 +1311,7 @@ enemies[i].point();
   }
     if(!enemies[i].isResting){
         enemies[i].move();
+        enemies[i].dmove();
     }
 if(motion==="Yes"){
 var translateX= playerC.x+(62.5/2);
