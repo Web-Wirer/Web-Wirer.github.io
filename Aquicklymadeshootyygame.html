@@ -169,6 +169,7 @@ this.rotation=0;
     this.hasfound=false;
     this.pathdupes=[];
     this.ref=0;
+this.dodge="up";
     
 };
 cyborg = function(x,y,maxHealth,wepDamage,weapon="bazooka",speed=1){
@@ -196,6 +197,7 @@ this.rotation=0;
     this.hasfound=false;
     this.pathdupes=[];
     this.ref=0;    
+this.dodge="up";
 }
 cyborg.prototype = Object.create(enemy.prototype);
 explosion=function(x,y,power){
