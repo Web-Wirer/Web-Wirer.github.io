@@ -51,13 +51,13 @@ var ctx = canvas.getContext("2d");
 
 
     // player is clamped to the world boundaries - don't let the player leave
-    playerC.x = clamp(playerC.x,-500, worldBounds.maxX);
-    playerC.y = clamp(playerC.y, -500, worldBounds.maxY);
+    playerC.x = clamp(playerC.x,-500, worldBounds.maxX+500);
+    playerC.y = clamp(playerC.y, -500, worldBounds.maxY+500);
 
     // center the camera around the player,
     // but clamp the edges of the camera view to the world bounds.
- camX = clamp(playerC.x - canvas.width/2,-500, worldBounds.maxX - canvas.width);
- camY = clamp(playerC.y - canvas.height/2, -500, worldBounds.maxY - canvas.height);
+ camX = clamp(playerC.x - canvas.width/2,-500, worldBounds.maxX - canvas.width+500);
+ camY = clamp(playerC.y - canvas.height/2, -500, worldBounds.maxY - canvas.height+500);
 
     ctx.translate((-camX)-camc, -camY);
             playerC.draw();
