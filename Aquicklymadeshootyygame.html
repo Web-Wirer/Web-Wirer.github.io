@@ -485,7 +485,7 @@ if(adj===0){adj=0.0001;}
     if(adj===0){adj=0.0001;}
   
         if(opp===0){opp=0.0001;}
-  var st = ((adj/opp)/((adj/opp)+1))*13;
+  var st = ((adj/opp)/((adj/opp)+1))*13);
   var sh = ((opp/adj)/((opp/adj)+1))*13;
   if(eqq==1){
   st = st;
@@ -1151,13 +1151,13 @@ x: this.xmotion+this.x,
 y: this.ymotion+this.y
 }
 
-if(dist(this,playerC)>350+7.25){
+if(dist(this,playerC)>350+7.25+(100*((this.maxHealth-this.health)/this.maxHealth))){
         this.inrange=false;
     if(stop(this)){
 this.x+=this.xmotion;
 this.y+=this.ymotion;}else{
         
-}}else if(dist(this,playerC)<350-7.25){
+}}else if(dist(this,playerC)<350-7.25+(100*((this.maxHealth-this.health)/this.maxHealth))){
         this.inrange=false;
  this.xmotion *= -1;
  this.ymotion *= -1;
@@ -1267,9 +1267,9 @@ if(adj===0){adj=0.0001;}
     this.x+=this.xmotion;
     this.y+=this.ymotion;}else{this.dodge="down";
                         frame=false;}
-        if(dist(this,playerC)>350+7.25){
+        if(dist(this,playerC)>350+7.25+(100*((this.maxHealth-this.health)/this.maxHealth))){
         this.inrange=false;
-        }else if(dist(this,playerC)<350-7.25){
+        }else if(dist(this,playerC)<350-7.25+(100*((this.maxHealth-this.health)/this.maxHealth))){
         this.inrange=false;}
                 if(!this.inrange){
                 this.move();
