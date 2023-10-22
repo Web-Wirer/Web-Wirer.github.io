@@ -292,7 +292,7 @@ true_load = function(){
                 playerC=new players(j,i,3,1);
         }
             if(k==="E"){
- enemies.push(new enemy(j,i,200,1));
+ enemies.push(new enemy(j,i,2,1));
             }
         if(k==="C"){
  enemies.push(new cyborg(j,i,200,1));
@@ -663,6 +663,18 @@ if((obj.x+obj.width)>(playerC.x-3)&&(obj.x+obj.width)<playerC.width+5+playerC.x&
 return(false);
     
 }else if(obj.x+4>playerC.x&&obj.x<playerC.width+playerC.x&&obj.y>playerC.y-6&&obj.y<playerC.height+6+playerC.y){
+return(false);
+}
+return(true);
+}
+            enemy.prototype.shop= function(obj){
+ 
+  
+if((obj.x+obj.width)>(this.x-3)&&(obj.x+obj.width)<this.width+5+this.x&&(obj.y+obj.height)>(this.y-6)&&(obj.y+obj.height)<this.height+9+this.y){
+ 
+return(false);
+    
+}else if(obj.x+4>this.x&&obj.x<this.width+this.x&&obj.y>this.y-6&&obj.y<this.height+6+this.y){
 return(false);
 }
 return(true);
@@ -1375,7 +1387,15 @@ for(var daps=0; daps<enemies.length;daps++){
      
     }else if(enemies[dadps].bulletss[0].exists){}}
 }
-    
+        for(var dadps=0; dadps<enemies.length;dadps++){
+        if(bulletss.length===1){
+    if(enemies[dadps].shop(bulletss[0])){
+     enemies[dadps].health--;
+        if(enemies[dadps].health===0){
+                enemies.splice(dadps);
+        }
+    }else if(enemies[dadps].bulletss[0].exists){}}
+}
  done=0; 
 for(var i = 0; i<walls.length; i++){
 if(motion==="Yes"){
