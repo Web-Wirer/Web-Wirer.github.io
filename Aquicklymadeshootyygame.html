@@ -1389,7 +1389,7 @@ for(var daps=0; daps<enemies.length;daps++){
 }
         for(var dadps=0; dadps<enemies.length;dadps++){
         if(bulletss.length===1){
-    if(enemies[dadps].shop(bulletss[0])){
+    if(enemies[dadps].shop(bulletss[0])&&bulletss[0].exists){
      enemies[dadps].health--;
         if(enemies[dadps].health===0){
                 enemies.splice(dadps);
