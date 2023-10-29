@@ -17,7 +17,6 @@
 //enemies, when the player is "cornered" or in an alley, should always shoot at the player in an unavoidable manner
 //if the player is in an alley, and the enemy isn't, the enemy should duck behind the corners when shooting.
 //dragging across surfaces
-//injured enemies move back farther than unharmed ones
 //when one cyborg is disturbed, all of them are
 //enemies switch dodging styles in some fashion when a player shoots
         
@@ -81,6 +80,7 @@ var powerUps=[];
 var  playerC = 0;
 var ans;
 var opp;
+var alert = false;
     var done =0;
 var adj;
 var almost;
@@ -190,7 +190,7 @@ this.wepDamage = wepDamage;
 this.width=62.5;
     this.height=62.5;
 this.isResting=true;
-    this.type="enemy";
+    this.type="cyborg";
 this.wakeDistance=300;
 this.rotation=0;
   this.cdd=0;
@@ -269,9 +269,9 @@ this.height=62.5/3.1622;
 '8',
 '40',
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
-'W     P       E     WWWWWWW          W W',
-'W                         W          W W',
-'W                   WWWWW W          W W',
+'W C   P             WWWWWWWCCCCCCCCCCW W',
+'W                         WCCCCCCCCCCW W',
+'W                   WWWWW WCCCCCCCCCCW W',
 'W                       W WWWWWWWWW  W W',
 'W                       W         WWWW W',
 'W                       WWWWWWWWW      W',
@@ -1325,8 +1325,11 @@ for(var i = 0; i<enemies.length; i++){
 enemies[i].point();
 
  
-  if(enemies[i].dist(playerC)<905){
+  if(enemies[i].dist(playerC)<905||(this.type==="cyborg"&&alert)){
   enemies[i].isResting=false;
+ if(enemies[i].type==="cyborg"&&!alert){
+         alert=true;
+ }
   
   }
     if(!enemies[i].isResting){
