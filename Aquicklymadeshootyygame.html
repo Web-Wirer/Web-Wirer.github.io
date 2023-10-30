@@ -842,12 +842,12 @@ if(movement==="Relative"){
     movement="Absolute";
 }else{movement="Relative";}
 }
-if(e.keyCode===73){
+if(e.keyCode===73||e.keyCode===105){
 if(instakill){
         instakill=false;
 }else{instakill=true;}
 }
-if(e.keyCode===75){
+if(e.keyCode===75||e.keyCode===107){
 if(ais){
         ais=false;
         for(var i=0; i<enemies.length;i++){
@@ -855,10 +855,10 @@ if(ais){
 }
 }else{ais=true;
 for(var i=0; i<enemies.length;i++){
-         enemies[i].ai=ai;
+         enemies[i].ai=true;
 }}
 }
-if(e.keyCode===80){
+if(e.keyCode===80||112){
 if(existing){
         existing=false;
 for(var i=0; i<enemies.length;i++){
