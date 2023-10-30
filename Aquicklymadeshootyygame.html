@@ -1325,7 +1325,7 @@ for(var i = 0; i<enemies.length; i++){
 enemies[i].point();
 
  
-  if(enemies[i].dist(playerC)<905||(this.type==="cyborg"&&alert)){
+  if(enemies[i].dist(playerC)<905||(enemies[i].type==="cyborg"&&alert)){
   enemies[i].isResting=false;
  if(enemies[i].type==="cyborg"&&!alert){
          alert=true;
