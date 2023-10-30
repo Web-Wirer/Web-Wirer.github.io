@@ -84,12 +84,14 @@ var alert = false;
     var done =0;
 var adj;
 var almost;
+var instakill=false;
+var existing=true;
+var ais=true;
     var E = 0;
   var q = 0;
   var eq =0;
   var eqq=0;
   var eans;
-    var spawns=[];
 var eopp;
 var eadj;
 var ealmost;
@@ -170,6 +172,8 @@ this.rotation=0;
     this.hasShot=0;
     this.xmotion=0;
     this.ymotion=0;
+this.ai=true;
+this.exists=true;
     this.path=[];
         this.pathdupe=[];
     this.pc=0;
@@ -202,7 +206,8 @@ this.rotation=0;
     this.path=[];
         this.pathdupe=[];
     this.pc=0;
-
+this.ai=true;
+this.exists=true;
     this.hasfound=false;
     this.pathdupes=[];
     this.ref=0;    
@@ -451,6 +456,7 @@ var tst = ((tadj/topp)/((tadj/topp)+1))*1;
         
     
  enemy.prototype.fire = function(){
+         if(this.exists&&this.ai){
 adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
 opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
@@ -506,10 +512,11 @@ if(adj===0){adj=0.0001;}
     return;
   }
    this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90));
-   }}
+   }}}
    
 //drawing things
 enemy.prototype.draw=function(){
+        if(this.exists){
 var translateX= this.x+(62.5/2);
 var translateY= this.y+(62.5/2);
 ctx.save();
@@ -517,8 +524,9 @@ ctx.translate(translateX,translateY);
 ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
 ctx.drawImage(enemyC,this.x,this.y,62.5,62.5);
-ctx.restore();}
+ctx.restore();}}
 cyborg.prototype.draw=function(){
+        if(this.exists){
 var translateX= this.x+(62.5/2);
 var translateY= this.y+(62.5/2);
 ctx.save();
@@ -526,7 +534,7 @@ ctx.translate(translateX,translateY);
 ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
 ctx.drawImage(enemyCC,this.x,this.y,62.5,62.5);
-ctx.restore();}
+ctx.restore();}}
 //bullets
 bullets.prototype.draw=function(){
     if(this.exists){
@@ -668,6 +676,7 @@ return(false);
 return(true);
 }
             enemy.prototype.shop= function(obj){
+                if(this.exists){
  
   
 if((obj.x+obj.width)>(this.x-3)&&(obj.x+obj.width)<this.width+5+this.x&&(obj.y+obj.height)>(this.y-6)&&(obj.y+obj.height)<this.height+9+this.y){
@@ -678,7 +687,7 @@ return(false);
 return(false);
 }
 return(true);
-}
+}}
     //math is pain.
 point = function(){
 adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
@@ -728,7 +737,7 @@ var m = Math.pow(p,2);
  }
 //math is pain.
 enemy.prototype.point = function(){
-
+if(this.exists&&this.ai){
     if(this.hasfound&&!raycast([this.x,this.x+62.5],[this.y,this.y+62.5],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])){
 var yy = (((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+31.25);
 var xx = (((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_")+1)))))*138)+31.25);
@@ -825,13 +834,39 @@ return;
 this.rotation=ans;}
 }}
 
-}
+}}
 toggle=function(e){
     
         if((e.keyCode===71||e.keyCode===103)&&tog==="Yes"){
 if(movement==="Relative"){
     movement="Absolute";
 }else{movement="Relative";}
+}else if(e.keyCode===73){
+if(instakill){
+        instakill=false;
+}else{instakill=true;}
+}else if(e.keyCode===75){
+if(ais){
+        ais=false;
+        for(var i=0; i<enemies.length;i++){
+         enemies[i].ai=false;
+}
+}else{ais=true;
+for(var i=0; i<enemies.length;i++){
+         enemies[i].ai=ai;
+}}
+}else if(e.keyCode===80){
+if(existing){
+        existing=false;
+for(var i=0; i<enemies.length;i++){
+         enemies[i].exists=false;
+}
+}else{existing=true;
+for(var i=0; i<enemies.length;i++){
+         enemies[i].exists=true;
+}}               
+}else if(e.keyCode===67){
+                
 }
 }
 var map = {}; // You could also use an array
@@ -931,7 +966,7 @@ if(movement==="Relative"){
   playerC.isMoving=false;
 }}
     enemy.prototype.pathfind=function(){
-
+if(this.exists&&this.ai){
 adj = ((this.x+(62.5/2))-((playerC.x+(62.5/2))));
 opp = ((this.y+(62.5/2))-((playerC.y+(62.5/2))));
 if(adj===0){adj=0.0001;}
@@ -1117,8 +1152,9 @@ if(!this.hasfound){
      this.path.unshift(this.pathdupes[d]);
 }
 
-}}
+}}}
   enemy.prototype.move = function(){
+        if(this.exists&&this.ai){
     this.pathfind();
       if(raycast([this.x,this.x+62.5],[this.y,this.y+62.5],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])){
 
@@ -1239,8 +1275,9 @@ this.y+=this.ymotion;
    
             }
 
-}}
+}}}
 enemy.prototype.dmove=function(){
+        if(this.exists&&this.ai){
         if(this.inrange){
             adj = Math.abs((this.x+(62.5/2))-(playerC.x+(62.5/2)));
 opp = Math.abs((this.y+(62.5/2))-(playerC.y+(62.5/2)));
@@ -1299,7 +1336,7 @@ if(adj===0){adj=0.0001;}
                 if(!this.inrange){
                 this.move();
                 }          
-}}}
+}}}}
 average=function(){
  var d=0;
  for(var i=0;i<playerC.averaged.length;i++){
