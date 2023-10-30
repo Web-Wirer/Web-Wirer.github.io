@@ -267,14 +267,14 @@ this.height=62.5/3.1622;
     //LEVEL GENERATION! 
     var start_level=[
 '8',
-'40',
+'8',
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
-'W C   P             WWWWWWWCCCCCCCCCCW W',
-'W                         WCCCCCCCCCCW W',
-'W                   WWWWW WCCCCCCCCCCW W',
-'W                       W WWWWWWWWW  W W',
-'W                       W         WW W W',
-'W                       WWWWWWWWW      W',
+'W C   PW            WWWWWWWCCCCCCCCCCW W',
+'W      W                  WCCCCCCCCCCW W',
+'W   C  W            WWWWW WCCCCCCCCCCW W',
+'W      W                W WWWWWWWWW  W W',
+'W      W                W         WW W W',
+'W      W                WWWWWWWWW      W',
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
 '1'
     ];
@@ -1236,7 +1236,7 @@ this.y+=this.ymotion;
           this.pathdupes=[];
           this.pathdupe=[];
                 this.pc=0;
-      console.log(this);
+   
             }
 
 }}
@@ -1394,7 +1394,7 @@ for(var daps=0; daps<enemies.length;daps++){
         if(bulletss.length===1){
     if(!enemies[dadps].shop(bulletss[0])&&bulletss[0].exists){
      enemies[dadps].health-=playerC.wepDamage;
-        if(enemies[dadps].health===0){
+        if(enemies[dadps].health<=0){
                 enemies.splice(dadps);
         }
             bulletss[0].exists=false;
