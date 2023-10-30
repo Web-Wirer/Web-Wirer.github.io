@@ -17,7 +17,6 @@
 //enemies, when the player is "cornered" or in an alley, should always shoot at the player in an unavoidable manner
 //if the player is in an alley, and the enemy isn't, the enemy should duck behind the corners when shooting.
 //dragging across surfaces
-//when one cyborg is disturbed, all of them are
 //enemies switch dodging styles in some fashion when a player shoots
         
 //variable and canvas setup
@@ -676,7 +675,10 @@ return(false);
 return(true);
 }
             enemy.prototype.shop= function(obj){
-                if(this.exists){
+                if(!this.exists){
+
+                        return true;
+                }
  
   
 if((obj.x+obj.width)>(this.x-3)&&(obj.x+obj.width)<this.width+5+this.x&&(obj.y+obj.height)>(this.y-6)&&(obj.y+obj.height)<this.height+9+this.y){
@@ -687,7 +689,7 @@ return(false);
 return(false);
 }
 return(true);
-}}
+}
     //math is pain.
 point = function(){
 adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
