@@ -841,11 +841,13 @@ toggle=function(e){
 if(movement==="Relative"){
     movement="Absolute";
 }else{movement="Relative";}
-}else if(e.keyCode===73){
+}
+if(e.keyCode===73){
 if(instakill){
         instakill=false;
 }else{instakill=true;}
-}else if(e.keyCode===75){
+}
+if(e.keyCode===75){
 if(ais){
         ais=false;
         for(var i=0; i<enemies.length;i++){
@@ -855,7 +857,8 @@ if(ais){
 for(var i=0; i<enemies.length;i++){
          enemies[i].ai=ai;
 }}
-}else if(e.keyCode===80){
+}
+if(e.keyCode===80){
 if(existing){
         existing=false;
 for(var i=0; i<enemies.length;i++){
@@ -865,7 +868,8 @@ for(var i=0; i<enemies.length;i++){
 for(var i=0; i<enemies.length;i++){
          enemies[i].exists=true;
 }}               
-}else if(e.keyCode===67){
+}
+if(e.keyCode===67){
                 
 }
 }
