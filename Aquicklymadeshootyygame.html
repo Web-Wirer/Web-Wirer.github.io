@@ -18,6 +18,13 @@
 //if the player is in an alley, and the enemy isn't, the enemy should duck behind the corners when shooting.
 //dragging across surfaces
 //enemies switch dodging styles in some fashion when a player shoots
+
+//OPTIMIZE AI
+/*
+In order to prevent lag due to many pathfinding ais working at once, there will be two optimizations
+1. the ais will check each other's existing paths to see if they meet on any square. if they do, they will copy the rest of that ai's path to reduce calculations
+2. when the player moves to a new grid square, rather than starting the pathfinding from scratch, they will start at the end of the old path and keep what they can from it
+*/
         
 //variable and canvas setup
 var canvas = document.getElementById("one");
