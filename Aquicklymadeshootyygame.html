@@ -277,15 +277,15 @@ this.height=62.5/3.1622;
 }
     //LEVEL GENERATION! 
     var start_level=[
-'8',
+'40',
 '8',
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
-'WEEEEEPW            WWWWWWWCCCCCCCCCCW W',
-'WEEEEEEW                  WCCCCCCCCCCW W',
-'WEEEEEEW            WWWWW WCCCCCCCCCCW W',
-'WEEEEEEW                W WWWWWWWWW  W W',
-'WEEEEEEW                W         WW W W',
-'WEEEEEEW                WWWWWWWWW      W',
+'W     P  C          WWWWWWWCCCCCCCCCCW W',
+'W                         WCCCCCCCCCCW W',
+'W                   WWWWW WCCCCCCCCCCW W',
+'W                       W WWWWWWWWW  W W',
+'W                       W         WW W W',
+'W                       WWWWWWWWW      W',
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
 '1'
     ];
@@ -1017,7 +1017,15 @@ if(!this.hasfound){
             this.hasfound=true;
             break;
     }else if(!wallis&&!this.hasfound){
-     this.path.push(pathfinds);     
+     this.path.push(pathfinds);
+        for(var i =0; i<enemies.indexOf(this); i++;){
+                if(enemies[i].path.includes(pathfinds){
+                        for(var j =enemies[i].path.indexOf(pathfinds)+1;j<enemies[i].path.length;j++){
+                                this.path.push(enemies[i].path[j]);
+                        }
+                        this.hasfound=true;
+                }
+        }
     }}}
 
                var moveo=[gridx,gridy+1];
@@ -1036,6 +1044,14 @@ if(!this.hasfound){
             break;
     }else if(!wallis&&!this.hasfound){
      this.path.push(pathfinds);     
+        for(var i =0; i<enemies.indexOf(this); i++;){
+                if(enemies[i].path.includes(pathfinds){
+                        for(var j =enemies[i].path.indexOf(pathfinds)+1;j<enemies[i].path.length;j++){
+                                this.path.push(enemies[i].path[j]);
+                        }
+                        this.hasfound=true;
+                }
+        }
     }}}
             var moveo=[gridx-1,gridy];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
@@ -1053,6 +1069,14 @@ if(!this.hasfound){
             break;
     }else if(!wallis&&!this.hasfound){
      this.path.push(pathfinds);     
+        for(var i =0; i<enemies.indexOf(this); i++;){
+                if(enemies[i].path.includes(pathfinds){
+                        for(var j =enemies[i].path.indexOf(pathfinds)+1;j<enemies[i].path.length;j++){
+                                this.path.push(enemies[i].path[j]);
+                        }
+                        this.hasfound=true;
+                }
+        }
     }}}
         var moveo=[gridx,gridy-1];
          posittt= moveo[0].toString().concat("_",moveo[1].toString());   
@@ -1069,7 +1093,15 @@ if(!this.hasfound){
             this.hasfound=true;
             break;
     }else if(!wallis&&!this.hasfound){
-     this.path.push(pathfinds);     
+     this.path.push(pathfinds);
+        for(var i =0; i<enemies.indexOf(this); i++;){
+                if(enemies[i].path.includes(pathfinds){
+                        for(var j =enemies[i].path.indexOf(pathfinds)+1;j<enemies[i].path.length;j++){
+                                this.path.push(enemies[i].path[j]);
+                        }
+                        this.hasfound=true;
+                }
+        }
     }}}
 
         
