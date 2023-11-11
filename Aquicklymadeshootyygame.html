@@ -1442,15 +1442,15 @@ for(var daps=0; daps<enemies.length;daps++){
 }
         for(var dadps=0; dadps<enemies.length;dadps++){
         if(bulletss.length===1){
-    if(!enemies[dadps].shop(enemies[dadps].bulletss[0])&&enemies[dadps].bulletss[0].exists){
+    if(!enemies[dadps].shop(bulletss[0])&&enemies[dadps].bulletss[0].exists){
         if(!instakill){
-     enemies[dadps].health-=0.2;}else{
+     enemies[dadps].health-=playerC.wepDamage;}else{
                 enemies[dadps].health*=0;
      }
         if(enemies[dadps].health<=0){
                 enemies.splice(dadps,1);
         }
-          //  bulletss[0].exists=false;
+           bulletss[0].exists=false;
             break;
     }}
 }
