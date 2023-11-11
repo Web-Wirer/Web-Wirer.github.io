@@ -23,6 +23,9 @@
 /*
 In order to prevent lag due to many pathfinding ais working at once, there will be two optimizations
 1. the ais will check each other's existing paths to see if they meet on any square. if they do, they will copy the rest of that ai's path to reduce calculations
+
+BUT DONT SCREW UP THE ORDER OF THE PATHFINDING
+
 2. when the player moves to a new grid square, rather than starting the pathfinding from scratch, they will start at the end of the old path and keep what they can from it
 */
         
