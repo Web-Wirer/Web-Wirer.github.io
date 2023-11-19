@@ -278,14 +278,14 @@ this.height=62.5/3.1622;
     //LEVEL GENERATION! 
     var start_level=[
 '8',
-'40',
+'8',
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
-'W     P    C        WWWWWWWCCCCCCCCCCW W',
-'W                         WCCCCCCCCCCW W',
-'W                   WWWWW WCCCCCCCCCCW W',
-'W                       W WWWWWWWWW  W W',
-'W                       W         WW W W',
-'W                       WWWWWWWWW      W',
+'WEEEEEPW            WWWWWWWCCCCCCCCCCW W',
+'WEEEEEEW                  WCCCCCCCCCCW W',
+'WEEEEEEW            WWWWW WCCCCCCCCCCW W',
+'WEEEEEEW                W WWWWWWWWW  W W',
+'WEEEEEEW                W         WW W W',
+'WEEEEEEW                WWWWWWWWW      W',
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
 '1'
     ];
@@ -1220,8 +1220,8 @@ this.y+=this.ymotion;}else{
 this.inrange=false;
 var yy = (((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+62.5);
 var xx =(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_")+1)))))*138)+62.5);
-opp = Math.abs((this.y+(62.5/2))-yy);
-adj = Math.abs((this.x+(62.5/2))-xx);
+opp = Math.abs((this.y+(62.5/2))-(((parseFloat((this.path[0].substr(0,this.path[0].indexOf("_")))))*138)+62.5));
+adj = Math.abs((this.x+(62.5/2))-(((parseFloat(this.path[0].substr(this.path[0].indexOf("_")+1,this.path[0].indexOf("_",(this.path[0].indexOf("_")+1)))))*138)+62.5));
 if(adj===0){adj=0.0001;}
   
         if(opp===0){opp=0.0001;}
@@ -1270,7 +1270,7 @@ this.y+=this.ymotion;
           this.pathdupes=[];
           this.pathdupe=[];
                 this.pc=0;
-  
+      console.log(this);
 
     }}
 
@@ -1281,8 +1281,7 @@ this.y+=this.ymotion;
     }
             if(!current_level[this.path[this.path.length-1].substr(0,this.path[this.path.length-1].indexOf("_",(this.path[this.path.length-1].indexOf("_")+1)))].includes("P")){
           this.hasfound=false;
-          this.path.pop();
-          this.path.pop();
+          this.path=[this.path[0]];
           this.pathdupes=[];
           this.pathdupe=[];
                 this.pc=0;
