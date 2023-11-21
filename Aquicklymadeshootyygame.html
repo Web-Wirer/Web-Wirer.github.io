@@ -8,6 +8,7 @@
 <img src = "https://web-wirer.github.io/Play%20for%20shooter.png"style="display:none"   id = "player"/>
 <img src = "https://web-wirer.github.io/Ene%20for%20shooter.png" style="display: none" id = "enemy"/>
 <img src = "https://web-wirer.github.io/gun.png" style="display: none" id = "gun"/>
+<img src = "https://web-wirer.github.io/bazooka.png" style="display: none" id = "bazooka"/>
 <img src = "https://web-wirer.github.io/cyborg.png" style="display: none" id = "cyborg"/>
 <img src = "https://web-wirer.github.io/Bullet.png" style="display: none" id = "default_bullet"/>
 <canvas id="one" width = "1000" height ="1000"></canvas>
@@ -102,6 +103,7 @@ var wall = document.getElementById("wall");
 var player= document.getElementById("player");
 var bullet = document.getElementById("default_bullet");
 var gun = document.getElementById("gun");
+var bazooka = document.getElementById("bazooka");
  function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
