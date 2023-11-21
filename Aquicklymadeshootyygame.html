@@ -6,7 +6,7 @@
 <body>
 <img src="https://web-wirer.github.io/Wall.png"style="display:none" id = "wall"/>
 <img src = "https://web-wirer.github.io/Play%20for%20shooter.png"style="display:none"   id = "player"/>
-<img src = "https://web-wirer.github.io/Eneme%20for%20shooter.png" style="display: none" id = "enemy"/>
+<img src = "https://web-wirer.github.io/Ene%20for%20shooter.png" style="display: none" id = "enemy"/>
 <img src = "https://web-wirer.github.io/gun.png" style="display: none" id = "gun"/>
 <img src = "https://web-wirer.github.io/cyborg.png" style="display: none" id = "cyborg"/>
 <img src = "https://web-wirer.github.io/Bullet.png" style="display: none" id = "default_bullet"/>
@@ -19,12 +19,7 @@
 //dragging across surfaces
 //enemies switch dodging styles in some fashion when a player shoots
 
-//OPTIMIZE AI
-/*
-In order to prevent lag due to many pathfinding ais working at once, there will be two optimizations
-1. the ais will check each other's existing paths to see if they meet on any square. if they do, they will copy the rest of that ai's path to reduce calculations
-2. when the player moves to a new grid square, rather than starting the pathfinding from scratch, they will start at the end of the old path and keep what they can from it
-*/
+
         
 //variable and canvas setup
 var canvas = document.getElementById("one");
