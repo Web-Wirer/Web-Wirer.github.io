@@ -6,7 +6,7 @@
 <body>
 <img src="https://web-wirer.github.io/Wall.png"style="display:none" id = "wall"/>
 <img src = "https://web-wirer.github.io/Play%20for%20shooter.png"style="display:none"   id = "player"/>
-<img src = "https://web-wirer.github.io/Enemy%20for%20shooter.png" style="display: none" id = "enemy"/>
+<img src = "https://web-wirer.github.io/Enem%20for%20shooter.png" style="display: none" id = "enemy"/>
 <img src = "https://web-wirer.github.io/gun.png" style="display: none" id = "gun"/>
 <img src = "https://web-wirer.github.io/cyborg.png" style="display: none" id = "cyborg"/>
 <img src = "https://web-wirer.github.io/Bullet.png" style="display: none" id = "default_bullet"/>
@@ -533,6 +533,7 @@ ctx.translate(translateX,translateY);
 ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
 ctx.drawImage(enemyC,this.x,this.y,62.5,62.5);
+ctx.drawImage(gun,this.x+31,this.y+37,62.5/2,62.5/2);
 ctx.restore();}}
 cyborg.prototype.draw=function(){
         if(this.exists){
@@ -543,6 +544,7 @@ ctx.translate(translateX,translateY);
 ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
 ctx.drawImage(enemyCC,this.x,this.y,62.5,62.5);
+ctx.drawImage(gun,this.x+31,this.y+37,62.5/2,62.5/2);
 ctx.restore();}}
 //bullets
 bullets.prototype.draw=function(){
