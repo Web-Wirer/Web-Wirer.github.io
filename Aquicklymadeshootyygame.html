@@ -539,7 +539,10 @@ ctx.translate(translateX,translateY);
 ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
 ctx.drawImage(enemyCC,this.x,this.y,62.5,62.5);
-ctx.drawImage(gun,this.x+31,this.y+37,62.5/2,62.5/2);
+if(this.weapon==="gun"){
+ctx.drawImage(gun,this.x+31,this.y+37,62.5/2,62.5/2);}else if(this.weapon==="bazooka"){
+ctx.drawImage(bazooka,this.x+15,this.y+37,62.5*2,62.5/2);
+}
 ctx.restore();}}
 //bullets
 bullets.prototype.draw=function(){
