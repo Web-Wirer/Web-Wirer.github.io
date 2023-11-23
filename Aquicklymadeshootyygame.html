@@ -306,6 +306,7 @@ this.height=62.5/3.1622;
 true_load = function(){
     walls=[];
     enemies=[];
+guns=[];
 
     for(var i =0; i<start_level[0];i++){
         for (var j =0;j<start_level[1];j++){
@@ -549,7 +550,6 @@ ctx.save();
 ctx.translate(translateX,translateY);
 ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
-ctx.drawImage(enemyC,this.x,this.y,62.5,62.5);
 ctx.drawImage(gun,this.x+31,this.y+37,62.5/2,62.5/2);
 ctx.restore();}else{
         this.rotation=0;
@@ -559,8 +559,7 @@ ctx.save();
 ctx.translate(translateX,translateY);
 ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
-ctx.drawImage(enemyC,this.x,this.y,62.5,62.5);
-ctx.drawImage(gun,this.x+31,this.y+37,62.5/2,62.5/2);
+ctx.drawImage(gun,this.x,this.y,62.5/2,62.5/2);
 ctx.restore();            
 }
 }
