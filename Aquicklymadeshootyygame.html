@@ -1491,6 +1491,7 @@ for(var daps=0; daps<enemies.length;daps++){
         if(enemies[dadps].bulletss.length===1){
     if(!shop(enemies[dadps].bulletss[0])){
      playerC.health-=enemies[dadps].wepDamage;
+        enemies[dadps].bulletss[0].exists=false;
         if(playerC.health<=0&&!instakill){
                 true_load();
         }else if(instakill){
