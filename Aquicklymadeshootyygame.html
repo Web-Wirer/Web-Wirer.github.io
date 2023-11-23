@@ -66,6 +66,9 @@ var ctx = canvas.getContext("2d");
         mouseTWO=MouseTWO+camY;
     //Draw everything
 }
+function isEven(n) {
+return n % 2 == 0;
+}
 
     var pathfinds;
     var positt;
@@ -78,6 +81,7 @@ var walls= [];
 var enemies=[];
 var levels=[];
 var spawnPoints=[];
+var guns=[];
 var powerUps=[];
 var  playerC = 0;
 var ans;
@@ -157,8 +161,16 @@ for(var i=0;i<this.length;i++){
     }}
 }
 }
+gund = function(isused,user,x,y,rotation){
+this.isused=isused;
+this.user=user;
+this.x=x;
+this.y=y;
+this.rotation=rotation;
+        
+}
 //enemy object
-enemy= function(x,y,maxHealth,wepDamage,weapon="gun",speed=1){
+enemy= function(x,y,maxHealth,wepDamage,weapon,wepObject,speed=1){
 this.x = (x*138)+((138/2)-(62.5/2));
 this.y=(y*138)+((138/2)-(62.5/2));
 this.health= maxHealth;
@@ -304,10 +316,13 @@ true_load = function(){
                 playerC=new players(j,i,3,1);
         }
             if(k==="E"){
- enemies.push(new enemy(j,i,2,1));
+                    if(isEven(enemies.length-1)){
+ enemies.push(new enemy(j,i,2,1,"gun",guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0))));}else{
+ enemies.push(new enemy(j,i,2,1,"none",false));   
+ }
             }
         if(k==="C"){
- enemies.push(new cyborg(j,i,200,1));
+ enemies.push(new cyborg(j,i,200,1,"bazooka",guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0))));
             }
     }
 }
@@ -463,7 +478,7 @@ var tst = ((tadj/topp)/((tadj/topp)+1))*1;
         
     
  enemy.prototype.fire = function(){
-         if(this.exists&&this.ai){
+         if(this.exists&&this.ai&&this.weapon==="gun"){
 adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
 opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
@@ -522,6 +537,32 @@ if(adj===0){adj=0.0001;}
    }}}
    
 //drawing things
+gund.prototype.draw=function(){
+        if(this.isused){
+        this.x=this.user.x;
+        this.y=this.user.y;
+        this.rotation=this.user.rotation;
+        var translateX= this.x+(62.5/4);
+var translateY= this.y+(62.5/4);
+ctx.save();
+ctx.translate(translateX,translateY);
+ctx.rotate(this.rotation*Math.PI/180);
+ctx.translate(-translateX,-translateY);
+ctx.drawImage(enemyC,this.x,this.y,62.5,62.5);
+ctx.drawImage(gun,this.x+31,this.y+37,62.5/2,62.5/2);
+ctx.restore();}else{
+        this.rotation=0;
+        var translateX= this.x+(62.5/4);
+var translateY= this.y+(62.5/4);
+ctx.save();
+ctx.translate(translateX,translateY);
+ctx.rotate(this.rotation*Math.PI/180);
+ctx.translate(-translateX,-translateY);
+ctx.drawImage(enemyC,this.x,this.y,62.5,62.5);
+ctx.drawImage(gun,this.x+31,this.y+37,62.5/2,62.5/2);
+ctx.restore();            
+}
+}
 enemy.prototype.draw=function(){
         if(this.exists){
 var translateX= this.x+(62.5/2);
