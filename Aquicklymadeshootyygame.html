@@ -540,8 +540,8 @@ if(adj===0){adj=0.0001;}
 //drawing things
 gund.prototype.draw=function(){
         if(this.isused){
-        this.x=this.user.x;
-        this.y=this.user.y;
+        this.x=this.user.x+37;
+        this.y=this.user.y+37;
         this.rotation=this.user.rotation;
         var translateX= this.x+(62.5/4);
 var translateY= this.y+(62.5/4);
@@ -1443,6 +1443,7 @@ ctx.rotate((-(playerC.rotation*Math.PI/180)));
 ctx.translate(-translateX,-translateY);
 }
           enemies[i].draw();
+
         if(motion==="Yes"){
 ctx.restore();}
 if(enemies[i].bulletss.length>0){
@@ -1465,7 +1466,11 @@ ctx.restore();}
   }
 }else{enemies[i].fire();}
   
+} 
+for(var i=0;i<guns.length;i++){
+        guns[i].draw();;
 }
+        
     if(bulletss.length>0){
   if(dist(playerC, bulletss[0])>650){
      bulletss.pop();
