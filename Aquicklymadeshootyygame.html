@@ -319,7 +319,8 @@ guns=[];
         }
             if(k==="E"){
                     if(isEven(enemies.length-1)){
- enemies.push(new enemy(j,i,2,1,"gun",guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0))));}else{
+ enemies.push(new enemy(j,i,2,1,"gun",false));
+enemies[enemies.length-1].wepObject=guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0));}else{
  enemies.push(new enemy(j,i,2,1,"none",false));   
  }
             }
