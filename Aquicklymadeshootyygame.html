@@ -176,6 +176,7 @@ this.y=(y*138)+((138/2)-(62.5/2));
 this.health= maxHealth;
 this.maxHealth = maxHealth;
 this.wepDamage = wepDamage;
+        this.weapon=weapon;
 this.width=62.5;
     this.height=62.5;
 this.isResting=true;
@@ -572,7 +573,6 @@ ctx.translate(translateX,translateY);
 ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
 ctx.drawImage(enemyC,this.x,this.y,62.5,62.5);
-ctx.drawImage(gun,this.x+31,this.y+37,62.5/2,62.5/2);
 ctx.restore();}}
 cyborg.prototype.draw=function(){
         if(this.exists){
