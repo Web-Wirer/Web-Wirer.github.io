@@ -1243,10 +1243,6 @@ if(opp===0){opp=0.0001;}
   }
 this.xmotion=st;
 this.ymotion=sh;
-        var pseudo={
-x: this.xmotion+this.x,
-y: this.ymotion+this.y
-}
 
 if(dist(this,playerC)>350+7.25+(100*((this.maxHealth-this.health)/this.maxHealth))){
         this.inrange=false;
@@ -1348,16 +1344,16 @@ if(adj===0){adj=0.0001;}
   var bh = ((opp/adj)/((opp/adj)+1))*6.25;
         var frame=true;
         if(this.dodge==="up"){
-        if(eq==1){
+        if(eqq==1){
            this.xmotion+=-bh;
      this.ymotion+=bt;
-  }else if(eq==2){
+  }else if(eqq==2){
            this.xmotion+=-bh;
-     this.ymotion=-bt;
-       }else if(eq==3){
+     this.ymotion+=-bt;
+       }else if(eqq==3){
     this.xmotion+=bh;
      this.ymotion+=-bt;
-  }else if(eq==4){
+  }else if(eqq==4){
            this.xmotion+=bh;
      this.ymotion+=bt;
         }
@@ -1373,16 +1369,16 @@ if(adj===0){adj=0.0001;}
                 this.move();
                 }
 }else if(frame&&this.dodge==="down"){
-              if(eq==1){
+              if(eqq==1){
            this.xmotion+=bh;
      this.ymotion+=-bt;
-  }else if(eq==2){
+  }else if(eqq==2){
            this.xmotion+=bh;
-     this.ymotion=bt;
-       }else if(eq==3){
+     this.ymotion+=bt;
+       }else if(eqq==3){
     this.xmotion+=-bh;
      this.ymotion+=bt;
-  }else if(eq==4){
+  }else if(eqq==4){
            this.xmotion+=-bh;
      this.ymotion+=-bt;
         }
