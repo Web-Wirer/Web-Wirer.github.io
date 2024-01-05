@@ -830,12 +830,8 @@ return;}
     
     
     }else{
-
-if(playerC.isMoving&&!alley(playerC)){
-adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
-opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));
-hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
+if(playerC.isMoving&&!alley(playerC)){
 adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*aimbot("xmotion"))));
 opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*aimbot("ymotion"))));
 
@@ -867,8 +863,8 @@ this.rotation=ans;
 }}
     adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))));
 opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))));
-    hyp = Math.sqrt((adj*adj)+(opp*opp));
-almost = opp/adj;
+     hyp= Math.sqrt((adj*adj)+(opp*opp));
+almost = opp/hyp;
 ans = Math.asin(almost);
 ans=radians_to_degrees(ans);
  
