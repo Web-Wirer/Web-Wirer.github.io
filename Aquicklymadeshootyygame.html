@@ -296,7 +296,7 @@ this.height=62.5/3.1622;
 '10',
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
 'W     P  W            WWWWWWWCCCCCCCCCCW W',
-'W  C     W                  WCCCCCCCCCCW W',
+'W  E     W                  WCCCCCCCCCCW W',
 'W   E    W            WWWWW WCCCCCCCCCCW W',
 'W      E W                W WWWWWWWWW  W W',
 'W        W                W         WW W W',
@@ -602,12 +602,7 @@ ctx.translate(-translateX,-translateY);
 ctx.drawImage(bullet,this.x,this.y,(62.5)/3.1622,(62.5)/3.1622);
 ctx.restore();
 
-                ctx.strokeStyle = 'blue';
-    ctx.lineWidth = 5;
-        ctx.beginPath();
-        ctx.moveTo(this.x,this.y);
-        ctx.lineTo(this.target[0],this.target[1]);
-        ctx.stroke();}}
+          }}
 players.prototype.draw=function(){
 if(motion==="No"){
 var translateX= this.x+(62.5/2);
