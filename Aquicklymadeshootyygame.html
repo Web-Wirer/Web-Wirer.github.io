@@ -503,7 +503,7 @@ if(adj===0){adj=0.0001;}
   }else if(eq==2){
     st = st*-1;
    sh = sh;
-     this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90));
+     this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90,[((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion")))]));
   
     return;
   }else if(eq==3){
@@ -512,10 +512,10 @@ if(adj===0){adj=0.0001;}
   }else if(eq==4){
     st = st;
    sh = sh*-1;
-         this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90));
+         this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90,[((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion")))]));
     return;
   }
-   this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90));}else{
+   this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90,[((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion")))]));}else{
     if(adj===0){adj=0.0001;}
   
         if(opp===0){opp=0.0001;}
@@ -527,7 +527,7 @@ if(adj===0){adj=0.0001;}
   }else if(eqq==2){
     st = st*-1;
    sh = sh;
-     this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90));
+     this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90,[playerC.x,playerC.y]));
   
     return;
   }else if(eqq==3){
@@ -536,10 +536,10 @@ if(adj===0){adj=0.0001;}
   }else if(eqq==4){
     st = st;
    sh = sh*-1;
-         this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90));
+         this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90,[playerC.x,playerC.y]));
     return;
   }
-   this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90));
+   this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90,[playerC.x,playerC.y]));
    }}}
    
 //drawing things
@@ -658,7 +658,7 @@ if(adj===0){adj=0.0001;}
   }else if(q==2){
     st = st*-1;
    sh = sh;
-     bulletss.push(new bullets(playerC.x+(62.5/2)-((62.5/3.1622)/2),playerC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playerC,"players",st,sh,playerC.rotation+90));
+     bulletss.push(new bullets(playerC.x+(62.5/2)-((62.5/3.1622)/2),playerC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playerC,"players",st,sh,playerC.rotation+90,[0,0]));
     return;
   }else if(q==3){
     st = st*-1;
@@ -666,10 +666,10 @@ if(adj===0){adj=0.0001;}
   }else if(q==4){
     st = st;
    sh = sh*-1;
-         bulletss.push(new bullets(playerC.x+(62.5/2)-((62.5/3.1622)/2),playerC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playerC,"players",st,sh,playerC.rotation+90));
+         bulletss.push(new bullets(playerC.x+(62.5/2)-((62.5/3.1622)/2),playerC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playerC,"players",st,sh,playerC.rotation+90,[0,0]));
     return;
   }
-   bulletss.push(new bullets(playerC.x+(62.5/2)-((62.5/3.1622)/2),playerC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playerC,"players",st,sh,playerC.rotation+90));
+   bulletss.push(new bullets(playerC.x+(62.5/2)-((62.5/3.1622)/2),playerC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playerC,"players",st,sh,playerC.rotation+90,[0,0]));
  
   }}
   //bullet motion
