@@ -277,7 +277,7 @@ this.yt=this.y+125;
   }
  }
 //bullets
-bullets=function(x,y,type,shooter,shooterTeam,xmotion,ymotion,rotation){
+bullets=function(x,y,type,shooter,shooterTeam,xmotion,ymotion,rotation,target){
 this.x = x;
   this.y = y;
   this.rotation = rotation;
@@ -287,6 +287,7 @@ this.ymotion=ymotion;
     this.width=62.5/3.1622;
 this.height=62.5/3.1622;
     this.exists=true;
+        this.target=target;
     
 }
     //LEVEL GENERATION! 
@@ -600,7 +601,14 @@ ctx.translate(translateX,translateY);
 ctx.rotate(this.rotation*Math.PI/180);
 ctx.translate(-translateX,-translateY);
 ctx.drawImage(bullet,this.x,this.y,(62.5)/3.1622,(62.5)/3.1622);
-ctx.restore();}}
+ctx.restore();
+
+                ctx.strokeStyle = 'blue';
+    ctx.lineWidth = 5;
+        ctx.beginPath();
+        ctx.moveTo(this.x,this.y);
+        ctx.lineTo(this.target[0],this.target[1]);
+        ctx.stroke();}}
 players.prototype.draw=function(){
 if(motion==="No"){
 var translateX= this.x+(62.5/2);
