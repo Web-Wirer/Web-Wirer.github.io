@@ -14,7 +14,7 @@
 <canvas id="one" width = "1000" height ="1000"></canvas>
 <a href='http://web-wirer.github.io/Settings.html' target = "_self" class = "imglink" ><img src="https://web-wirer.github.io/Settings.png" style="position:absolute; width:100px; left: 94%; top: 10px;"/></a>
 <script>
-//switch firing from entity to weapon
+
 //Glowing heal power up, has a fluctuating sound when selected, has a "ding" sound, plus a shining red effect around the player when used
 //enemies, when the player is "cornered" or in an alley, should always shoot at the player in an unavoidable manner
 //if the player is in an alley, and the enemy isn't, the enemy should duck behind the corners when shooting.
@@ -77,7 +77,7 @@ return n % 2 == 0;
     var poso;
         var explosions = [];  
     var post;
-var bulletss=[];
+
 var walls= [];
 var enemies=[];
 var levels=[];
@@ -162,12 +162,13 @@ for(var i=0;i<this.length;i++){
     }}
 }
 }
-gund = function(isused,user,x,y,rotation){
+gund = function(isused,user,x,y,rotation,ammo){
 this.isused=isused;
 this.user=user;
 this.x=x;
 this.y=y;
 this.rotation=rotation;
+this.ammo=ammo;
         
 }
 //enemy object
@@ -260,6 +261,7 @@ this.animation="healing_ready";
  this.averaged=[125];
  this.vectora=6.25;
 this.isMoving=false;
+this.bulletss=[];
 };
 //wall object
 stopper=function(gridx,gridy){
@@ -320,11 +322,12 @@ guns=[];
             }
             if(k==="P"){
                 playerC=new players(j,i,3,1);
+                    guns.push(new gund(true,playerC,playerC.x,playerC.y,0,10));
         }
             if(k==="E"){
 
  enemies.push(new enemy(j,i,2,1,"gun",false));
-  enemies[enemies.length-1].wepObject=guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0));
+  enemies[enemies.length-1].wepObject=guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0,5));
  
             }
         if(k==="C"){
@@ -484,6 +487,7 @@ var tst = ((tadj/topp)/((tadj/topp)+1))*1;
         
     
  gund.prototype.fire = function(team,targetx,targety,targetquadrant){
+         if(this.ammo>0){
 adj = Math.abs(this.user.x+(62.5/2)-(targetx));
 opp = Math.abs(this.user.y+(62.5/2)-(targety));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
@@ -501,7 +505,7 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
     st = st*-1;
    sh = sh;
      this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",parent,team,st,sh,this.user.rotation+90,[targetx,targety]));
-  
+  ammo--;
     return;
   }else if(targetquadrant==3){
     st = st*-1;
@@ -510,10 +514,12 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
     st = st;
    sh = sh*-1;
          this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st,sh,this.user.rotation+90,[targetx,targety]));
+          ammo--;
     return;
   }
    this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st,sh,this.user.rotation+90,[targetx,targety]));
-   }
+                 ammo--;
+   }}
    
 //drawing things
 gund.prototype.draw=function(){
@@ -610,36 +616,7 @@ explosion.prototype.draw= function(){
     }
 
     
-  //bullet shooting
-fire = function(){
-    if(bulletss.length===0){
-  //some math that might not work
-adj = Math.abs((playerC.x+(62.5/2))-mouseONE);
-opp = Math.abs((playerC.y+(62.5/2))-mouseTWO);
-if(adj===0){adj=0.0001;}
-        if(opp===0){opp=0.0001;}
-  var st = ((adj/opp)/((adj/opp)+1))*13;
-  var sh = ((opp/adj)/((opp/adj)+1))*13;;
-  if(q==1){
-  st = st;
-   sh = sh;
-  }else if(q==2){
-    st = st*-1;
-   sh = sh;
-     bulletss.push(new bullets(playerC.x+(62.5/2)-((62.5/3.1622)/2),playerC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playerC,"players",st,sh,playerC.rotation+90,[0,0]));
-    return;
-  }else if(q==3){
-    st = st*-1;
-   sh = sh*-1;
-  }else if(q==4){
-    st = st;
-   sh = sh*-1;
-         bulletss.push(new bullets(playerC.x+(62.5/2)-((62.5/3.1622)/2),playerC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playerC,"players",st,sh,playerC.rotation+90,[0,0]));
-    return;
-  }
-   bulletss.push(new bullets(playerC.x+(62.5/2)-((62.5/3.1622)/2),playerC.y+(62.5/2)-((62.5/3.1622)/2),"reg",playerC,"players",st,sh,playerC.rotation+90,[0,0]));
- 
-  }}
+  
   //bullet motion
   bullets.prototype.move= function(){
   this.x +=this.xmotion;
@@ -1440,9 +1417,9 @@ opp = Math.abs(enemies[i].y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
 if(playerC.isMoving&&!alley(playerC)){
-  guns[enemies[i].wepObject-1].fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
+  guns[enemies[i].wepObject].fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
         
-guns[enemies[i].wepObject-1].fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}
+guns[enemies[i].wepObject].fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}
     
   }
 }else{
@@ -1451,25 +1428,25 @@ opp = Math.abs(enemies[i].y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
 if(playerC.isMoving&&!alley(playerC)){
-  guns[enemies[i].wepObject-1].fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
+  guns[enemies[i].wepObject].fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
         
-guns[enemies[i].wepObject-1].fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}}
+guns[enemies[i].wepObject].fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}}
   
 } 
 for(var i=0;i<guns.length;i++){
         guns[i].draw();;
 }
         
-    if(bulletss.length>0){
-  if(dist(playerC, bulletss[0])>650){
-     bulletss.pop();
+    if(playerC.bulletss.length>0){
+  if(dist(playerC, playerC.bulletss[0])>650){
+     playerC.bulletss.pop();
   
     }
 }
-    if(bulletss.length===1){
-if(stop(bulletss[0])){
+    if(playerC.bulletss.length===1){
+if(stop(playerC.bulletss[0])){
    
-}else{bulletss[0].exists=false;}}
+}else{playerC.bulletss[0].exists=false;}}
 for(var daps=0; daps<enemies.length;daps++){
         if(enemies[daps].bulletss.length===1){
     if(stop(enemies[daps].bulletss[0])){
@@ -1489,8 +1466,8 @@ for(var daps=0; daps<enemies.length;daps++){
     }else if(enemies[dadps].bulletss[0].exists){}}
 }
         for(var dadps=0; dadps<enemies.length;dadps++){
-        if(bulletss.length===1){
-    if(!enemies[dadps].shop(bulletss[0])&&bulletss[0].exists){
+        if(playerC.bulletss.length===1){
+    if(!enemies[dadps].shop(playerC.bulletss[0])&&playerC.bulletss[0].exists){
         if(!instakill){
      enemies[dadps].health-=playerC.wepDamage;}else{
                 enemies[dadps].health*=0;
@@ -1498,7 +1475,7 @@ for(var daps=0; daps<enemies.length;daps++){
         if(enemies[dadps].health<=0){
                 enemies.splice(dadps,1);
         }
-           bulletss[0].exists=false;
+           playerC.bulletss[0].exists=false;
             break;
     }}
 }
@@ -1515,7 +1492,7 @@ ctx.translate(-translateX,-translateY);
           walls[i].draw();
         if(motion==="Yes"){
 ctx.restore();}}
-for(var i = 0; i<bulletss.length; i++){
+for(var i = 0; i<playerC.bulletss.length; i++){
 if(motion==="Yes"){
 var translateX= playerC.x+(62.5/2);
 var translateY= playerC.y+(62.5/2);
@@ -1524,10 +1501,10 @@ ctx.translate(translateX,translateY);
 ctx.rotate((-(playerC.rotation*Math.PI/180)));
 ctx.translate(-translateX,-translateY);
 }
-          bulletss[i].draw();
+          playerC.bulletss[i].draw();
         if(motion==="Yes"){
 ctx.restore();}
-bulletss[i].move();}
+playerC.bulletss[i].move();}
     
          ctx.strokeStyle = 'red';
     ctx.lineWidth = 5;
@@ -1557,7 +1534,7 @@ window.requestAnimationFrame(game);
 };
     document.addEventListener("keypress",toggle);
 canvas.addEventListener("mousemove",Mouse);
-  canvas.addEventListener("click",fire);
+  canvas.addEventListener("click",guns[0].fire("players",mouseONE,mouseTWO,q));
 game();
 </script>
 </body></html>
