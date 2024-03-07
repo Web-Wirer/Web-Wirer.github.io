@@ -484,8 +484,8 @@ var tst = ((tadj/topp)/((tadj/topp)+1))*1;
         
     
  gund.prototype.fire = function(team,targetx,targety,targetquadrant){
-adj = Math.abs(parent.x+(62.5/2)-(targetx));
-opp = Math.abs(parent.y+(62.5/2)-(targety));
+adj = Math.abs(this.user.x+(62.5/2)-(targetx));
+opp = Math.abs(this.user.y+(62.5/2)-(targety));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
 
 
