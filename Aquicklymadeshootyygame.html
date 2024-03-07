@@ -483,7 +483,7 @@ var tst = ((tadj/topp)/((tadj/topp)+1))*1;
         tcheck_posy+=sh;}}}
         
     
- gund.prototype.fire = function(parent,team,targetx,targety,targetquadrant){
+ gund.prototype.fire = function(team,targetx,targety,targetquadrant){
 adj = Math.abs(parent.x+(62.5/2)-(targetx));
 opp = Math.abs(parent.y+(62.5/2)-(targety));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
@@ -500,7 +500,7 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
   }else if(targetquadrant==2){
     st = st*-1;
    sh = sh;
-     parent.bulletss.push(new bullets(parent.x+(62.5/2)-((62.5/3.1622)/2),parent.y+(62.5/2)-((62.5/3.1622)/2),"reg",parent,team,st,sh,this.rotation+90,[targetx,targety]));
+     this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",parent,team,st,sh,this.user.rotation+90,[targetx,targety]));
   
     return;
   }else if(targetquadrant==3){
@@ -509,10 +509,10 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
   }else if(targetquadrant==4){
     st = st;
    sh = sh*-1;
-         parent.bulletss.push(new bullets(parent.x+(62.5/2)-((62.5/3.1622)/2),parent.y+(62.5/2)-((62.5/3.1622)/2),"reg",parent,team,st,sh,parent.rotation+90,[targetx,targety]));
+         this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st,sh,this.user.rotation+90,[targetx,targety]));
     return;
   }
-   parent.bulletss.push(new bullets(parent.x+(62.5/2)-((62.5/3.1622)/2),parent.y+(62.5/2)-((62.5/3.1622)/2),"reg",parent,team,st,sh,parent.rotation+90,[target,targety]));
+   this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st,sh,this.user.rotation+90,[target,targety]));
    }
    
 //drawing things
@@ -1435,10 +1435,10 @@ ctx.translate(-translateX,-translateY);
 ctx.restore();}
   if(enemies[i].dist(playerC)<900&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>800){
       enemies[i].bulletss.pop();
-  enemies[i].wepObject.fire(enemies[i],"enemy",playerC.x,playerC.y,eqq);
+  guns[enemies[i].wepObject-1].fire("enemy",playerC.x,playerC.y,eqq);
     
   }
-}else{enemies[i].wepObject.fire(enemies[i],"enemy",playerC.x,playerC.y,eqq);}
+}else{guns[enemies[i].wepObject-1].fire("enemy",playerC.x,playerC.y,eqq);}
   
 } 
 for(var i=0;i<guns.length;i++){
