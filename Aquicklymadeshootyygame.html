@@ -505,7 +505,7 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
     st = st*-1;
    sh = sh;
      this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",parent,team,st,sh,this.user.rotation+90,[targetx,targety]));
-  ammo--;
+  this.ammo--;
     return;
   }else if(targetquadrant==3){
     st = st*-1;
@@ -514,11 +514,11 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
     st = st;
    sh = sh*-1;
          this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st,sh,this.user.rotation+90,[targetx,targety]));
-          ammo--;
+          this.ammo--;
     return;
   }
    this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st,sh,this.user.rotation+90,[targetx,targety]));
-                 ammo--;
+                 this.ammo--;
    }}
    
 //drawing things
