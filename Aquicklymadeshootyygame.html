@@ -483,64 +483,37 @@ var tst = ((tadj/topp)/((tadj/topp)+1))*1;
         tcheck_posy+=sh;}}}
         
     
- enemy.prototype.fire = function(){
-         if(this.exists&&this.ai&&this.weapon==="gun"){
-adj = Math.abs(this.x+(62.5/2)-(playerC.x+(62.5/2)));
-opp = Math.abs(this.y+(62.5/2)-(playerC.y+(62.5/2)));
+ gund.prototype.fire = function(parent,team,targetx,targety,targetquadrant){
+adj = Math.abs(parent.x+(62.5/2)-(targetx));
+opp = Math.abs(parent.y+(62.5/2)-(targety));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
- var future= hyp/13;
-if(playerC.isMoving&&!alley(playerC)){
-adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*aimbot("xmotion"))));
-opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*aimbot("ymotion"))));
-if(adj===0){adj=0.0001;}
-  
-        if(opp===0){opp=0.0001;}
-  var st = ((adj/opp)/((adj/opp)+1))*13;
-  var sh = ((opp/adj)/((opp/adj)+1))*13;
-  if(eq==1){
-  st = st;
-   sh = sh;
-  }else if(eq==2){
-    st = st*-1;
-   sh = sh;
-     this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90,[((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion")))]));
-  
-    return;
-  }else if(eq==3){
-    st = st*-1;
-   sh = sh*-1;
-  }else if(eq==4){
-    st = st;
-   sh = sh*-1;
-         this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90,[((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion")))]));
-    return;
-  }
-   this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90,[((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion")))]));}else{
+
+
     if(adj===0){adj=0.0001;}
   
         if(opp===0){opp=0.0001;}
   var st = ((adj/opp)/((adj/opp)+1))*13;
   var sh = ((opp/adj)/((opp/adj)+1))*13;
-  if(eqq==1){
+  if(targetquadrant==1){
   st = st;
    sh = sh;
-  }else if(eqq==2){
+  }else if(targetquadrant==2){
     st = st*-1;
    sh = sh;
-     this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90,[playerC.x+(62.5/2),playerC.y+(62.5/2)]));
+     parent.bulletss.push(new bullets(parent.x+(62.5/2)-((62.5/3.1622)/2),parent.y+(62.5/2)-((62.5/3.1622)/2),"reg",parent,team,st,sh,this.rotation+90,[targetx,targety]));
   
     return;
-  }else if(eqq==3){
+  }else if(targetquadrant==3){
     st = st*-1;
    sh = sh*-1;
-  }else if(eqq==4){
+  }else if(targetquadrant==4){
     st = st;
    sh = sh*-1;
-         this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90,[playerC.x+(62.5/2),playerC.y+(62.5/2)]));
+         parent.bulletss.push(new bullets(parent.x+(62.5/2)-((62.5/3.1622)/2),parent.y+(62.5/2)-((62.5/3.1622)/2),"reg",parent,team,st,sh,parent.rotation+90,[targetx,targety]));
     return;
   }
-   this.bulletss.push(new bullets(this.x+(62.5/2)-((62.5/3.1622)/2),this.y+(62.5/2)-((62.5/3.1622)/2),"reg",this,"enemy",st,sh,this.rotation+90,[playerC.x+(62.5/2),playerC.y+(62.5/2)]));
-   }}}
+   parent.bulletss.push(new bullets(parent.x+(62.5/2)-((62.5/3.1622)/2),parent.y+(62.5/2)-((62.5/3.1622)/2),"reg",parent,team,st,sh,parent.rotation+90,[target,targety]));
+   }
    
 //drawing things
 gund.prototype.draw=function(){
@@ -1462,10 +1435,10 @@ ctx.translate(-translateX,-translateY);
 ctx.restore();}
   if(enemies[i].dist(playerC)<900&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>800){
       enemies[i].bulletss.pop();
-  enemies[i].fire();
+  enemies[i].wepObject.fire(enemies[i],"enemy",playerC.x,playerC.y,eqq);
     
   }
-}else{enemies[i].fire();}
+}else{enemies[i].wepObject.fire(enemies[i],"enemy",playerC.x,playerC.y,eqq);}
   
 } 
 for(var i=0;i<guns.length;i++){
