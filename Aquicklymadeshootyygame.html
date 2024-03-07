@@ -1417,9 +1417,9 @@ opp = Math.abs(enemies[i].y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
 if(playerC.isMoving&&!alley(playerC)){
-  guns[enemies[i].wepObject].fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
+  guns[enemies[i].wepObject-1].fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
         
-guns[enemies[i].wepObject].fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}
+guns[enemies[i].wepObject-1].fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}
     
   }
 }else{
@@ -1428,9 +1428,9 @@ opp = Math.abs(enemies[i].y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
 if(playerC.isMoving&&!alley(playerC)){
-  guns[enemies[i].wepObject].fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
+  guns[enemies[i].wepObject-1].fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
         
-guns[enemies[i].wepObject].fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}}
+guns[enemies[i].wepObject-1].fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}}
   
 } 
 for(var i=0;i<guns.length;i++){
