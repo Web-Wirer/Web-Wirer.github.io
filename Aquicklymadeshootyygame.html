@@ -1435,10 +1435,10 @@ ctx.translate(-translateX,-translateY);
 ctx.restore();}
   if(enemies[i].dist(playerC)<900&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>800){
       enemies[i].bulletss.pop();
-  guns[enemies[i].wepObject-1].fire("enemy",playerC.x,playerC.y,eqq);
+  guns[enemies[i].wepObject-1].fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);
     
   }
-}else{guns[enemies[i].wepObject-1].fire("enemy",playerC.x,playerC.y,eqq);}
+}else{guns[enemies[i].wepObject-1].fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}
   
 } 
 for(var i=0;i<guns.length;i++){
