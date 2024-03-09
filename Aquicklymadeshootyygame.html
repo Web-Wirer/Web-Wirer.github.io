@@ -242,7 +242,7 @@ explosion=function(x,y,power){
 }
 
 //players object
-players= function(x,y,maxHealth,wepDamage, speed=1){
+players= function(x,y,maxHealth,wepDamage, speed=1,wepObject){
 this.x = (x*138)+((138/2)-(62.5/2));
 this.y=(y*138)+((138/2)-(62.5/2));
 this.width=62.5;
@@ -262,6 +262,7 @@ this.animation="healing_ready";
  this.vectora=6.25;
 this.isMoving=false;
 this.bulletss=[];
+this.wepObject=wepObject;
 };
 //wall object
 stopper=function(gridx,gridy){
@@ -321,13 +322,16 @@ guns=[];
                 walls.push(new stopper(j,i));
             }
             if(k==="P"){
-                playerC=new players(j,i,3,1);
+                playerC=new players(j,i,3,1,"gun");
                     guns.push(new gund(true,playerC,playerC.x,playerC.y,0,10));
+                    playerC.wepObject=guns[guns.length-1];
+                    
         }
             if(k==="E"){
 
  enemies.push(new enemy(j,i,2,1,"gun",false));
-  enemies[enemies.length-1].wepObject=guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0,5));
+guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0,5))
+  enemies[enemies.length-1].wepObject=guns[guns.length-1];
  
             }
         if(k==="C"){
@@ -520,6 +524,13 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
    this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st,sh,this.user.rotation+90,[targetx,targety]));
                  this.ammo--;
    }}
+//why do i have to write this fucking function
+//fuck javascript
+//I just wanted to be an 3L1TE haxorman
+//not a depressed office worker
+dumbassfunction = function(){
+        playerC.wepObject.fire("players",mouseONE,mouseTWO,q);
+}
    
 //drawing things
 gund.prototype.draw=function(){
@@ -1428,9 +1439,9 @@ opp = Math.abs(enemies[i].y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
 if(playerC.isMoving&&!alley(playerC)){
-  guns[enemies[i].wepObject-1].fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
+  enemies[i].wepObject.fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
         
-guns[enemies[i].wepObject-1].fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}}
+enemies[i].wepObject.fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}}
   
 } 
 for(var i=0;i<guns.length;i++){
@@ -1534,7 +1545,7 @@ window.requestAnimationFrame(game);
 };
     document.addEventListener("keypress",toggle);
 canvas.addEventListener("mousemove",Mouse);
-  canvas.addEventListener("click",guns[0].fire("players",mouseONE,mouseTWO,q));
+  canvas.addEventListener("click",dumbassfunction);
 game();
 </script>
 </body></html>
