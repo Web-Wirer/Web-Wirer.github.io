@@ -529,7 +529,8 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
 //I just wanted to be an 3L1TE haxorman
 //not a depressed office worker
 dumbassfunction = function(){
-        playerC.wepObject.fire("players",mouseONE,mouseTWO,q);
+        if(playerC.bulletts.length===0){
+        playerC.wepObject.fire("players",mouseONE,mouseTWO,q);}
 }
    
 //drawing things
@@ -1280,7 +1281,7 @@ this.y+=this.ymotion;
           this.pathdupes=[];
           this.pathdupe=[];
                 this.pc=0;
-      console.log(this);
+
 
     }}
 
@@ -1428,9 +1429,9 @@ opp = Math.abs(enemies[i].y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
 if(playerC.isMoving&&!alley(playerC)){
-  guns[enemies[i].wepObject-1].fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
+  enemies[i].wepObject.fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
         
-guns[enemies[i].wepObject-1].fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}
+enemies[i].wepObject.fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}
     
   }
 }else{
