@@ -871,7 +871,7 @@ this.rotation=ans;}
 
 }}
 toggle=function(e){
-    console.log(e.keyCode);
+  
         if((e.keyCode===71||e.keyCode===103)&&tog==="Yes"){
 if(movement==="Relative"){
     movement="Absolute";
@@ -1459,19 +1459,26 @@ enemies[i].wepObject.fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}}
 for(var i=0;i<guns.length;i++){
         guns[i].draw();;
         if(guns[i].ammo>0&&guns[i].ready===0){
+                console.log("rereadying");
+                console.log(i);
          this.isfiring=false;      
         guns[i].readytoready--;
         if(guns[i].readytoready===0){
                 guns[i].readytoready=guns[i].readytime*60;
                 guns[i].ready=guns[i].shots;
-                
+                console.log("rereadied");
+                console.log(i);
         }
         }
         if(guns[i].isfiring){
                 if(guns[i].firingsequenceframedelay===0){
+                console.log("sequence");
+                console.log(i);
                 guns[i].fire();
                 guns[i].firingsequenceframedelay=5;
                 }else{
+                console.log("sequenced");
+                console.log(i);
                 guns[i].firingsequenceframedelay--;
                 }
         }
