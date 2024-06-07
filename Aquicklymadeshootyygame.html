@@ -162,13 +162,19 @@ for(var i=0;i<this.length;i++){
     }}
 }
 }
-gund = function(isused,user,x,y,rotation,ammo){
+gund = function(isused,user,x,y,rotation,ammo,readytime,shots){
 this.isused=isused;
 this.user=user;
 this.x=x;
 this.y=y;
 this.rotation=rotation;
 this.ammo=ammo;
+this.shots=shots;
+this.ready=shots;
+this.readytime=readytime;
+this.readytoready=readytime*60;
+this.firingsequenceframedelay=5;
+this.isfiring=false;
         
 }
 //enemy object
@@ -323,14 +329,14 @@ guns=[];
             }
             if(k==="P"){
                 playerC=new players(j,i,3,1,"gun");
-                    guns.push(new gund(true,playerC,playerC.x,playerC.y,0,10));
+                    guns.push(new gund(true,playerC,playerC.x,playerC.y,0,10,2,1));
                     playerC.wepObject=guns[guns.length-1];
                     
         }
             if(k==="E"){
 
  enemies.push(new enemy(j,i,2,1,"gun",false));
-guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0,5))
+guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0,5,3,1));
   enemies[enemies.length-1].wepObject=guns[guns.length-1];
  
             }
@@ -492,6 +498,8 @@ var tst = ((tadj/topp)/((tadj/topp)+1))*1;
     
  gund.prototype.fire = function(team,targetx,targety,targetquadrant){
          if(this.ammo>0){
+                 if(this.ready>0){
+        this.isfiring=true;
 adj = Math.abs(this.user.x+(62.5/2)-(targetx));
 opp = Math.abs(this.user.y+(62.5/2)-(targety));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
@@ -509,7 +517,8 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
     st = st*-1;
    sh = sh;
      this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",parent,team,st,sh,this.user.rotation+90,[targetx,targety]));
-  this.ammo--;
+  this.ready--;
+          this.ammo--;
     return;
   }else if(targetquadrant==3){
     st = st*-1;
@@ -518,12 +527,14 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
     st = st;
    sh = sh*-1;
          this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st,sh,this.user.rotation+90,[targetx,targety]));
+          this.ready--;
           this.ammo--;
     return;
   }
    this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st,sh,this.user.rotation+90,[targetx,targety]));
-                 this.ammo--;
-   }}
+                 this.ready--;
+                         this.ammo--;
+   }}}
 //why do i have to write this fucking function
 //fuck javascript
 //I just wanted to be an 3L1TE haxorman
@@ -1447,23 +1458,41 @@ enemies[i].wepObject.fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}}
 } 
 for(var i=0;i<guns.length;i++){
         guns[i].draw();;
+        if(guns[i].ammo>0&&guns[i].ready===0){
+         this.isfiring=false;      
+        guns[i].readytoready--;
+        if(guns[i].readytoready===0){
+                guns[i].readytoready=guns[i].readytime*60;
+                guns[i].ready=guns[i].shots;
+                
+        }
+        }
+        if(guns[i].isfiring){
+                if(guns[i].firingsequenceframedelay===0){
+                guns[i].fire();
+                guns[i].firingsequenceframedelay=5;
+                }else{
+                guns[i].firingsequenceframedelay--;
+                }
+        }
 }
         
-    if(playerC.bulletss.length>0){
-  if(dist(playerC, playerC.bulletss[0])>650){
-     playerC.bulletss.pop();
+
   
-    }
-}
-    if(playerC.bulletss.length===1){
-if(stop(playerC.bulletss[0])){
+    
+  
+    
+
+    if(playerC.bulletss.length>0){
+for(var i=playerC.bulletss.length-1;i>=0;i--)
+if(stop(playerC.bulletss[i])){
    
-}else{playerC.bulletss[0].exists=false;}}
+}else{playerC.bulletss.splice(i,1);}}
 for(var daps=0; daps<enemies.length;daps++){
-        if(enemies[daps].bulletss.length===1){
-    if(stop(enemies[daps].bulletss[0])){
+        for(var i=enemies[daps].bulletss.length-1;i>=0;i--){
+    if(stop(enemies[daps].bulletss[i])){
      
-    }else{ enemies[daps].bulletss[0].exists=false;   }}
+    }else{ enemies[daps].bulletss.splice(i,1);   }}
 }
     for(var dadps=0; dadps<enemies.length;dadps++){
         if(enemies[dadps].bulletss.length===1){
