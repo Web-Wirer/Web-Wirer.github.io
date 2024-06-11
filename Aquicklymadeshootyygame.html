@@ -45,8 +45,8 @@ var ctxs = canvass.getContext("2d");
     var worldBounds = {
         minX: -5000,
         minY: -5000,
-        maxX: 0,
-        maxY:0
+        maxX: 1250,
+        maxY:1250
     }
     var camc = 0;
 
@@ -63,8 +63,8 @@ var ctxs = canvass.getContext("2d");
 
     // center the camera around the player,
     // but clamp the edges of the camera view to the world bounds.
- camX = clamp(playerC.x - canvas.width/2,-500, worldBounds.maxX - canvas.width+500);
- camY = clamp(playerC.y - canvas.height/2, -500, worldBounds.maxY - canvas.height+500);
+ camX = clamp(playerC.x - canvas.width/2,0, worldBounds.maxX);
+ camY = clamp(playerC.y - canvas.height/2, 0, worldBounds.maxY);
 
     ctx.translate((-camX)-camc, -camY);
             playerC.draw();
