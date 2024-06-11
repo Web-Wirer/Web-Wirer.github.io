@@ -1577,11 +1577,13 @@ playerC.bulletss[i].move();}
   playerC.startPos.x=playerC.x;
   playerC.startPos.y=playerC.y;
  }
+ctxs.fillStyle="white";
+ctxs.fillRect(0,0,1000,1000)
 ctxs.fillStyle="black";
 ctxs.font="50px Monaco";
 ctxs.textAlign="left";
 ctxs.textBaseline="top";
-ctxs.fillText("AMMO: "+playerC.ammo,0,0);
+ctxs.fillText("AMMO: "+playerC.wepObject.ammo,0,0);
 level_observer();    
 window.requestAnimationFrame(game);
     
