@@ -1531,8 +1531,10 @@ for(var daps=0; daps<enemies.length;daps++){
     }else if(enemies[dadps].bulletss[0].exists){}}
 }
         for(var dadps=0; dadps<enemies.length;dadps++){
-        if(playerC.bulletss.length===1){
-    if(!enemies[dadps].shop(playerC.bulletss[0])&&playerC.bulletss[0].exists){
+                
+        if(playerC.bulletss.length>0){
+for(var p=0;p<playerC.bulletss.length;p++){
+    if(!enemies[dadps].shop(playerC.bulletss[p])&&playerC.bulletss[p].exists){
         if(!instakill){
      enemies[dadps].health-=playerC.wepDamage;}else{
                 enemies[dadps].health*=0;
@@ -1540,10 +1542,10 @@ for(var daps=0; daps<enemies.length;daps++){
         if(enemies[dadps].health<=0){
                 enemies.splice(dadps,1);
         }
-           playerC.bulletss[0].exists=false;
-            break;
+           playerC.bulletss.splice(p,1);
+
     }}
-}
+}}
  done=0; 
 for(var i = 0; i<walls.length; i++){
 if(motion==="Yes"){
