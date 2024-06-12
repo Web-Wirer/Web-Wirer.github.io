@@ -167,7 +167,7 @@ for(var i=0;i<this.length;i++){
     }}
 }
 }
-gund = function(isused,user,x,y,rotation,ammo,readytime,shots){
+gund = function(isused,user,x,y,rotation,ammo,readytime,shots,isauto){
 this.isused=isused;
 this.user=user;
 this.x=x;
@@ -180,7 +180,7 @@ this.readytime=readytime;
 this.readytoready=readytime*60;
 this.firingsequenceframedelay=5;
 this.isfiring=false;
-        
+this.isauto=isauto;
 }
 //enemy object
 enemy= function(x,y,maxHealth,wepDamage,weapon,wepObject,speed=1){
@@ -335,14 +335,14 @@ guns=[];
             }
             if(k==="P"){
                 playerC=new players(j,i,3,1,"gun");
-                    guns.push(new gund(true,playerC,playerC.x,playerC.y,0,10,2,1));
+                    guns.push(new gund(true,playerC,playerC.x,playerC.y,0,10,2,2,true));
                     playerC.wepObject=guns[guns.length-1];
                     
         }
             if(k==="E"){
 
  enemies.push(new enemy(j,i,2,1,"gun",false));
-guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0,5,3,1));
+guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0,5,3,1,false));
   enemies[enemies.length-1].wepObject=guns[guns.length-1];
  
             }
@@ -1477,11 +1477,14 @@ for(var i=0;i<guns.length;i++){
         }
         }
         if(guns[i].isfiring){
+                if(guns[i].isauto){
                 if(guns[i].firingsequenceframedelay===0){
                 guns[i].fire();
                 guns[i].firingsequenceframedelay=5;
                 }else{
                 guns[i].firingsequenceframedelay--;
+                }}else{
+                        
                 }
         }
 }
