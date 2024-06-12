@@ -1431,7 +1431,8 @@ ctx.translate(-translateX,-translateY);
         if(motion==="Yes"){
 ctx.restore();}
 if(enemies[i].bulletss.length>0){
-    enemies[i].bulletss[0].move();
+        for(var j=0;j<enemies[i].bulletss.length;j++){
+        enemies[i].bulletss[j].move();}
  if(motion==="Yes"){
 var translateX= playerC.x+(62.5/2);
 var translateY= playerC.y+(62.5/2);
@@ -1440,11 +1441,12 @@ ctx.translate(translateX,translateY);
 ctx.rotate((-(playerC.rotation*Math.PI/180)));
 ctx.translate(-translateX,-translateY);
 }
-          enemies[i].bulletss[0].draw();
+         for(var j=0;j<enemies[i].bulletss.length;j++){
+        enemies[i].bulletss[j].draw();}
         if(motion==="Yes"){
 ctx.restore();}
-  if(enemies[i].dist(playerC)<900&&enemies[i].isResting==false&&enemies[i].dist(enemies[i].bulletss[0])>800){
-      enemies[i].bulletss.pop();
+  if(enemies[i].dist(playerC)<900&&enemies[i].isResting==false){
+      
           adj = Math.abs(enemies[i].x+(62.5/2)-(playerC.x+(62.5/2)));
 opp = Math.abs(enemies[i].y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
@@ -1479,7 +1481,19 @@ for(var i=0;i<guns.length;i++){
         if(guns[i].isfiring){
                 if(guns[i].isauto){
                 if(guns[i].firingsequenceframedelay===0){
-                guns[i].fire();
+                if(guns[i].user===playerC){
+                guns[i].fire("players",mouseONE,mouseTWO,q);}else{
+                    adj = Math.abs(enemies[i].x+(62.5/2)-(playerC.x+(62.5/2)));
+opp = Math.abs(enemies[i].y+(62.5/2)-(playerC.y+(62.5/2)));
+hyp= Math.sqrt((adj*adj)+(opp*opp));
+ var future= hyp/13;
+if(playerC.isMoving&&!alley(playerC)){
+  enemies[i].wepObject.fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
+        
+enemies[i].wepObject.fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}}
+  
+} 
+                }
                 guns[i].firingsequenceframedelay=5;
                 }else{
                 guns[i].firingsequenceframedelay--;
