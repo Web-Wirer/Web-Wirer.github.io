@@ -524,7 +524,7 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
    sh = sh;
      if(this.user===playerC){this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",parent,team,st+this.user.xmotion,sh+this.user.ymotion,this.user.rotation+90,[targetx,targety]));}else{
      this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",parent,team,st,sh,this.user.rotation+90,[targetx,targety]));
-     console.log(2);}        
+     }        
   this.ready--;
           this.ammo--;
     return;
@@ -536,14 +536,14 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
    sh = sh*-1;
          if(this.user===playerC){this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st+this.user.xmotion,sh+this.user.ymotion,this.user.rotation+90,[targetx,targety]));}else{
                  this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st,sh,this.user.rotation+90,[targetx,targety]));
-         console.log(3);}
+         }
           this.ready--;
           this.ammo--;
     return;
   }
     if(this.user===playerC){this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st+this.user.xmotion,sh+this.user.ymotion,this.user.rotation+90,[targetx,targety]));}else{
             this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st,sh,this.user.rotation+90,[targetx,targety]));
-    console.log("gen");}
+    }
                  this.ready--;
                          this.ammo--;
    }}}
