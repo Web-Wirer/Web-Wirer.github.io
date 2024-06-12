@@ -1515,17 +1515,18 @@ for(var daps=0; daps<enemies.length;daps++){
     }else{ enemies[daps].bulletss.splice(i,1);   }}
 }
     for(var dadps=0; dadps<enemies.length;dadps++){
-        if(enemies[dadps].bulletss.length===1){
-    if(!shop(enemies[dadps].bulletss[0])&&enemies[dadps].bulletss[0].exists){
+            for(var i=enemies[dadps].bulletss.length-1;i>=0;i--){
+        if(enemies[dadps].bulletss.length>0){
+    if(!shop(enemies[dadps].bulletss[i])&&enemies[dadps].bulletss[i].exists){
      playerC.health-=enemies[dadps].wepDamage;
-        enemies[dadps].bulletss[0].exists=false;
+        enemies[dadps].bulletss[i].exists=false;
         if(playerC.health<=0&&!instakill){
                 true_load();
         }else if(instakill){
                 playerC.health=1;
         }
-    }else if(enemies[dadps].bulletss[0].exists){}}
-}
+    }else if(enemies[dadps].bulletss[i].exists){}}
+}}
         for(var dadps=0; dadps<enemies.length;dadps++){
                 
         if(playerC.bulletss.length>0){
@@ -1537,6 +1538,7 @@ for(var p=0;p<playerC.bulletss.length;p++){
      }
         if(enemies[dadps].health<=0){
                 enemies.splice(dadps,1);
+                playerC.bulletss.splice(p,1);
                 break;
         }
            playerC.bulletss.splice(p,1);
