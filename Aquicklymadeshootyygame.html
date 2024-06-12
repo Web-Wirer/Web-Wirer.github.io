@@ -522,7 +522,7 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
   }else if(targetquadrant==2){
     st = st*-1;
    sh = sh;
-     this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",parent,team,st,sh,this.user.rotation+90,[targetx,targety]));
+     this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",parent,team,st+this.user.xmotion,sh+this.user.ymotion,this.user.rotation+90,[targetx,targety]));
   this.ready--;
           this.ammo--;
     return;
@@ -532,12 +532,12 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
   }else if(targetquadrant==4){
     st = st;
    sh = sh*-1;
-         this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st,sh,this.user.rotation+90,[targetx,targety]));
+         this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st+this.user.xmotion,sh+this.user.ymotion,this.user.rotation+90,[targetx,targety]));
           this.ready--;
           this.ammo--;
     return;
   }
-   this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st,sh,this.user.rotation+90,[targetx,targety]));
+   this.user.bulletss.push(new bullets(this.user.x+(62.5/2)-((62.5/3.1622)/2),this.user.y+(62.5/2)-((62.5/3.1622)/2),"reg",this.user,team,st+this.user.xmotion,sh+this.user.ymotion,this.user.rotation+90,[targetx,targety]));
                  this.ready--;
                          this.ammo--;
    }}}
