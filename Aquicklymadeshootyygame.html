@@ -312,7 +312,7 @@ this.height=62.5/3.1622;
 '10',
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
 'W     P  W            WWWWWWWCCCCCCCCCCW W',
-'WEEEEEEEE                   WCCCCCCCCCCW W',
+'WEEEEEEEEW                  WCCCCCCCCCCW W',
 'WEEEEEEEEW            WWWWW WCCCCCCCCCCW W',
 'WEEEEEEEEW                W WWWWWWWWW  W W',
 'WEEEEEEEEW                W         WW W W',
@@ -347,7 +347,9 @@ guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,en
  
             }
         if(k==="C"){
- enemies.push(new cyborg(j,i,200,1,"bazooka"));
+ enemies.push(new cyborg(j,i,200,1,"gun"));
+guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0,5,999,999,true));
+         enemies[enemies.length-1].wepObject=guns[guns.length-1];
             }
     }
 }
