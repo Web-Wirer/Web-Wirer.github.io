@@ -816,10 +816,7 @@ return;}
 if(playerC.isMoving&&!alley(playerC)){
 adj = Math.abs((this.x+(62.5/2))-((playerC.x+(62.5/2))+(future*aimbot("xmotion"))));
 opp = Math.abs((this.y+(62.5/2))-((playerC.y+(62.5/2))+(future*aimbot("ymotion"))));
-console.log(future*aimbot("xmotion"));
-console.log(future*aimbot("ymotion"));
-console.log(adj);
-console.log(opp);
+
     hyp= Math.sqrt((adj*adj)+(opp*opp));
 
 almost = opp/hyp;
