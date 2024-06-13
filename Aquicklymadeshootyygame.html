@@ -1463,6 +1463,7 @@ enemies[i].wepObject.fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}
     
   }
 }else{
+          if(enemies[i].dist(playerC)<900&&enemies[i].isResting==false){
     adj = Math.abs(enemies[i].x+(62.5/2)-(playerC.x+(62.5/2)));
 opp = Math.abs(enemies[i].y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
@@ -1470,7 +1471,7 @@ hyp= Math.sqrt((adj*adj)+(opp*opp));
 if(playerC.isMoving&&!alley(playerC)){
   enemies[i].wepObject.fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
         
-enemies[i].wepObject.fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}}
+enemies[i].wepObject.fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}}}
   
 } 
 for(var i=0;i<guns.length;i++){
