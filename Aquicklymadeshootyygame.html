@@ -1487,8 +1487,8 @@ for(var i=0;i<guns.length;i++){
                 if(guns[i].firingsequenceframedelay===0){
                 if(guns[i].user===playerC){
                 guns[i].fire("players",mouseONE,mouseTWO,q);}else{
-                    adj = Math.abs(enemies[i].x+(62.5/2)-(playerC.x+(62.5/2)));
-opp = Math.abs(enemies[i].y+(62.5/2)-(playerC.y+(62.5/2)));
+                    adj = Math.abs(guns[i].user.x+(62.5/2)-(playerC.x+(62.5/2)));
+opp = Math.abs(guns[i].user.y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
 if(playerC.isMoving&&!alley(playerC)){
