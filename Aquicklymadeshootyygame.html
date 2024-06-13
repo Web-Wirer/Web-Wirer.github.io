@@ -1492,9 +1492,9 @@ opp = Math.abs(guns[i].user.y+(62.5/2)-(playerC.y+(62.5/2)));
 hyp= Math.sqrt((adj*adj)+(opp*opp));
  var future= hyp/13;
 if(playerC.isMoving&&!alley(playerC)){
-  enemies[i].wepObject.fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
+  guns[i].fire("enemy",((playerC.x+(62.5/2))+(future*aimbot("xmotion"))),((playerC.y+(62.5/2))+(future*aimbot("ymotion"))),eqq);}else{
         
-enemies[i].wepObject.fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}}
+guns[i].fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}}
   
  
                 
