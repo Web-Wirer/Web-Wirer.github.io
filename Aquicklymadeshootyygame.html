@@ -1618,7 +1618,9 @@ ctxs.textAlign="left";
 ctxs.textBaseline="top";
 ctxs.fillText("AMMO: "+playerC.wepObject.ammo,90,90);
 ctxs.fillText("Loaded:",90,160);
-
+for(var i=0;i<playerC.ready;i++){
+      ctxs.drawImage(bullet,350+(i*90),160,100,100);
+}
 
 level_observer();    
 window.requestAnimationFrame(game);
