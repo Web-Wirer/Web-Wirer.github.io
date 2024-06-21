@@ -1606,7 +1606,7 @@ playerC.bulletss[i].move();}
 ctxs.fillStyle="white";
 ctxs.fillRect(0,0,1000,1000);
 ctxs.fillStyle="grey";
-ctxs.fillRect(0,0,90,1000);
+ctxs.fillRect(0,0,90,900);
 ctxs.fillRect(0,0,900,90);
 ctxs.fillRect(0,405,900,90);
 ctxs.fillRect(0,810,900,90);
@@ -1614,7 +1614,7 @@ ctxs.fillStyle="black";
 ctxs.font="50px Monaco";
 ctxs.textAlign="left";
 ctxs.textBaseline="top";
-ctxs.fillText("AMMO: "+playerC.wepObject.ammo,0,0);
+ctxs.fillText("AMMO: "+playerC.wepObject.ammo,90,90);
 
 level_observer();    
 window.requestAnimationFrame(game);
