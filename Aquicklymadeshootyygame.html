@@ -1621,9 +1621,9 @@ ctxs.fillText("Loaded:",90,160);
 for(var i=0;i<playerC.wepObject.ready;i++){
       ctxs.drawImage(bullet,150+(i*90),260,100,100);
 }
-if(playerC.wepObject.ready===0){
+if(playerC.wepObject.ready===0&&playerC.wepObject.ammo>0){
 ctxs.fillStyle="orange";
-ctxs.fillRect(150,350,((playerC.wepObject.readytime*60-playerC.wepObject.readytoready)/(playerC.wepObject.readytime*60))*200,35);}
+ctxs.fillRect(50,350,((playerC.wepObject.readytime*60-playerC.wepObject.readytoready)/(playerC.wepObject.readytime*60))*400,35);}
 level_observer();    
 window.requestAnimationFrame(game);
     
