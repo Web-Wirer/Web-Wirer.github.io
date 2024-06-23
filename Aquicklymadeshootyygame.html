@@ -1623,7 +1623,7 @@ for(var i=0;i<playerC.wepObject.ready;i++){
 }
 if(playerC.wepObject.ready===0){
 ctxs.fillStyle="orange";
-ctxs.fillRect(150,350,(1/(playerC.wepObject.readytoready/(playerC.wepObject.readytime*60)))*200,35);}
+ctxs.fillRect(150,350,((playerC.wepObject.readytoready/(playerC.wepObject.readytime*60)))*200,35);}
 level_observer();    
 window.requestAnimationFrame(game);
     
