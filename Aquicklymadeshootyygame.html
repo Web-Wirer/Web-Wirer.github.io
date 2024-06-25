@@ -314,11 +314,11 @@ this.height=62.5/3.1622;
 'W     P  W            WWWWWWWCCCCCCCCCCW W',
 'W        W                  WCCCCCCCCCCW W',
 'W        W            WWWWW WCCCCCCCCCCW W',
-'W   WW   W                W WWWWWWWWW  W W',
-'W   WW   W                W         WW W W',
+'W        W                W WWWWWWWWW  W W',
+'W        W                W         WW W W',
 'W        W                WWWWWWWWW      W',
-'W   EE   WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
 'W        WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
+'W   C    WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
 '1'
     ];
@@ -335,7 +335,7 @@ alert=false;
                 walls.push(new stopper(j,i));
             }
             if(k==="P"){
-                playerC=new players(j,i,3,1,"gun");
+                playerC=new players(j,i,333,1,"gun");
                     guns.push(new gund(true,playerC,playerC.x,playerC.y,0,10,2,2,false));
                     playerC.wepObject=guns[guns.length-1];
                     
@@ -349,7 +349,7 @@ guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,en
             }
         if(k==="C"){
  enemies.push(new cyborg(j,i,200,1,"gun"));
-guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0,200,8,10,true));
+guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0,999,4,999,true));
          enemies[enemies.length-1].wepObject=guns[guns.length-1];
             }
     }
@@ -662,55 +662,8 @@ explosion.prototype.draw= function(){
 stopper.prototype.draw = function(){
 ctx.drawImage(wall,this.x,this.y,125,125);
 }
-stopx = function(obj){
+stop = function(obj){
     post=Math.floor((obj.x+obj.xmotion)/138);
-    poso=Math.floor((obj.y)/138);
-     positt= poso.toString().concat("_",post.toString());
-    try{
-if(current_level[positt].length>0){
-if(current_level[positt][0]==="W"){
- 
-return;
-}}}catch{
-        return;
-}
-    post=Math.floor((obj.x+obj.xmotion+obj.width)/138);
-    poso=Math.floor((obj.y+obj.height)/138);
-     positt= poso.toString().concat("_",post.toString());
-    try{
-if(current_level[positt].length>0){
-if(current_level[positt][0]==="W"){
- 
-return;
-}}}catch{
-        return;
-}
-    post=Math.floor((obj.x+obj.xmotion+obj.width)/138);
-    poso=Math.floor((obj.y)/138);
-     positt= poso.toString().concat("_",post.toString());
-    try{
-if(current_level[positt].length>0){
-if(current_level[positt][0]==="W"){
- 
-return;
-}}}catch{
-        return;
-}
-    post=Math.floor((obj.x+obj.xmotion)/138);
-    poso=Math.floor((obj.y+obj.height)/138);
-     positt= poso.toString().concat("_",post.toString());
-    try{
-if(current_level[positt].length>0){
-if(current_level[positt][0]==="W"){
- 
-return;
-}}}catch{
-        return;
-}
-return(true);
-}
-stopy = function(obj){
-    post=Math.floor((obj.x)/138);
     poso=Math.floor((obj.y+obj.ymotion)/138);
      positt= poso.toString().concat("_",post.toString());
     try{
@@ -721,7 +674,7 @@ return;
 }}}catch{
         return;
 }
-    post=Math.floor((obj.x+obj.width)/138);
+    post=Math.floor((obj.x+obj.xmotion+obj.width)/138);
     poso=Math.floor((obj.y+obj.ymotion+obj.height)/138);
      positt= poso.toString().concat("_",post.toString());
     try{
@@ -732,7 +685,7 @@ return;
 }}}catch{
         return;
 }
-    post=Math.floor((obj.x+obj.width)/138);
+    post=Math.floor((obj.x+obj.xmotion+obj.width)/138);
     poso=Math.floor((obj.y+obj.ymotion)/138);
      positt= poso.toString().concat("_",post.toString());
     try{
@@ -743,7 +696,7 @@ return;
 }}}catch{
         return;
 }
-    post=Math.floor((obj.x)/138);
+    post=Math.floor((obj.x+obj.xmotion)/138);
     poso=Math.floor((obj.y+obj.ymotion+obj.height)/138);
      positt= poso.toString().concat("_",post.toString());
     try{
@@ -755,8 +708,8 @@ return;
         return;
 }
 return(true);
-}    
-shop= function(obj){
+}
+    shop= function(obj){
  
   
 if((obj.x+obj.width)>(playerC.x-3)&&(obj.x+obj.width)<playerC.width+5+playerC.x&&(obj.y+obj.height)>(playerC.y-6)&&(obj.y+obj.height)<playerC.height+9+playerC.y){
@@ -1059,18 +1012,11 @@ if(movement==="Relative"){
 }else{
  playerC.isMoving=false;
 }
-    if(stopx(playerC)){
-playerC.x+=playerC.xmotion;
-}else{    
-playerC.xmotion=0;}
-        if(stopy(playerC)){
-playerC.y+=playerC.ymotion;
-}else{
-playerC.ymotion=0;            
-}
-if(playerC.ymotion===0&&playerC.xmotion===0){
- 
-
+ if(stop(playerC)){
+ playerC.x +=playerC.xmotion;
+  playerC.y +=playerC.ymotion;}else{
+     playerC.xmotion=0;
+     playerC.ymotion=0;
   playerC.isMoving=false;
 }}
     enemy.prototype.pathfind=function(){
@@ -1293,22 +1239,17 @@ this.ymotion=sh;
 
 if(dist(this,playerC)>350+7.25+(100*((this.maxHealth-this.health)/this.maxHealth))){
         this.inrange=false;
-   if(stopx(this)){
+    if(stop(this)){
 this.x+=this.xmotion;
-}
- if(stopy(this)){
-this.y+=this.ymotion;
-} 
-}else if(dist(this,playerC)<350-7.25+(100*((this.maxHealth-this.health)/this.maxHealth))){
+this.y+=this.ymotion;}else{
+        
+}}else if(dist(this,playerC)<350-7.25+(100*((this.maxHealth-this.health)/this.maxHealth))){
         this.inrange=false;
  this.xmotion *= -1;
  this.ymotion *= -1;
-   if(stopx(this)){
-this.x+=this.xmotion;
-}
- if(stopy(this)){
-this.y+=this.ymotion;
-}}else{
+ if(stop(this)){
+    this.x+=this.xmotion;
+    this.y+=this.ymotion;}}else{
         this.inrange=true;
     }
 
@@ -1354,12 +1295,9 @@ this.y+=this.ymotion;
     }else{ 
  this.xmotion *= -1;
  this.ymotion *= -1;
-   if(stopx(this)){
-this.x+=this.xmotion;
-}
- if(stopy(this)){
-this.y+=this.ymotion;
-}
+ if(stop(this)){
+    this.x+=this.xmotion;
+    this.y+=this.ymotion;}
      this.path.unshift(Math.floor((this.y/138)).toString().concat("_",Math.floor((this.x/138)).toString()).concat("_",this.pc.toString()));
     this.ref++;
     if(this.ref===10){
@@ -1412,7 +1350,7 @@ if(adj===0){adj=0.0001;}
            this.xmotion+=bh;
      this.ymotion+=bt;
         }
-         if(stopx(this)&&stopy(this)&&raycast([this.x+this.xmotion,this.x+62.5+this.xmotion],[this.y+this.ymotion,this.y+62.5+this.ymotion],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])){
+         if(stop(this)&&raycast([this.x+this.xmotion,this.x+62.5+this.xmotion],[this.y+this.ymotion,this.y+62.5+this.ymotion],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])){
     this.x+=this.xmotion;
     this.y+=this.ymotion;}else{this.dodge="down";
                         frame=false;}
@@ -1437,7 +1375,7 @@ if(adj===0){adj=0.0001;}
            this.xmotion+=-bh;
      this.ymotion+=-bt;
         }
-         if(stopx(this)&&stopy(this)&&raycast([this.x+this.xmotion,this.x+62.5+this.xmotion],[this.y+this.ymotion,this.y+62.5+this.ymotion],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])){
+         if(stop(this)&&raycast([this.x+this.xmotion,this.x+62.5+this.xmotion],[this.y+this.ymotion,this.y+62.5+this.ymotion],[playerC.x,playerC.x+62.5],[playerC.y,playerC.y+62.5])){
     this.x+=this.xmotion;
     this.y+=this.ymotion;}else{this.dodge="up";
                         frame=false;}
@@ -1577,12 +1515,12 @@ guns[i].fire("enemy",playerC.x+(62.5/2),playerC.y+(62.5/2),eqq);}}
 
     if(playerC.bulletss.length>0){
 for(var i=playerC.bulletss.length-1;i>=0;i--)
-if(stopx(playerC.bulletss[i])&&stopy(playerC.bulletss[i])){
+if(stop(playerC.bulletss[i])){
    
 }else{playerC.bulletss.splice(i,1);}}
 for(var daps=0; daps<enemies.length;daps++){
         for(var i=enemies[daps].bulletss.length-1;i>=0;i--){
-    if(stopx(enemies[daps].bulletss[i])&&stopy(enemies[daps].bulletss[i])){
+    if(stop(enemies[daps].bulletss[i])){
      
     }else{ enemies[daps].bulletss.splice(i,1);   }}
 }
