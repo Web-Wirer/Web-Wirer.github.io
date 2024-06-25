@@ -314,11 +314,11 @@ this.height=62.5/3.1622;
 'W     P  W            WWWWWWWCCCCCCCCCCW W',
 'W        W                  WCCCCCCCCCCW W',
 'W        W            WWWWW WCCCCCCCCCCW W',
-'W        W                W WWWWWWWWW  W W',
-'W        W                W         WW W W',
+'W   WW   W                W WWWWWWWWW  W W',
+'W   WW   W                W         WW W W',
 'W        W                WWWWWWWWW      W',
+'W   EE   WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
 'W        WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
-'W   C    WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
 '1'
     ];
@@ -335,7 +335,7 @@ alert=false;
                 walls.push(new stopper(j,i));
             }
             if(k==="P"){
-                playerC=new players(j,i,333,1,"gun");
+                playerC=new players(j,i,3,1,"gun");
                     guns.push(new gund(true,playerC,playerC.x,playerC.y,0,10,2,2,false));
                     playerC.wepObject=guns[guns.length-1];
                     
@@ -349,7 +349,7 @@ guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,en
             }
         if(k==="C"){
  enemies.push(new cyborg(j,i,200,1,"gun"));
-guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0,999,4,999,true));
+guns.push(new gund(true,enemies[enemies.length-1],enemies[enemies.length-1].x,enemies[enemies.length-1].y,0,200,8,10,true));
          enemies[enemies.length-1].wepObject=guns[guns.length-1];
             }
     }
